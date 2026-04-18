@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="200" height="100">
+  <!-- O azul -->
+  <circle cx="35" cy="50" r="25" fill="none" stroke="#5DADE2" stroke-width="8"/>
+  
+  <!-- RZ blanco -->
+  <text x="70" y="70" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#ffffff">RZ</text>
+  
+  <!-- Línea decorativa -->
+  <line x1="30" y1="85" x2="120" y2="95" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+</svg>

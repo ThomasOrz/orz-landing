@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORZ Academy — Mentoría de Trading Profesional</title>
+<meta name="description" content="Mentoría de trading personalizada en grupos de máximo 4 personas. Construye tu propia ventaja estadística con acompañamiento directo en NAS100 y XAU/USD. Medellín, Colombia.">
+<meta name="author" content="ORZ Academy">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ORZ Academy — Mentoría de Trading Profesional">
+<meta property="og:description" content="Mentoría personalizada en grupos de máximo 4 personas. Construye tu ventaja estadística real con acompañamiento directo.">
+<meta property="og:image" content="assets/images/thomas-profile.png">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ORZ Academy — Mentoría de Trading Profesional">
+<meta name="twitter:description" content="Mentoría personalizada. Construye tu ventaja estadística real.">
+<meta name="twitter:image" content="assets/images/thomas-profile.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET ──────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Space Grotesk',sans-serif;background:#050810;color:#f0f4ff;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font-family:'Space Grotesk',sans-serif;cursor:pointer}
+
+/* ─── VARIABLES ──────────────────────────────────────────────────── */
+:root{
+  --orz-black:     #050810;
+  --orz-dark:      #0a0f1e;
+  --orz-dark-mid:  #0f1628;
+  --orz-panel:     #111827;
+  --orz-blue:      #1e40af;
+  --orz-blue-mid:  #2563eb;
+  --orz-blue-light:#3b82f6;
+  --orz-blue-glow: #60a5fa;
+  --orz-blue-neon: #93c5fd;
+  --orz-white:     #ffffff;
+  --orz-white-90:  #f0f4ff;
+  --orz-white-60:  #94a3b8;
+  --orz-white-30:  #334155;
+  --orz-white-10:  #1e293b;
+  --orz-green:     #10b981;
+  --orz-green-glow:#34d399;
+  --orz-red:       #ef4444;
+  --orz-gold:      #f59e0b;
+  --orz-gold-glow: #fbbf24;
+  --orz-gradient-hero: linear-gradient(135deg,#050810 0%,#0a0f1e 50%,#0f1a3d 100%);
+  --orz-gradient-blue: linear-gradient(135deg,#1e40af 0%,#2563eb 100%);
+  --orz-gradient-card: linear-gradient(145deg,#0f1628 0%,#0a0f1e 100%);
+  --orz-gradient-gold: linear-gradient(135deg,#b45309 0%,#f59e0b 100%);
+  --font-display:'Rajdhani',sans-serif;
+  --font-body:   'Space Grotesk',sans-serif;
+  --font-mono:   'JetBrains Mono',monospace;
+}
+
+/* ─── KEYFRAMES ──────────────────────────────────────────────────── */
+@keyframes orz-reveal{
+  from{opacity:0;transform:translateY(20px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+@keyframes orz-reveal-r{
+  from{opacity:0;transform:translateX(30px)}
+  to  {opacity:1;transform:translateX(0)}
+}
+@keyframes glow-pulse{
+  0%,100%{opacity:.35}50%{opacity:.7}
+}
+@keyframes ticker-scroll{
+  from{transform:translateX(0)}
+  to  {transform:translateX(-50%)}
+}
+@keyframes border-glow{
+  0%,100%{box-shadow:0 0 12px rgba(37,99,235,.2),0 0 0 1px rgba(37,99,235,.12)}
+  50%    {box-shadow:0 0 32px rgba(37,99,235,.5),0 0 0 1px rgba(37,99,235,.25)}
+}
+@keyframes gold-border-glow{
+  0%,100%{box-shadow:0 0 12px rgba(245,158,11,.15),0 0 0 1px rgba(245,158,11,.12)}
+  50%    {box-shadow:0 0 32px rgba(245,158,11,.4), 0 0 0 1px rgba(245,158,11,.28)}
+}
+@keyframes count-up{from{opacity:0}to{opacity:1}}
+
+/* ─── HERO REVEAL (CSS animation — immediate, no observer needed) ─ */
+.reveal   {opacity:0;animation:orz-reveal  .7s ease forwards}
+.reveal-r {opacity:0;animation:orz-reveal-r .7s ease forwards}
+.d1{animation-delay:.10s}.d2{animation-delay:.20s}.d3{animation-delay:.30s}
+.d4{animation-delay:.40s}.d5{animation-delay:.55s}.d6{animation-delay:.70s}
+
+/* ─── SCROLL REVEAL (IntersectionObserver) ────────────────────────── */
+.io-reveal{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .65s ease,transform .65s ease;
+}
+.io-reveal.io-visible{opacity:1;transform:translateY(0)}
+.io-reveal.dl-1{transition-delay:.08s}
+.io-reveal.dl-2{transition-delay:.18s}
+.io-reveal.dl-3{transition-delay:.28s}
+.io-reveal.dl-4{transition-delay:.38s}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal-r,.io-reveal{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}
+}
+
+/* ─── NAVBAR ──────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(5,8,16,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(37,99,235,.15);
+  padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px;
+  transition:background .3s;
+}
+nav.scrolled{background:rgba(5,8,16,.97)}
+.nav-logo{display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.nav-logo img{height:34px;width:auto}
+.nav-logo-text{
+  font-family:var(--font-display);font-size:1.3rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--orz-white);
+}
+.nav-logo-text span{color:var(--orz-blue-glow)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{
+  font-size:.85rem;font-weight:500;color:var(--orz-white-60);
+  letter-spacing:.04em;transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;
+  background:var(--orz-blue-glow);transition:width .25s ease;
+}
+.nav-links a:hover{color:var(--orz-white)}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+
+.btn-nav-outline{
+  padding:.45rem 1.1rem;border:1px solid rgba(37,99,235,.5);
+  color:var(--orz-blue-glow);background:rgba(37,99,235,.08);
+  border-radius:4px;font-size:.8rem;font-weight:600;letter-spacing:.04em;transition:all .2s;
+}
+.btn-nav-outline:hover{background:rgba(37,99,235,.18);border-color:var(--orz-blue-mid)}
+
+.btn-nav-solid{
+  padding:.45rem 1.2rem;background:var(--orz-gradient-blue);
+  color:#fff;border:none;border-radius:4px;font-size:.8rem;font-weight:600;
+  letter-spacing:.04em;transition:all .25s;
+  box-shadow:0 0 16px rgba(37,99,235,.35);
+}
+.btn-nav-solid:hover{box-shadow:0 0 28px rgba(37,99,235,.65);transform:translateY(-1px)}
+
+/* Dropdown */
+.acceso-wrapper{position:relative}
+.acceso-dropdown{
+  display:none;position:absolute;top:calc(100% + .6rem);right:0;
+  background:#0a0f1e;border:1px solid rgba(37,99,235,.25);
+  border-radius:8px;padding:.5rem;min-width:240px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6),0 0 0 1px rgba(37,99,235,.1);
+}
+.acceso-wrapper:hover .acceso-dropdown,
+.acceso-wrapper:focus-within .acceso-dropdown{display:block}
+.dropdown-label{
+  font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--orz-white-30);padding:.4rem 1rem .6rem;
+  border-bottom:1px solid rgba(37,99,235,.12);margin-bottom:.4rem;
+}
+.acceso-dropdown a{
+  display:flex;align-items:center;gap:.75rem;padding:.65rem 1rem;
+  border-radius:6px;font-size:.85rem;font-weight:500;
+  color:var(--orz-white-60);transition:all .18s;
+}
+.acceso-dropdown a:hover{background:rgba(37,99,235,.12);color:var(--orz-blue-glow)}
+.acc-icon{
+  width:32px;height:32px;border-radius:6px;
+  background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.acc-icon svg{width:16px;height:16px;color:var(--orz-blue-glow)}
+.acc-name{font-weight:600;color:var(--orz-white-90);font-size:.85rem}
+.acc-sub{font-size:.72rem;color:var(--orz-white-30);margin-top:.05rem}
+
+/* Hamburger */
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;padding:.5rem;
+}
+.hamburger span{
+  display:block;width:22px;height:1.5px;
+  background:var(--orz-white-60);border-radius:2px;transition:all .3s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ─── TICKER ──────────────────────────────────────────────────────── */
+.ticker-bar{
+  background:rgba(10,15,30,.9);border-bottom:1px solid rgba(37,99,235,.1);
+  padding:.45rem 0;overflow:hidden;margin-top:64px;
+}
+.ticker-track{
+  display:flex;gap:3rem;white-space:nowrap;
+  animation:ticker-scroll 30s linear infinite;width:max-content;
+}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{
+  display:flex;align-items:center;gap:.5rem;
+  font-family:var(--font-mono);font-size:.75rem;color:var(--orz-white-60);
+}
+.t-sym{color:var(--orz-white-90);font-weight:600}
+.t-up{color:var(--orz-green-glow)}
+.t-down{color:var(--orz-red)}
+.ticker-sep{color:rgba(37,99,235,.3);font-size:1rem;user-select:none}
+
+/* ─── SECTION BASE ────────────────────────────────────────────────── */
+section{position:relative}
+.orz-grid-bg::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.orz-glow-bg::after{
+  content:'';position:absolute;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(37,99,235,.1) 0%,transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;z-index:0;animation:glow-pulse 5s ease-in-out infinite;
+}
+.section-inner{
+  max-width:1200px;margin:0 auto;padding:5.5rem 6%;position:relative;z-index:1;
+}
+.section-inner-sm{
+  max-width:900px;margin:0 auto;padding:5.5rem 6%;position:relative;z-index:1;
+}
+
+/* Section separator line */
+.sep-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(37,99,235,.18) 25%,rgba(37,99,235,.18) 75%,transparent 100%);
+  position:relative;z-index:1;
+}
+
+/* ─── BADGE / HEADING / LEAD ──────────────────────────────────────── */
+.orz-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3);
+  color:var(--orz-blue-glow);
+  font-family:var(--font-body);font-size:.7rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:.3rem .85rem;border-radius:2px;margin-bottom:1.5rem;
+}
+.orz-badge-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--orz-green);display:inline-block;
+}
+.orz-h2{
+  font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+  color:var(--orz-white);line-height:1.1;
+}
+.orz-lead{
+  font-size:1.05rem;color:var(--orz-white-60);line-height:1.8;max-width:560px;
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────────────── */
+.orz-btn-primary{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:var(--orz-gradient-blue);color:#fff;border:none;border-radius:4px;
+  font-family:var(--font-body);font-weight:600;font-size:.95rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.9rem 2rem;position:relative;overflow:hidden;transition:all .3s;
+  box-shadow:0 0 22px rgba(37,99,235,.4);
+}
+.orz-btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);
+  pointer-events:none;
+}
+.orz-btn-primary:hover{box-shadow:0 0 40px rgba(37,99,235,.75);transform:translateY(-2px)}
+.orz-btn-primary svg{width:18px;height:18px;flex-shrink:0;position:relative;z-index:1}
+.orz-btn-primary span{position:relative;z-index:1}
+
+.orz-btn-secondary{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:transparent;color:var(--orz-blue-light);
+  border:1px solid var(--orz-blue-mid);border-radius:4px;
+  font-family:var(--font-body);font-weight:500;font-size:.95rem;
+  letter-spacing:.04em;padding:.9rem 2rem;transition:all .3s;
+}
+.orz-btn-secondary:hover{
+  background:rgba(37,99,235,.1);border-color:var(--orz-blue-light);
+  box-shadow:0 0 20px rgba(37,99,235,.2);transform:translateY(-1px);
+}
+
+/* ─── HERO ────────────────────────────────────────────────────────── */
+#hero{background:var(--orz-gradient-hero);min-height:100vh;display:flex;flex-direction:column}
+.hero-body{flex:1;display:flex;align-items:center}
+.hero-inner{
+  max-width:1200px;margin:0 auto;padding:0 6%;width:100%;
+  display:grid;grid-template-columns:1fr 480px;gap:5rem;align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3);
+  color:var(--orz-blue-glow);
+  font-family:var(--font-mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.1em;padding:.3rem .9rem;border-radius:2px;margin-bottom:1.75rem;
+}
+.hero-kicker-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--orz-green);
+  flex-shrink:0;animation:glow-pulse 2s ease-in-out infinite;
+}
+.hero-title{
+  font-family:var(--font-display);font-size:clamp(3rem,5.5vw,4.8rem);
+  font-weight:700;line-height:1.0;text-transform:uppercase;letter-spacing:.02em;
+  color:var(--orz-white);margin-bottom:1.5rem;
+}
+.hero-title .hl{
+  background:linear-gradient(135deg,#fff 0%,var(--orz-blue-neon) 50%,var(--orz-blue-glow) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;
+}
+.hero-sub{
+  font-size:1.05rem;color:var(--orz-white-60);
+  line-height:1.8;max-width:500px;margin-bottom:2.5rem;
+}
+.hero-sub strong{color:var(--orz-white-90)}
+.hero-ctas{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:3rem}
+.hero-stats{
+  display:flex;gap:2.5rem;padding-top:2rem;
+  border-top:1px solid rgba(37,99,235,.15);
+}
+.hero-stat-val{
+  font-family:var(--font-display);font-size:2rem;font-weight:700;
+  color:var(--orz-white);line-height:1;letter-spacing:.02em;
+}
+.hero-stat-val .unit{font-size:1rem;color:var(--orz-blue-glow);margin-left:.1rem}
+.hero-stat-lbl{font-size:.78rem;color:var(--orz-white-60);margin-top:.35rem;letter-spacing:.04em}
+
+/* Imagen hero */
+.hero-image-col{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-image-glow{
+  position:absolute;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.18) 0%,transparent 70%);
+  pointer-events:none;animation:glow-pulse 4s ease-in-out infinite;
+}
+.hero-image-frame{
+  width:420px;height:520px;border-radius:8px;overflow:hidden;
+  border:1px solid rgba(37,99,235,.25);
+  box-shadow:0 0 0 1px rgba(37,99,235,.08),0 30px 80px rgba(0,0,0,.5);
+  position:relative;
+}
+.hero-image-frame img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-image-frame::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:linear-gradient(to top,rgba(5,8,16,.85),transparent);pointer-events:none;
+}
+.hero-image-frame::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.8),transparent);z-index:2;
+}
+.hero-corner{position:absolute;width:20px;height:20px;border-color:var(--orz-blue-mid);border-style:solid}
+.hero-corner.tl{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:2px 0 0 0}
+.hero-corner.tr{top:-1px;right:-1px;border-width:2px 2px 0 0;border-radius:0 2px 0 0}
+.hero-corner.bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-radius:0 0 0 2px}
+.hero-corner.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 2px 0}
+.hero-img-badge{
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  background:rgba(5,8,16,.9);border:1px solid rgba(37,99,235,.35);
+  border-radius:6px;padding:.65rem 1.25rem;white-space:nowrap;
+  backdrop-filter:blur(10px);z-index:3;
+}
+.hero-img-badge-name{font-weight:700;font-size:.88rem;color:var(--orz-white)}
+.hero-img-badge-role{font-size:.72rem;color:var(--orz-blue-glow);margin-top:.1rem;letter-spacing:.06em;text-transform:uppercase}
+
+/* ─── MI HISTORIA ────────────────────────────────────────────────── */
+#historia{background:#0a0f1e}
+.historia-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;
+}
+.historia-p{
+  font-size:1rem;color:var(--orz-white-60);line-height:1.9;margin-bottom:1.25rem;
+}
+.historia-p:last-child{margin-bottom:0}
+.historia-highlight{
+  border-left:2px solid var(--orz-blue-mid);padding-left:1.25rem;
+  margin:1.75rem 0;font-size:1rem;color:var(--orz-white-90);
+  line-height:1.8;font-style:italic;
+}
+
+/* ─── PROBLEMA / LOGROS ──────────────────────────────────────────── */
+#problema{background:#050810}
+#logros   {background:#0a0f1e}
+.problema-grid,.logros-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem;
+}
+.problema-card,.logro-card{
+  background:var(--orz-gradient-card);
+  border:1px solid rgba(37,99,235,.15);border-radius:8px;padding:1.75rem;
+  position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.problema-card::before,.logro-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.5),transparent);
+}
+.problema-card:hover,.logro-card:hover{
+  border-color:rgba(37,99,235,.35);
+  box-shadow:0 8px 32px rgba(37,99,235,.1);transform:translateY(-3px);
+}
+.card-icon{
+  width:44px;height:44px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:1rem;
+}
+.card-icon.red  {background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.2)}
+.card-icon.green{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)}
+.card-title{
+  font-family:var(--font-display);font-size:1.1rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);margin-bottom:.6rem;
+}
+.card-desc{font-size:.9rem;color:var(--orz-white-60);line-height:1.75}
+
+/* ─── PLATAFORMAS ────────────────────────────────────────────────── */
+#plataformas{background:#050810}
+.plataformas-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;
+}
+.platform-card{
+  background:var(--orz-gradient-card);
+  border:1px solid rgba(37,99,235,.18);border-radius:8px;
+  padding:2.5rem;position:relative;overflow:hidden;
+  transition:all .3s;display:flex;flex-direction:column;
+}
+.platform-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.7),transparent);
+}
+.platform-card:hover{
+  border-color:rgba(37,99,235,.5);
+  box-shadow:0 12px 50px rgba(37,99,235,.15);transform:translateY(-5px);
+}
+.platform-icon{
+  width:52px;height:52px;border-radius:8px;
+  background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;
+}
+.platform-icon svg{width:24px;height:24px;color:var(--orz-blue-glow)}
+.platform-name{
+  font-family:var(--font-display);font-size:1.5rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);margin-bottom:.75rem;
+}
+.platform-desc{font-size:.93rem;color:var(--orz-white-60);line-height:1.75;flex:1;margin-bottom:2rem}
+.platform-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.platform-tag{
+  font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);
+  color:var(--orz-blue-glow);padding:.25rem .65rem;border-radius:2px;
+}
+.platform-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  color:var(--orz-blue-light);font-weight:600;font-size:.88rem;
+  letter-spacing:.04em;text-transform:uppercase;
+  border:1px solid rgba(37,99,235,.35);border-radius:4px;
+  padding:.6rem 1.2rem;transition:all .25s;width:fit-content;
+}
+.platform-cta:hover{
+  background:rgba(37,99,235,.12);border-color:var(--orz-blue-light);
+  box-shadow:0 0 18px rgba(37,99,235,.2);
+}
+.platform-cta svg{width:16px;height:16px;transition:transform .25s}
+.platform-cta:hover svg{transform:translateX(3px)}
+
+/* ─── PRECIOS ────────────────────────────────────────────────────── */
+#precios{background:#0a0f1e}
+#precios::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(37,99,235,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,235,.035) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.precios-intro{text-align:center;margin-bottom:2.5rem;position:relative;z-index:1}
+
+/* Filter tabs */
+.precios-tabs{
+  display:flex;justify-content:center;gap:.5rem;
+  margin-bottom:3rem;flex-wrap:wrap;position:relative;z-index:1;
+}
+.precio-tab{
+  padding:.5rem 1.5rem;border-radius:4px;font-size:.8rem;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;
+  border:1px solid rgba(37,99,235,.2);color:var(--orz-white-60);
+  background:transparent;transition:all .2s;
+}
+.precio-tab.active{
+  border-color:var(--orz-blue-mid);color:var(--orz-blue-glow);
+  background:rgba(37,99,235,.1);
+  box-shadow:0 0 12px rgba(37,99,235,.15);
+}
+.precio-tab:hover:not(.active){
+  border-color:rgba(37,99,235,.4);color:var(--orz-white-60);
+  background:rgba(37,99,235,.05);
+}
+
+.precios-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;
+  position:relative;z-index:1;
+}
+.precio-card.full-width{grid-column:1 / -1}
+
+/* Card base */
+.precio-card{
+  background:linear-gradient(145deg,#0f1628 0%,#0a0f1e 100%);
+  border:1px solid rgba(37,99,235,.15);border-radius:8px;
+  padding:2rem;position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+  display:flex;flex-direction:column;
+}
+.precio-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.5),transparent);
+}
+.precio-card:hover{
+  border-color:rgba(37,99,235,.4);
+  box-shadow:0 8px 40px rgba(37,99,235,.1);transform:translateY(-4px);
+}
+
+/* Featured card */
+.precio-card.featured{
+  border-color:rgba(37,99,235,.5);
+  animation:border-glow 3s ease-in-out infinite;
+}
+.precio-card.featured::before{
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.9),transparent);
+}
+.precio-featured-badge{
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--orz-gradient-blue);color:#fff;
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .9rem;border-radius:0 0 6px 6px;white-space:nowrap;
+}
+
+/* Squad card — gold */
+.precio-card.squad{
+  border-color:rgba(245,158,11,.25);
+  background:linear-gradient(145deg,#18130a 0%,#0f0d08 100%);
+  animation:gold-border-glow 3s ease-in-out infinite;
+}
+.precio-card.squad::before{
+  background:linear-gradient(90deg,transparent,rgba(245,158,11,.6),transparent);
+}
+.precio-card.squad:hover{
+  border-color:rgba(245,158,11,.5);
+  box-shadow:0 8px 40px rgba(245,158,11,.12);
+}
+.squad-badge{
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--orz-gradient-gold);color:#fff;
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .9rem;border-radius:0 0 6px 6px;white-space:nowrap;
+}
+.squad-type{
+  font-family:var(--font-mono);font-size:.7rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--orz-gold);
+  margin-bottom:.85rem;margin-top:.5rem;
+}
+.squad-name{
+  font-family:var(--font-display);font-size:1.3rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--orz-white);
+  margin-bottom:1.5rem;
+}
+.squad-amounts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.75rem;
+}
+.squad-row{
+  display:flex;flex-direction:column;gap:.2rem;
+  padding:.6rem .75rem;background:rgba(245,158,11,.04);
+  border:1px solid rgba(245,158,11,.1);border-radius:4px;
+}
+.squad-row-lbl{font-size:.78rem;color:var(--orz-white-60)}
+.squad-row-val{
+  font-family:var(--font-mono);font-size:.95rem;font-weight:600;color:var(--orz-white);
+}
+.squad-row-val .cur{font-size:.72rem;color:var(--orz-gold);margin-right:.08rem}
+.squad-row-val .per{font-size:.68rem;color:var(--orz-white-60);font-weight:400;margin-left:.1rem}
+.squad-feats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem .75rem;margin-bottom:1.75rem;flex:1;
+}
+.squad-feat{display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--orz-white-60)}
+.squad-feat::before{
+  content:'─';color:var(--orz-gold);flex-shrink:0;
+  font-family:var(--font-mono);line-height:1.5;
+}
+.squad-cta{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  width:100%;padding:.75rem;border-radius:4px;
+  font-family:var(--font-body);font-size:.82rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid rgba(245,158,11,.45);color:var(--orz-gold);
+  background:rgba(245,158,11,.07);transition:all .25s;
+}
+.squad-cta:hover{
+  background:rgba(245,158,11,.16);border-color:var(--orz-gold);
+  box-shadow:0 0 20px rgba(245,158,11,.2);
+}
+
+/* Card content */
+.precio-type{
+  font-family:var(--font-mono);font-size:.7rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--orz-blue-glow);
+  margin-bottom:.85rem;margin-top:.5rem;
+}
+.precio-name{
+  font-family:var(--font-display);font-size:1.3rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--orz-white);margin-bottom:1.5rem;
+}
+.precio-amounts{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem}
+.precio-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:.6rem .75rem;background:rgba(255,255,255,.03);
+  border:1px solid rgba(37,99,235,.08);border-radius:4px;
+}
+.precio-row-lbl{font-size:.82rem;color:var(--orz-white-60)}
+.precio-row-val{font-family:var(--font-mono);font-size:1rem;font-weight:600;color:var(--orz-white)}
+.precio-row-val .cur{font-size:.75rem;color:var(--orz-blue-glow);margin-right:.1rem}
+.precio-row-val .per{font-size:.72rem;color:var(--orz-white-60);font-weight:400;margin-left:.15rem}
+.precio-features{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem;flex:1}
+.precio-feat{display:flex;align-items:flex-start;gap:.6rem;font-size:.85rem;color:var(--orz-white-60)}
+.precio-feat::before{
+  content:'─';color:var(--orz-blue-mid);flex-shrink:0;
+  font-family:var(--font-mono);line-height:1.5;
+}
+.precio-cta{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  width:100%;padding:.75rem;border-radius:4px;margin-top:auto;
+  font-family:var(--font-body);font-size:.82rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid rgba(37,99,235,.4);color:var(--orz-blue-light);
+  background:transparent;transition:all .25s;
+}
+.precio-cta:hover{background:rgba(37,99,235,.12);border-color:var(--orz-blue-mid)}
+.precio-cta.featured-cta{
+  background:var(--orz-gradient-blue);color:#fff;border:none;
+  box-shadow:0 0 20px rgba(37,99,235,.4);
+}
+.precio-cta.featured-cta:hover{box-shadow:0 0 38px rgba(37,99,235,.7);transform:translateY(-1px)}
+
+/* Bitácora */
+.bitacora-section{margin-top:2rem;position:relative;z-index:1}
+.bitacora-card{
+  background:linear-gradient(135deg,rgba(15,22,40,.8) 0%,rgba(10,15,30,.9) 100%);
+  border:1px solid rgba(245,158,11,.2);border-radius:8px;
+  padding:2rem 2.5rem;display:flex;align-items:center;
+  gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s;
+}
+.bitacora-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(245,158,11,.6),transparent);
+}
+.bitacora-card:hover{
+  border-color:rgba(245,158,11,.4);box-shadow:0 8px 32px rgba(245,158,11,.08);
+}
+.bitacora-label{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);
+  color:var(--orz-gold);font-size:.68rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .75rem;border-radius:2px;margin-bottom:.5rem;
+}
+.bitacora-name{
+  font-family:var(--font-display);font-size:1.4rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);
+}
+.bitacora-desc{font-size:.88rem;color:var(--orz-white-60);margin-top:.35rem;line-height:1.6}
+.bitacora-price-wrap{flex-shrink:0;text-align:center}
+.bitacora-price{
+  font-family:var(--font-display);font-size:3rem;font-weight:700;
+  color:var(--orz-white);line-height:1;
+}
+.bitacora-price .cur{font-size:1.5rem;color:var(--orz-gold);vertical-align:super}
+.bitacora-period{font-size:.8rem;color:var(--orz-white-60);margin-top:.25rem}
+.bitacora-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35);
+  color:var(--orz-gold);font-size:.82rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.65rem 1.4rem;border-radius:4px;transition:all .25s;flex-shrink:0;
+}
+.bitacora-cta:hover{background:rgba(245,158,11,.22);box-shadow:0 0 20px rgba(245,158,11,.2)}
+.bitacora-cta svg{width:16px;height:16px}
+
+/* ─── TESTIMONIOS ────────────────────────────────────────────────── */
+#testimonios{background:#050810}
+.testimonios-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem;
+}
+.testi-card{
+  background:var(--orz-gradient-card);
+  border:1px solid rgba(37,99,235,.15);border-radius:8px;
+  padding:2rem;position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+  display:flex;flex-direction:column;
+}
+.testi-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.5),transparent);
+}
+.testi-card:hover{
+  border-color:rgba(37,99,235,.35);
+  box-shadow:0 8px 32px rgba(37,99,235,.1);transform:translateY(-3px);
+}
+.testi-quote-mark{
+  font-family:Georgia,serif;font-size:4.5rem;line-height:.7;
+  color:rgba(37,99,235,.25);margin-bottom:.75rem;display:block;
+  font-weight:700;
+}
+.testi-stars{
+  display:flex;gap:.2rem;margin-bottom:1rem;
+}
+.testi-stars span{color:var(--orz-gold);font-size:.9rem}
+.testi-text{
+  font-size:.93rem;color:var(--orz-white-60);line-height:1.8;
+  margin-bottom:1.5rem;flex:1;font-style:italic;
+}
+.testi-footer{
+  display:flex;align-items:center;gap:.85rem;
+  padding-top:1.25rem;border-top:1px solid rgba(37,99,235,.1);
+}
+.testi-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--orz-gradient-blue);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:1rem;font-weight:700;
+  color:#fff;flex-shrink:0;letter-spacing:.04em;
+}
+.testi-name{font-weight:600;font-size:.88rem;color:var(--orz-white-90)}
+.testi-role{font-size:.75rem;color:var(--orz-blue-glow);margin-top:.15rem;letter-spacing:.04em}
+
+/* ─── CTA FINAL ──────────────────────────────────────────────────── */
+#cta-final{
+  background:linear-gradient(135deg,#050810 0%,#0a1230 50%,#050810 100%);
+  position:relative;overflow:hidden;
+}
+#cta-final::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+#cta-final::after{
+  content:'';position:absolute;
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(37,99,235,.14) 0%,transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;z-index:0;animation:glow-pulse 5s ease-in-out infinite;
+}
+.cta-final-inner{
+  max-width:860px;margin:0 auto;padding:6rem 6%;
+  text-align:center;position:relative;z-index:1;
+}
+.cta-final-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);
+  color:var(--orz-gold);font-size:.7rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem 1rem;border-radius:2px;margin-bottom:2rem;
+}
+.cta-final-badge-dot{
+  width:5px;height:5px;border-radius:50%;background:var(--orz-gold);
+  animation:glow-pulse 1.5s ease-in-out infinite;
+}
+.cta-final-h{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,5vw,4rem);
+  font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+  color:var(--orz-white);line-height:1.05;margin-bottom:1.5rem;
+}
+.cta-final-h .hl{
+  background:linear-gradient(135deg,#fff 0%,var(--orz-blue-neon) 50%,var(--orz-blue-glow) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-final-sub{
+  font-size:1.05rem;color:var(--orz-white-60);line-height:1.8;
+  max-width:560px;margin:0 auto 2.5rem;
+}
+.cta-final-sub strong{color:var(--orz-white-90)}
+.cta-final-btn{
+  display:inline-flex;align-items:center;gap:.75rem;
+  background:var(--orz-gradient-blue);color:#fff;border:none;border-radius:4px;
+  font-family:var(--font-body);font-weight:700;font-size:1rem;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:1.1rem 2.75rem;position:relative;overflow:hidden;transition:all .3s;
+  box-shadow:0 0 30px rgba(37,99,235,.5);
+}
+.cta-final-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);
+  pointer-events:none;
+}
+.cta-final-btn:hover{box-shadow:0 0 55px rgba(37,99,235,.8);transform:translateY(-3px)}
+.cta-final-btn svg{width:20px;height:20px;flex-shrink:0;position:relative;z-index:1}
+.cta-final-btn span{position:relative;z-index:1}
+.cta-spots{
+  margin-top:1.75rem;font-size:.82rem;color:var(--orz-white-60);
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+}
+.cta-spots-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--orz-green);
+  animation:glow-pulse 1.5s ease-in-out infinite;flex-shrink:0;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────── */
+footer{
+  background:#050810;border-top:1px solid rgba(37,99,235,.12);padding:3rem 6%;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;
+}
+.footer-left{}
+.footer-logo{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.footer-logo img{height:26px;width:auto;opacity:.65}
+.footer-logo-txt{
+  font-family:var(--font-display);font-size:.95rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--orz-white-60);
+}
+.footer-tagline{font-size:.8rem;color:var(--orz-white-30);line-height:1.5}
+.footer-center{display:flex;flex-direction:column;align-items:center;gap:.85rem;text-align:center}
+.footer-socials{display:flex;align-items:center;gap:.85rem}
+.footer-social{
+  width:36px;height:36px;border-radius:6px;
+  border:1px solid rgba(37,99,235,.2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--orz-white-60);transition:all .2s;
+}
+.footer-social:hover{
+  border-color:var(--orz-blue-mid);color:var(--orz-blue-glow);
+  background:rgba(37,99,235,.1);transform:translateY(-2px);
+}
+.footer-social svg{width:16px;height:16px}
+.footer-copy{font-size:.75rem;color:var(--orz-white-30);white-space:nowrap}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;text-align:right}
+.footer-city{font-size:.8rem;color:var(--orz-white-60)}
+.footer-disclaimer{font-size:.72rem;color:rgba(255,255,255,.2);line-height:1.5;max-width:280px}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem;text-align:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-image-col{order:-1}
+  .hero-image-frame{width:340px;height:420px}
+  .hero-image-glow{width:340px;height:340px}
+  .plataformas-grid{grid-template-columns:1fr}
+  .precios-grid{grid-template-columns:1fr}
+  .historia-grid{grid-template-columns:1fr}
+  .problema-grid,.logros-grid{grid-template-columns:1fr}
+  .testimonios-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;text-align:center}
+  .footer-left{display:flex;flex-direction:column;align-items:center}
+  .footer-right{align-items:center;text-align:center}
+  .footer-disclaimer{max-width:420px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;gap:1.2rem;
+    position:absolute;top:64px;left:0;width:100%;
+    background:rgba(5,8,16,.97);backdrop-filter:blur(20px);
+    padding:1.5rem 6%;border-bottom:1px solid rgba(37,99,235,.15);
+    z-index:999;
+  }
+}
+@media(max-width:768px){
+  .squad-amounts{grid-template-columns:1fr}
+  .squad-feats{grid-template-columns:1fr}
+  .cta-final-btn{padding:.95rem 2rem;font-size:.9rem}
+}
+@media(max-width:640px){
+  .hero-image-frame{width:100%;height:300px}
+  .hero-image-glow{display:none}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .hero-title{font-size:2.4rem}
+  .bitacora-card{flex-direction:column;text-align:center}
+  .bitacora-price-wrap{width:100%}
+  .section-inner,.section-inner-sm{padding:4rem 5%}
+  .nav-actions .btn-nav-outline{display:none}
+  .cta-final-inner{padding:4rem 5%}
+  .footer-inner{gap:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="assets/images/logo-orz.jpg" alt="ORZ Academy">
+    <span class="nav-logo-text">ORZ <span>Academy</span></span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="#historia">Historia</a>
+    <a href="#plataformas">Plataformas</a>
+    <a href="#precios">Mentorías</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#footer">Contacto</a>
+  </div>
+  <div class="nav-actions">
+    <div class="acceso-wrapper">
+      <button class="btn-nav-outline">Acceso Alumnos ▾</button>
+      <div class="acceso-dropdown">
+        <div class="dropdown-label">Selecciona tu plataforma</div>
+        <a href="https://orz-management-app.vercel.app" target="_blank" rel="noopener">
+          <div class="acc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>
+            </svg>
+          </div>
+          <div class="acc-info">
+            <div class="acc-name">ORZ Management</div>
+            <div class="acc-sub">Gestión de operaciones</div>
+          </div>
+        </a>
+        <a href="https://centro-operaciones-orz.vercel.app" target="_blank" rel="noopener">
+          <div class="acc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <div class="acc-info">
+            <div class="acc-name">Centro Operaciones</div>
+            <div class="acc-sub">Panel de control central</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a href="https://wa.me/573042679499" target="_blank" rel="noopener" class="btn-nav-solid">Agenda Mentoría</a>
+  </div>
+</nav>
+
+<!-- ═══ TICKER ════════════════════════════════════════════════════ -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="t-sym">NAS100</span><span class="t-up">▲ +1.24%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">XAU/USD</span><span class="t-up">▲ +0.87%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">EUR/USD</span><span class="t-down">▼ -0.32%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">BTC/USD</span><span class="t-up">▲ +2.18%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">DXY</span><span class="t-down">▼ -0.41%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">SP500</span><span class="t-up">▲ +0.65%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">GBP/USD</span><span class="t-down">▼ -0.18%</span></span>
+    <span class="ticker-sep">·</span>
+    <!-- duplicado para loop continuo -->
+    <span class="ticker-item"><span class="t-sym">NAS100</span><span class="t-up">▲ +1.24%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">XAU/USD</span><span class="t-up">▲ +0.87%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">EUR/USD</span><span class="t-down">▼ -0.32%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">BTC/USD</span><span class="t-up">▲ +2.18%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">DXY</span><span class="t-down">▼ -0.41%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">SP500</span><span class="t-up">▲ +0.65%</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="t-sym">GBP/USD</span><span class="t-down">▼ -0.18%</span></span>
+    <span class="ticker-sep">·</span>
+  </div>
+</div>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+<section id="hero" class="orz-glow-bg orz-grid-bg">
+  <div class="hero-body">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-kicker reveal d1">
+          <span class="hero-kicker-dot"></span>
+          Mentoría de Trading · Medellín, Colombia
+        </div>
+        <h1 class="hero-title reveal d2">
+          Opera con<br>
+          <span class="hl">ventaja real.</span>
+          Gana con<br>disciplina.
+        </h1>
+        <p class="hero-sub reveal d3">
+          No señales. No cursos genéricos.<br>
+          <strong>Mentoría personalizada en grupos de máximo 4 personas</strong>, donde construyes tu propia ventaja estadística con acompañamiento directo en NAS100 y XAU/USD.
+        </p>
+        <div class="hero-ctas reveal d4">
+          <a href="https://wa.me/573042679499" target="_blank" rel="noopener" class="orz-btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>Agenda tu Mentoría</span>
+          </a>
+          <a href="#precios" class="orz-btn-secondary">Ver planes ↓</a>
+        </div>
+        <div class="hero-stats reveal d5">
+          <div class="hero-stat">
+            <div class="hero-stat-val"><span class="counter" data-target="4">0</span><span class="unit">+ años</span></div>
+            <div class="hero-stat-lbl">operando mercados reales</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val"><span class="counter" data-target="11">0</span><span class="unit"> traders</span></div>
+            <div class="hero-stat-lbl">en formación activa</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val">máx <span class="counter" data-target="4">0</span></div>
+            <div class="hero-stat-lbl">personas por grupo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-col reveal-r d3">
+        <div class="hero-image-glow"></div>
+        <div class="hero-image-frame">
+          <div class="hero-corner tl"></div>
+          <div class="hero-corner tr"></div>
+          <div class="hero-corner bl"></div>
+          <div class="hero-corner br"></div>
+          <img src="assets/images/thomas-profile.png" alt="ORZ — Trader Profesional" loading="eager">
+          <div class="hero-img-badge">
+            <div class="hero-img-badge-name">ORZ</div>
+            <div class="hero-img-badge-role">Head Trader · ORZ Academy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ MI HISTORIA ═══════════════════════════════════════════════ -->
+<section id="historia">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Quién es ORZ</div>
+    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Una historia construida<br>desde el error real</h2>
+
+    <div class="historia-grid">
+      <div class="io-reveal dl-2">
+        <p class="historia-p">Desde los 5 años de edad practiqué fútbol de alto rendimiento. Esa disciplina formó mi carácter: entender que los resultados no llegan sin estructura, sin repetición y sin tolerancia al fracaso.</p>
+        <p class="historia-p">Cuando descubrí el trading, estudié durante un año antes de operar. Aun así, quemé cuentas, pagué cursos vacíos y perdí dinero de mi familia. No por falta de inteligencia — por falta de un mentor real que me dijera qué errores estaba cometiendo.</p>
+        <div class="historia-highlight">"Pagué cursos de miles de dólares que me enseñaron todo menos a operar con consistencia."</div>
+      </div>
+      <div class="io-reveal dl-3">
+        <p class="historia-p">Me dieron la oportunidad de administrar una suma importante de capital externo. La perdí en menos de 6 meses. No por falta de estrategia — por problemas emocionales que todavía no había resuelto. Esa fue la lección más cara y más valiosa de mi vida.</p>
+        <p class="historia-p">Después de eso, sinteticé mi propia metodología. Hoy llevo más de 2 años con rentabilidad consistente operando NAS100 y XAU/USD. Lo que enseño en ORZ Academy no es teoría — es el camino exacto que recorrí, depurado de todo lo que no funciona.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ EL PROBLEMA REAL ══════════════════════════════════════════ -->
+<section id="problema">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:#f87171"><span class="orz-badge-dot" style="background:#ef4444"></span>El problema</div>
+    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Por qué la mayoría<br>de traders fracasa</h2>
+    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">No es falta de inteligencia. Es el modelo de educación que está roto.</p>
+
+    <div class="problema-grid">
+      <div class="problema-card io-reveal dl-1">
+        <div class="card-icon red">💸</div>
+        <div class="card-title">Cursos Masivos Genéricos</div>
+        <p class="card-desc">Miles de alumnos, cero personalización. Te enseñan lo mismo a todos, independientemente de tu capital, tu psicología o tu estilo de vida.</p>
+      </div>
+      <div class="problema-card io-reveal dl-2">
+        <div class="card-icon red">🎰</div>
+        <div class="card-title">Promesas Irreales</div>
+        <p class="card-desc">"Gana $1,000 al día desde casa." Estas promesas atraen a traders sin experiencia y los dejan sin capital y sin confianza en semanas.</p>
+      </div>
+      <div class="problema-card io-reveal dl-3">
+        <div class="card-icon red">📋</div>
+        <div class="card-title">Estrategias Copiadas</div>
+        <p class="card-desc">Te dan una estrategia que funcionó para otro trader, en otro mercado, con otro capital. Sin contexto, sin adaptación, sin resultados reales.</p>
+      </div>
+      <div class="problema-card io-reveal dl-4">
+        <div class="card-icon red">🔇</div>
+        <div class="card-title">Cero Personalización</div>
+        <p class="card-desc">Una vez que pagaste, quedas solo. Sin seguimiento, sin corrección de errores en tiempo real, sin acceso al mentor que te vendió el curso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ LO QUE LOGRARÁS ═══════════════════════════════════════════ -->
+<section id="logros">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal" style="background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25);color:#34d399"><span class="orz-badge-dot" style="background:#10b981"></span>Lo que construyes</div>
+    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Lo que lograrás<br>en ORZ Academy</h2>
+    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">No te prometemos resultados — te damos las herramientas para construirlos tú mismo.</p>
+
+    <div class="logros-grid">
+      <div class="logro-card io-reveal dl-1">
+        <div class="card-icon green">🧠</div>
+        <div class="card-title">Entenderás el Trading Real</div>
+        <p class="card-desc">Comprenderás cómo se mueven realmente los mercados, quiénes son los jugadores institucionales y cómo leer el precio sin indicadores de retraso.</p>
+      </div>
+      <div class="logro-card io-reveal dl-2">
+        <div class="card-icon green">📈</div>
+        <div class="card-title">5+ Metodologías de Entrada</div>
+        <p class="card-desc">Dominarás múltiples estrategias validadas en NAS100 y XAU/USD, con contexto institucional, Fibonacci avanzado y modelos de order flow.</p>
+      </div>
+      <div class="logro-card io-reveal dl-3">
+        <div class="card-icon green">🎯</div>
+        <div class="card-title">Tu Ventaja Estadística Propia</div>
+        <p class="card-desc">Construirás un trading plan personalizado con tu propio edge estadístico, adaptado a tu capital, tu horario y tu perfil psicológico.</p>
+      </div>
+      <div class="logro-card io-reveal dl-4">
+        <div class="card-icon green">🏗️</div>
+        <div class="card-title">Infraestructura para Resultados</div>
+        <p class="card-desc">Tendrás las plataformas, la bitácora, el sistema de gestión de riesgo y el acompañamiento continuo para operar con estructura profesional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ PLATAFORMAS ════════════════════════════════════════════════ -->
+<section id="plataformas">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Herramientas ORZ</div>
+    <h2 class="orz-h2 io-reveal dl-2">Plataformas exclusivas<br>para alumnos activos</h2>
+    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">Dos herramientas propias diseñadas para que gestiones y analices tu operativa con precisión profesional.</p>
+
+    <div class="plataformas-grid">
+      <div class="platform-card io-reveal dl-2">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>
+          </svg>
+        </div>
+        <div class="platform-name">ORZ Management</div>
+        <p class="platform-desc">Gestiona tus operaciones, registra trades, analiza tu rendimiento y lleva el control de tu capital en tiempo real. El sistema de gestión diseñado para traders que operan con estructura.</p>
+        <div class="platform-tags">
+          <span class="platform-tag">Gestión de riesgo</span>
+          <span class="platform-tag">Registro de trades</span>
+          <span class="platform-tag">Análisis de rendimiento</span>
+        </div>
+        <a href="https://orz-management-app.vercel.app" target="_blank" rel="noopener" class="platform-cta">
+          Acceder a la plataforma
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="platform-card io-reveal dl-3">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div class="platform-name">Centro Operaciones</div>
+        <p class="platform-desc">Panel de control central de ORZ Academy. Accede a materiales, sesiones, análisis de mercado, bitácora y todo el ecosistema educativo en un solo lugar.</p>
+        <div class="platform-tags">
+          <span class="platform-tag">Panel central</span>
+          <span class="platform-tag">Materiales</span>
+          <span class="platform-tag">Análisis de mercado</span>
+        </div>
+        <a href="https://centro-operaciones-orz.vercel.app" target="_blank" rel="noopener" class="platform-cta">
+          Acceder al centro
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ PRECIOS ════════════════════════════════════════════════════ -->
+<section id="precios">
+  <div class="section-inner">
+    <div class="precios-intro">
+      <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Mentorías ORZ Academy</div>
+      <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.25rem">Elige tu plan de formación</h2>
+      <p class="orz-lead io-reveal dl-3" style="margin:1rem auto 0;text-align:center;max-width:580px">Todos los planes incluyen acompañamiento directo, estrategia personalizada y acceso al ecosistema ORZ.</p>
+    </div>
+
+    <!-- Filtro interactivo -->
+    <div class="precios-tabs">
+      <button class="precio-tab active" data-level="all">Todos los planes</button>
+      <button class="precio-tab" data-level="base">Nuevo en Trading</button>
+      <button class="precio-tab" data-level="pro">Con Experiencia</button>
+    </div>
+
+    <div class="precios-grid">
+
+      <!-- Virtual BASE -->
+      <div class="precio-card io-reveal dl-1" data-level="base">
+        <div class="precio-type">Virtual · 3 meses</div>
+        <div class="precio-name">Virtual BASE</div>
+        <div class="precio-amounts">
+          <div class="precio-row">
+            <span class="precio-row-lbl">Inversión</span>
+            <span class="precio-row-val"><span class="cur">$</span>550<span class="per">USD</span></span>
+          </div>
+        </div>
+        <div class="precio-features">
+          <div class="precio-feat">2 clases en vivo por semana</div>
+          <div class="precio-feat">1 estrategia validada (EMA 20 y 200)</div>
+          <div class="precio-feat">Psicotrading básico</div>
+          <div class="precio-feat">Comunidad privada de traders</div>
+          <div class="precio-feat">Análisis semanal de mercado</div>
+          <div class="precio-feat">Acceso a plataformas ORZ</div>
+        </div>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20BASE" target="_blank" rel="noopener" class="precio-cta">Consultar Virtual BASE</a>
+      </div>
+
+      <!-- Virtual PRO -->
+      <div class="precio-card featured io-reveal dl-2" data-level="pro">
+        <div class="precio-featured-badge">★ Más completo</div>
+        <div class="precio-type">Virtual · 6 meses</div>
+        <div class="precio-name">Virtual PRO</div>
+        <div class="precio-amounts">
+          <div class="precio-row">
+            <span class="precio-row-lbl">Inversión</span>
+            <span class="precio-row-val"><span class="cur">$</span>1,000<span class="per">USD</span></span>
+          </div>
+        </div>
+        <div class="precio-features">
+          <div class="precio-feat">2 clases en vivo por semana</div>
+          <div class="precio-feat">5 estrategias validadas</div>
+          <div class="precio-feat">Acceso total a indicadores ORZ</div>
+          <div class="precio-feat">Bollinger + Fibonacci institucional</div>
+          <div class="precio-feat">7 modelos de entrada + 2 institucionales</div>
+          <div class="precio-feat">Contexto institucional completo</div>
+          <div class="precio-feat">Psicotrading avanzado</div>
+          <div class="precio-feat">Bitácora digital profesional</div>
+          <div class="precio-feat">Trading plan personalizado</div>
+          <div class="precio-feat">Acceso a capital privado (evaluación)</div>
+        </div>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20PRO" target="_blank" rel="noopener" class="precio-cta featured-cta">Consultar Virtual PRO</a>
+      </div>
+
+      <!-- Presencial BASE -->
+      <div class="precio-card io-reveal dl-3" data-level="base">
+        <div class="precio-type">Presencial · Medellín · 3 meses</div>
+        <div class="precio-name">Presencial BASE</div>
+        <div class="precio-amounts">
+          <div class="precio-row">
+            <span class="precio-row-lbl">Inversión</span>
+            <span class="precio-row-val"><span class="cur">$</span>800<span class="per">USD</span></span>
+          </div>
+        </div>
+        <div class="precio-features">
+          <div class="precio-feat">Todo lo de Virtual BASE</div>
+          <div class="precio-feat">Clases presenciales en Medellín</div>
+          <div class="precio-feat">Sesiones prácticas extendidas</div>
+          <div class="precio-feat">Networking con traders locales</div>
+          <div class="precio-feat">Análisis en vivo del mercado</div>
+        </div>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20BASE" target="_blank" rel="noopener" class="precio-cta">Consultar Presencial BASE</a>
+      </div>
+
+      <!-- Presencial PRO -->
+      <div class="precio-card io-reveal dl-4" data-level="pro">
+        <div class="precio-type">Presencial · Medellín · 6 meses</div>
+        <div class="precio-name">Presencial PRO</div>
+        <div class="precio-amounts">
+          <div class="precio-row">
+            <span class="precio-row-lbl">Inversión</span>
+            <span class="precio-row-val"><span class="cur">$</span>1,250<span class="per">USD</span></span>
+          </div>
+        </div>
+        <div class="precio-features">
+          <div class="precio-feat">Todo lo de Virtual PRO</div>
+          <div class="precio-feat">Sesiones presenciales intensivas</div>
+          <div class="precio-feat">Operativa en vivo junto a ORZ</div>
+          <div class="precio-feat">Bitácora física personalizada</div>
+          <div class="precio-feat">Eventos y actividades premium</div>
+        </div>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20PRO" target="_blank" rel="noopener" class="precio-cta">Consultar Presencial PRO</a>
+      </div>
+
+      <!-- ORZ Squad — full width, gold -->
+      <div class="precio-card squad full-width io-reveal dl-2" data-level="pro">
+        <div class="squad-badge">★ Grupo Élite · Máx. 4 personas</div>
+        <div class="squad-type">Presencial · Medellín · 5 meses</div>
+        <div class="squad-name">ORZ Squad</div>
+        <div class="squad-amounts">
+          <div class="squad-row">
+            <span class="squad-row-lbl">Duo Squad</span>
+            <span class="squad-row-val"><span class="cur">$</span>1,300<span class="per">/ 5 meses</span></span>
+          </div>
+          <div class="squad-row">
+            <span class="squad-row-lbl">Trio Squad</span>
+            <span class="squad-row-val"><span class="cur">$</span>2,400<span class="per">/ 5 meses</span></span>
+          </div>
+          <div class="squad-row">
+            <span class="squad-row-lbl">Squad Completo (4)</span>
+            <span class="squad-row-val"><span class="cur">$</span>3,000<span class="per">/ 5 meses</span></span>
+          </div>
+        </div>
+        <div class="squad-feats">
+          <div class="squad-feat">2 a 4 clases presenciales por semana</div>
+          <div class="squad-feat">Portafolio completo de estrategias</div>
+          <div class="squad-feat">Prácticas en vivo del mercado</div>
+          <div class="squad-feat">Bitácora física personalizada</div>
+          <div class="squad-feat">Reuniones de trading semanales</div>
+          <div class="squad-feat">Comunidad activa de traders ORZ</div>
+        </div>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20ORZ%20Squad" target="_blank" rel="noopener" class="squad-cta">Consultar ORZ Squad</a>
+      </div>
+
+    </div>
+
+    <!-- Bitácora -->
+    <div class="bitacora-section">
+      <div class="bitacora-card io-reveal">
+        <div style="flex:1">
+          <div class="bitacora-label">★ Herramienta Premium</div>
+          <div class="bitacora-name">Bitácora del Trader Profesional</div>
+          <p class="bitacora-desc">Registro profesional de operaciones. Análisis de rendimiento, patrones, gestión de riesgo — todo en un solo lugar. Disponible para alumnos y traders independientes.</p>
+        </div>
+        <div class="bitacora-price-wrap">
+          <div class="bitacora-price"><span class="cur">$</span>25</div>
+          <div class="bitacora-period">USD / mes</div>
+        </div>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20la%20Bitácora" target="_blank" rel="noopener" class="bitacora-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Conocer la Bitácora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ TESTIMONIOS ════════════════════════════════════════════════ -->
+<section id="testimonios">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Prueba social</div>
+    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Lo que dicen<br>nuestros traders</h2>
+    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">Traders reales, proceso real, resultados construidos con disciplina.</p>
+
+    <div class="testimonios-grid">
+      <div class="testi-card io-reveal dl-1">
+        <span class="testi-quote-mark">"</span>
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="testi-text">Antes de ORZ perdí dos cuentas financiadas en menos de un mes. Con Thomas entendí por primera vez que mi problema no era estratégico — era emocional. A los 4 meses ya operaba con criterio y con un plan claro.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar">CM</div>
+          <div>
+            <div class="testi-name">Carlos M.</div>
+            <div class="testi-role">Trader Virtual PRO · Bogotá</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card io-reveal dl-2">
+        <span class="testi-quote-mark">"</span>
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="testi-text">El formato presencial me cambió todo. Poder ver a ORZ analizar el mercado en vivo, hacer preguntas en el momento exacto y vivir la disciplina de una operativa real — eso no existe en ningún curso online.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar">VR</div>
+          <div>
+            <div class="testi-name">Valentina R.</div>
+            <div class="testi-role">Mentoría Presencial PRO · Medellín</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card io-reveal dl-3">
+        <span class="testi-quote-mark">"</span>
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="testi-text">Empecé sin saber ni qué era una vela japonesa. En 3 meses tengo una estrategia propia, entiendo el contexto institucional y opero en demo con resultados consistentes. La metodología de ORZ realmente funciona.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar">AP</div>
+          <div>
+            <div class="testi-name">Andrés P.</div>
+            <div class="testi-role">Trader Virtual BASE · Cali</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ CTA FINAL ══════════════════════════════════════════════════ -->
+<section id="cta-final">
+  <div class="cta-final-inner">
+    <div class="cta-final-badge io-reveal">
+      <span class="cta-final-badge-dot"></span>
+      Cupos limitados · Grupos de máximo 4 personas
+    </div>
+    <h2 class="cta-final-h io-reveal dl-2">
+      ¿Listo para operar<br>con <span class="hl">ventaja real</span>?
+    </h2>
+    <p class="cta-final-sub io-reveal dl-3">
+      Cada grupo tiene <strong>máximo 4 personas</strong>. El proceso comienza con una conversación directa para entender tu situación y definir el plan que mejor se adapta a ti.
+    </p>
+    <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20la%20mentoría" target="_blank" rel="noopener" class="cta-final-btn io-reveal dl-4">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>Agenda tu primera conversación</span>
+    </a>
+    <div class="cta-spots io-reveal dl-4">
+      <span class="cta-spots-dot"></span>
+      Disponible ahora · Respuesta en menos de 24 horas
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo">
+        <img src="assets/images/logo-orz.jpg" alt="ORZ Academy">
+        <span class="footer-logo-txt">ORZ Academy</span>
+      </div>
+      <div class="footer-tagline">Mentoría de Trading · NAS100 & XAU/USD<br>Medellín, Colombia</div>
+    </div>
+
+    <div class="footer-center">
+      <div class="footer-socials">
+        <!-- Instagram @orz.trader -->
+        <a href="https://www.instagram.com/orz.trader/" target="_blank" rel="noopener" class="footer-social" title="@orz.trader">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <!-- Instagram @orz.academy -->
+        <a href="https://www.instagram.com/orz.academy/" target="_blank" rel="noopener" class="footer-social" title="@orz.academy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M22 4s-2.8 2.1-5 2.3A4.5 4.5 0 004 9c0 .5.1 1 .2 1.5C3 10.4 1.6 9.6.7 8.5A9 9 0 006 19.5a9 9 0 009-9v-1a6.3 6.3 0 004-4.5z"/>
+          </svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/573042679499" target="_blank" rel="noopener" class="footer-social" title="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-copy">© 2026 ORZ Academy · Todos los derechos reservados</div>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-city">@orz.trader · @orz.academy</div>
+      <div class="footer-disclaimer">Trading implica riesgos significativos. Los resultados pasados no garantizan resultados futuros. Opera con capital que puedas permitirte perder.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Hamburger ───────────────────────────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
+});
+
+/* ── Navbar scroll ───────────────────────────────────────────────── */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+/* ── IntersectionObserver — scroll reveal ───────────────────────── */
+const ioOptions = {threshold:0.12, rootMargin:'0px 0px -40px 0px'};
+const observer  = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('io-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, ioOptions);
+document.querySelectorAll('.io-reveal').forEach(el => observer.observe(el));
+
+/* ── Filter tabs — mentorías ─────────────────────────────────────── */
+const tabs  = document.querySelectorAll('.precio-tab');
+const cards = document.querySelectorAll('.precio-card[data-level]');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const level = tab.dataset.level;
+    cards.forEach(card => {
+      const show = level === 'all' || card.dataset.level === level;
+      card.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+/* ── Counter animation ───────────────────────────────────────────── */
+function animateCounter(el, target, duration) {
+  const start = performance.now();
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease     = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(ease * target);
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(update);
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10);
+      animateCounter(el, target, 1400);
+      counterObs.unobserve(el);
+    }
+  });
+}, {threshold:0.5});
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+</script>
+</body>
+</html>
