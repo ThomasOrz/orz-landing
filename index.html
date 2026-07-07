@@ -474,6 +474,59 @@ section{position:relative}
 .platform-cta svg{width:16px;height:16px;transition:transform .25s}
 .platform-cta:hover svg{transform:translateX(3px)}
 
+/* ─── ORZ UNIVERSITY ─────────────────────────────────────────────── */
+#university{background:var(--orz-dark)}
+.uni-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem;
+}
+.uni-stat{
+  background:var(--orz-gradient-card);
+  border:1px solid rgba(37,99,235,.18);border-radius:8px;
+  padding:1.75rem 1.25rem;text-align:center;position:relative;overflow:hidden;
+  transition:all .3s;
+}
+.uni-stat::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.7),transparent);
+}
+.uni-stat:hover{border-color:rgba(37,99,235,.5);transform:translateY(-3px)}
+.uni-stat-num{
+  font-family:var(--font-display);font-size:2.4rem;font-weight:700;
+  color:var(--orz-blue-glow);line-height:1;
+}
+.uni-stat-lbl{
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--orz-white-60);margin-top:.6rem;line-height:1.5;
+}
+.uni-pillars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;
+}
+.uni-pillar{
+  background:var(--orz-gradient-card);
+  border:1px solid rgba(37,99,235,.18);border-radius:8px;
+  padding:2rem;position:relative;overflow:hidden;transition:all .3s;
+}
+.uni-pillar::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,.7),transparent);
+}
+.uni-pillar:hover{
+  border-color:rgba(37,99,235,.5);
+  box-shadow:0 12px 50px rgba(37,99,235,.15);transform:translateY(-5px);
+}
+.uni-pillar-icon{
+  width:44px;height:44px;border-radius:8px;
+  background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;
+}
+.uni-pillar-icon svg{width:22px;height:22px;color:var(--orz-blue-glow)}
+.uni-pillar-name{
+  font-family:var(--font-display);font-size:1.15rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);margin-bottom:.6rem;
+}
+.uni-pillar-desc{font-size:.9rem;color:var(--orz-white-60);line-height:1.75}
+.uni-cta-wrap{display:flex;justify-content:center;margin-top:3rem}
+
 /* ─── PRECIOS ────────────────────────────────────────────────────── */
 #precios{background:#0a0f1e}
 #precios::before{
@@ -859,6 +912,8 @@ footer{
   .hero-image-frame{width:340px;height:420px}
   .hero-image-glow{width:340px;height:340px}
   .plataformas-grid{grid-template-columns:1fr}
+  .uni-stats{grid-template-columns:repeat(2,1fr)}
+  .uni-pillars{grid-template-columns:1fr}
   .precios-grid{grid-template-columns:1fr}
   .historia-grid{grid-template-columns:1fr}
   .problema-grid,.logros-grid{grid-template-columns:1fr}
@@ -887,6 +942,7 @@ footer{
   .hero-image-glow{display:none}
   .hero-stats{gap:1.5rem;flex-wrap:wrap}
   .hero-title{font-size:2.4rem}
+  .uni-stats{grid-template-columns:1fr 1fr;gap:.9rem}
   .bitacora-card{flex-direction:column;text-align:center}
   .bitacora-price-wrap{width:100%}
   .section-inner,.section-inner-sm{padding:4rem 5%}
@@ -919,6 +975,18 @@ footer{
       <button class="btn-nav-outline">Acceso Alumnos ▾</button>
       <div class="acceso-dropdown">
         <div class="dropdown-label">Selecciona tu plataforma</div>
+        <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener">
+          <div class="acc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="acc-info">
+            <div class="acc-name">ORZ University</div>
+            <div class="acc-sub">Plataforma educativa</div>
+          </div>
+        </a>
         <a href="https://manage.orzacademy.com" target="_blank" rel="noopener">
           <div class="acc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -940,18 +1008,6 @@ footer{
           <div class="acc-info">
             <div class="acc-name">Centro Operaciones</div>
             <div class="acc-sub">Panel de control central</div>
-          </div>
-        </a>
-        <a href="https://university.orzacademy.com" target="_blank" rel="noopener">
-          <div class="acc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-              <path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/>
-            </svg>
-          </div>
-          <div class="acc-info">
-            <div class="acc-name">ORZ University</div>
-            <div class="acc-sub">Plataforma educativa</div>
           </div>
         </a>
       </div>
@@ -1188,6 +1244,74 @@ footer{
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ ORZ UNIVERSITY ═════════════════════════════════════════════ -->
+<section id="university">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Plataforma Educativa</div>
+    <h2 class="orz-h2 io-reveal dl-2">ORZ University — Tu camino estructurado<br>hacia el trading profesional</h2>
+    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">No es un curso más. Es un curriculum completo diseñado para llevarte desde cero hasta operar con estructura profesional, con un sistema de rangos que mide tu progreso real.</p>
+
+    <div class="uni-stats">
+      <div class="uni-stat io-reveal dl-1">
+        <div class="uni-stat-num">4</div>
+        <div class="uni-stat-lbl">Fases estructuradas</div>
+      </div>
+      <div class="uni-stat io-reveal dl-2">
+        <div class="uni-stat-num">14</div>
+        <div class="uni-stat-lbl">Módulos completos</div>
+      </div>
+      <div class="uni-stat io-reveal dl-3">
+        <div class="uni-stat-num">62</div>
+        <div class="uni-stat-lbl">Clases en video</div>
+      </div>
+      <div class="uni-stat io-reveal dl-4">
+        <div class="uni-stat-num">6</div>
+        <div class="uni-stat-lbl">Rangos de trader<br>Recruit → ORZ Pro</div>
+      </div>
+    </div>
+
+    <div class="uni-pillars">
+      <div class="uni-pillar io-reveal dl-1">
+        <div class="uni-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 20h16"/><path d="M6 20V10l6-6 6 6v10"/><path d="M10 20v-6h4v6"/>
+          </svg>
+        </div>
+        <div class="uni-pillar-name">Progresión Estructurada</div>
+        <p class="uni-pillar-desc">Avanzas fase por fase. Cada módulo desbloquea el siguiente cuando dominas los conceptos.</p>
+      </div>
+      <div class="uni-pillar io-reveal dl-2">
+        <div class="uni-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v6a5 5 0 0 1-10 0z"/>
+            <path d="M17 5h3a1 1 0 0 1 1 1c0 2.5-2 4-4 4"/><path d="M7 5H4a1 1 0 0 0-1 1c0 2.5 2 4 4 4"/>
+          </svg>
+        </div>
+        <div class="uni-pillar-name">Sistema de Rangos</div>
+        <p class="uni-pillar-desc">Desde Recruit hasta ORZ Pro. Tu rango refleja tu conocimiento real, no el tiempo que llevas estudiando.</p>
+      </div>
+      <div class="uni-pillar io-reveal dl-3">
+        <div class="uni-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="uni-pillar-name">Biblioteca ORZ</div>
+        <p class="uni-pillar-desc">Recursos, PDFs, notas personales y tracking de progreso. Todo tu aprendizaje en un solo lugar.</p>
+      </div>
+    </div>
+
+    <div class="uni-cta-wrap io-reveal dl-3">
+      <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="platform-cta">
+        Conoce ORZ University
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
