@@ -426,106 +426,86 @@ section{position:relative}
 
 /* ─── PLATAFORMAS ────────────────────────────────────────────────── */
 #plataformas{background:#050810}
-.plataformas-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;
-}
-.platform-card{
-  background:var(--orz-gradient-card);
+/* ─── ECOSISTEMA ORZ ─────────────────────────────────────────────── */
+.ecosistema-orz .orz-lead{max-width:40rem}
+.ecosystem-block{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:4rem;align-items:center;
+  padding:3rem;margin-bottom:2rem;
+  background:linear-gradient(135deg,rgba(37,99,235,.05),transparent);
   border:1px solid rgba(37,99,235,.18);border-radius:8px;
-  padding:2.5rem;position:relative;overflow:hidden;
-  transition:all .3s;display:flex;flex-direction:column;
+  position:relative;overflow:hidden;transition:border-color .3s;
 }
-.platform-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(96,165,250,.7),transparent);
+.ecosystem-block::before{
+  content:'';position:absolute;top:-100px;left:-100px;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(37,99,235,.16),transparent 70%);
+  border-radius:50%;pointer-events:none;z-index:0;
 }
-.platform-card:hover{
-  border-color:rgba(37,99,235,.5);
-  box-shadow:0 12px 50px rgba(37,99,235,.15);transform:translateY(-5px);
+.ecosystem-block:hover{border-color:rgba(37,99,235,.45)}
+.ecosystem-block--reversed{grid-template-columns:1fr 1.15fr}
+.ecosystem-block--reversed::before{left:auto;right:-100px}
+.ecosystem-block__mockup{position:relative;aspect-ratio:4/3;z-index:1}
+.mockup-main{
+  position:absolute;left:8%;top:12%;width:84%;border-radius:8px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 40px rgba(37,99,235,.12);
+  z-index:2;transition:transform .5s cubic-bezier(.16,1,.3,1);
+  background:var(--orz-dark);
 }
-.platform-icon{
-  width:52px;height:52px;border-radius:8px;
-  background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);
-  display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;
+.mockup-peek{
+  position:absolute;width:32%;border-radius:6px;
+  border:1px solid rgba(37,99,235,.3);
+  box-shadow:0 12px 30px rgba(0,0,0,.5);
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+  z-index:3;background:var(--orz-dark);
 }
-.platform-icon svg{width:24px;height:24px;color:var(--orz-blue-glow)}
-.platform-name{
-  font-family:var(--font-display);font-size:1.5rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);margin-bottom:.75rem;
+.mockup-peek--top-right{right:0;top:0;transform:rotate(5deg)}
+.mockup-peek--bottom-left{left:0;bottom:4%;transform:rotate(-5deg)}
+.mockup-peek--top-left{left:0;top:0;transform:rotate(-5deg)}
+.mockup-peek--bottom-right{right:0;bottom:4%;transform:rotate(5deg)}
+.ecosystem-block:hover .mockup-main{transform:scale(1.02) translateY(-4px)}
+.ecosystem-block:hover .mockup-peek--top-right,
+.ecosystem-block:hover .mockup-peek--bottom-right{transform:rotate(3deg) translate(4px,-4px)}
+.ecosystem-block:hover .mockup-peek--top-left,
+.ecosystem-block:hover .mockup-peek--bottom-left{transform:rotate(-3deg) translate(-4px,-4px)}
+.ecosystem-block__content{position:relative;z-index:4}
+.block-eyebrow{
+  color:var(--orz-blue-glow);font-size:.72rem;font-weight:600;
+  letter-spacing:.12em;margin-bottom:.75rem;text-transform:uppercase;
 }
-.platform-desc{font-size:.93rem;color:var(--orz-white-60);line-height:1.75;flex:1;margin-bottom:2rem}
-.platform-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem}
-.platform-tag{
-  font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);
-  color:var(--orz-blue-glow);padding:.25rem .65rem;border-radius:2px;
+.block-title{
+  font-family:var(--font-display);font-size:2.4rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.03em;
+  color:var(--orz-white);margin:0 0 1rem;line-height:1.1;
 }
-.platform-cta{
+.block-description{
+  font-size:1rem;color:var(--orz-white-60);line-height:1.7;margin:0 0 1.75rem;
+}
+.block-features{list-style:none;padding:0;margin:0 0 2rem}
+.block-features li{
+  position:relative;padding-left:1.75rem;margin-bottom:.75rem;
+  color:rgba(240,244,255,.78);font-size:.93rem;line-height:1.55;
+}
+.block-features li::before{
+  content:'';position:absolute;left:0;top:.42em;width:14px;height:14px;
+  border:1.5px solid var(--orz-green);border-radius:50%;background:transparent;
+}
+.block-features li::after{
+  content:'';position:absolute;left:4px;top:.42em;margin-top:4px;width:6px;height:6px;
+  background:var(--orz-green);border-radius:50%;
+}
+.block-cta{
   display:inline-flex;align-items:center;gap:.5rem;
   color:var(--orz-blue-light);font-weight:600;font-size:.88rem;
   letter-spacing:.04em;text-transform:uppercase;
   border:1px solid rgba(37,99,235,.35);border-radius:4px;
   padding:.6rem 1.2rem;transition:all .25s;width:fit-content;
 }
-.platform-cta:hover{
+.block-cta:hover{
   background:rgba(37,99,235,.12);border-color:var(--orz-blue-light);
   box-shadow:0 0 18px rgba(37,99,235,.2);
 }
-.platform-cta svg{width:16px;height:16px;transition:transform .25s}
-.platform-cta:hover svg{transform:translateX(3px)}
-
-/* ─── ORZ UNIVERSITY ─────────────────────────────────────────────── */
-#university{background:var(--orz-dark)}
-.uni-stats{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem;
-}
-.uni-stat{
-  background:var(--orz-gradient-card);
-  border:1px solid rgba(37,99,235,.18);border-radius:8px;
-  padding:1.75rem 1.25rem;text-align:center;position:relative;overflow:hidden;
-  transition:all .3s;
-}
-.uni-stat::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(96,165,250,.7),transparent);
-}
-.uni-stat:hover{border-color:rgba(37,99,235,.5);transform:translateY(-3px)}
-.uni-stat-num{
-  font-family:var(--font-display);font-size:2.4rem;font-weight:700;
-  color:var(--orz-blue-glow);line-height:1;
-}
-.uni-stat-lbl{
-  font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--orz-white-60);margin-top:.6rem;line-height:1.5;
-}
-.uni-pillars{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;
-}
-.uni-pillar{
-  background:var(--orz-gradient-card);
-  border:1px solid rgba(37,99,235,.18);border-radius:8px;
-  padding:2rem;position:relative;overflow:hidden;transition:all .3s;
-}
-.uni-pillar::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(96,165,250,.7),transparent);
-}
-.uni-pillar:hover{
-  border-color:rgba(37,99,235,.5);
-  box-shadow:0 12px 50px rgba(37,99,235,.15);transform:translateY(-5px);
-}
-.uni-pillar-icon{
-  width:44px;height:44px;border-radius:8px;
-  background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);
-  display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;
-}
-.uni-pillar-icon svg{width:22px;height:22px;color:var(--orz-blue-glow)}
-.uni-pillar-name{
-  font-family:var(--font-display);font-size:1.15rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);margin-bottom:.6rem;
-}
-.uni-pillar-desc{font-size:.9rem;color:var(--orz-white-60);line-height:1.75}
-.uni-cta-wrap{display:flex;justify-content:center;margin-top:3rem}
+.block-cta svg{width:16px;height:16px;transition:transform .25s}
+.block-cta:hover svg{transform:translateX(3px)}
 
 /* ─── PRECIOS ────────────────────────────────────────────────────── */
 #precios{background:#0a0f1e}
@@ -911,9 +891,11 @@ footer{
   .hero-image-col{order:-1}
   .hero-image-frame{width:340px;height:420px}
   .hero-image-glow{width:340px;height:340px}
-  .plataformas-grid{grid-template-columns:1fr}
-  .uni-stats{grid-template-columns:repeat(2,1fr)}
-  .uni-pillars{grid-template-columns:1fr}
+  .ecosystem-block,.ecosystem-block--reversed{grid-template-columns:1fr;gap:2.5rem;padding:2rem;margin-bottom:1.5rem}
+  .ecosystem-block--reversed .ecosystem-block__content{order:2}
+  .ecosystem-block--reversed .ecosystem-block__mockup{order:1}
+  .ecosystem-block__mockup{aspect-ratio:3/2}
+  .block-title{font-size:2rem}
   .precios-grid{grid-template-columns:1fr}
   .historia-grid{grid-template-columns:1fr}
   .problema-grid,.logros-grid{grid-template-columns:1fr}
@@ -942,7 +924,8 @@ footer{
   .hero-image-glow{display:none}
   .hero-stats{gap:1.5rem;flex-wrap:wrap}
   .hero-title{font-size:2.4rem}
-  .uni-stats{grid-template-columns:1fr 1fr;gap:.9rem}
+  .ecosystem-block,.ecosystem-block--reversed{padding:1.5rem}
+  .mockup-peek{width:30%}
   .bitacora-card{flex-direction:column;text-align:center}
   .bitacora-price-wrap{width:100%}
   .section-inner,.section-inner-sm{padding:4rem 5%}
@@ -994,8 +977,8 @@ footer{
             </svg>
           </div>
           <div class="acc-info">
-            <div class="acc-name">ORZ Management</div>
-            <div class="acc-sub">Gestión de operaciones</div>
+            <div class="acc-name">ORZ Edge</div>
+            <div class="acc-sub">Copiloto de trading profesional</div>
           </div>
         </a>
         <a href="https://app.orzacademy.com" target="_blank" rel="noopener">
@@ -1198,121 +1181,72 @@ footer{
 </section>
 <div class="sep-line"></div>
 
-<!-- ═══ PLATAFORMAS ════════════════════════════════════════════════ -->
-<section id="plataformas">
+<!-- ═══ ECOSISTEMA ORZ ═════════════════════════════════════════════ -->
+<section id="plataformas" class="ecosistema-orz">
   <div class="section-inner">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Herramientas ORZ</div>
-    <h2 class="orz-h2 io-reveal dl-2">Plataformas exclusivas<br>para alumnos activos</h2>
-    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">Dos herramientas propias diseñadas para que gestiones y analices tu operativa con precisión profesional.</p>
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Ecosistema ORZ</div>
+    <h2 class="orz-h2 io-reveal dl-2">Dos plataformas.<br>Un sistema completo.</h2>
+    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem;margin-bottom:4rem">Herramientas propias construidas por un trader activo, para traders serios que operan con estructura.</p>
 
-    <div class="plataformas-grid">
-      <div class="platform-card io-reveal dl-2">
-        <div class="platform-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>
-          </svg>
-        </div>
-        <div class="platform-name">ORZ Management</div>
-        <p class="platform-desc">Gestiona tus operaciones, registra trades, analiza tu rendimiento y lleva el control de tu capital en tiempo real. El sistema de gestión diseñado para traders que operan con estructura.</p>
-        <div class="platform-tags">
-          <span class="platform-tag">Gestión de riesgo</span>
-          <span class="platform-tag">Registro de trades</span>
-          <span class="platform-tag">Análisis de rendimiento</span>
-        </div>
-        <a href="https://manage.orzacademy.com" target="_blank" rel="noopener" class="platform-cta">
-          Acceder a la plataforma
+    <!-- BLOQUE 1: ORZ EDGE -->
+    <article class="ecosystem-block io-reveal dl-2">
+      <div class="ecosystem-block__mockup">
+        <img src="assets/platforms/edge-dashboard.png"
+             alt="ORZ Edge Dashboard con métricas de trading"
+             class="mockup-main" loading="lazy" />
+        <img src="assets/platforms/edge-calendar.png"
+             alt="Journal profesional con historial de trades"
+             class="mockup-peek mockup-peek--top-right" loading="lazy" />
+        <img src="assets/platforms/edge-insights.png"
+             alt="Insights AI de ORZ Edge"
+             class="mockup-peek mockup-peek--bottom-left" loading="lazy" />
+      </div>
+      <div class="ecosystem-block__content">
+        <div class="block-eyebrow">Tu copiloto de trading</div>
+        <h3 class="block-title">ORZ Edge</h3>
+        <p class="block-description">Registra cada operación. Descubre tu ventaja estadística real con métricas profesionales. Recibe análisis con IA que te dice qué operar mañana y qué evitar.</p>
+        <ul class="block-features">
+          <li>Journal profesional con calendario visual de trades</li>
+          <li>Insights AI accionables por sesión, setup y estado emocional</li>
+          <li>Lab de estrategias con analytics por trigger (T1/T2/T3)</li>
+          <li>Métricas institucionales: WR, PF, ORZ Score, drawdown, adherencia</li>
+        </ul>
+        <a href="https://manage.orzacademy.com" class="block-cta" target="_blank" rel="noopener">
+          Conocer ORZ Edge
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
+    </article>
 
-      <div class="platform-card io-reveal dl-3">
-        <div class="platform-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-            <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-          </svg>
-        </div>
-        <div class="platform-name">Centro Operaciones</div>
-        <p class="platform-desc">Panel de control central de ORZ Academy. Accede a materiales, sesiones, análisis de mercado, bitácora y todo el ecosistema educativo en un solo lugar.</p>
-        <div class="platform-tags">
-          <span class="platform-tag">Panel central</span>
-          <span class="platform-tag">Materiales</span>
-          <span class="platform-tag">Análisis de mercado</span>
-        </div>
-        <a href="https://app.orzacademy.com" target="_blank" rel="noopener" class="platform-cta">
-          Acceder al centro
+    <!-- BLOQUE 2: ORZ UNIVERSITY (invertido) -->
+    <article class="ecosystem-block ecosystem-block--reversed io-reveal dl-2">
+      <div class="ecosystem-block__content">
+        <div class="block-eyebrow">Formación estructurada</div>
+        <h3 class="block-title">ORZ University</h3>
+        <p class="block-description">Plataforma educativa por fases progresivas. Videos, materiales descargables, biblioteca curada y sistema de notas sincronizadas al minuto del video.</p>
+        <ul class="block-features">
+          <li>4 fases progresivas de formación</li>
+          <li>Notas sincronizadas al momento exacto del video</li>
+          <li>Material de estudio descargable por clase</li>
+          <li>Biblioteca curada de libros y recursos del programa</li>
+        </ul>
+        <a href="https://university.orzacademy.com/landing" class="block-cta" target="_blank" rel="noopener">
+          Conocer University
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
-    </div>
-  </div>
-</section>
-<div class="sep-line"></div>
-
-<!-- ═══ ORZ UNIVERSITY ═════════════════════════════════════════════ -->
-<section id="university">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Plataforma Educativa</div>
-    <h2 class="orz-h2 io-reveal dl-2">ORZ University — Tu camino estructurado<br>hacia el trading profesional</h2>
-    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">No es un curso más. Es un curriculum completo diseñado para llevarte desde cero hasta operar con estructura profesional, con un sistema de rangos que mide tu progreso real.</p>
-
-    <div class="uni-stats">
-      <div class="uni-stat io-reveal dl-1">
-        <div class="uni-stat-num">4</div>
-        <div class="uni-stat-lbl">Fases estructuradas</div>
+      <div class="ecosystem-block__mockup">
+        <img src="assets/platforms/university-home.png"
+             alt="ORZ University Home con Gestión de Riesgo"
+             class="mockup-main" loading="lazy" />
+        <img src="assets/platforms/university-library.png"
+             alt="Biblioteca ORZ con libros curados"
+             class="mockup-peek mockup-peek--top-left" loading="lazy" />
+        <img src="assets/platforms/university-notes.png"
+             alt="Sistema de notas por video"
+             class="mockup-peek mockup-peek--bottom-right" loading="lazy" />
       </div>
-      <div class="uni-stat io-reveal dl-2">
-        <div class="uni-stat-num">14</div>
-        <div class="uni-stat-lbl">Módulos completos</div>
-      </div>
-      <div class="uni-stat io-reveal dl-3">
-        <div class="uni-stat-num">62</div>
-        <div class="uni-stat-lbl">Clases en video</div>
-      </div>
-      <div class="uni-stat io-reveal dl-4">
-        <div class="uni-stat-num">6</div>
-        <div class="uni-stat-lbl">Rangos de trader<br>Recruit → ORZ Pro</div>
-      </div>
-    </div>
-
-    <div class="uni-pillars">
-      <div class="uni-pillar io-reveal dl-1">
-        <div class="uni-pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M4 20h16"/><path d="M6 20V10l6-6 6 6v10"/><path d="M10 20v-6h4v6"/>
-          </svg>
-        </div>
-        <div class="uni-pillar-name">Progresión Estructurada</div>
-        <p class="uni-pillar-desc">Avanzas fase por fase. Cada módulo desbloquea el siguiente cuando dominas los conceptos.</p>
-      </div>
-      <div class="uni-pillar io-reveal dl-2">
-        <div class="uni-pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v6a5 5 0 0 1-10 0z"/>
-            <path d="M17 5h3a1 1 0 0 1 1 1c0 2.5-2 4-4 4"/><path d="M7 5H4a1 1 0 0 0-1 1c0 2.5 2 4 4 4"/>
-          </svg>
-        </div>
-        <div class="uni-pillar-name">Sistema de Rangos</div>
-        <p class="uni-pillar-desc">Desde Recruit hasta ORZ Pro. Tu rango refleja tu conocimiento real, no el tiempo que llevas estudiando.</p>
-      </div>
-      <div class="uni-pillar io-reveal dl-3">
-        <div class="uni-pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          </svg>
-        </div>
-        <div class="uni-pillar-name">Biblioteca ORZ</div>
-        <p class="uni-pillar-desc">Recursos, PDFs, notas personales y tracking de progreso. Todo tu aprendizaje en un solo lugar.</p>
-      </div>
-    </div>
-
-    <div class="uni-cta-wrap io-reveal dl-3">
-      <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="platform-cta">
-        Conoce ORZ University
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
+    </article>
   </div>
 </section>
 <div class="sep-line"></div>
