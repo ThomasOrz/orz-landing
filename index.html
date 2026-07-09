@@ -429,7 +429,7 @@ section{position:relative}
 /* ─── ECOSISTEMA ORZ ─────────────────────────────────────────────── */
 .ecosistema-orz .orz-lead{max-width:40rem}
 .ecosystem-block{
-  display:grid;grid-template-columns:1.15fr 1fr;gap:4rem;align-items:center;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center;
   padding:3rem;margin-bottom:2rem;
   background:linear-gradient(135deg,rgba(37,99,235,.05),transparent);
   border:1px solid rgba(37,99,235,.18);border-radius:8px;
@@ -441,18 +441,18 @@ section{position:relative}
   border-radius:50%;pointer-events:none;z-index:0;
 }
 .ecosystem-block:hover{border-color:rgba(37,99,235,.45)}
-.ecosystem-block--reversed{grid-template-columns:1fr 1.15fr}
+.ecosystem-block--reversed{grid-template-columns:1fr 1.3fr}
 .ecosystem-block--reversed::before{left:auto;right:-100px}
-.ecosystem-block__mockup{position:relative;aspect-ratio:4/3;z-index:1}
+.ecosystem-block__mockup{position:relative;aspect-ratio:5/4;z-index:1}
 .mockup-main{
-  position:absolute;left:8%;top:12%;width:84%;border-radius:8px;
+  position:absolute;left:6%;top:8%;width:88%;border-radius:8px;
   border:1px solid rgba(255,255,255,.08);
   box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 40px rgba(37,99,235,.12);
   z-index:2;transition:transform .5s cubic-bezier(.16,1,.3,1);
   background:var(--orz-dark);
 }
 .mockup-peek{
-  position:absolute;width:32%;border-radius:6px;
+  position:absolute;width:40%;border-radius:6px;
   border:1px solid rgba(37,99,235,.3);
   box-shadow:0 12px 30px rgba(0,0,0,.5);
   transition:transform .5s cubic-bezier(.16,1,.3,1);
@@ -895,6 +895,7 @@ footer{
   .ecosystem-block--reversed .ecosystem-block__content{order:2}
   .ecosystem-block--reversed .ecosystem-block__mockup{order:1}
   .ecosystem-block__mockup{aspect-ratio:3/2}
+  .mockup-peek{width:30%}
   .block-title{font-size:2rem}
   .precios-grid{grid-template-columns:1fr}
   .historia-grid{grid-template-columns:1fr}
@@ -1223,12 +1224,12 @@ footer{
       <div class="ecosystem-block__content">
         <div class="block-eyebrow">Formación estructurada</div>
         <h3 class="block-title">ORZ University</h3>
-        <p class="block-description">Plataforma educativa por fases progresivas. Videos, materiales descargables, biblioteca curada y sistema de notas sincronizadas al minuto del video.</p>
+        <p class="block-description">La plataforma educativa oficial de ORZ Academy. Todo el material de tu mentoría, tu biblioteca digital, tus notas y tu progreso — organizados en un solo lugar.</p>
         <ul class="block-features">
-          <li>4 fases progresivas de formación</li>
-          <li>Notas sincronizadas al momento exacto del video</li>
-          <li>Material de estudio descargable por clase</li>
-          <li>Biblioteca curada de libros y recursos del programa</li>
+          <li>Material de tu formación organizado por fases progresivas</li>
+          <li>Biblioteca digital con libros y recursos del programa</li>
+          <li>Espacio privado y seguro para tus notas de estudio</li>
+          <li>Seguimiento visual de tu progreso en tiempo real</li>
         </ul>
         <a href="https://university.orzacademy.com/landing" class="block-cta" target="_blank" rel="noopener">
           Conocer University
