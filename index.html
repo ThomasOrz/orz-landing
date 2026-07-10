@@ -934,6 +934,76 @@ footer{
   .cta-final-inner{padding:4rem 5%}
   .footer-inner{gap:1.25rem}
 }
+
+/* ─── FASE 2: placeholder testimonios + CTA inline + sticky móvil ── */
+.testimonios-placeholder{
+  max-width:42rem;margin:2rem auto 0;padding:2rem;text-align:center;
+  border:1px dashed rgba(255,255,255,.12);border-radius:8px;
+  background:rgba(255,255,255,.02);
+}
+.testimonios-placeholder p{
+  color:rgba(255,255,255,.45);font-size:.9375rem;font-style:italic;
+  margin:0;line-height:1.6;
+}
+.cta-inline-precios{padding:3rem 0 1rem;position:relative;z-index:1}
+.cta-inline-content{
+  max-width:42rem;margin:0 auto;text-align:center;padding:2.5rem 2rem;
+  background:linear-gradient(135deg,rgba(37,99,235,.06),transparent);
+  border:1px solid rgba(37,99,235,.2);border-radius:8px;
+  position:relative;overflow:hidden;
+}
+.cta-inline-content::before{
+  content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:300px;height:200px;
+  background:radial-gradient(ellipse,rgba(37,99,235,.15),transparent 70%);
+  pointer-events:none;
+}
+.cta-inline-lead{
+  font-size:1.125rem;color:rgba(255,255,255,.75);margin:0 0 1.5rem;
+  position:relative;z-index:1;
+}
+.cta-inline-btn{
+  display:inline-flex;align-items:center;gap:.625rem;padding:1rem 2rem;
+  background:var(--orz-blue-mid);color:#fff;border-radius:8px;
+  font-family:var(--font-body);font-size:.9375rem;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;text-decoration:none;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 8px 24px rgba(37,99,235,.3);position:relative;z-index:1;
+}
+.cta-inline-btn:hover{
+  transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,.45);
+}
+.cta-inline-icon{display:inline-flex;align-items:center}
+.cta-inline-microcopy{
+  margin:1rem 0 0;font-size:.8125rem;color:rgba(255,255,255,.45);
+  letter-spacing:.3px;position:relative;z-index:1;
+}
+@media (max-width:640px){
+  .cta-inline-content{padding:2rem 1.25rem}
+  .cta-inline-lead{font-size:1rem}
+  .cta-inline-btn{padding:.875rem 1.5rem;font-size:.875rem}
+}
+.sticky-cta-mobile{
+  display:none;position:fixed;bottom:0;left:0;right:0;
+  padding:.75rem 1rem calc(.75rem + env(safe-area-inset-bottom));
+  background:rgba(3,7,17,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid rgba(37,99,235,.25);z-index:100;
+  opacity:0;transform:translateY(100%);
+  transition:opacity .3s ease,transform .3s ease;pointer-events:none;
+}
+.sticky-cta-mobile.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.sticky-cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  width:100%;padding:.875rem 1rem;background:var(--orz-blue-mid);color:#fff;
+  border-radius:8px;font-family:var(--font-body);font-size:.875rem;
+  font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  text-decoration:none;box-shadow:0 4px 16px rgba(37,99,235,.4);
+}
+@media (max-width:900px){
+  .sticky-cta-mobile{display:block}
+  body{padding-bottom:5rem}
+}
 </style>
 </head>
 <body>
@@ -1095,27 +1165,6 @@ footer{
 </section>
 <div class="sep-line"></div>
 
-<!-- ═══ MI HISTORIA ═══════════════════════════════════════════════ -->
-<section id="historia">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Quién es ORZ</div>
-    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Una historia construida<br>desde el error real</h2>
-
-    <div class="historia-grid">
-      <div class="io-reveal dl-2">
-        <p class="historia-p">Desde los 5 años de edad practiqué fútbol de alto rendimiento. Esa disciplina formó mi carácter: entender que los resultados no llegan sin estructura, sin repetición y sin tolerancia al fracaso.</p>
-        <p class="historia-p">Cuando descubrí el trading, estudié durante un año antes de operar. Aun así, quemé cuentas, pagué cursos vacíos y perdí dinero de mi familia. No por falta de inteligencia — por falta de un mentor real que me dijera qué errores estaba cometiendo.</p>
-        <div class="historia-highlight">"Pagué cursos de miles de dólares que me enseñaron todo menos a operar con consistencia."</div>
-      </div>
-      <div class="io-reveal dl-3">
-        <p class="historia-p">Me dieron la oportunidad de administrar una suma importante de capital externo. La perdí en menos de 6 meses. No por falta de estrategia — por problemas emocionales que todavía no había resuelto. Esa fue la lección más cara y más valiosa de mi vida.</p>
-        <p class="historia-p">Después de eso, sinteticé mi propia metodología. Hoy llevo más de 2 años con rentabilidad consistente operando NAS100 y XAU/USD. Lo que enseño en ORZ Academy no es teoría — es el camino exacto que recorrí, depurado de todo lo que no funciona.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="sep-line"></div>
-
 <!-- ═══ EL PROBLEMA REAL ══════════════════════════════════════════ -->
 <section id="problema">
   <div class="section-inner">
@@ -1143,6 +1192,27 @@ footer{
         <div class="card-icon red">🔇</div>
         <div class="card-title">Cero Personalización</div>
         <p class="card-desc">Una vez que pagaste, quedas solo. Sin seguimiento, sin corrección de errores en tiempo real, sin acceso al mentor que te vendió el curso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ MI HISTORIA ═══════════════════════════════════════════════ -->
+<section id="historia">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Quién es ORZ</div>
+    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Una historia construida<br>desde el error real</h2>
+
+    <div class="historia-grid">
+      <div class="io-reveal dl-2">
+        <p class="historia-p">Desde los 5 años de edad practiqué fútbol de alto rendimiento. Esa disciplina formó mi carácter: entender que los resultados no llegan sin estructura, sin repetición y sin tolerancia al fracaso.</p>
+        <p class="historia-p">Cuando descubrí el trading, estudié durante un año antes de operar. Aun así, quemé cuentas, pagué cursos vacíos y perdí dinero de mi familia. No por falta de inteligencia — por falta de un mentor real que me dijera qué errores estaba cometiendo.</p>
+        <div class="historia-highlight">"Pagué cursos de miles de dólares que me enseñaron todo menos a operar con consistencia."</div>
+      </div>
+      <div class="io-reveal dl-3">
+        <p class="historia-p">Me dieron la oportunidad de administrar una suma importante de capital externo. La perdí en menos de 6 meses. No por falta de estrategia — por problemas emocionales que todavía no había resuelto. Esa fue la lección más cara y más valiosa de mi vida.</p>
+        <p class="historia-p">Después de eso, sinteticé mi propia metodología. Hoy llevo más de 2 años con rentabilidad consistente operando NAS100 y XAU/USD. Lo que enseño en ORZ Academy no es teoría — es el camino exacto que recorrí, depurado de todo lo que no funciona.</p>
       </div>
     </div>
   </div>
@@ -1288,7 +1358,7 @@ footer{
           <div class="precio-feat">Análisis semanal de mercado</div>
           <div class="precio-feat">Acceso a plataformas ORZ</div>
         </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20BASE" target="_blank" rel="noopener" class="precio-cta">Consultar Virtual BASE</a>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20BASE" target="_blank" rel="noopener" class="precio-cta">Agenda tu primera conversación</a>
       </div>
 
       <!-- Virtual PRO -->
@@ -1314,7 +1384,7 @@ footer{
           <div class="precio-feat">Trading plan personalizado</div>
           <div class="precio-feat">Acceso a capital privado (evaluación)</div>
         </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20PRO" target="_blank" rel="noopener" class="precio-cta featured-cta">Consultar Virtual PRO</a>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20PRO" target="_blank" rel="noopener" class="precio-cta featured-cta">Agenda tu primera conversación</a>
       </div>
 
       <!-- Presencial BASE -->
@@ -1334,7 +1404,7 @@ footer{
           <div class="precio-feat">Networking con traders locales</div>
           <div class="precio-feat">Análisis en vivo del mercado</div>
         </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20BASE" target="_blank" rel="noopener" class="precio-cta">Consultar Presencial BASE</a>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20BASE" target="_blank" rel="noopener" class="precio-cta">Agenda tu primera conversación</a>
       </div>
 
       <!-- Presencial PRO -->
@@ -1354,7 +1424,7 @@ footer{
           <div class="precio-feat">Bitácora física personalizada</div>
           <div class="precio-feat">Eventos y actividades premium</div>
         </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20PRO" target="_blank" rel="noopener" class="precio-cta">Consultar Presencial PRO</a>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20PRO" target="_blank" rel="noopener" class="precio-cta">Agenda tu primera conversación</a>
       </div>
 
       <!-- ORZ Squad — full width, gold -->
@@ -1384,9 +1454,26 @@ footer{
           <div class="squad-feat">Reuniones de trading semanales</div>
           <div class="squad-feat">Comunidad activa de traders ORZ</div>
         </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20ORZ%20Squad" target="_blank" rel="noopener" class="squad-cta">Consultar ORZ Squad</a>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20ORZ%20Squad" target="_blank" rel="noopener" class="squad-cta">Agenda tu primera conversación</a>
       </div>
 
+    </div>
+
+    <!-- CTA inline: puente entre planes y bitácora -->
+    <div class="cta-inline-precios io-reveal">
+      <div class="cta-inline-content">
+        <p class="cta-inline-lead">¿Tienes dudas sobre cuál plan es el correcto para ti?</p>
+        <a href="https://wa.me/573042679499?text=Hola%20ORZ,%20quiero%20agendar%20una%20primera%20conversaci%C3%B3n%20para%20definir%20qu%C3%A9%20plan%20es%20mejor%20para%20m%C3%AD"
+           class="cta-inline-btn"
+           target="_blank"
+           rel="noopener">
+          <span class="cta-inline-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.16c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.24.85.87-3.16-.2-.32c-.85-1.35-1.3-2.91-1.3-4.5 0-4.68 3.81-8.48 8.48-8.48s8.48 3.81 8.48 8.48c0 4.67-3.8 8.5-8.44 8.5z"/></svg>
+          </span>
+          Agenda tu primera conversación
+        </a>
+        <p class="cta-inline-microcopy">20 min · Sin costo · Directo con ORZ</p>
+      </div>
     </div>
 
     <!-- Bitácora -->
@@ -1418,51 +1505,8 @@ footer{
     <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Lo que dicen<br>nuestros traders</h2>
     <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">Traders reales, proceso real, resultados construidos con disciplina.</p>
 
-    <div class="testimonios-grid">
-      <div class="testi-card io-reveal dl-1">
-        <span class="testi-quote-mark">"</span>
-        <div class="testi-stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p class="testi-text">Antes de ORZ perdí dos cuentas financiadas en menos de un mes. Con Thomas entendí por primera vez que mi problema no era estratégico — era emocional. A los 4 meses ya operaba con criterio y con un plan claro.</p>
-        <div class="testi-footer">
-          <div class="testi-avatar">CM</div>
-          <div>
-            <div class="testi-name">Carlos M.</div>
-            <div class="testi-role">Trader Virtual PRO · Bogotá</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card io-reveal dl-2">
-        <span class="testi-quote-mark">"</span>
-        <div class="testi-stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p class="testi-text">El formato presencial me cambió todo. Poder ver a ORZ analizar el mercado en vivo, hacer preguntas en el momento exacto y vivir la disciplina de una operativa real — eso no existe en ningún curso online.</p>
-        <div class="testi-footer">
-          <div class="testi-avatar">VR</div>
-          <div>
-            <div class="testi-name">Valentina R.</div>
-            <div class="testi-role">Mentoría Presencial PRO · Medellín</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card io-reveal dl-3">
-        <span class="testi-quote-mark">"</span>
-        <div class="testi-stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p class="testi-text">Empecé sin saber ni qué era una vela japonesa. En 3 meses tengo una estrategia propia, entiendo el contexto institucional y opero en demo con resultados consistentes. La metodología de ORZ realmente funciona.</p>
-        <div class="testi-footer">
-          <div class="testi-avatar">AP</div>
-          <div>
-            <div class="testi-name">Andrés P.</div>
-            <div class="testi-role">Trader Virtual BASE · Cali</div>
-          </div>
-        </div>
-      </div>
+    <div class="testimonios-placeholder io-reveal dl-2" role="status">
+      <p>Estamos recopilando testimonios verificados de nuestros alumnos activos. Pronto los verás aquí.</p>
     </div>
   </div>
 </section>
@@ -1607,6 +1651,35 @@ const counterObs = new IntersectionObserver((entries) => {
   });
 }, {threshold:0.5});
 document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+</script>
+
+<!-- ═══ STICKY CTA MÓVIL ═══════════════════════════════════════════ -->
+<div class="sticky-cta-mobile" id="stickyCta" aria-hidden="true">
+  <a href="https://wa.me/573042679499?text=Hola%20ORZ,%20quiero%20agendar%20una%20primera%20conversaci%C3%B3n"
+     class="sticky-cta-btn"
+     target="_blank"
+     rel="noopener">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.16c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.24.85.87-3.16-.2-.32c-.85-1.35-1.3-2.91-1.3-4.5 0-4.68 3.81-8.48 8.48-8.48s8.48 3.81 8.48 8.48c0 4.67-3.8 8.5-8.44 8.5z"/></svg>
+    <span>Agenda tu primera conversación</span>
+  </a>
+</div>
+<script>
+  (function() {
+    const sticky = document.getElementById('stickyCta');
+    if (!sticky) return;
+    const threshold = 400;
+    function toggleSticky() {
+      if (window.scrollY > threshold) {
+        sticky.classList.add('visible');
+        sticky.setAttribute('aria-hidden', 'false');
+      } else {
+        sticky.classList.remove('visible');
+        sticky.setAttribute('aria-hidden', 'true');
+      }
+    }
+    window.addEventListener('scroll', toggleSticky, { passive: true });
+    toggleSticky();
+  })();
 </script>
 </body>
 </html>
