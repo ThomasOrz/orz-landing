@@ -856,7 +856,7 @@ footer{
   .block-title{font-size:2rem}
   .precios-grid{grid-template-columns:1fr}
   .historia-grid{grid-template-columns:1fr}
-  .problema-grid,.logros-grid{grid-template-columns:1fr}
+  .problema-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr;text-align:center}
   .footer-left{display:flex;flex-direction:column;align-items:center}
   .footer-right{align-items:center;text-align:center}
@@ -1015,6 +1015,64 @@ footer{
   .casos-grid{grid-template-columns:1fr;max-width:320px;margin-left:auto;margin-right:auto}
   .caso-card{aspect-ratio:3/4}
 }
+
+/* ─── LOGROS 6 CARDS (3 col) + FAQ ───────────────────────────────── */
+.logros-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media (max-width:1024px){
+  .logros-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .logros-grid{grid-template-columns:1fr}
+}
+.faq-orz{position:relative}
+.faq-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem;
+  margin:3rem auto 0;max-width:1100px;
+}
+.faq-column{display:flex;flex-direction:column;gap:.875rem}
+.faq-item{
+  background:linear-gradient(135deg,rgba(37,99,235,.03),transparent);
+  border:1px solid rgba(255,255,255,.06);border-radius:8px;
+  overflow:hidden;transition:all .3s cubic-bezier(.16,1,.3,1);
+}
+.faq-item:hover{
+  border-color:rgba(37,99,235,.25);
+  background:linear-gradient(135deg,rgba(37,99,235,.05),transparent);
+}
+.faq-item[open]{
+  border-color:rgba(37,99,235,.35);
+  background:linear-gradient(135deg,rgba(37,99,235,.06),transparent);
+}
+.faq-question{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:1.125rem 1.25rem;cursor:pointer;color:#fff;
+  font-family:var(--font-body);font-size:.9375rem;font-weight:500;
+  line-height:1.4;list-style:none;transition:color .2s ease;
+}
+.faq-question::-webkit-details-marker{display:none}
+.faq-question:hover{color:var(--orz-blue-light)}
+.faq-icon{
+  flex-shrink:0;width:24px;height:24px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(37,99,235,.4);border-radius:50%;
+  color:var(--orz-blue-light);font-size:16px;font-weight:300;line-height:1;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+}
+.faq-item[open] .faq-icon{
+  transform:rotate(45deg);background:var(--orz-blue-light);
+  color:#fff;border-color:var(--orz-blue-light);
+}
+.faq-answer{
+  padding:0 1.25rem 1.25rem;color:rgba(255,255,255,.65);
+  font-size:.875rem;line-height:1.65;
+}
+.faq-answer p{margin:0}
+@media (max-width:900px){
+  .faq-grid{grid-template-columns:1fr;gap:.75rem;margin-top:2rem}
+  .faq-column{gap:.75rem}
+  .faq-question{padding:1rem;font-size:.875rem}
+  .faq-answer{padding:0 1rem 1rem;font-size:.8125rem}
+}
 </style>
 </head>
 <body>
@@ -1033,6 +1091,7 @@ footer{
     <a href="#plataformas">Plataformas</a>
     <a href="#precios">Mentorías</a>
     <a href="#casos">Casos</a>
+    <a href="#faq">FAQ</a>
     <a href="#footer">Contacto</a>
   </div>
   <div class="nav-actions">
@@ -1230,33 +1289,43 @@ footer{
 </section>
 <div class="sep-line"></div>
 
-<!-- ═══ LO QUE LOGRARÁS ═══════════════════════════════════════════ -->
+<!-- ═══ LO QUE CONSTRUYES ══════════════════════════════════════════ -->
 <section id="logros">
   <div class="section-inner">
     <div class="orz-badge io-reveal" style="background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25);color:#34d399"><span class="orz-badge-dot" style="background:#10b981"></span>Lo que construyes</div>
-    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Lo que lograrás<br>en ORZ Academy</h2>
-    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">No te prometemos resultados — te damos las herramientas para construirlos tú mismo.</p>
+    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Lo que construyes<br>en ORZ Academy</h2>
+    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">Seis pilares que se integran en un sistema completo. No promesas — construcción real y medible.</p>
 
     <div class="logros-grid">
       <div class="logro-card io-reveal dl-1">
-        <div class="card-icon green">🧠</div>
-        <div class="card-title">Entenderás el Trading Real</div>
-        <p class="card-desc">Comprenderás cómo se mueven realmente los mercados, quiénes son los jugadores institucionales y cómo leer el precio sin indicadores de retraso.</p>
+        <div class="card-icon green">🔍</div>
+        <div class="card-title">Lectura institucional del mercado</div>
+        <p class="card-desc">Aprenderás a leer el mercado como lo hacen los grandes: contexto macro, órdenes institucionales, y los movimientos que la mayoría de traders retail nunca ve. Sin indicadores rezagados. Sin adivinar.</p>
       </div>
       <div class="logro-card io-reveal dl-2">
         <div class="card-icon green">📈</div>
-        <div class="card-title">5+ Metodologías de Entrada</div>
-        <p class="card-desc">Dominarás múltiples estrategias validadas en NAS100 y XAU/USD, con contexto institucional, Fibonacci avanzado y modelos de order flow.</p>
+        <div class="card-title">Metodología ORZ validada en NAS100 y XAU/USD</div>
+        <p class="card-desc">5+ modelos de entrada con reglas escritas y backtesting real. Cada setup con criterios objetivos, invalidación clara y gestión de riesgo predefinida. No interpretación — ejecución.</p>
       </div>
       <div class="logro-card io-reveal dl-3">
         <div class="card-icon green">🎯</div>
-        <div class="card-title">Tu Ventaja Estadística Propia</div>
-        <p class="card-desc">Construirás un trading plan personalizado con tu propio edge estadístico, adaptado a tu capital, tu horario y tu perfil psicológico.</p>
+        <div class="card-title">Tu propia ventaja estadística</div>
+        <p class="card-desc">No copias mi trading plan — construyes el tuyo. Adaptado a tu capital, tu horario, tu perfil psicológico y tu tolerancia al drawdown. Sales con un edge que solo tú puedes ejecutar.</p>
       </div>
-      <div class="logro-card io-reveal dl-4">
+      <div class="logro-card io-reveal dl-1">
+        <div class="card-icon green">🧠</div>
+        <div class="card-title">Psicotrading y gestión emocional</div>
+        <p class="card-desc">El 90% de los traders pierden por psicología, no por estrategia. Aprenderás a identificar tilt, revenge trading, sobreoperación y ansiedad pre-entrada. Reglas de bloqueo automáticas, no fuerza de voluntad.</p>
+      </div>
+      <div class="logro-card io-reveal dl-2">
         <div class="card-icon green">🏗️</div>
-        <div class="card-title">Infraestructura para Resultados</div>
-        <p class="card-desc">Tendrás las plataformas, la bitácora, el sistema de gestión de riesgo y el acompañamiento continuo para operar con estructura profesional.</p>
+        <div class="card-title">Infraestructura profesional completa</div>
+        <p class="card-desc">Bitácora ORZ Edge con IA, plataforma University con material estructurado, gestión de riesgo profesional. Operas con las mismas herramientas que un trader institucional.</p>
+      </div>
+      <div class="logro-card io-reveal dl-3">
+        <div class="card-icon green">👥</div>
+        <div class="card-title">Comunidad activa de traders ORZ</div>
+        <p class="card-desc">Networking real con alumnos que ya operan con edge validado. Análisis compartidos, operativa en vivo, competencia sana. Dejas de operar solo.</p>
       </div>
     </div>
   </div>
@@ -1640,6 +1709,95 @@ footer{
         Verifica todos los casos en @orzacademy_
       </a>
       <p class="casos-verify__note">Cada @ mostrado arriba es un perfil público real. Puedes contactarlos directamente.</p>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
+<!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
+<section class="faq-orz" id="faq">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Preguntas frecuentes</div>
+    <h2 class="orz-h2 io-reveal dl-1">Todo lo que necesitas saber<br>antes de dar el paso.</h2>
+    <p class="orz-lead io-reveal dl-2" style="margin-top:.75rem">Respuestas directas — sin humo comercial ni promesas vacías.</p>
+
+    <div class="faq-grid io-reveal dl-3">
+      <div class="faq-column">
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿En cuánto tiempo veré resultados reales?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>No hay un plazo garantizado — quien te lo prometa te está mintiendo. Lo que sí puedo decirte con datos: alumnos disciplinados que siguen la metodología suelen ver consistencia entre los 3-6 meses. La velocidad depende de tu adherencia al plan, no de tu talento.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Sirve si trabajo tiempo completo?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Sí. La metodología ORZ está diseñada para operar sesiones específicas de alta liquidez (Nueva York principalmente), lo que se acopla a horarios laborales. Muchos alumnos activos operan antes o después de su trabajo con disciplina.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Necesito capital para arrancar?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>No para aprender. Puedes formarte y validar el edge en cuenta demo o en cuentas de fondeo (evaluación con capital de firma). Recomendamos empezar sin capital propio hasta demostrar rentabilidad consistente en papel.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Qué diferencia a ORZ Academy de otros cursos?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Tres cosas medibles. Primero: grupos de máximo 4 personas por mentoría, no miles de alumnos. Segundo: metodología propia con backtesting real en NAS100 y XAU/USD, no material reciclado. Tercero: plataforma técnica propia (ORZ Edge + University) que ningún curso genérico ofrece.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-column">
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Qué activos y horarios opera la metodología?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Enfoque en NAS100 y XAU/USD, sesión de Nueva York (13:30-20:00 UTC) donde vive la liquidez institucional. Timeframes M15 y H1 para operativa intradía. Se puede adaptar a otros índices y sesiones una vez dominada la base.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Qué pasa si no tengo experiencia previa?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Es preferible en muchos casos. Sin vicios de otros cursos, la curva de aprendizaje es más limpia. Los planes Virtual BASE y Presencial BASE están diseñados específicamente para arranques desde cero con estructura progresiva.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Cómo es el acompañamiento después de la mentoría?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Durante el plan contratado tienes acceso directo por WhatsApp, sesiones grupales, análisis de tus trades reales y correcciones en vivo. Al terminar, mantienes acceso a la comunidad ORZ y a las plataformas por el tiempo del plan. Si necesitas continuidad, hay planes de extensión.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Puedo hablar con ORZ directamente antes de decidir?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Sí. Todos los alumnos empiezan con una primera conversación directa por WhatsApp. Sin script, sin presión — es donde defines qué plan se ajusta a tu situación real. <a href="https://wa.me/573042679499?text=Hola%20ORZ,%20quiero%20agendar%20una%20primera%20conversaci%C3%B3n" target="_blank" rel="noopener" style="color:var(--orz-blue-light);text-decoration:underline">Agenda aquí</a>.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 </section>
