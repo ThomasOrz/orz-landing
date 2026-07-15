@@ -26,14 +26,14 @@
 /* ─── RESET ──────────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:'Space Grotesk',sans-serif;background:#050810;color:#f0f4ff;line-height:1.6;overflow-x:hidden}
+body{font-family:'Space Grotesk',sans-serif;background:#000000;color:#f0f4ff;line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 button{font-family:'Space Grotesk',sans-serif;cursor:pointer}
 
 /* ─── VARIABLES ──────────────────────────────────────────────────── */
 :root{
-  --orz-black:     #050810;
+  --orz-black:     #000000;
   --orz-dark:      #0a0f1e;
   --orz-dark-mid:  #0f1628;
   --orz-panel:     #111827;
@@ -240,7 +240,7 @@ section{position:relative}
 /* Section separator line */
 .sep-line{
   height:1px;
-  background:linear-gradient(90deg,transparent 0%,rgba(37,99,235,.18) 25%,rgba(37,99,235,.18) 75%,transparent 100%);
+  background:linear-gradient(90deg,transparent 0%,rgba(37,99,235,.25) 25%,rgba(37,99,235,.25) 75%,transparent 100%);
   position:relative;z-index:1;
 }
 
@@ -297,7 +297,7 @@ section{position:relative}
 }
 
 /* ─── HERO ────────────────────────────────────────────────────────── */
-#hero{background:var(--orz-gradient-hero);min-height:100vh;display:flex;flex-direction:column}
+#hero{min-height:100vh;display:flex;flex-direction:column}
 .hero-body{flex:1;display:flex;align-items:center}
 .hero-inner{
   max-width:1200px;margin:0 auto;padding:0 6%;width:100%;
@@ -378,7 +378,6 @@ section{position:relative}
 .hero-img-badge-role{font-size:.72rem;color:var(--orz-blue-glow);margin-top:.1rem;letter-spacing:.06em;text-transform:uppercase}
 
 /* ─── MI HISTORIA ────────────────────────────────────────────────── */
-#historia{background:#0a0f1e}
 .historia-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;
 }
@@ -393,8 +392,8 @@ section{position:relative}
 }
 
 /* ─── PROBLEMA / LOGROS ──────────────────────────────────────────── */
-#problema{background:#050810}
-#logros   {background:#0a0f1e}
+#problema{background:#000000}
+#logros   {background:#000000}
 .problema-grid,.logros-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem;
 }
@@ -425,7 +424,7 @@ section{position:relative}
 .card-desc{font-size:.9rem;color:var(--orz-white-60);line-height:1.75}
 
 /* ─── PLATAFORMAS ────────────────────────────────────────────────── */
-#plataformas{background:#050810}
+#plataformas{}
 /* ─── ECOSISTEMA ORZ ─────────────────────────────────────────────── */
 .ecosistema-orz .orz-lead{max-width:40rem}
 .ecosystem-block{
@@ -508,7 +507,7 @@ section{position:relative}
 .block-cta:hover svg{transform:translateX(3px)}
 
 /* ─── PRECIOS ────────────────────────────────────────────────────── */
-#precios{background:#0a0f1e}
+#precios{background:#000000}
 #precios::before{
   content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:
@@ -728,12 +727,11 @@ section{position:relative}
 .bitacora-cta svg{width:16px;height:16px}
 
 /* ─── TESTIMONIOS ────────────────────────────────────────────────── */
-#casos{background:#050810}
+#casos{background:#000000}
 
 
 /* ─── CTA FINAL ──────────────────────────────────────────────────── */
 #cta-final{
-  background:linear-gradient(135deg,#050810 0%,#0a1230 50%,#050810 100%);
   position:relative;overflow:hidden;
 }
 #cta-final::before{
@@ -1105,6 +1103,17 @@ footer{
   .casos-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%}
   .casos-marquee-wrapper{mask-image:none;-webkit-mask-image:none}
 }
+
+/* ─── AURORA (negro puro + respiraciones azules) ─────────────────── */
+.aurora-bg{
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.04'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 85% 55% at 12% 0%, rgba(37,99,235,.65) 0%, rgba(37,99,235,.15) 35%, transparent 60%),
+    radial-gradient(ellipse 65% 45% at 100% 45%, rgba(59,130,246,.55) 0%, rgba(59,130,246,.1) 40%, transparent 65%),
+    radial-gradient(circle at 45% 105%, rgba(30,64,175,.4) 0%, transparent 45%),
+    #000000;
+  position:relative;
+}
 </style>
 </head>
 <body>
@@ -1208,7 +1217,7 @@ footer{
 </div>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
-<section id="hero" class="orz-glow-bg orz-grid-bg">
+<section id="hero" class="orz-glow-bg orz-grid-bg aurora-bg">
   <div class="hero-body">
     <div class="hero-inner">
       <div class="hero-text">
@@ -1301,7 +1310,7 @@ footer{
 <div class="sep-line"></div>
 
 <!-- ═══ MI HISTORIA ═══════════════════════════════════════════════ -->
-<section id="historia">
+<section id="historia" class="aurora-bg">
   <div class="section-inner">
     <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Quién es ORZ</div>
     <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Una historia construida<br>desde el error real</h2>
@@ -1365,7 +1374,7 @@ footer{
 <div class="sep-line"></div>
 
 <!-- ═══ ECOSISTEMA ORZ ═════════════════════════════════════════════ -->
-<section id="plataformas" class="ecosistema-orz">
+<section id="plataformas" class="ecosistema-orz aurora-bg">
   <div class="section-inner">
     <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Ecosistema ORZ</div>
     <h2 class="orz-h2 io-reveal dl-2">Dos plataformas.<br>Un sistema completo.</h2>
@@ -1940,7 +1949,7 @@ footer{
 <div class="sep-line"></div>
 
 <!-- ═══ CTA FINAL ══════════════════════════════════════════════════ -->
-<section id="cta-final">
+<section id="cta-final" class="aurora-bg">
   <div class="cta-final-inner">
     <div class="cta-final-badge io-reveal">
       <span class="cta-final-badge-dot"></span>
