@@ -1114,6 +1114,96 @@ footer{
     #000000;
   position:relative;
 }
+
+/* ─── COMUNIDAD: collage Historia + sección + texturas ───────────── */
+/* Item 2 — Collage en Historia */
+.historia-collage{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:1rem;margin-top:3.5rem;
+}
+.historia-collage figure{margin:0;overflow:hidden;border-radius:8px;
+  border:1px solid rgba(37,99,235,.18);position:relative;background:#05080f}
+.historia-collage img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.historia-collage figure:hover img{transform:scale(1.04)}
+.hcol-main{aspect-ratio:4/5}
+.hcol-side{display:grid;grid-template-rows:1fr 1fr;gap:1rem}
+.hcol-tile{}
+@media(max-width:768px){
+  .historia-collage{grid-template-columns:1fr;gap:.75rem}
+  .hcol-main{aspect-ratio:16/11}
+  .hcol-tile{aspect-ratio:16/10}
+}
+
+/* Item 3 — Textura foto 02 en Ecosistema */
+.ecosistema-orz::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url('assets/comunidad/comunidad-02-sesion-privada-mentoria.jpg') center 30%/cover no-repeat;
+  opacity:.05;mix-blend-mode:luminosity;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 30%,#000 70%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,#000 30%,#000 70%,transparent 100%);
+}
+
+/* Item 4 — Sección Comunidad ORZ (bento 4 slots) */
+.comunidad-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(2,200px);gap:1rem;margin-top:3.5rem;
+}
+.com-slot{
+  position:relative;overflow:hidden;border-radius:8px;
+  border:1px solid rgba(37,99,235,.18);background:#05080f;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.com-slot img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.com-slot:hover{border-color:rgba(37,99,235,.45);transform:translateY(-3px);
+  box-shadow:0 16px 40px rgba(0,0,0,.4),0 0 24px rgba(37,99,235,.12)}
+.com-slot:hover img{transform:scale(1.04)}
+.com-slot--hero{grid-column:1 / 3;grid-row:1 / 3}
+.com-slot--med{grid-column:3 / 5;grid-row:1 / 2}
+.com-slot--video{grid-row:2 / 3;
+  background:radial-gradient(circle at 50% 40%,rgba(37,99,235,.14),transparent 70%),#05080f;
+  display:flex;align-items:center;justify-content:center}
+.com-video-play{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.4);
+  color:var(--orz-blue-light);transition:all .3s cubic-bezier(.16,1,.3,1)}
+.com-slot--video:hover .com-video-play{
+  background:var(--orz-blue-mid);color:#fff;transform:scale(1.08);
+  box-shadow:0 0 24px rgba(37,99,235,.5)}
+.com-slot__overlay{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:1.5rem 1.1rem .9rem;
+  background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 100%);
+  display:flex;flex-direction:column;gap:.15rem}
+.com-slot--video .com-slot__overlay{background:none;padding-bottom:1.1rem}
+.com-tag{
+  font-family:var(--font-body);font-size:.68rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--orz-blue-glow)}
+.com-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;
+  letter-spacing:.02em;color:#fff;text-transform:uppercase}
+.com-slot--video .com-title{color:var(--orz-white-60)}
+@media(max-width:900px){
+  .comunidad-grid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:auto;gap:1rem}
+  .com-slot--hero,.com-slot--med,.com-slot--video{grid-column:auto;grid-row:auto}
+  .com-slot--hero{aspect-ratio:16/10}
+  .com-slot--med{aspect-ratio:16/9}
+  .com-slot--video{aspect-ratio:16/9}
+}
+
+/* Item 5 — Textura foto 06 + overlay azul en CTA Final */
+.cta-final-texture{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.cta-final-texture::before{
+  content:'';position:absolute;inset:0;
+  background:url('assets/comunidad/comunidad-06-slide-responsabilidad.jpg') center/cover no-repeat;
+  opacity:.14;
+  -webkit-mask-image:radial-gradient(ellipse 80% 90% at 50% 45%,#000 0%,transparent 75%);
+  mask-image:radial-gradient(ellipse 80% 90% at 50% 45%,#000 0%,transparent 75%);
+}
+.cta-final-texture::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(37,99,235,.18) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.7) 100%);
+}
 </style>
 </head>
 <body>
@@ -1132,6 +1222,7 @@ footer{
     <a href="#plataformas">Plataformas</a>
     <a href="#precios">Mentorías</a>
     <a href="#casos">Casos</a>
+    <a href="#comunidad">Comunidad</a>
     <a href="#faq">FAQ</a>
     <a href="#footer">Contacto</a>
   </div>
@@ -1324,6 +1415,20 @@ footer{
       <div class="io-reveal dl-3">
         <p class="historia-p">Me dieron la oportunidad de administrar una suma importante de capital externo. La perdí en menos de 6 meses. No por falta de estrategia — por problemas emocionales que todavía no había resuelto. Esa fue la lección más cara y más valiosa de mi vida.</p>
         <p class="historia-p">Después de eso, sinteticé mi propia metodología. Hoy llevo más de 2 años con rentabilidad consistente operando NAS100 y XAU/USD. Lo que enseño en ORZ Academy no es teoría — es el camino exacto que recorrí, depurado de todo lo que no funciona.</p>
+      </div>
+    </div>
+
+    <div class="historia-collage io-reveal dl-3">
+      <figure class="hcol-main">
+        <img src="assets/comunidad/comunidad-05-retrato-editorial.jpg" alt="Comunidad de alumnos ORZ reunidos" loading="lazy">
+      </figure>
+      <div class="hcol-side">
+        <figure class="hcol-tile">
+          <img src="assets/comunidad/comunidad-01-orz-levelup-tarima.jpg" alt="ORZ en tarima durante el evento Level Up" loading="lazy">
+        </figure>
+        <figure class="hcol-tile">
+          <img src="assets/comunidad/comunidad-06-slide-responsabilidad.jpg" alt="Evento ORZ Level Up con audiencia" loading="lazy">
+        </figure>
       </div>
     </div>
   </div>
@@ -1859,6 +1964,51 @@ footer{
 </section>
 <div class="sep-line"></div>
 
+<!-- ═══ COMUNIDAD ORZ ══════════════════════════════════════════════ -->
+<section class="comunidad-orz" id="comunidad">
+  <div class="section-inner">
+    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Comunidad ORZ</div>
+    <h2 class="orz-h2 io-reveal dl-1">Dejas de operar solo.</h2>
+    <p class="orz-lead io-reveal dl-2" style="margin-top:.75rem">Eventos presenciales, sesiones privadas y una comunidad de traders que se exige de verdad. Esto es lo que se vive adentro.</p>
+
+    <div class="comunidad-grid io-reveal dl-3">
+      <div class="com-slot com-slot--hero">
+        <img src="assets/comunidad/comunidad-04-presentacion-publico.jpg" alt="ORZ presentando en evento presencial ante la comunidad" loading="lazy">
+        <div class="com-slot__overlay">
+          <span class="com-tag">Evento presencial</span>
+          <span class="com-title">ORZ Level Up</span>
+        </div>
+      </div>
+      <div class="com-slot com-slot--med">
+        <img src="assets/comunidad/comunidad-03-grupo-alumnos.jpg" alt="Alumnos ORZ en formación grupal en vivo" loading="lazy">
+        <div class="com-slot__overlay">
+          <span class="com-tag">Formación en vivo</span>
+          <span class="com-title">Sesiones grupales</span>
+        </div>
+      </div>
+      <div class="com-slot com-slot--video" role="img" aria-label="Video próximamente: recap del evento">
+        <div class="com-video-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="com-slot__overlay">
+          <span class="com-tag">Próximamente</span>
+          <span class="com-title">Recap del evento</span>
+        </div>
+      </div>
+      <div class="com-slot com-slot--video" role="img" aria-label="Video próximamente: sesión en vivo">
+        <div class="com-video-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="com-slot__overlay">
+          <span class="com-tag">Próximamente</span>
+          <span class="com-title">Sesión en vivo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sep-line"></div>
+
 <!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
 <section class="faq-orz" id="faq">
   <div class="section-inner">
@@ -1950,6 +2100,7 @@ footer{
 
 <!-- ═══ CTA FINAL ══════════════════════════════════════════════════ -->
 <section id="cta-final" class="aurora-bg">
+  <div class="cta-final-texture" aria-hidden="true"></div>
   <div class="cta-final-inner">
     <div class="cta-final-badge io-reveal">
       <span class="cta-final-badge-dot"></span>
