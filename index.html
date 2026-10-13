@@ -4,602 +4,619 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ORZ Group — Construimos lo que impulsa al trader</title>
-<meta name="description" content="ORZ Group reúne educación, tecnología y capital para traders: ORZ Academy, ORZ Edge y ORZ Capital. Medellín, Colombia.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#050810">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="ORZ Group">
-<meta property="og:title" content="ORZ Group — Construimos lo que impulsa al trader">
-<meta property="og:description" content="Educación, tecnología y capital para traders, bajo un mismo estándar profesional.">
-<meta property="og:image" content="https://orzacademy.com/assets/group/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="es_CO">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://orzacademy.com/assets/group/og.jpg">
+<meta name="description" content="ORZ Group reúne ORZ Academy, ORZ Edge y ORZ Capital.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#05070d">
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/group/academy-levelup.webp" type="image/webp">
-<link rel="preload" as="image" href="assets/group/edge-panel.webp" type="image/webp">
-
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ─── TOKENS ─────────────────────────────────────────────────────── */
+/* ═══ PROTOTIPO · Etapa 5 previa · textos provisionales (salvo el lema) ═══ */
 :root{
-  --bg:#050810;
-  --bg-2:#0a0f1e;
-  --panel:#0f1628;
-  --line:rgba(147,197,253,.10);
-  --line-2:rgba(147,197,253,.18);
-  --blue:#2563eb;
-  --blue-light:#3b82f6;
-  --blue-glow:#60a5fa;
-  --blue-neon:#93c5fd;
-  --gold:#f59e0b;
-  --gold-soft:rgba(245,158,11,.55);
-  --t-100:#ffffff;
-  --t-90:#f0f4ff;
-  --t-70:#b8c4d9;
-  --t-60:#94a3b8;
-  --t-40:#5b6b85;
-  --font-display:'Rajdhani',sans-serif;
-  --font-body:'Space Grotesk',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
-  --ease-out:cubic-bezier(.16,1,.3,1);
-  --ease-io:cubic-bezier(.65,0,.35,1);
-  --r-sm:4px; --r-md:6px; --r-lg:8px;
-  --wrap:1240px;
-  --gutter:clamp(20px,4vw,48px);
+  --bg:#05070d; --bg2:#080b14; --panel:#0b1020;
+  --line:rgba(140,170,230,.10); --line2:rgba(140,170,230,.20);
+  --acc:#4f8cff; --acc-2:#6ea2ff; --acc-soft:rgba(79,140,255,.16); --acc-glow:rgba(79,140,255,.55);
+  --gold:#e0a645; --gold-soft:rgba(224,166,69,.18);
+  --t1:#f4f7ff; --t2:#a9b4c9; --t3:#6b7790; --t4:#434d63;
+  --sans:'Space Grotesk',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.16,1,.3,1); --ease-io:cubic-bezier(.65,0,.35,1);
+  --wrap:1280px; --gut:clamp(20px,4vw,56px);
 }
-
-/* ─── BASE ───────────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-html,body{overflow-x:clip}
-body{font-family:var(--font-body);background:var(--bg);color:var(--t-90);line-height:1.6;overflow-x:hidden}
+html{-webkit-font-smoothing:antialiased;background:var(--bg)}
+@media (min-width:961px) and (hover:hover){html{scroll-snap-type:y mandatory}}
+body{font-family:var(--sans);color:var(--t1);background:var(--bg);overflow-x:hidden;line-height:1.55}
 a{color:inherit;text-decoration:none}
-img{max-width:100%;height:auto;display:block}
-::selection{background:rgba(59,130,246,.35);color:#fff}
-:focus-visible{outline:2px solid var(--blue-glow);outline-offset:3px;border-radius:var(--r-sm)}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
-br.mb{display:none}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+img,video,canvas{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--acc-2);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut);width:100%}
 
-/* Fondo global: capas (grid + glows) */
-.bg-layer{position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(60% 50% at 15% 0%,rgba(37,99,235,.16),transparent 70%),
-    radial-gradient(50% 40% at 100% 30%,rgba(30,64,175,.10),transparent 70%),
-    linear-gradient(180deg,#050810 0%,#060a16 60%,#050810 100%)}
-.bg-layer::after{content:"";position:absolute;inset:0;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:72px 72px;opacity:.35;
-  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 30%,transparent 80%);
-          mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 30%,transparent 80%)}
+/* Fondo global: estrellas + grano */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
+.grain{position:fixed;inset:-50%;z-index:60;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
 
-/* ─── TIPOGRAFÍA ─────────────────────────────────────────────────── */
-.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-neon);display:inline-flex;align-items:center;gap:12px}
-.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
-.h-display{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:var(--t-100)}
-.h-section{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em;font-size:clamp(40px,5.4vw,72px);color:var(--t-100)}
-.h-section .dim{color:var(--t-40)}
-.lead{font-size:clamp(17px,1.5vw,19px);color:var(--t-70);max-width:58ch;line-height:1.65}
-.grad{background:linear-gradient(100deg,#bcd7ff 0%,#60a5fa 45%,#2563eb 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* Tipografía */
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3)}
+.label.acc{color:var(--acc-2)} .label.gold{color:var(--gold)}
+.h1{font-weight:600;letter-spacing:-.035em;line-height:1.02;font-size:clamp(40px,4.7vw,76px)}
+.h2{font-weight:600;letter-spacing:-.03em;line-height:1.05;font-size:clamp(34px,4vw,60px)}
+.dim{color:var(--t3)}
+.body{color:var(--t2);font-size:clamp(16px,1.2vw,18px);max-width:46ch}
 
-/* ─── BOTONES ────────────────────────────────────────────────────── */
-.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:var(--r-sm);
-  font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;
-  transition:background .25s var(--ease-out),border-color .25s var(--ease-out),color .25s var(--ease-out),transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
-.btn svg{width:18px;height:18px;transition:transform .25s var(--ease-out)}
+/* Botones (radio corto, estilo terminal) */
+.btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:all .3s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
 .btn:hover svg{transform:translateX(3px)}
-.btn-primary{background:var(--blue);color:#fff;box-shadow:0 0 0 1px rgba(147,197,253,.25) inset,0 10px 30px -10px rgba(37,99,235,.7)}
-.btn-primary:hover{background:var(--blue-light);box-shadow:0 0 0 1px rgba(147,197,253,.35) inset,0 14px 40px -10px rgba(59,130,246,.85)}
-.btn-ghost{border:1px solid var(--line-2);color:var(--t-90)}
-.btn-ghost:hover{border-color:rgba(147,197,253,.45);color:#fff;background:rgba(59,130,246,.06)}
+.btn-p{background:var(--acc);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 8px 30px -8px var(--acc-glow)}
+.btn-p:hover{background:var(--acc-2);box-shadow:0 0 0 1px rgba(255,255,255,.2) inset,0 10px 40px -6px var(--acc-glow)}
+.btn-g{border:1px solid var(--line2);color:var(--t1)}
+.btn-g:hover{border-color:rgba(110,162,255,.5);background:var(--acc-soft)}
 
-/* ─── NAV ────────────────────────────────────────────────────────── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .35s var(--ease-out),border-color .35s var(--ease-out);border-bottom:1px solid transparent}
-.nav.scrolled{background:rgba(5,8,16,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
-.brand{display:flex;align-items:baseline;gap:10px;font-family:var(--font-display);font-weight:700;color:#fff;line-height:1}
-.brand b{font-size:26px;letter-spacing:.08em}
-.brand span{font-size:12px;letter-spacing:.42em;color:var(--t-60);font-weight:600}
-.nav-links{display:flex;gap:40px}
-.nav-links a{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-60);position:relative;padding:6px 0;transition:color .2s}
-.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--blue-glow);transition:right .3s var(--ease-out)}
-.nav-links a:hover{color:#fff}
-.nav-links a:hover::after{right:0}
-.nav .btn{min-height:42px;padding:0 20px;font-size:14px}
-.burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--line-2);border-radius:var(--r-sm);cursor:pointer;position:relative}
-.burger i{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;transition:transform .3s var(--ease-out),opacity .2s}
-.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:26px}
-.burger.open i:nth-child(1){transform:translateY(5px) rotate(45deg)}
-.burger.open i:nth-child(2){opacity:0}
-.burger.open i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:68px;display:flex;align-items:center;background:linear-gradient(180deg,rgba(5,7,13,.85),rgba(5,7,13,0));}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.06em}
+.brand i{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--acc-2);position:relative;box-shadow:0 0 18px -2px var(--acc-glow)}
+.brand i::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--acc-2)}
+.brand span{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.32em;color:var(--t3)}
+.nav-l{display:flex;gap:36px}
+.nav-l a{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);transition:color .2s}
+.nav-l a:hover,.nav-l a.on{color:var(--t1)}
+.nav-l a.on{text-shadow:0 0 12px var(--acc-glow)}
 
-/* ─── HERO ───────────────────────────────────────────────────────── */
-.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 40px;position:relative}
-.hero>.wrap{width:100%}
-.hero-top{margin-bottom:40px}
-.hero h1{font-size:clamp(46px,6.9vw,108px)}
-.hero h1 .l2{display:block}
-.hero-side{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:28px;flex-wrap:wrap}
-.hero-side p{color:var(--t-70);font-size:clamp(17px,1.4vw,20px);max-width:42ch;line-height:1.55}
-.hero-side .btns{display:flex;gap:12px;flex-wrap:wrap}
+/* Indicador de escenas */
+.pager{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:10px}
+.pager button{width:8px;height:8px;border-radius:50%;border:1px solid var(--t4);background:transparent;cursor:pointer;transition:all .3s var(--ease)}
+.pager button.on{background:var(--acc-2);border-color:var(--acc-2);box-shadow:0 0 12px var(--acc-glow);height:22px;border-radius:6px}
+.counter{position:fixed;left:var(--gut);bottom:22px;z-index:40;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--t4)}
+.counter b{color:var(--t2);font-weight:500}
 
-/* Franja panorámica */
-.strip{display:flex;gap:12px;height:clamp(260px,36vh,440px)}
-.unit{position:relative;flex:5 1 0;min-width:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-2);
-  background:var(--panel);isolation:isolate;transition:flex-grow .7s var(--ease-io),border-color .4s var(--ease-out)}
-.unit.cap{flex-grow:2}
-@media (hover:hover) and (min-width:961px){
-  .strip:hover .unit{flex-grow:3}
-  .strip:hover .unit.cap{flex-grow:1.6}
-  .strip .unit:hover{flex-grow:7}
-  .strip .unit.cap:hover{flex-grow:4.2}
-}
-.unit:hover{border-color:rgba(147,197,253,.4)}
-.unit-media{position:absolute;inset:0;z-index:-2}
-.unit-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 1.2s var(--ease-out),filter .6s}
-.unit:hover .unit-media img{transform:scale(1.0)}
-.unit.edu .unit-media img{object-position:50% 38%;filter:saturate(.7) brightness(.62) contrast(1.08)}
-.unit.edu:hover .unit-media img{filter:saturate(.85) brightness(.75) contrast(1.05)}
-.unit.tec .unit-media img{object-position:0% 0%;filter:brightness(.75) saturate(.9)}
-.unit::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,8,16,.70) 0%,rgba(5,8,16,.25) 28%,rgba(5,8,16,.35) 55%,rgba(5,8,16,.94) 100%)}
-.unit.tec::after{background:linear-gradient(180deg,rgba(5,8,16,.80) 0%,rgba(5,8,16,.35) 30%,rgba(5,8,16,.45) 55%,rgba(5,8,16,.95) 100%)}
-.unit.cap{background:
-  radial-gradient(80% 60% at 50% 110%,rgba(245,158,11,.10),transparent 70%),
-  linear-gradient(180deg,#0b101e,#070b15)}
-.unit.cap .cap-lines{position:absolute;inset:0;z-index:-1;opacity:.55;
-  background-image:repeating-linear-gradient(90deg,rgba(245,158,11,.07) 0 1px,transparent 1px 22px)}
-.unit-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
-.unit-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t-70);display:flex;justify-content:space-between;gap:12px}
-.unit-tag em{font-style:normal;color:var(--blue-neon)}
-.unit.cap .unit-tag em{color:var(--gold)}
-.unit-name{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:1;font-size:clamp(28px,2.6vw,40px);color:#fff;white-space:nowrap}
-.unit-name small{display:block;font-size:12px;letter-spacing:.42em;color:var(--t-60);margin-bottom:8px;font-weight:600}
-.unit-desc{margin-top:10px;color:var(--t-70);font-size:15px;max-width:30ch;line-height:1.5;padding-right:56px}
-.unit-go{position:absolute;right:20px;bottom:22px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:var(--r-sm);display:grid;place-items:center;color:#fff;transition:background .3s,border-color .3s,transform .3s var(--ease-out)}
-.unit-go svg{width:18px;height:18px}
-.unit:hover .unit-go{background:var(--blue);border-color:var(--blue);transform:translate(2px,-2px)}
-.unit.cap:hover .unit-go{background:transparent;border-color:var(--gold-soft);color:var(--gold)}
-.unit.cap .unit-name{font-size:clamp(26px,2.2vw,34px)}
+/* Escenas */
+.scene{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;scroll-snap-align:start;scroll-snap-stop:always;padding:96px 0 64px;z-index:1;overflow:hidden}
+.in{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.scene.active .in{opacity:1;transform:none}
+.scene.active .i1{transition-delay:.1s}.scene.active .i2{transition-delay:.2s}.scene.active .i3{transition-delay:.3s}.scene.active .i4{transition-delay:.4s}.scene.active .i5{transition-delay:.5s}
 
-.scroll-cue{display:flex;justify-content:space-between;align-items:center;margin-top:28px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-40)}
+/* 1 · HERO órbita */
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:24px}
+.hero .copy{position:relative;z-index:2}
+.hero .h1{font-size:clamp(38px,4.1vw,66px)}
+.hero .h1 span{display:block;white-space:nowrap}
+.hero .body{margin:26px 0 34px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.orbit-box{position:relative;height:min(78vh,720px)}
+.orbit-box canvas{width:100%;height:100%}
+.tip{position:absolute;pointer-events:none;background:rgba(8,11,20,.92);border:1px solid var(--line2);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--t2);max-width:230px;opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s;backdrop-filter:blur(8px)}
+.tip b{display:block;color:var(--t1);font-weight:600;margin-bottom:2px}
+.tip.show{opacity:1;transform:none}
 
-/* ─── SECCIONES ──────────────────────────────────────────────────── */
-section.block{padding:clamp(96px,13vw,168px) 0;position:relative}
-.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:clamp(48px,6vw,80px)}
-.sec-head .eyebrow{margin-bottom:24px}
-.sec-head .lead{justify-self:end}
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent)}
+/* 2 · EDGE en una pantalla */
+.edge .wrap{text-align:center}
+.edge .h2{margin:14px auto 10px}
+.stage3d{perspective:1800px;margin:34px auto 0;max-width:min(860px,98vh);position:relative}
+.tilt{position:relative;transform-style:preserve-3d;transform:rotateX(22deg) rotateY(-12deg) scale(.86) translateY(30px);opacity:.2;transition:transform 1.6s var(--ease),opacity 1.2s var(--ease)}
+.scene.active .tilt{transform:rotateX(10deg) rotateY(-5deg) scale(1);opacity:1}
+.screen{border-radius:14px;border:1px solid var(--line2);background:#070a14;padding:8px;box-shadow:0 60px 140px -40px rgba(79,140,255,.45),0 0 0 1px rgba(0,0,0,.6)}
+.screen img{border-radius:9px;width:100%}
+.zone{position:absolute;border-radius:10px;border:1px solid transparent;transition:all .3s var(--ease);cursor:default}
+.zone:hover,.zone.pulse{border-color:var(--acc-2);background:rgba(79,140,255,.07);box-shadow:0 0 0 1px rgba(110,162,255,.3),0 0 40px -6px var(--acc-glow)}
+.co{position:absolute;display:flex;align-items:center;gap:10px;text-align:left;opacity:0;transition:opacity .8s var(--ease) 1s}
+.scene.active .co{opacity:1}
+.co .d{width:9px;height:9px;border-radius:50%;background:var(--acc-2);box-shadow:0 0 0 4px rgba(110,162,255,.18),0 0 16px var(--acc-glow);flex:none}
+.co .l{height:1px;width:64px;background:linear-gradient(90deg,rgba(110,162,255,.9),rgba(110,162,255,.1));flex:none}
+.co .t{min-width:190px}
+.co .t b{display:block;font-size:14px;font-weight:600;color:var(--t1);white-space:nowrap}
+.co .t span{font-size:12px;color:var(--t3);white-space:nowrap}
+.co.r{flex-direction:row-reverse;text-align:right}
+.co.r .l{background:linear-gradient(270deg,rgba(110,162,255,.9),rgba(110,162,255,.1))}
 
-/* Academy */
-.acad-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-.photo{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line)}
-.photo img{width:100%;height:100%;object-fit:cover}
-.photo figcaption{position:absolute;left:16px;bottom:14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-70);background:rgba(5,8,16,.7);backdrop-filter:blur(6px);padding:6px 10px;border-radius:var(--r-sm)}
-.acad-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;gap:20px;height:clamp(380px,46vw,560px)}
-.acad-photos .photo:first-child img{object-position:40% 50%}
-.pillars{display:grid;grid-template-rows:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:rgba(10,15,30,.55)}
-.pillar{padding:28px 28px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:40px 1fr;gap:16px;align-content:center}
-.pillar:last-child{border-bottom:0}
-.ico{width:40px;height:40px;border-radius:var(--r-sm);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--blue-glow)}
-.ico svg{width:20px;height:20px}
-.pillar h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:20px;color:#fff;line-height:1.2;margin-bottom:6px}
-.pillar p{color:var(--t-60);font-size:15px;line-height:1.55}
-.sec-cta{margin-top:40px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.sec-cta .note{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--t-40)}
+/* 3 · CARRUSEL unidades */
+.units .wrap{text-align:center}
+.car{position:relative;height:min(52vh,470px);margin:40px auto 0;perspective:1600px}
+.card{position:absolute;left:50%;top:0;width:min(62vw,760px);height:100%;margin-left:calc(min(62vw,760px) / -2);border-radius:16px;overflow:hidden;border:1px solid var(--line2);background:var(--panel);transition:transform 1s var(--ease),opacity 1s var(--ease),filter 1s var(--ease),border-color .4s;cursor:pointer}
+.card.c0{transform:translateX(0) rotateY(0) scale(1);opacity:1;z-index:3;border-color:rgba(110,162,255,.45);box-shadow:0 40px 120px -40px var(--acc-glow)}
+.card.cL{transform:translateX(-58%) rotateY(32deg) scale(.78);opacity:.45;z-index:2;filter:brightness(.6)}
+.card.cR{transform:translateX(58%) rotateY(-32deg) scale(.78);opacity:.45;z-index:2;filter:brightness(.6)}
+.card.cap.c0{border-color:rgba(224,166,69,.5);box-shadow:0 40px 120px -40px rgba(224,166,69,.4)}
+.card video,.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,.1),rgba(5,7,13,.25) 50%,rgba(5,7,13,.92))}
+.card .cap-art{position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 100%,rgba(224,166,69,.18),transparent 70%),repeating-linear-gradient(90deg,rgba(224,166,69,.08) 0 1px,transparent 1px 26px),linear-gradient(180deg,#0c0f19,#07090f)}
+.card .meta{position:absolute;left:28px;right:28px;bottom:24px;text-align:left}
+.card .meta h3{font-size:clamp(26px,2.6vw,38px);font-weight:600;letter-spacing:-.03em;margin:8px 0 4px}
+.card .meta p{color:var(--t2);font-size:15px}
+.car-ui{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:26px}
+.arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--t1);display:grid;place-items:center;cursor:pointer;transition:all .3s var(--ease)}
+.arrow:hover{border-color:var(--acc-2);background:var(--acc-soft)}
+.arrow svg{width:18px;height:18px}
+.dots{display:flex;gap:8px}
+.dots i{width:22px;height:2px;background:var(--t4);transition:all .3s}
+.dots i.on{background:var(--acc-2);width:40px}
 
-/* Edge */
-.edge-stage{position:relative;padding:0 0 0}
-.screen{position:relative;border-radius:var(--r-lg);border:1px solid var(--line-2);background:#070b16;padding:10px;box-shadow:0 40px 120px -40px rgba(37,99,235,.45),0 0 0 1px rgba(0,0,0,.4)}
-.screen::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(147,197,253,.35),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.screen-bar{display:flex;align-items:center;gap:6px;padding:4px 6px 10px}
-.screen-bar i{width:8px;height:8px;border-radius:50%;background:var(--t-40);opacity:.5}
-.screen-bar span{margin-left:10px;font-family:var(--font-mono);font-size:11px;color:var(--t-40);letter-spacing:.06em}
-.screen img{border-radius:var(--r-md);width:100%}
-.callouts{position:absolute;inset:0;pointer-events:none}
-.co{position:absolute;display:flex;align-items:center;gap:10px}
-.co .dot{width:10px;height:10px;border-radius:50%;background:var(--blue-glow);box-shadow:0 0 0 4px rgba(96,165,250,.2),0 0 18px rgba(96,165,250,.8);flex:none}
-.co .ln{height:1px;background:linear-gradient(90deg,var(--blue-glow),rgba(96,165,250,.15));flex:none}
-.co .lbl{background:rgba(5,8,16,.88);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:8px 12px;backdrop-filter:blur(6px);white-space:nowrap}
-.co .lbl b{display:block;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:#fff;line-height:1.2}
-.co .lbl span{font-size:12px;color:var(--t-60)}
-.co.left{flex-direction:row-reverse}
-.co.left .ln{background:linear-gradient(270deg,var(--blue-glow),rgba(96,165,250,.15))}
+/* 4 · POSTURA */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.cmp{margin-top:34px;border-top:1px solid var(--line)}
+.cmp .row{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.cmp .row span:first-child{color:var(--t3)}
+.cmp .row span:last-child{color:var(--t1);display:flex;gap:10px}
+.cmp .row span:last-child::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc-2);box-shadow:0 0 10px var(--acc-glow);margin-top:8px;flex:none}
+.cmp .hd span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.cmp .hd span:last-child::before{display:none}
+.chart-box{position:relative;height:min(60vh,520px);border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(11,16,32,.7),rgba(6,8,15,.7));overflow:hidden}
+.chart-box canvas{width:100%;height:100%}
 
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,7vw,88px);border-top:1px solid var(--line)}
-.feat{padding:32px 28px 32px 0;border-bottom:1px solid var(--line)}
-.feat:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
-.feat .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--blue-neon);margin-bottom:14px;display:block}
-.feat h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:21px;color:#fff;margin-bottom:8px;line-height:1.2}
-.feat p{color:var(--t-60);font-size:15px;line-height:1.55;max-width:36ch}
+/* 5 · PRINCIPIOS */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;margin-top:36px}
+.pgrid h4{font-size:17px;font-weight:600;margin-bottom:6px;display:flex;gap:10px;align-items:baseline}
+.pgrid h4 em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--acc-2);letter-spacing:.1em}
+.pgrid p{color:var(--t3);font-size:14.5px}
+.funnel-box{position:relative;height:min(60vh,520px)}
+.funnel-box canvas{width:100%;height:100%}
 
-/* Capital */
-.cap-sec .eyebrow{color:var(--gold)}
-.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.cap-card{position:relative;border:1px solid var(--line-2);border-radius:var(--r-lg);padding:clamp(28px,3.4vw,44px);overflow:hidden;
-  background:radial-gradient(70% 80% at 100% 0%,rgba(245,158,11,.07),transparent 60%),linear-gradient(180deg,#0b101e,#080c18);min-height:300px;display:flex;flex-direction:column}
-.cap-card .n{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--t-40)}
-.cap-card h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:clamp(28px,3vw,38px);line-height:1.05;color:#fff;margin:28px 0 12px}
-.cap-card p{color:var(--t-70);font-size:16px;max-width:38ch}
-.status{margin-top:auto;padding-top:32px;display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+/* 6 · CAPITAL */
+.capital .wrap{text-align:center}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px;text-align:left}
+.ccard{position:relative;border:1px solid rgba(224,166,69,.22);border-radius:16px;padding:clamp(28px,3vw,44px);min-height:300px;display:flex;flex-direction:column;overflow:hidden;
+  background:radial-gradient(70% 90% at 100% 0%,rgba(224,166,69,.09),transparent 60%),linear-gradient(180deg,#0b0e18,#07090f);transition:border-color .4s,transform .6s var(--ease)}
+.ccard:hover{border-color:rgba(224,166,69,.5);transform:translateY(-4px)}
+.ccard h3{font-size:clamp(26px,2.6vw,36px);font-weight:600;letter-spacing:-.03em;margin:26px 0 10px}
+.ccard p{color:var(--t2);max-width:36ch}
+.status{margin-top:auto;padding-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.cap-note{margin-top:28px;color:var(--t-40);font-size:14px;max-width:70ch}
+@keyframes pulse{50%{opacity:.3}}
 
-/* Nosotros */
-.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,6vw,96px);align-items:center}
-.about .photo{aspect-ratio:4/5}
-.about .photo img{object-position:50% 30%;filter:saturate(.85)}
-.about h2{margin:24px 0 28px}
-.about .lead+.lead{margin-top:18px}
-.sign{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:flex;gap:40px;flex-wrap:wrap}
-.sign div b{display:block;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;font-size:18px}
-.sign div span{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--t-40);text-transform:uppercase}
+/* 7 · FUNDADOR */
+.founder{padding:0}
+.founder .bgv{position:absolute;inset:0;z-index:0}
+.founder .bgv video{width:100%;height:100%;object-fit:cover;filter:blur(1.5px) brightness(.5);transform:scale(1.06)}
+.founder .bgv::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,13,.96) 0%,rgba(5,7,13,.78) 42%,rgba(5,7,13,.35) 70%,rgba(5,7,13,.75) 100%),linear-gradient(180deg,rgba(5,7,13,.6),transparent 30%,transparent 70%,rgba(5,7,13,.9))}
+.founder .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr .9fr;align-items:end;gap:40px;min-height:100vh;padding-top:96px}
+.founder .copy{padding-bottom:12vh}
+.founder .body{margin-top:22px}
+.portrait{position:relative;align-self:end;height:88vh;max-height:860px}
+.portrait img{height:100%;width:100%;object-fit:cover;object-position:50% 20%;
+  -webkit-mask-image:radial-gradient(ellipse 80% 90% at 62% 42%,#000 50%,transparent 100%);mask-image:radial-gradient(ellipse 80% 90% at 62% 42%,#000 50%,transparent 100%);
+  filter:saturate(.9) contrast(1.05);transform:scale(1.04);transition:transform 2.2s var(--ease)}
+.scene.active .portrait img{transform:scale(1)}
+.portrait::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}
+.portrait::before{content:"";position:absolute;left:10%;right:0;top:12%;bottom:0;background:radial-gradient(closest-side,rgba(79,140,255,.35),transparent);filter:blur(30px);z-index:-1}
+.pip{margin-top:30px;width:min(340px,100%);border-radius:12px;overflow:hidden;border:1px solid var(--line2);position:relative}
+.pip video{width:100%;aspect-ratio:16/9;object-fit:cover}
+.pip span{position:absolute;left:10px;bottom:8px}
 
-/* Cierre */
-.closing{text-align:center;padding:clamp(110px,14vw,180px) 0;position:relative;overflow:hidden}
-.closing::before{content:"";position:absolute;left:50%;top:55%;width:900px;height:500px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(37,99,235,.28),transparent);pointer-events:none;z-index:-1}
-.closing h2{font-size:clamp(44px,7vw,104px);margin:24px 0 28px}
-.closing p{color:var(--t-70);max-width:44ch;margin:0 auto 40px;font-size:18px}
-.closing .btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+/* 8 · CIERRE */
+.closing .wrap{position:relative;text-align:center}
+.ring{position:absolute;inset:-6vh -2vw;z-index:0}
+.ring canvas{width:100%;height:100%}
+.closing .copy{position:relative;z-index:2;padding:12vh 0}
+.closing .h1 span{display:block}
+.closing .body{margin:22px auto 34px;text-align:center}
+.closing .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.foot{position:absolute;left:0;right:0;bottom:0;z-index:2;border-top:1px solid var(--line);padding:18px 0}
+.foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--t4)}
 
-/* Footer */
-footer{border-top:1px solid var(--line);padding:56px 0 40px}
-.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.4fr;gap:40px}
-.foot h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-40);margin-bottom:16px;font-weight:500}
-.foot ul{list-style:none;display:grid;gap:10px}
-.foot a{color:var(--t-60);font-size:15px;transition:color .2s}
-.foot a:hover{color:#fff}
-.foot .brand{margin-bottom:14px}
-.foot .tag{color:var(--t-60);font-size:15px;max-width:28ch}
-.risk{color:var(--t-40);font-size:13px;line-height:1.6}
-.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--t-40)}
+/* Marca de prototipo */
+.proto{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:70;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ffcf7a;background:rgba(40,28,6,.85);border:1px solid rgba(224,166,69,.4);padding:6px 12px;border-radius:999px}
 
-/* ─── REVEAL ─────────────────────────────────────────────────────── */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-.hero .rv{transition-duration:1.1s}
 @media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
-  .unit,.unit-media img{transition:none}
-  .status::before{animation:none}
-}
-
-/* ─── RESPONSIVE ─────────────────────────────────────────────────── */
-@media (max-width:1100px){
-  .callouts .co.hide-md{display:none}
+  .grain{animation:none}
+  .in,.tilt,.card,.portrait img{transition:none}
 }
 @media (max-width:960px){
-  .nav-links{position:fixed;top:76px;left:0;right:0;flex-direction:column;gap:0;background:rgba(5,8,16,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:8px var(--gutter) 24px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .3s var(--ease-out)}
-  .nav-links.open{opacity:1;transform:none;pointer-events:auto}
-  .nav-links a{padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
-  .nav-links a::after{display:none}
-  .burger{display:block}
-  .nav .btn{display:none}
-  .hero{padding-top:120px}
-  .hero-top{margin-bottom:32px}
-  .hero-side{flex-direction:column;align-items:flex-start;gap:24px}
-  .hero h1{font-size:clamp(44px,13vw,72px)}
-  br.mb{display:inline}
-  .strip{flex-direction:column;height:auto}
-  .unit{flex:none;height:220px}
-  .unit.cap{height:150px}
-  .sec-head{grid-template-columns:1fr;gap:24px}
-  .sec-head .lead{justify-self:start}
-  .acad-grid{grid-template-columns:1fr}
-  .acad-photos{height:auto;grid-template-columns:1fr 1fr}
-  .acad-photos .photo{aspect-ratio:3/4}
-  .callouts{display:none}
-  .feat-grid{grid-template-columns:1fr 1fr}
-  .feat,.feat:not(:nth-child(3n+1)){padding:28px 20px 28px 0;border-left:0}
-  .feat:nth-child(2n){padding-left:20px;border-left:1px solid var(--line)}
-  .cap-grid{grid-template-columns:1fr}
-  .about{grid-template-columns:1fr}
-  .closing h2{font-size:clamp(40px,12vw,72px)}
-  .about .photo{aspect-ratio:4/3;max-height:460px}
-  .foot{grid-template-columns:1fr 1fr}
-}
-@media (max-width:560px){
-  .feat-grid{grid-template-columns:1fr}
-  .feat:nth-child(2n){padding-left:0;border-left:0}
-  .acad-photos{grid-template-columns:1fr}
-  .acad-photos .photo:last-child{display:none}
-  .foot{grid-template-columns:1fr}
-  .scroll-cue span:last-child{display:none}
+  .nav-l,.pager{display:none}
+  .scene{min-height:auto;padding:110px 0 80px}
+  .hero .wrap,.split,.founder .wrap{grid-template-columns:1fr}
+  .orbit-box{height:420px;order:-1}
+  .stage3d{margin-top:28px}
+  .co{display:none}
+  .car{height:420px}
+  .card{width:84vw;margin-left:-42vw}
+  .card.cL{transform:translateX(-70%) rotateY(30deg) scale(.7)}
+  .card.cR{transform:translateX(70%) rotateY(-30deg) scale(.7)}
+  .chart-box,.funnel-box{height:320px}
+  .cgrid,.pgrid{grid-template-columns:1fr}
+  .founder .wrap{min-height:auto}
+  .founder .copy{padding-bottom:0}
+  .portrait{height:62vh}
+  .closing .copy{padding:8vh 0 14vh}
+  .ring{opacity:.4;inset:0 -30vw}
 }
 </style>
 </head>
 <body>
-<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="proto">Prototipo · textos provisionales</div>
 
-<!-- ═══ NAV ═══════════════════════════════════════════════════════ -->
-<header class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a href="#top" class="brand" aria-label="ORZ Group, inicio"><b>ORZ</b><span>GROUP</span></a>
-    <nav class="nav-links" id="navLinks" aria-label="Principal">
-      <a href="#academy">Academy</a>
-      <a href="#edge">Edge</a>
-      <a href="#capital">Capital</a>
-      <a href="#nosotros">Nosotros</a>
+<header class="nav">
+  <div class="wrap">
+    <a href="#s1" class="brand" aria-label="ORZ Group"><i></i>ORZ <span>GROUP</span></a>
+    <nav class="nav-l" aria-label="Principal">
+      <a href="#s2" data-s="s2">Edge</a>
+      <a href="#s3" data-s="s3">Unidades</a>
+      <a href="#s6" data-s="s6">Capital</a>
+      <a href="#s7" data-s="s7">Fundador</a>
     </nav>
-    <a href="https://wa.me/573042679499?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ORZ%20Group" target="_blank" rel="noopener" class="btn btn-ghost">Contacto</a>
-    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><i></i><i></i><i></i></button>
+    <a href="#s8" class="btn btn-g" style="height:38px;padding:0 16px">Contacto</a>
   </div>
 </header>
 
-<main id="top">
+<div class="pager" id="pager" aria-hidden="true"></div>
+<div class="counter" id="counter"><b>01</b> / 08</div>
 
-<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
-<section class="hero">
+<main>
+<!-- ═══ 1 · HERO: el ecosistema ═══════════════════════════════════ -->
+<section class="scene hero" id="s1" data-name="Ecosistema">
   <div class="wrap">
-    <div class="hero-top">
-      <div class="hero-main">
-        <div class="eyebrow rv">ORZ Group · Medellín, Colombia</div>
-        <h1 class="h-display rv d1" style="margin-top:24px">Construimos<br class="mb"> lo que<span class="l2 grad">impulsa<br class="mb"> al trader.</span></h1>
-      </div>
-      <div class="hero-side">
-        <p class="rv d2">Educación, tecnología y capital para traders, bajo un mismo estándar profesional.</p>
-        <div class="btns rv d3">
-          <a href="#academy" class="btn btn-primary">Conocer el grupo
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-          </a>
-        </div>
+    <div class="copy">
+      <div class="label acc in">ORZ Group</div>
+      <h1 class="h1 in i1" style="margin-top:20px"><span>Construimos lo que</span><span class="dim">impulsa al trader.</span></h1>
+      <p class="body in i2">Educación, tecnología y capital. Tres unidades que trabajan como un solo sistema.</p>
+      <div class="ctas in i3">
+        <a href="#s3" class="btn btn-p">Explorar el ecosistema <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#s7" class="btn btn-g">Quién está detrás</a>
       </div>
     </div>
-
-    <div class="strip rv d3" role="list">
-      <a href="#academy" class="unit edu" role="listitem" aria-label="ORZ Academy: educación">
-        <div class="unit-media"><img src="assets/group/academy-levelup.webp" alt="Thomas Orozco en el escenario del evento ORZ Level Up" width="1320" height="1316"></div>
-        <div class="unit-in">
-          <div class="unit-tag"><em>01</em><span>Educación</span></div>
-          <div>
-            <div class="unit-name"><small>ORZ</small>Academy</div>
-            <p class="unit-desc">Formación y mentoría en trading, con método.</p>
-          </div>
-        </div>
-        <span class="unit-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a href="#edge" class="unit tec" role="listitem" aria-label="ORZ Edge: tecnología">
-        <div class="unit-media"><img src="assets/group/edge-panel.webp" alt="Panel de métricas y calendario de ORZ Edge" width="1393" height="615"></div>
-        <div class="unit-in">
-          <div class="unit-tag"><em>02</em><span>Tecnología</span></div>
-          <div>
-            <div class="unit-name"><small>ORZ</small>Edge</div>
-            <p class="unit-desc">Tu operativa, medida con tus propios datos.</p>
-          </div>
-        </div>
-        <span class="unit-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a href="#capital" class="unit cap" role="listitem" aria-label="ORZ Capital: capital">
-        <div class="cap-lines" aria-hidden="true"></div>
-        <div class="unit-in">
-          <div class="unit-tag"><em>03</em><span>Capital</span></div>
-          <div>
-            <div class="unit-name"><small>ORZ</small>Capital</div>
-            <p class="unit-desc">En preparación.</p>
-          </div>
-        </div>
-        <span class="unit-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-    </div>
-
-    <div class="scroll-cue rv d4"><span>Tres unidades · Un estándar</span><span>Desliza para explorar</span></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══ ACADEMY ═══════════════════════════════════════════════════ -->
-<section class="block" id="academy">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow rv">01 · Educación</div>
-        <h2 class="h-section rv d1">ORZ Academy</h2>
-      </div>
-      <p class="lead rv d2">Formación en trading de principio a fin: un programa estructurado por fases, mentoría directa y una comunidad que opera bajo el mismo estándar.</p>
-    </div>
-
-    <div class="acad-grid">
-      <div class="acad-photos rv">
-        <figure class="photo"><img src="assets/group/academy-event.webp" alt="Evento presencial ORZ Level Up con alumnos en el público" loading="lazy" width="1200" height="1169"><figcaption>Eventos presenciales</figcaption></figure>
-        <figure class="photo"><img src="assets/group/academy-mentoria.webp" alt="Sesión privada de mentoría frente a un gráfico de mercado" loading="lazy" width="1000" height="1500"><figcaption>Mentoría privada</figcaption></figure>
-      </div>
-      <div class="pillars rv d1">
-        <div class="pillar">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
-          <div><h3>Programa por fases</h3><p>Cuatro fases, de los fundamentos a la ejecución, en una plataforma propia.</p></div>
-        </div>
-        <div class="pillar">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><h3>Mentoría directa</h3><p>Acompañamiento en grupos de máximo cuatro personas, en NAS100 y XAU/USD.</p></div>
-        </div>
-        <div class="pillar">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <div><h3>Comunidad</h3><p>Eventos presenciales y una red de traders que comparten el mismo método.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec-cta rv">
-      <a href="https://university.orzacademy.com/landing" class="btn btn-primary" target="_blank" rel="noopener">Conocer ORZ Academy
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+    <div class="orbit-box in i2">
+      <canvas id="orbit"></canvas>
+      <div class="tip" id="tip"></div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══ EDGE ══════════════════════════════════════════════════════ -->
-<section class="block" id="edge">
+<!-- ═══ 2 · EDGE en una sola pantalla ═════════════════════════════ -->
+<section class="scene edge" id="s2" data-name="ORZ Edge">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow rv">02 · Tecnología</div>
-        <h2 class="h-section rv d1">ORZ Edge</h2>
+    <div class="label acc in">02 · Tecnología</div>
+    <h2 class="h2 in i1">ORZ Edge. <span class="dim">Tu operativa en una pantalla.</span></h2>
+    <div class="stage3d in i2" id="stage3d">
+      <div class="tilt" id="tilt">
+        <div class="screen"><img src="assets/group/edge-full.webp" alt="Dashboard de ORZ Edge" width="1393" height="745"></div>
+        <div class="zone" style="left:1%;top:18%;width:79%;height:23%" data-z="0"></div>
+        <div class="zone" style="left:1%;top:42%;width:74%;height:57%" data-z="1"></div>
+        <div class="zone" style="left:75.8%;top:42%;width:23.4%;height:50%" data-z="2"></div>
       </div>
-      <p class="lead rv d2">El centro de alto rendimiento del trader. Registra cada operación, define tus estrategias y encuentra, con tus propios datos, dónde está tu ventaja.</p>
-    </div>
-
-    <div class="edge-stage rv">
-      <div class="screen">
-        <div class="screen-bar"><i></i><i></i><i></i><span>ORZ EDGE · DASHBOARD</span></div>
-        <img src="assets/group/edge-full.webp" alt="Dashboard de ORZ Edge con métricas de rendimiento y calendario de trading" loading="lazy" width="1393" height="745">
-      </div>
-      <div class="callouts" aria-hidden="true">
-        <div class="co left" style="left:-2%;top:26%"><span class="dot"></span><span class="ln" style="width:56px"></span><span class="lbl"><b>Métricas con rigor</b><span>Cada dato, con su muestra</span></span></div>
-        <div class="co" style="right:-2%;top:56%;flex-direction:row-reverse"><span class="dot"></span><span class="ln" style="width:56px;background:linear-gradient(270deg,var(--blue-glow),rgba(96,165,250,.15))"></span><span class="lbl"><b>Disciplina</b><span>Plan frente a ejecución</span></span></div>
-        <div class="co left hide-md" style="left:-2%;top:70%"><span class="dot"></span><span class="ln" style="width:56px"></span><span class="lbl"><b>Calendario</b><span>Tu rendimiento día a día</span></span></div>
-      </div>
-    </div>
-
-    <div class="feat-grid">
-      <div class="feat rv"><span class="k">01</span><h3>Journal</h3><p>Registra o importa tus operaciones y revísalas por día, semana y mes.</p></div>
-      <div class="feat rv d1"><span class="k">02</span><h3>Estrategias propias</h3><p>Define tus estrategias y mide el rendimiento de cada una por separado.</p></div>
-      <div class="feat rv d2"><span class="k">03</span><h3>Edge Finder</h3><p>Cruza tus resultados por hora, día y contexto para ver dónde ganas y dónde pierdes.</p></div>
-      <div class="feat rv"><span class="k">04</span><h3>Métricas verificables</h3><p>Expectancy, profit factor, drawdown y win rate, siempre con el tamaño de la muestra.</p></div>
-      <div class="feat rv d1"><span class="k">05</span><h3>Capital y reglas</h3><p>Seguimiento del capital de tu cuenta y de los límites de las prop firms.</p></div>
-      <div class="feat rv d2"><span class="k">06</span><h3>Mentora con IA</h3><p>Pregunta sobre tu operativa y recibe respuestas basadas en tus propios datos.</p></div>
-    </div>
-
-    <div class="sec-cta rv">
-      <a href="https://manage.orzacademy.com" class="btn btn-primary" target="_blank" rel="noopener">Conocer ORZ Edge
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div class="co r" style="right:calc(100% - 4%);top:22%"><span class="d"></span><span class="l"></span><span class="t"><b>Métricas con muestra</b><span>Cada dato dice cuántos trades lo respaldan</span></span></div>
+      <div class="co r" style="right:calc(100% - 4%);top:62%"><span class="d"></span><span class="l"></span><span class="t"><b>Calendario</b><span>Tu rendimiento, día a día</span></span></div>
+      <div class="co" style="left:calc(100% - 3%);top:52%"><span class="d"></span><span class="l"></span><span class="t"><b>Disciplina</b><span>Plan frente a ejecución</span></span></div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══ CAPITAL ═══════════════════════════════════════════════════ -->
-<section class="block cap-sec" id="capital">
+<!-- ═══ 3 · CARRUSEL de unidades ══════════════════════════════════ -->
+<section class="scene units" id="s3" data-name="Unidades">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow rv">03 · Capital</div>
-        <h2 class="h-section rv d1">ORZ Capital</h2>
-      </div>
-      <p class="lead rv d2">La unidad de capital del grupo. Dos líneas de negocio independientes, cada una con sus propias reglas.</p>
-    </div>
-
-    <div class="cap-grid">
-      <article class="cap-card rv">
-        <span class="n">LÍNEA 01</span>
-        <h3>Gestión de capital</h3>
-        <p>Para clientes interesados en servicios de gestión de capital.</p>
-        <span class="status">En preparación</span>
+    <div class="label acc in">Las unidades</div>
+    <h2 class="h2 in i1" style="margin-top:14px">Un grupo. <span class="dim">Tres frentes.</span></h2>
+    <div class="car in i2" id="car">
+      <article class="card" data-i="0">
+        <video src="assets/group/v/publico.mp4" poster="assets/group/v/publico.jpg" muted loop playsinline preload="metadata"></video>
+        <div class="ov"></div>
+        <div class="meta"><span class="label acc">01 · Educación</span><h3>ORZ Academy</h3><p>Programa por fases, mentoría directa y eventos presenciales.</p></div>
       </article>
-      <article class="cap-card rv d1">
-        <span class="n">LÍNEA 02</span>
-        <h3>Acceso a capital</h3>
-        <p>Para traders que demuestren las capacidades requeridas.</p>
-        <span class="status">En preparación</span>
+      <article class="card" data-i="1">
+        <img src="assets/group/edge-panel.webp" alt="" loading="lazy">
+        <div class="ov"></div>
+        <div class="meta"><span class="label acc">02 · Tecnología</span><h3>ORZ Edge</h3><p>Journal, estrategias y métricas con tus propios datos.</p></div>
+      </article>
+      <article class="card cap" data-i="2">
+        <div class="cap-art"></div>
+        <div class="meta"><span class="label gold">03 · Capital</span><h3>ORZ Capital</h3><p>Gestión de capital y acceso a capital. En preparación.</p></div>
       </article>
     </div>
-    <p class="cap-note rv">Las condiciones de cada línea se publicarán cuando estén disponibles.</p>
+    <div class="car-ui in i3">
+      <button class="arrow" id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="dots" id="dots"><i></i><i></i><i></i></div>
+      <button class="arrow" id="next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══ NOSOTROS ══════════════════════════════════════════════════ -->
-<section class="block" id="nosotros">
-  <div class="wrap about">
-    <figure class="photo rv"><img src="assets/group/academy-escenario.webp" alt="Thomas Orozco, fundador de ORZ Group" loading="lazy" width="1100" height="1104"></figure>
+<!-- ═══ 4 · POSTURA ════════════════════════════════════════════════ -->
+<section class="scene" id="s4" data-name="Postura">
+  <div class="wrap split">
     <div>
-      <div class="eyebrow rv">Nosotros</div>
-      <h2 class="h-section rv d1">Nacido en<br><span class="dim">el mercado.</span></h2>
-      <p class="lead rv d2">ORZ Group nace en Medellín, fundado por Thomas Orozco, trader de NAS100 y XAU/USD.</p>
-      <p class="lead rv d3">Cada unidad responde a una necesidad real del trader: aprender con método, medir su operativa con datos y avanzar con reglas claras.</p>
-      <div class="sign rv d4">
-        <div><b>Thomas Orozco</b><span>Fundador</span></div>
-        <div><b>Medellín</b><span>Colombia</span></div>
+      <div class="label acc in">Nuestra postura</div>
+      <h2 class="h2 in i1" style="margin-top:14px">Las señales caducan. <span class="dim">El criterio se queda.</span></h2>
+      <p class="body in i2" style="margin-top:20px">Texto provisional: aquí va la idea central del grupo, que construiremos juntos.</p>
+      <div class="cmp in i3">
+        <div class="row hd"><span>Lo habitual</span><span>En ORZ</span></div>
+        <div class="row"><span>Copiar entradas</span><span>Entender por qué se entra</span></div>
+        <div class="row"><span>Medir por intuición</span><span>Medir con datos propios</span></div>
+        <div class="row"><span>Operar sin plan</span><span>Ejecutar un plan escrito</span></div>
+        <div class="row"><span>Capital sin reglas</span><span>Capital con reglas claras</span></div>
+      </div>
+    </div>
+    <div class="chart-box in i2"><canvas id="chart"></canvas></div>
+  </div>
+</section>
+
+<!-- ═══ 5 · PRINCIPIOS ═════════════════════════════════════════════ -->
+<section class="scene" id="s5" data-name="Principios">
+  <div class="wrap split">
+    <div class="funnel-box in i1"><canvas id="funnel"></canvas></div>
+    <div>
+      <div class="label acc in">Principios</div>
+      <h2 class="h2 in i1" style="margin-top:14px">Menos ruido. <span class="dim">Más método.</span></h2>
+      <div class="pgrid">
+        <div class="in i2"><h4><em>01</em>Método</h4><p>Provisional: una forma de operar que se puede enseñar y repetir.</p></div>
+        <div class="in i3"><h4><em>02</em>Datos</h4><p>Provisional: decisiones apoyadas en la operativa real de cada trader.</p></div>
+        <div class="in i4"><h4><em>03</em>Disciplina</h4><p>Provisional: el plan se escribe antes y se respeta durante.</p></div>
+        <div class="in i5"><h4><em>04</em>Reglas</h4><p>Provisional: el capital se gestiona con límites definidos.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CIERRE ════════════════════════════════════════════════════ -->
-<section class="closing">
+<!-- ═══ 6 · CAPITAL ═══════════════════════════════════════════════ -->
+<section class="scene capital" id="s6" data-name="ORZ Capital">
   <div class="wrap">
-    <div class="eyebrow rv">ORZ Group</div>
-    <h2 class="h-display rv d1">Construimos<br class="mb"> lo que<br><span class="grad">impulsa<br class="mb"> al trader.</span></h2>
-    <p class="rv d2">Elige por dónde empezar.</p>
-    <div class="btns rv d3">
-      <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="btn btn-primary">ORZ Academy
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="https://manage.orzacademy.com" target="_blank" rel="noopener" class="btn btn-ghost">ORZ Edge
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+    <div class="label gold in">03 · Capital</div>
+    <h2 class="h2 in i1" style="margin-top:14px">ORZ Capital. <span class="dim">Dos líneas, reglas propias.</span></h2>
+    <div class="cgrid">
+      <article class="ccard in i2"><span class="label">Línea 01</span><h3>Gestión de capital</h3><p>Para clientes interesados en servicios de gestión de capital.</p><span class="status">En preparación</span></article>
+      <article class="ccard in i3"><span class="label">Línea 02</span><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
     </div>
   </div>
 </section>
 
+<!-- ═══ 7 · FUNDADOR ══════════════════════════════════════════════ -->
+<section class="scene founder" id="s7" data-name="Fundador">
+  <div class="bgv"><video src="assets/group/v/escenario.mp4" poster="assets/group/v/escenario.jpg" muted loop playsinline preload="metadata"></video></div>
+  <div class="wrap">
+    <div class="copy">
+      <div class="label acc in">Fundador</div>
+      <h2 class="h2 in i1" style="margin-top:14px">Thomas Orozco</h2>
+      <p class="body in i2">Texto provisional: trayectoria, escenarios y la razón de ser del grupo, contados por ti.</p>
+      <div class="pip in i3"><video src="assets/group/v/entrevista.mp4" poster="assets/group/v/entrevista.jpg" muted loop playsinline preload="metadata"></video><span class="label">En el escenario</span></div>
+    </div>
+    <div class="portrait in i2"><img src="assets/group/thomas-micro.webp" alt="Thomas Orozco hablando con micrófono en un evento" width="1163" height="1353"></div>
+  </div>
+</section>
+
+<!-- ═══ 8 · CIERRE ════════════════════════════════════════════════ -->
+<section class="scene closing" id="s8" data-name="Cierre">
+  <div class="wrap">
+    <div class="ring"><canvas id="ring"></canvas></div>
+    <div class="copy">
+      <div class="label acc in">ORZ Group</div>
+      <h2 class="h1 in i1" style="margin-top:18px"><span>Construimos lo que</span><span class="dim">impulsa al trader.</span></h2>
+      <p class="body in i2">Elige por dónde empezar.</p>
+      <div class="ctas in i3">
+        <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="btn btn-p">ORZ Academy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://manage.orzacademy.com" target="_blank" rel="noopener" class="btn btn-g">ORZ Edge</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div class="wrap"><span>© 2026 ORZ Group · Medellín</span><span>Operar en los mercados implica riesgo de pérdida. Nada aquí es asesoría financiera.</span></div></div>
+</section>
 </main>
-
-<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <a href="#top" class="brand" aria-label="ORZ Group"><b>ORZ</b><span>GROUP</span></a>
-        <p class="tag">Educación, tecnología y capital para traders.</p>
-      </div>
-      <div>
-        <h4>Unidades</h4>
-        <ul>
-          <li><a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener">ORZ Academy</a></li>
-          <li><a href="https://manage.orzacademy.com" target="_blank" rel="noopener">ORZ Edge</a></li>
-          <li><a href="#capital">ORZ Capital</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="https://wa.me/573042679499" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="https://www.instagram.com/orz.academy/" target="_blank" rel="noopener">Instagram</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Aviso de riesgo</h4>
-        <p class="risk">Operar en los mercados financieros implica un riesgo significativo de pérdida. Los resultados pasados no garantizan resultados futuros. Nada de lo publicado en este sitio constituye asesoría financiera.</p>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 ORZ Group</span>
-      <span>Medellín, Colombia</span>
-    </div>
-  </div>
-</footer>
 
 <script>
 (function(){
-  var nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('navLinks');
-  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>24)}
-  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  burger.addEventListener('click',function(){
-    var open=links.classList.toggle('open');burger.classList.toggle('open',open);
-    burger.setAttribute('aria-expanded',open?'true':'false');
+'use strict';
+var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var DPR = Math.min(window.devicePixelRatio||1, 2);
+var C = {acc:[79,140,255], acc2:[110,162,255], gold:[224,166,69], t1:'#f4f7ff', t3:'#6b7790'};
+function rgba(c,a){return 'rgba('+c[0]+','+c[1]+','+c[2]+','+a+')'}
+function fit(cv){var r=cv.getBoundingClientRect();cv.width=Math.max(1,r.width*DPR);cv.height=Math.max(1,r.height*DPR);var x=cv.getContext('2d');x.setTransform(DPR,0,0,DPR,0,0);return {x:x,w:r.width,h:r.height}}
+
+/* ── Escenas: activación, indicador, contador ───────────────── */
+var scenes=[].slice.call(document.querySelectorAll('.scene'));
+var pager=document.getElementById('pager'), counter=document.getElementById('counter');
+scenes.forEach(function(s,i){var b=document.createElement('button');b.title=s.dataset.name;b.onclick=function(){s.scrollIntoView({behavior:RM?'auto':'smooth'})};pager.appendChild(b)});
+var navLinks=[].slice.call(document.querySelectorAll('.nav-l a'));
+var active={};
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  var s=e.target, on=e.isIntersecting;
+  if(on){s.classList.add('active');var i=scenes.indexOf(s);
+    [].forEach.call(pager.children,function(b,k){b.classList.toggle('on',k===i)});
+    counter.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(scenes.length).padStart(2,'0');
+    navLinks.forEach(function(a){a.classList.toggle('on',a.dataset.s===s.id)});
+  }
+  active[s.id]=on;
+  s.querySelectorAll('video').forEach(function(v){ if(on){var p=v.play();if(p&&p.catch)p.catch(function(){})} else v.pause() });
+})},{threshold:.5});
+scenes.forEach(function(s){io.observe(s)});
+
+/* ── Estrellas de fondo ─────────────────────────────────────── */
+var st=document.getElementById('stars'), S, stars=[];
+function initStars(){S=fit(st);stars=[];var n=Math.round(S.w*S.h/9000);for(var i=0;i<n;i++)stars.push({x:Math.random()*S.w,y:Math.random()*S.h,r:Math.random()*1.1+.2,a:Math.random()*.5+.1,p:Math.random()*6})}
+initStars();
+
+/* ── Motor de planetas (hero y cierre) ──────────────────────── */
+function drawPlanet(x,cx,cy,r,col,t,glow,hl){
+  // halo
+  var g=x.createRadialGradient(cx,cy,r*.4,cx,cy,r*(2.4+glow));
+  g.addColorStop(0,rgba(col,.22*(hl?1.6:1)));g.addColorStop(1,rgba(col,0));
+  x.fillStyle=g;x.beginPath();x.arc(cx,cy,r*(2.4+glow),0,7);x.fill();
+  // cuerpo
+  var b=x.createRadialGradient(cx-r*.35,cy-r*.35,r*.1,cx,cy,r);
+  b.addColorStop(0,'rgba(22,30,52,1)');b.addColorStop(1,'rgba(7,10,19,1)');
+  x.fillStyle=b;x.beginPath();x.arc(cx,cy,r,0,7);x.fill();
+  // retícula de globo
+  x.save();x.beginPath();x.arc(cx,cy,r,0,7);x.clip();
+  x.strokeStyle=rgba(col,.22);x.lineWidth=.7;
+  for(var k=-2;k<=2;k++){x.beginPath();x.ellipse(cx,cy+k*r*.38,r,r*.16,0,0,7);x.stroke()}
+  var sp=(t*.25)%1;
+  for(var m=0;m<4;m++){var w=Math.abs(Math.cos((m/4+sp)*Math.PI))*r;x.beginPath();x.ellipse(cx,cy,w,r,0,0,7);x.stroke()}
+  // puntos
+  x.fillStyle=rgba(col,.55);
+  for(var d=0;d<7;d++){var a=d*2.3+t*.3, rr=r*(.25+.6*((d*37)%10)/10);x.beginPath();x.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.7,1,0,7);x.fill()}
+  x.restore();
+  // aro + arco brillante
+  x.strokeStyle=rgba(col,hl?.95:.6);x.lineWidth=hl?1.6:1.1;x.beginPath();x.arc(cx,cy,r,0,7);x.stroke();
+  x.strokeStyle=rgba(col,1);x.lineWidth=2.4;x.shadowColor=rgba(col,.9);x.shadowBlur=10;
+  var a0=t*.6;x.beginPath();x.arc(cx,cy,r+4,a0,a0+.9);x.stroke();x.shadowBlur=0;
+}
+function label(x,cx,cy,txt,sub,col,size){
+  x.textAlign='center';x.fillStyle=C.t1;x.font='600 '+(size||12)+'px "Space Grotesk",sans-serif';
+  x.fillText(txt.toUpperCase().split('').join(String.fromCharCode(8202)),cx,cy);
+  if(sub){x.fillStyle=rgba(col,.75);x.font='500 9.5px "JetBrains Mono",monospace';x.fillText(sub.toUpperCase(),cx,cy+14)}
+}
+
+var UNITS=[
+ {id:'s3',name:'Academy',sub:'Educación',col:C.acc,ang:-2.55,dist:.36,r:44,
+  sats:['Programa','Mentoría','Comunidad','Eventos'],info:'Formación por fases, mentoría directa y comunidad.'},
+ {id:'s2',name:'Edge',sub:'Tecnología',col:C.acc2,ang:-.4,dist:.3,r:42,
+  sats:['Journal','Estrategias','Edge Finder','Métricas','Mentora IA','Capital y reglas'],info:'Journal, estrategias propias y métricas con tus datos.'},
+ {id:'s6',name:'Capital',sub:'En preparación',col:C.gold,ang:1.75,dist:.3,r:34,
+  sats:['Gestión','Acceso'],info:'Gestión de capital y acceso a capital. En preparación.'}
+];
+
+/* Hero: red orbital */
+var ob=document.getElementById('orbit'), O=null, hover=-1, mouse={x:-1,y:-1}, tip=document.getElementById('tip');
+function initOrbit(){O=fit(ob)}
+initOrbit();
+function orbitPos(u,t,W,H){
+  var cx=W*.47, cy=H*.5, R=Math.min(W,H);
+  var a=u.ang+Math.sin(t*.12+u.r)*.05;
+  return {x:cx+Math.cos(a)*R*u.dist*1.0, y:cy+Math.sin(a)*R*u.dist*.92+Math.sin(t*.6+u.r)*6};
+}
+ob.addEventListener('mousemove',function(e){var r=ob.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+ob.addEventListener('mouseleave',function(){mouse.x=-1;hover=-1;tip.classList.remove('show')});
+ob.addEventListener('click',function(){if(hover>=0)document.getElementById(UNITS[hover].id).scrollIntoView({behavior:RM?'auto':'smooth'})});
+function drawOrbit(t){
+  var x=O.x,W=O.w,H=O.h;x.clearRect(0,0,W,H);
+  var cx=W*.47, cy=H*.5;
+  // órbitas guía
+  x.strokeStyle='rgba(140,170,230,.07)';x.lineWidth=1;
+  [.30,.40,.50].forEach(function(k){x.beginPath();x.ellipse(cx,cy,Math.min(W,H)*k*1.15,Math.min(W,H)*k*.95,0,0,7);x.stroke()});
+  var pos=UNITS.map(function(u){return orbitPos(u,t,W,H)});
+  // hover
+  hover=-1;pos.forEach(function(p,i){if(mouse.x>=0&&Math.hypot(mouse.x-p.x,mouse.y-p.y)<UNITS[i].r+18)hover=i});
+  ob.style.cursor=hover>=0?'pointer':'default';
+  // conexiones centro → unidades (curvas con pulso)
+  pos.forEach(function(p,i){
+    var u=UNITS[i], mx=(cx+p.x)/2+(p.y-cy)*.18, my=(cy+p.y)/2-(p.x-cx)*.18;
+    x.strokeStyle=rgba(u.col,hover===i?.6:.25);x.lineWidth=hover===i?1.4:1;
+    x.beginPath();x.moveTo(cx,cy);x.quadraticCurveTo(mx,my,p.x,p.y);x.stroke();
+    var k=((t*.25)+i*.33)%1, qx=(1-k)*(1-k)*cx+2*(1-k)*k*mx+k*k*p.x, qy=(1-k)*(1-k)*cy+2*(1-k)*k*my+k*k*p.y;
+    x.fillStyle=rgba(u.col,.9);x.shadowColor=rgba(u.col,1);x.shadowBlur=8;x.beginPath();x.arc(qx,qy,2,0,7);x.fill();x.shadowBlur=0;
   });
-  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
-    links.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');
-  })});
-  var els=document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
-  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e){io.observe(e)});
+  // satélites
+  pos.forEach(function(p,i){
+    var u=UNITS[i], n=u.sats.length;
+    u.sats.forEach(function(s,j){
+      var a=t*.18*(i%2?-1:1)+j*(Math.PI*2/n)+i, rr=u.r+42+(j%2)*14;
+      var sx=p.x+Math.cos(a)*rr, sy=p.y+Math.sin(a)*rr*.82;
+      x.strokeStyle=rgba(u.col,hover===i?.45:.16);x.lineWidth=.8;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(sx,sy);x.stroke();
+      x.fillStyle='#0a0e1a';x.strokeStyle=rgba(u.col,hover===i?.9:.55);x.lineWidth=1;x.beginPath();x.arc(sx,sy,4.5,0,7);x.fill();x.stroke();
+      if(hover===i||W>520){x.fillStyle=hover===i?C.t1:'rgba(169,180,201,.55)';x.font='500 9.5px "JetBrains Mono",monospace';x.textAlign='center';x.fillText(s.toUpperCase(),sx,sy+16)}
+    });
+  });
+  // planetas
+  pos.forEach(function(p,i){var u=UNITS[i];drawPlanet(x,p.x,p.y,u.r*(hover===i?1.08:1),u.col,t+i,0,hover===i);label(x,p.x,p.y+u.r+22,'ORZ '+u.name,u.sub,u.col,13)});
+  // núcleo
+  drawPlanet(x,cx,cy,30,C.acc2,t*1.3,.6,true);
+  label(x,cx,cy+50,'ORZ Group','Matriz',C.acc2,12);
+  // tooltip
+  if(hover>=0){var u=UNITS[hover],p=pos[hover];tip.innerHTML='<b>ORZ '+u.name+'</b>'+u.info;
+    tip.style.left=Math.min(W-240,Math.max(0,p.x+u.r+16))+'px';tip.style.top=Math.max(0,p.y-30)+'px';tip.classList.add('show')}
+  else tip.classList.remove('show');
+}
+
+/* Cierre: anillo de planetas */
+var rg=document.getElementById('ring'), RG=null;
+var RING=[];UNITS.forEach(function(u){RING.push({n:'ORZ '+u.name,c:u.col,r:30});u.sats.forEach(function(s){RING.push({n:s,c:u.col,r:15})})});
+function initRing(){RG=fit(rg)}
+initRing();
+function drawRing(t){
+  var x=RG.x,W=RG.w,H=RG.h;x.clearRect(0,0,W,H);
+  var cx=W/2, cy=H*.52, A=W*.44, B=H*.40, n=RING.length;
+  x.strokeStyle='rgba(140,170,230,.08)';x.beginPath();x.ellipse(cx,cy,A,B,0,0,7);x.stroke();
+  var items=RING.map(function(it,i){var a=t*.05+i*(Math.PI*2/n);return {it:it,x:cx+Math.cos(a)*A,y:cy+Math.sin(a)*B,z:Math.sin(a)}}).sort(function(a,b){return a.z-b.z});
+  items.forEach(function(o){var s=.65+.35*(o.z+1)/2;x.globalAlpha=.35+.65*(o.z+1)/2;
+    drawPlanet(x,o.x,o.y,o.it.r*s,o.it.c,t+o.x*.01,0,o.it.r>20);
+    label(x,o.x,o.y+o.it.r*s+16,o.it.n,null,o.it.c,10);x.globalAlpha=1});
+}
+
+/* Postura: gráfico que se dibuja */
+var ch=document.getElementById('chart'), CH=null, chT0=0, chSeries=[];
+function initChart(){CH=fit(ch);chSeries=[];var v=0;for(var i=0;i<140;i++){v+=Math.sin(i*.21)*1.2+Math.sin(i*.07)*1.6+(Math.random()-.5)*2.2;chSeries.push(v)}}
+initChart();
+function drawChart(t){
+  var x=CH.x,W=CH.w,H=CH.h;x.clearRect(0,0,W,H);
+  var pad=28, min=Math.min.apply(0,chSeries), max=Math.max.apply(0,chSeries);
+  x.strokeStyle='rgba(140,170,230,.07)';x.lineWidth=1;
+  for(var g=1;g<6;g++){var gy=pad+(H*.62-pad)*g/6;x.beginPath();x.moveTo(pad,gy);x.lineTo(W-pad,gy);x.stroke()}
+  var prog=Math.min(1,(t-chT0)/3.2), N=Math.max(2,Math.floor(chSeries.length*prog));
+  function px(i){return pad+(W-pad*2)*i/(chSeries.length-1)} function py(v){return pad+(H*.62-pad)*(1-(v-min)/(max-min))}
+  var grd=x.createLinearGradient(0,pad,0,H*.62);grd.addColorStop(0,'rgba(79,140,255,.22)');grd.addColorStop(1,'rgba(79,140,255,0)');
+  x.beginPath();x.moveTo(px(0),H*.62);for(var i=0;i<N;i++)x.lineTo(px(i),py(chSeries[i]));x.lineTo(px(N-1),H*.62);x.closePath();x.fillStyle=grd;x.fill();
+  x.beginPath();for(i=0;i<N;i++){i?x.lineTo(px(i),py(chSeries[i])):x.moveTo(px(i),py(chSeries[i]))}
+  x.strokeStyle='rgba(110,162,255,.95)';x.lineWidth=1.8;x.shadowColor='rgba(79,140,255,.8)';x.shadowBlur=10;x.stroke();x.shadowBlur=0;
+  var lx=px(N-1),ly=py(chSeries[N-1]);x.fillStyle='#fff';x.beginPath();x.arc(lx,ly,3,0,7);x.fill();
+  // barras inferiores
+  var by=H*.7,bh=H*.24;for(i=0;i<N;i+=2){var d=chSeries[i]-(chSeries[i-2]||chSeries[i]),hh=Math.min(bh,Math.abs(d)*bh/5+3);
+    x.fillStyle=d>=0?'rgba(52,211,153,.75)':'rgba(239,68,68,.7)';x.fillRect(px(i)-1.5,by+bh-hh,3,hh)}
+  x.fillStyle='rgba(169,180,201,.6)';x.font='500 10px "JetBrains Mono",monospace';x.textAlign='left';x.fillText('DATOS PROPIOS · ILUSTRATIVO',pad,H-10);
+}
+
+/* Principios: embudo de ruido → señal */
+var fn=document.getElementById('funnel'), FN=null, parts=[];
+function initFunnel(){FN=fit(fn);parts=[];for(var i=0;i<170;i++)parts.push({p:Math.random(),o:(Math.random()-.5),s:.04+Math.random()*.06})}
+initFunnel();
+function drawFunnel(t,dt){
+  var x=FN.x,W=FN.w,H=FN.h;x.clearRect(0,0,W,H);
+  var cy=H/2, x0=W*.06, x1=W*.62, x2=W*.94;
+  for(var k=0;k<4;k++){var fx=x0+(x1-x0)*k/3, rh=H*.38*(1-k/3*.86);
+    x.strokeStyle='rgba(110,162,255,'+(.35+k*.15)+')';x.lineWidth=1.2;x.beginPath();x.ellipse(fx,cy,rh*.22,rh,0,0,7);x.stroke()}
+  x.strokeStyle='rgba(110,162,255,.12)';x.beginPath();x.moveTo(x0,cy-H*.38);x.lineTo(x1,cy-H*.05);x.moveTo(x0,cy+H*.38);x.lineTo(x1,cy+H*.05);x.stroke();
+  parts.forEach(function(p){p.p+=p.s*dt;if(p.p>1){p.p=0;p.o=(Math.random()-.5)}
+    var px=x0+(x2-x0)*p.p, spread=p.p<.6?H*.36*(1-p.p/.6*.88):H*.012;
+    var py=cy+p.o*2*spread;
+    var keep=p.p<.6||Math.abs(p.o)<.18;if(!keep)return;
+    x.fillStyle=p.p<.6?'rgba(169,180,201,.55)':'rgba(110,162,255,1)';x.beginPath();x.arc(px,py,p.p<.6?1.4:2,0,7);x.fill()});
+  x.strokeStyle='rgba(110,162,255,.9)';x.lineWidth=1.6;x.shadowColor='rgba(79,140,255,.9)';x.shadowBlur=10;x.beginPath();x.moveTo(x1,cy);x.lineTo(x2,cy);x.stroke();x.shadowBlur=0;
+  x.font='500 10px "JetBrains Mono",monospace';x.fillStyle='rgba(169,180,201,.6)';x.textAlign='left';x.fillText('RUIDO',x0,cy+H*.38+20);x.textAlign='right';x.fillStyle='rgba(110,162,255,.9)';x.fillText('DECISIÓN',x2,cy+24);
+}
+
+/* Bucle principal (solo dibuja lo visible) */
+var last=performance.now(), T=0;
+function loop(now){
+  var dt=Math.min(.05,(now-last)/1000);last=now;T+=RM?0:dt;
+  S.x.clearRect(0,0,S.w,S.h);stars.forEach(function(s){S.x.fillStyle='rgba(200,215,255,'+(s.a*(.6+.4*Math.sin(T*.8+s.p)))+')';S.x.beginPath();S.x.arc(s.x,s.y,s.r,0,7);S.x.fill()});
+  if(active.s1)drawOrbit(T);
+  if(active.s4)drawChart(T);
+  if(active.s5)drawFunnel(T,RM?0:dt);
+  if(active.s8)drawRing(T);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+document.getElementById('s4').addEventListener('transitionstart',function(){},{once:true});
+new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)chT0=T})},{threshold:.5}).observe(document.getElementById('s4'));
+if(RM){drawOrbit(0);}
+
+/* Edge: inclinación con el ratón + zonas que laten */
+var stage=document.getElementById('stage3d'), tilt=document.getElementById('tilt');
+stage.addEventListener('mousemove',function(e){if(RM)return;var r=stage.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;
+  tilt.style.transition='transform .3s ease-out';tilt.style.transform='rotateX('+(8-dy*8)+'deg) rotateY('+(-4+dx*10)+'deg)'});
+stage.addEventListener('mouseleave',function(){tilt.style.transition='';tilt.style.transform=''});
+var zones=[].slice.call(document.querySelectorAll('.zone')), zi=0;
+setInterval(function(){if(!active.s2||stage.matches(':hover'))return;zones.forEach(function(z){z.classList.remove('pulse')});zones[zi%zones.length].classList.add('pulse');zi++},1800);
+
+/* Carrusel */
+var cards=[].slice.call(document.querySelectorAll('.card')), dots=[].slice.call(document.querySelectorAll('#dots i')), cur=0, timer=null;
+function setCar(i){cur=(i+cards.length)%cards.length;
+  cards.forEach(function(c,k){var d=(k-cur+cards.length)%cards.length;c.className=c.className.replace(/\s?c(0|L|R)/g,'')+' '+(d===0?'c0':d===1?'cR':'cL');
+    var v=c.querySelector('video');if(v){if(d===0&&active.s3){var p=v.play();p&&p.catch&&p.catch(function(){})}else v.pause()}});
+  dots.forEach(function(d,k){d.classList.toggle('on',k===cur)})}
+setCar(0);
+document.getElementById('prev').onclick=function(){setCar(cur-1)};
+document.getElementById('next').onclick=function(){setCar(cur+1)};
+cards.forEach(function(c,k){c.addEventListener('click',function(){if(k!==cur)setCar(k)})});
+var car=document.getElementById('car');
+setInterval(function(){if(active.s3&&!car.matches(':hover')&&!RM)setCar(cur+1)},5200);
+var sx=null;car.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+car.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)setCar(cur+(d<0?1:-1));sx=null});
+
+/* Redimensionar */
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){initStars();initOrbit();initRing();initChart();initFunnel()},150)});
+document.fonts&&document.fonts.ready.then(function(){initOrbit();initRing()});
 })();
 </script>
 </body>
