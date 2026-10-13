@@ -3,2283 +3,604 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ORZ Academy — Mentoría de Trading Profesional</title>
-<meta name="description" content="Mentoría de trading personalizada en grupos de máximo 4 personas. Construye tu propia ventaja estadística con acompañamiento directo en NAS100 y XAU/USD. Medellín, Colombia.">
-<meta name="author" content="ORZ Academy">
+<title>ORZ Group — Construimos lo que impulsa al trader</title>
+<meta name="description" content="ORZ Group reúne educación, tecnología y capital para traders: ORZ Academy, ORZ Edge y ORZ Capital. Medellín, Colombia.">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#050810">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ORZ Academy — Mentoría de Trading Profesional">
-<meta property="og:description" content="Mentoría personalizada en grupos de máximo 4 personas. Construye tu ventaja estadística real con acompañamiento directo.">
-<meta property="og:image" content="assets/images/thomas-profile.png">
+<meta property="og:site_name" content="ORZ Group">
+<meta property="og:title" content="ORZ Group — Construimos lo que impulsa al trader">
+<meta property="og:description" content="Educación, tecnología y capital para traders, bajo un mismo estándar profesional.">
+<meta property="og:image" content="https://orzacademy.com/assets/group/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ORZ Academy — Mentoría de Trading Profesional">
-<meta name="twitter:description" content="Mentoría personalizada. Construye tu ventaja estadística real.">
-<meta name="twitter:image" content="assets/images/thomas-profile.png">
+<meta name="twitter:image" content="https://orzacademy.com/assets/group/og.jpg">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/group/academy-levelup.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/group/edge-panel.webp" type="image/webp">
 
 <style>
-/* ─── RESET ──────────────────────────────────────────────────────── */
+/* ─── TOKENS ─────────────────────────────────────────────────────── */
+:root{
+  --bg:#050810;
+  --bg-2:#0a0f1e;
+  --panel:#0f1628;
+  --line:rgba(147,197,253,.10);
+  --line-2:rgba(147,197,253,.18);
+  --blue:#2563eb;
+  --blue-light:#3b82f6;
+  --blue-glow:#60a5fa;
+  --blue-neon:#93c5fd;
+  --gold:#f59e0b;
+  --gold-soft:rgba(245,158,11,.55);
+  --t-100:#ffffff;
+  --t-90:#f0f4ff;
+  --t-70:#b8c4d9;
+  --t-60:#94a3b8;
+  --t-40:#5b6b85;
+  --font-display:'Rajdhani',sans-serif;
+  --font-body:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  --r-sm:4px; --r-md:6px; --r-lg:8px;
+  --wrap:1240px;
+  --gutter:clamp(20px,4vw,48px);
+}
+
+/* ─── BASE ───────────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:'Space Grotesk',sans-serif;background:#000000;color:#f0f4ff;line-height:1.6;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-button{font-family:'Space Grotesk',sans-serif;cursor:pointer}
+html,body{overflow-x:clip}
+body{font-family:var(--font-body);background:var(--bg);color:var(--t-90);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+::selection{background:rgba(59,130,246,.35);color:#fff}
+:focus-visible{outline:2px solid var(--blue-glow);outline-offset:3px;border-radius:var(--r-sm)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+br.mb{display:none}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ─── VARIABLES ──────────────────────────────────────────────────── */
-:root{
-  --orz-black:     #000000;
-  --orz-dark:      #0a0f1e;
-  --orz-dark-mid:  #0f1628;
-  --orz-panel:     #111827;
-  --orz-blue:      #1e40af;
-  --orz-blue-mid:  #2563eb;
-  --orz-blue-light:#3b82f6;
-  --orz-blue-glow: #60a5fa;
-  --orz-blue-neon: #93c5fd;
-  --orz-white:     #ffffff;
-  --orz-white-90:  #f0f4ff;
-  --orz-white-60:  #94a3b8;
-  --orz-white-30:  #334155;
-  --orz-white-10:  #1e293b;
-  --orz-green:     #10b981;
-  --orz-green-glow:#34d399;
-  --orz-red:       #ef4444;
-  --orz-gold:      #f59e0b;
-  --orz-gold-glow: #fbbf24;
-  --orz-gradient-hero: linear-gradient(135deg,#050810 0%,#0a0f1e 50%,#0f1a3d 100%);
-  --orz-gradient-blue: linear-gradient(135deg,#1e40af 0%,#2563eb 100%);
-  --orz-gradient-card: linear-gradient(145deg,#0f1628 0%,#0a0f1e 100%);
-  --orz-gradient-gold: linear-gradient(135deg,#b45309 0%,#f59e0b 100%);
-  --font-display:'Rajdhani',sans-serif;
-  --font-body:   'Space Grotesk',sans-serif;
-  --font-mono:   'JetBrains Mono',monospace;
-}
+/* Fondo global: capas (grid + glows) */
+.bg-layer{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(60% 50% at 15% 0%,rgba(37,99,235,.16),transparent 70%),
+    radial-gradient(50% 40% at 100% 30%,rgba(30,64,175,.10),transparent 70%),
+    linear-gradient(180deg,#050810 0%,#060a16 60%,#050810 100%)}
+.bg-layer::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:72px 72px;opacity:.35;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 30%,transparent 80%);
+          mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 30%,transparent 80%)}
 
-/* ─── KEYFRAMES ──────────────────────────────────────────────────── */
-@keyframes orz-reveal{
-  from{opacity:0;transform:translateY(20px)}
-  to  {opacity:1;transform:translateY(0)}
-}
-@keyframes orz-reveal-r{
-  from{opacity:0;transform:translateX(30px)}
-  to  {opacity:1;transform:translateX(0)}
-}
-@keyframes glow-pulse{
-  0%,100%{opacity:.35}50%{opacity:.7}
-}
-@keyframes ticker-scroll{
-  from{transform:translateX(0)}
-  to  {transform:translateX(-50%)}
-}
-@keyframes border-glow{
-  0%,100%{box-shadow:0 0 12px rgba(37,99,235,.2),0 0 0 1px rgba(37,99,235,.12)}
-  50%    {box-shadow:0 0 32px rgba(37,99,235,.5),0 0 0 1px rgba(37,99,235,.25)}
-}
-@keyframes gold-border-glow{
-  0%,100%{box-shadow:0 0 12px rgba(245,158,11,.15),0 0 0 1px rgba(245,158,11,.12)}
-  50%    {box-shadow:0 0 32px rgba(245,158,11,.4), 0 0 0 1px rgba(245,158,11,.28)}
-}
-@keyframes count-up{from{opacity:0}to{opacity:1}}
+/* ─── TIPOGRAFÍA ─────────────────────────────────────────────────── */
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-neon);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.h-display{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;color:var(--t-100)}
+.h-section{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em;font-size:clamp(40px,5.4vw,72px);color:var(--t-100)}
+.h-section .dim{color:var(--t-40)}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--t-70);max-width:58ch;line-height:1.65}
+.grad{background:linear-gradient(100deg,#bcd7ff 0%,#60a5fa 45%,#2563eb 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* ─── HERO REVEAL (CSS animation — immediate, no observer needed) ─ */
-.reveal   {opacity:0;animation:orz-reveal  .7s ease forwards}
-.reveal-r {opacity:0;animation:orz-reveal-r .7s ease forwards}
-.d1{animation-delay:.10s}.d2{animation-delay:.20s}.d3{animation-delay:.30s}
-.d4{animation-delay:.40s}.d5{animation-delay:.55s}.d6{animation-delay:.70s}
+/* ─── BOTONES ────────────────────────────────────────────────────── */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:var(--r-sm);
+  font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .25s var(--ease-out),border-color .25s var(--ease-out),color .25s var(--ease-out),transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.btn svg{width:18px;height:18px;transition:transform .25s var(--ease-out)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 0 0 1px rgba(147,197,253,.25) inset,0 10px 30px -10px rgba(37,99,235,.7)}
+.btn-primary:hover{background:var(--blue-light);box-shadow:0 0 0 1px rgba(147,197,253,.35) inset,0 14px 40px -10px rgba(59,130,246,.85)}
+.btn-ghost{border:1px solid var(--line-2);color:var(--t-90)}
+.btn-ghost:hover{border-color:rgba(147,197,253,.45);color:#fff;background:rgba(59,130,246,.06)}
 
-/* ─── SCROLL REVEAL (IntersectionObserver) ────────────────────────── */
-.io-reveal{
-  opacity:0;transform:translateY(26px);
-  transition:opacity .65s ease,transform .65s ease;
-}
-.io-reveal.io-visible{opacity:1;transform:translateY(0)}
-.io-reveal.dl-1{transition-delay:.08s}
-.io-reveal.dl-2{transition-delay:.18s}
-.io-reveal.dl-3{transition-delay:.28s}
-.io-reveal.dl-4{transition-delay:.38s}
+/* ─── NAV ────────────────────────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .35s var(--ease-out),border-color .35s var(--ease-out);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(5,8,16,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:baseline;gap:10px;font-family:var(--font-display);font-weight:700;color:#fff;line-height:1}
+.brand b{font-size:26px;letter-spacing:.08em}
+.brand span{font-size:12px;letter-spacing:.42em;color:var(--t-60);font-weight:600}
+.nav-links{display:flex;gap:40px}
+.nav-links a{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-60);position:relative;padding:6px 0;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--blue-glow);transition:right .3s var(--ease-out)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{right:0}
+.nav .btn{min-height:42px;padding:0 20px;font-size:14px}
+.burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--line-2);border-radius:var(--r-sm);cursor:pointer;position:relative}
+.burger i{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;transition:transform .3s var(--ease-out),opacity .2s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:26px}
+.burger.open i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger.open i:nth-child(2){opacity:0}
+.burger.open i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 
-@media(prefers-reduced-motion:reduce){
-  .reveal,.reveal-r,.io-reveal{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}
-}
+/* ─── HERO ───────────────────────────────────────────────────────── */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 40px;position:relative}
+.hero>.wrap{width:100%}
+.hero-top{margin-bottom:40px}
+.hero h1{font-size:clamp(46px,6.9vw,108px)}
+.hero h1 .l2{display:block}
+.hero-side{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:28px;flex-wrap:wrap}
+.hero-side p{color:var(--t-70);font-size:clamp(17px,1.4vw,20px);max-width:42ch;line-height:1.55}
+.hero-side .btns{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ─── NAVBAR ──────────────────────────────────────────────────────── */
-nav{
-  position:fixed;top:0;left:0;width:100%;z-index:1000;
-  background:rgba(5,8,16,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid rgba(37,99,235,.15);
-  padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px;
-  transition:background .3s;
+/* Franja panorámica */
+.strip{display:flex;gap:12px;height:clamp(260px,36vh,440px)}
+.unit{position:relative;flex:5 1 0;min-width:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-2);
+  background:var(--panel);isolation:isolate;transition:flex-grow .7s var(--ease-io),border-color .4s var(--ease-out)}
+.unit.cap{flex-grow:2}
+@media (hover:hover) and (min-width:961px){
+  .strip:hover .unit{flex-grow:3}
+  .strip:hover .unit.cap{flex-grow:1.6}
+  .strip .unit:hover{flex-grow:7}
+  .strip .unit.cap:hover{flex-grow:4.2}
 }
-nav.scrolled{background:rgba(5,8,16,.97)}
-.nav-logo{display:flex;align-items:center;gap:.65rem;flex-shrink:0}
-.nav-logo img{height:34px;width:auto}
-.nav-logo-text{
-  font-family:var(--font-display);font-size:1.3rem;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;color:var(--orz-white);
-}
-.nav-logo-text span{color:var(--orz-blue-glow)}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{
-  font-size:.85rem;font-weight:500;color:var(--orz-white-60);
-  letter-spacing:.04em;transition:color .2s;position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;
-  background:var(--orz-blue-glow);transition:width .25s ease;
-}
-.nav-links a:hover{color:var(--orz-white)}
-.nav-links a:hover::after{width:100%}
-.nav-actions{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+.unit:hover{border-color:rgba(147,197,253,.4)}
+.unit-media{position:absolute;inset:0;z-index:-2}
+.unit-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 1.2s var(--ease-out),filter .6s}
+.unit:hover .unit-media img{transform:scale(1.0)}
+.unit.edu .unit-media img{object-position:50% 38%;filter:saturate(.7) brightness(.62) contrast(1.08)}
+.unit.edu:hover .unit-media img{filter:saturate(.85) brightness(.75) contrast(1.05)}
+.unit.tec .unit-media img{object-position:0% 0%;filter:brightness(.75) saturate(.9)}
+.unit::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,8,16,.70) 0%,rgba(5,8,16,.25) 28%,rgba(5,8,16,.35) 55%,rgba(5,8,16,.94) 100%)}
+.unit.tec::after{background:linear-gradient(180deg,rgba(5,8,16,.80) 0%,rgba(5,8,16,.35) 30%,rgba(5,8,16,.45) 55%,rgba(5,8,16,.95) 100%)}
+.unit.cap{background:
+  radial-gradient(80% 60% at 50% 110%,rgba(245,158,11,.10),transparent 70%),
+  linear-gradient(180deg,#0b101e,#070b15)}
+.unit.cap .cap-lines{position:absolute;inset:0;z-index:-1;opacity:.55;
+  background-image:repeating-linear-gradient(90deg,rgba(245,158,11,.07) 0 1px,transparent 1px 22px)}
+.unit-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
+.unit-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t-70);display:flex;justify-content:space-between;gap:12px}
+.unit-tag em{font-style:normal;color:var(--blue-neon)}
+.unit.cap .unit-tag em{color:var(--gold)}
+.unit-name{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:1;font-size:clamp(28px,2.6vw,40px);color:#fff;white-space:nowrap}
+.unit-name small{display:block;font-size:12px;letter-spacing:.42em;color:var(--t-60);margin-bottom:8px;font-weight:600}
+.unit-desc{margin-top:10px;color:var(--t-70);font-size:15px;max-width:30ch;line-height:1.5;padding-right:56px}
+.unit-go{position:absolute;right:20px;bottom:22px;width:40px;height:40px;border:1px solid var(--line-2);border-radius:var(--r-sm);display:grid;place-items:center;color:#fff;transition:background .3s,border-color .3s,transform .3s var(--ease-out)}
+.unit-go svg{width:18px;height:18px}
+.unit:hover .unit-go{background:var(--blue);border-color:var(--blue);transform:translate(2px,-2px)}
+.unit.cap:hover .unit-go{background:transparent;border-color:var(--gold-soft);color:var(--gold)}
+.unit.cap .unit-name{font-size:clamp(26px,2.2vw,34px)}
 
-.btn-nav-outline{
-  padding:.45rem 1.1rem;border:1px solid rgba(37,99,235,.5);
-  color:var(--orz-blue-glow);background:rgba(37,99,235,.08);
-  border-radius:4px;font-size:.8rem;font-weight:600;letter-spacing:.04em;transition:all .2s;
-}
-.btn-nav-outline:hover{background:rgba(37,99,235,.18);border-color:var(--orz-blue-mid)}
+.scroll-cue{display:flex;justify-content:space-between;align-items:center;margin-top:28px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-40)}
 
-.btn-nav-solid{
-  padding:.45rem 1.2rem;background:var(--orz-gradient-blue);
-  color:#fff;border:none;border-radius:4px;font-size:.8rem;font-weight:600;
-  letter-spacing:.04em;transition:all .25s;
-  box-shadow:0 0 16px rgba(37,99,235,.35);
-}
-.btn-nav-solid:hover{box-shadow:0 0 28px rgba(37,99,235,.65);transform:translateY(-1px)}
+/* ─── SECCIONES ──────────────────────────────────────────────────── */
+section.block{padding:clamp(96px,13vw,168px) 0;position:relative}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+.sec-head .eyebrow{margin-bottom:24px}
+.sec-head .lead{justify-self:end}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent)}
 
-/* Dropdown */
-.acceso-wrapper{position:relative}
-.acceso-dropdown{
-  display:none;position:absolute;top:calc(100% + .6rem);right:0;
-  background:#0a0f1e;border:1px solid rgba(37,99,235,.25);
-  border-radius:8px;padding:.5rem;min-width:240px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6),0 0 0 1px rgba(37,99,235,.1);
-}
-.acceso-wrapper:hover .acceso-dropdown,
-.acceso-wrapper:focus-within .acceso-dropdown{display:block}
-.dropdown-label{
-  font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--orz-white-30);padding:.4rem 1rem .6rem;
-  border-bottom:1px solid rgba(37,99,235,.12);margin-bottom:.4rem;
-}
-.acceso-dropdown a{
-  display:flex;align-items:center;gap:.75rem;padding:.65rem 1rem;
-  border-radius:6px;font-size:.85rem;font-weight:500;
-  color:var(--orz-white-60);transition:all .18s;
-}
-.acceso-dropdown a:hover{background:rgba(37,99,235,.12);color:var(--orz-blue-glow)}
-.acc-icon{
-  width:32px;height:32px;border-radius:6px;
-  background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.acc-icon svg{width:16px;height:16px;color:var(--orz-blue-glow)}
-.acc-name{font-weight:600;color:var(--orz-white-90);font-size:.85rem}
-.acc-sub{font-size:.72rem;color:var(--orz-white-30);margin-top:.05rem}
+/* Academy */
+.acad-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.photo{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo figcaption{position:absolute;left:16px;bottom:14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-70);background:rgba(5,8,16,.7);backdrop-filter:blur(6px);padding:6px 10px;border-radius:var(--r-sm)}
+.acad-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;gap:20px;height:clamp(380px,46vw,560px)}
+.acad-photos .photo:first-child img{object-position:40% 50%}
+.pillars{display:grid;grid-template-rows:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:rgba(10,15,30,.55)}
+.pillar{padding:28px 28px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:40px 1fr;gap:16px;align-content:center}
+.pillar:last-child{border-bottom:0}
+.ico{width:40px;height:40px;border-radius:var(--r-sm);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--blue-glow)}
+.ico svg{width:20px;height:20px}
+.pillar h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:20px;color:#fff;line-height:1.2;margin-bottom:6px}
+.pillar p{color:var(--t-60);font-size:15px;line-height:1.55}
+.sec-cta{margin-top:40px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.sec-cta .note{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--t-40)}
 
-/* Hamburger */
-.hamburger{
-  display:none;flex-direction:column;gap:5px;
-  background:none;border:none;padding:.5rem;
-}
-.hamburger span{
-  display:block;width:22px;height:1.5px;
-  background:var(--orz-white-60);border-radius:2px;transition:all .3s;
-}
-.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+/* Edge */
+.edge-stage{position:relative;padding:0 0 0}
+.screen{position:relative;border-radius:var(--r-lg);border:1px solid var(--line-2);background:#070b16;padding:10px;box-shadow:0 40px 120px -40px rgba(37,99,235,.45),0 0 0 1px rgba(0,0,0,.4)}
+.screen::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(147,197,253,.35),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.screen-bar{display:flex;align-items:center;gap:6px;padding:4px 6px 10px}
+.screen-bar i{width:8px;height:8px;border-radius:50%;background:var(--t-40);opacity:.5}
+.screen-bar span{margin-left:10px;font-family:var(--font-mono);font-size:11px;color:var(--t-40);letter-spacing:.06em}
+.screen img{border-radius:var(--r-md);width:100%}
+.callouts{position:absolute;inset:0;pointer-events:none}
+.co{position:absolute;display:flex;align-items:center;gap:10px}
+.co .dot{width:10px;height:10px;border-radius:50%;background:var(--blue-glow);box-shadow:0 0 0 4px rgba(96,165,250,.2),0 0 18px rgba(96,165,250,.8);flex:none}
+.co .ln{height:1px;background:linear-gradient(90deg,var(--blue-glow),rgba(96,165,250,.15));flex:none}
+.co .lbl{background:rgba(5,8,16,.88);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:8px 12px;backdrop-filter:blur(6px);white-space:nowrap}
+.co .lbl b{display:block;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:#fff;line-height:1.2}
+.co .lbl span{font-size:12px;color:var(--t-60)}
+.co.left{flex-direction:row-reverse}
+.co.left .ln{background:linear-gradient(270deg,var(--blue-glow),rgba(96,165,250,.15))}
 
-/* ─── TICKER ──────────────────────────────────────────────────────── */
-.ticker-bar{
-  background:rgba(10,15,30,.9);border-bottom:1px solid rgba(37,99,235,.1);
-  padding:.45rem 0;overflow:hidden;margin-top:64px;
-}
-.ticker-track{
-  display:flex;gap:3rem;white-space:nowrap;
-  animation:ticker-scroll 30s linear infinite;width:max-content;
-}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{
-  display:flex;align-items:center;gap:.5rem;
-  font-family:var(--font-mono);font-size:.75rem;color:var(--orz-white-60);
-}
-.t-sym{color:var(--orz-white-90);font-weight:600}
-.t-up{color:var(--orz-green-glow)}
-.t-down{color:var(--orz-red)}
-.ticker-sep{color:rgba(37,99,235,.3);font-size:1rem;user-select:none}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,7vw,88px);border-top:1px solid var(--line)}
+.feat{padding:32px 28px 32px 0;border-bottom:1px solid var(--line)}
+.feat:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
+.feat .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--blue-neon);margin-bottom:14px;display:block}
+.feat h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:21px;color:#fff;margin-bottom:8px;line-height:1.2}
+.feat p{color:var(--t-60);font-size:15px;line-height:1.55;max-width:36ch}
 
-/* ─── SECTION BASE ────────────────────────────────────────────────── */
-section{position:relative}
-.orz-grid-bg::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-.orz-glow-bg::after{
-  content:'';position:absolute;
-  width:700px;height:700px;
-  background:radial-gradient(circle,rgba(37,99,235,.1) 0%,transparent 65%);
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  pointer-events:none;z-index:0;animation:glow-pulse 5s ease-in-out infinite;
-}
-.section-inner{
-  max-width:1200px;margin:0 auto;padding:5.5rem 6%;position:relative;z-index:1;
-}
-.section-inner-sm{
-  max-width:900px;margin:0 auto;padding:5.5rem 6%;position:relative;z-index:1;
-}
+/* Capital */
+.cap-sec .eyebrow{color:var(--gold)}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cap-card{position:relative;border:1px solid var(--line-2);border-radius:var(--r-lg);padding:clamp(28px,3.4vw,44px);overflow:hidden;
+  background:radial-gradient(70% 80% at 100% 0%,rgba(245,158,11,.07),transparent 60%),linear-gradient(180deg,#0b101e,#080c18);min-height:300px;display:flex;flex-direction:column}
+.cap-card .n{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--t-40)}
+.cap-card h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:clamp(28px,3vw,38px);line-height:1.05;color:#fff;margin:28px 0 12px}
+.cap-card p{color:var(--t-70);font-size:16px;max-width:38ch}
+.status{margin-top:auto;padding-top:32px;display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.cap-note{margin-top:28px;color:var(--t-40);font-size:14px;max-width:70ch}
 
-/* Section separator line */
-.sep-line{
-  height:1px;
-  background:linear-gradient(90deg,transparent 0%,rgba(37,99,235,.25) 25%,rgba(37,99,235,.25) 75%,transparent 100%);
-  position:relative;z-index:1;
-}
+/* Nosotros */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,6vw,96px);align-items:center}
+.about .photo{aspect-ratio:4/5}
+.about .photo img{object-position:50% 30%;filter:saturate(.85)}
+.about h2{margin:24px 0 28px}
+.about .lead+.lead{margin-top:18px}
+.sign{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:flex;gap:40px;flex-wrap:wrap}
+.sign div b{display:block;font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;font-size:18px}
+.sign div span{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--t-40);text-transform:uppercase}
 
-/* ─── BADGE / HEADING / LEAD ──────────────────────────────────────── */
-.orz-badge{
-  display:inline-flex;align-items:center;gap:.4rem;
-  background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3);
-  color:var(--orz-blue-glow);
-  font-family:var(--font-body);font-size:.7rem;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:.3rem .85rem;border-radius:2px;margin-bottom:1.5rem;
-}
-.orz-badge-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--orz-green);display:inline-block;
-}
-.orz-h2{
-  font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);
-  font-weight:700;text-transform:uppercase;letter-spacing:.03em;
-  color:var(--orz-white);line-height:1.1;
-}
-.orz-lead{
-  font-size:1.05rem;color:var(--orz-white-60);line-height:1.8;max-width:560px;
-}
+/* Cierre */
+.closing{text-align:center;padding:clamp(110px,14vw,180px) 0;position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;left:50%;top:55%;width:900px;height:500px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(37,99,235,.28),transparent);pointer-events:none;z-index:-1}
+.closing h2{font-size:clamp(44px,7vw,104px);margin:24px 0 28px}
+.closing p{color:var(--t-70);max-width:44ch;margin:0 auto 40px;font-size:18px}
+.closing .btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 
-/* ─── BUTTONS ─────────────────────────────────────────────────────── */
-.orz-btn-primary{
-  display:inline-flex;align-items:center;gap:.65rem;
-  background:var(--orz-gradient-blue);color:#fff;border:none;border-radius:4px;
-  font-family:var(--font-body);font-weight:600;font-size:.95rem;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:.9rem 2rem;position:relative;overflow:hidden;transition:all .3s;
-  box-shadow:0 0 22px rgba(37,99,235,.4);
-}
-.orz-btn-primary::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);
-  pointer-events:none;
-}
-.orz-btn-primary:hover{box-shadow:0 0 40px rgba(37,99,235,.75);transform:translateY(-2px)}
-.orz-btn-primary svg{width:18px;height:18px;flex-shrink:0;position:relative;z-index:1}
-.orz-btn-primary span{position:relative;z-index:1}
+/* Footer */
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.4fr;gap:40px}
+.foot h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-40);margin-bottom:16px;font-weight:500}
+.foot ul{list-style:none;display:grid;gap:10px}
+.foot a{color:var(--t-60);font-size:15px;transition:color .2s}
+.foot a:hover{color:#fff}
+.foot .brand{margin-bottom:14px}
+.foot .tag{color:var(--t-60);font-size:15px;max-width:28ch}
+.risk{color:var(--t-40);font-size:13px;line-height:1.6}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--t-40)}
 
-.orz-btn-secondary{
-  display:inline-flex;align-items:center;gap:.65rem;
-  background:transparent;color:var(--orz-blue-light);
-  border:1px solid var(--orz-blue-mid);border-radius:4px;
-  font-family:var(--font-body);font-weight:500;font-size:.95rem;
-  letter-spacing:.04em;padding:.9rem 2rem;transition:all .3s;
+/* ─── REVEAL ─────────────────────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.hero .rv{transition-duration:1.1s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .unit,.unit-media img{transition:none}
+  .status::before{animation:none}
 }
-.orz-btn-secondary:hover{
-  background:rgba(37,99,235,.1);border-color:var(--orz-blue-light);
-  box-shadow:0 0 20px rgba(37,99,235,.2);transform:translateY(-1px);
-}
-
-/* ─── HERO ────────────────────────────────────────────────────────── */
-#hero{min-height:100vh;display:flex;flex-direction:column}
-.hero-body{flex:1;display:flex;align-items:center}
-.hero-inner{
-  max-width:1200px;margin:0 auto;padding:0 6%;width:100%;
-  display:grid;grid-template-columns:1fr 480px;gap:5rem;align-items:center;
-}
-.hero-kicker{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3);
-  color:var(--orz-blue-glow);
-  font-family:var(--font-mono);font-size:.72rem;font-weight:500;
-  letter-spacing:.1em;padding:.3rem .9rem;border-radius:2px;margin-bottom:1.75rem;
-}
-.hero-kicker-dot{
-  width:6px;height:6px;border-radius:50%;background:var(--orz-green);
-  flex-shrink:0;animation:glow-pulse 2s ease-in-out infinite;
-}
-.hero-title{
-  font-family:var(--font-display);font-size:clamp(3rem,5.5vw,4.8rem);
-  font-weight:700;line-height:1.0;text-transform:uppercase;letter-spacing:.02em;
-  color:var(--orz-white);margin-bottom:1.5rem;
-}
-.hero-title .hl{
-  background:linear-gradient(135deg,#fff 0%,var(--orz-blue-neon) 50%,var(--orz-blue-glow) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  display:block;
-}
-.hero-sub{
-  font-size:1.05rem;color:var(--orz-white-60);
-  line-height:1.8;max-width:500px;margin-bottom:2.5rem;
-}
-.hero-sub strong{color:var(--orz-white-90)}
-.hero-ctas{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:3rem}
-.hero-stats{
-  display:flex;gap:2.5rem;padding-top:2rem;
-  border-top:1px solid rgba(37,99,235,.15);
-}
-.hero-stat-val{
-  font-family:var(--font-display);font-size:2rem;font-weight:700;
-  color:var(--orz-white);line-height:1;letter-spacing:.02em;
-}
-.hero-stat-val .unit{font-size:1rem;color:var(--orz-blue-glow);margin-left:.1rem}
-.hero-stat-lbl{font-size:.78rem;color:var(--orz-white-60);margin-top:.35rem;letter-spacing:.04em}
-
-/* Imagen hero */
-.hero-image-col{position:relative;display:flex;justify-content:center;align-items:center}
-.hero-image-glow{
-  position:absolute;width:420px;height:420px;border-radius:50%;
-  background:radial-gradient(circle,rgba(37,99,235,.18) 0%,transparent 70%);
-  pointer-events:none;animation:glow-pulse 4s ease-in-out infinite;
-}
-.hero-image-frame{
-  width:420px;height:520px;border-radius:8px;overflow:hidden;
-  border:1px solid rgba(37,99,235,.25);
-  box-shadow:0 0 0 1px rgba(37,99,235,.08),0 30px 80px rgba(0,0,0,.5);
-  position:relative;
-}
-.hero-image-frame img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.hero-image-frame::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
-  background:linear-gradient(to top,rgba(5,8,16,.85),transparent);pointer-events:none;
-}
-.hero-image-frame::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(96,165,250,.8),transparent);z-index:2;
-}
-.hero-corner{position:absolute;width:20px;height:20px;border-color:var(--orz-blue-mid);border-style:solid}
-.hero-corner.tl{top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:2px 0 0 0}
-.hero-corner.tr{top:-1px;right:-1px;border-width:2px 2px 0 0;border-radius:0 2px 0 0}
-.hero-corner.bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-radius:0 0 0 2px}
-.hero-corner.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 2px 0}
-.hero-img-badge{
-  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
-  background:rgba(5,8,16,.9);border:1px solid rgba(37,99,235,.35);
-  border-radius:6px;padding:.65rem 1.25rem;white-space:nowrap;
-  backdrop-filter:blur(10px);z-index:3;
-}
-.hero-img-badge-name{font-weight:700;font-size:.88rem;color:var(--orz-white)}
-.hero-img-badge-role{font-size:.72rem;color:var(--orz-blue-glow);margin-top:.1rem;letter-spacing:.06em;text-transform:uppercase}
-
-/* ─── MI HISTORIA ────────────────────────────────────────────────── */
-.historia-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;
-}
-.historia-p{
-  font-size:1rem;color:var(--orz-white-60);line-height:1.9;margin-bottom:1.25rem;
-}
-.historia-p:last-child{margin-bottom:0}
-.historia-highlight{
-  border-left:2px solid var(--orz-blue-mid);padding-left:1.25rem;
-  margin:1.75rem 0;font-size:1rem;color:var(--orz-white-90);
-  line-height:1.8;font-style:italic;
-}
-
-/* ─── PROBLEMA / LOGROS ──────────────────────────────────────────── */
-#problema{background:#000000}
-#logros   {background:#000000}
-.problema-grid,.logros-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem;
-}
-.problema-card,.logro-card{
-  background:var(--orz-gradient-card);
-  border:1px solid rgba(37,99,235,.15);border-radius:8px;padding:1.75rem;
-  position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s;
-}
-.problema-card::before,.logro-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(96,165,250,.5),transparent);
-}
-.problema-card:hover,.logro-card:hover{
-  border-color:rgba(37,99,235,.35);
-  box-shadow:0 8px 32px rgba(37,99,235,.1);transform:translateY(-3px);
-}
-.card-icon{
-  width:44px;height:44px;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;margin-bottom:1rem;
-}
-.card-icon.red  {background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.2)}
-.card-icon.green{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)}
-.card-title{
-  font-family:var(--font-display);font-size:1.1rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);margin-bottom:.6rem;
-}
-.card-desc{font-size:.9rem;color:var(--orz-white-60);line-height:1.75}
-
-/* ─── PLATAFORMAS ────────────────────────────────────────────────── */
-#plataformas{}
-/* ─── ECOSISTEMA ORZ ─────────────────────────────────────────────── */
-.ecosistema-orz .orz-lead{max-width:40rem}
-.ecosystem-block{
-  display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center;
-  padding:3rem;margin-bottom:2rem;
-  background:linear-gradient(135deg,rgba(37,99,235,.05),transparent);
-  border:1px solid rgba(37,99,235,.18);border-radius:8px;
-  position:relative;overflow:hidden;transition:border-color .3s;
-}
-.ecosystem-block::before{
-  content:'';position:absolute;top:-100px;left:-100px;width:400px;height:400px;
-  background:radial-gradient(circle,rgba(37,99,235,.16),transparent 70%);
-  border-radius:50%;pointer-events:none;z-index:0;
-}
-.ecosystem-block:hover{border-color:rgba(37,99,235,.45)}
-.ecosystem-block--reversed{grid-template-columns:1fr 1.3fr}
-.ecosystem-block--reversed::before{left:auto;right:-100px}
-.ecosystem-block__mockup{position:relative;aspect-ratio:5/4;z-index:1}
-.mockup-main{
-  position:absolute;left:6%;top:8%;width:88%;border-radius:8px;
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 40px rgba(37,99,235,.12);
-  z-index:2;transition:transform .5s cubic-bezier(.16,1,.3,1);
-  background:var(--orz-dark);
-}
-.mockup-peek{
-  position:absolute;width:40%;border-radius:6px;
-  border:1px solid rgba(37,99,235,.3);
-  box-shadow:0 12px 30px rgba(0,0,0,.5);
-  transition:transform .5s cubic-bezier(.16,1,.3,1);
-  z-index:3;background:var(--orz-dark);
-}
-.mockup-peek--top-right{right:0;top:0;transform:rotate(5deg)}
-.mockup-peek--bottom-left{left:0;bottom:4%;transform:rotate(-5deg)}
-.mockup-peek--top-left{left:0;top:0;transform:rotate(-5deg)}
-.mockup-peek--bottom-right{right:0;bottom:4%;transform:rotate(5deg)}
-.ecosystem-block:hover .mockup-main{transform:scale(1.02) translateY(-4px)}
-.ecosystem-block:hover .mockup-peek--top-right,
-.ecosystem-block:hover .mockup-peek--bottom-right{transform:rotate(3deg) translate(4px,-4px)}
-.ecosystem-block:hover .mockup-peek--top-left,
-.ecosystem-block:hover .mockup-peek--bottom-left{transform:rotate(-3deg) translate(-4px,-4px)}
-.ecosystem-block__content{position:relative;z-index:4}
-.block-eyebrow{
-  color:var(--orz-blue-glow);font-size:.72rem;font-weight:600;
-  letter-spacing:.12em;margin-bottom:.75rem;text-transform:uppercase;
-}
-.block-title{
-  font-family:var(--font-display);font-size:2.4rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.03em;
-  color:var(--orz-white);margin:0 0 1rem;line-height:1.1;
-}
-.block-description{
-  font-size:1rem;color:var(--orz-white-60);line-height:1.7;margin:0 0 1.75rem;
-}
-.block-features{list-style:none;padding:0;margin:0 0 2rem}
-.block-features li{
-  position:relative;padding-left:1.75rem;margin-bottom:.75rem;
-  color:rgba(240,244,255,.78);font-size:.93rem;line-height:1.55;
-}
-.block-features li::before{
-  content:'';position:absolute;left:0;top:.42em;width:14px;height:14px;
-  border:1.5px solid var(--orz-green);border-radius:50%;background:transparent;
-}
-.block-features li::after{
-  content:'';position:absolute;left:4px;top:.42em;margin-top:4px;width:6px;height:6px;
-  background:var(--orz-green);border-radius:50%;
-}
-.block-cta{
-  display:inline-flex;align-items:center;gap:.5rem;
-  color:var(--orz-blue-light);font-weight:600;font-size:.88rem;
-  letter-spacing:.04em;text-transform:uppercase;
-  border:1px solid rgba(37,99,235,.35);border-radius:4px;
-  padding:.6rem 1.2rem;transition:all .25s;width:fit-content;
-}
-.block-cta:hover{
-  background:rgba(37,99,235,.12);border-color:var(--orz-blue-light);
-  box-shadow:0 0 18px rgba(37,99,235,.2);
-}
-.block-cta svg{width:16px;height:16px;transition:transform .25s}
-.block-cta:hover svg{transform:translateX(3px)}
-
-/* ─── PRECIOS ────────────────────────────────────────────────────── */
-#precios{background:#000000}
-#precios::before{
-  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(rgba(37,99,235,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(37,99,235,.035) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-.precios-intro{text-align:center;margin-bottom:2.5rem;position:relative;z-index:1}
-
-/* Filter tabs */
-.precios-tabs{
-  display:flex;justify-content:center;gap:.5rem;
-  margin-bottom:3rem;flex-wrap:wrap;position:relative;z-index:1;
-}
-.precio-tab{
-  padding:.5rem 1.5rem;border-radius:4px;font-size:.8rem;font-weight:600;
-  letter-spacing:.07em;text-transform:uppercase;
-  border:1px solid rgba(37,99,235,.2);color:var(--orz-white-60);
-  background:transparent;transition:all .2s;
-}
-.precio-tab.active{
-  border-color:var(--orz-blue-mid);color:var(--orz-blue-glow);
-  background:rgba(37,99,235,.1);
-  box-shadow:0 0 12px rgba(37,99,235,.15);
-}
-.precio-tab:hover:not(.active){
-  border-color:rgba(37,99,235,.4);color:var(--orz-white-60);
-  background:rgba(37,99,235,.05);
-}
-
-.precios-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;
-  position:relative;z-index:1;
-}
-.precio-card.full-width{grid-column:1 / -1}
-
-/* Card base */
-.precio-card{
-  background:linear-gradient(145deg,#0f1628 0%,#0a0f1e 100%);
-  border:1px solid rgba(37,99,235,.15);border-radius:8px;
-  padding:2rem;position:relative;overflow:hidden;
-  transition:border-color .3s,box-shadow .3s,transform .3s;
-  display:flex;flex-direction:column;
-}
-.precio-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(96,165,250,.5),transparent);
-}
-.precio-card:hover{
-  border-color:rgba(37,99,235,.4);
-  box-shadow:0 8px 40px rgba(37,99,235,.1);transform:translateY(-4px);
-}
-
-/* Featured card */
-.precio-card.featured{
-  border-color:rgba(37,99,235,.5);
-  animation:border-glow 3s ease-in-out infinite;
-}
-.precio-card.featured::before{
-  background:linear-gradient(90deg,transparent,rgba(96,165,250,.9),transparent);
-}
-.precio-featured-badge{
-  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-  background:var(--orz-gradient-blue);color:#fff;
-  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:.25rem .9rem;border-radius:0 0 6px 6px;white-space:nowrap;
-}
-
-/* Squad card — gold */
-.precio-card.squad{
-  border-color:rgba(245,158,11,.25);
-  background:linear-gradient(145deg,#18130a 0%,#0f0d08 100%);
-  animation:gold-border-glow 3s ease-in-out infinite;
-}
-.precio-card.squad::before{
-  background:linear-gradient(90deg,transparent,rgba(245,158,11,.6),transparent);
-}
-.precio-card.squad:hover{
-  border-color:rgba(245,158,11,.5);
-  box-shadow:0 8px 40px rgba(245,158,11,.12);
-}
-.squad-badge{
-  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-  background:var(--orz-gradient-gold);color:#fff;
-  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:.25rem .9rem;border-radius:0 0 6px 6px;white-space:nowrap;
-}
-.squad-type{
-  font-family:var(--font-mono);font-size:.7rem;font-weight:600;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--orz-gold);
-  margin-bottom:.85rem;margin-top:.5rem;
-}
-.squad-name{
-  font-family:var(--font-display);font-size:1.3rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.03em;color:var(--orz-white);
-  margin-bottom:1.5rem;
-}
-.squad-amounts{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.75rem;
-}
-.squad-row{
-  display:flex;flex-direction:column;gap:.2rem;
-  padding:.6rem .75rem;background:rgba(245,158,11,.04);
-  border:1px solid rgba(245,158,11,.1);border-radius:4px;
-}
-.squad-row-lbl{font-size:.78rem;color:var(--orz-white-60)}
-.squad-row-val{
-  font-family:var(--font-mono);font-size:.95rem;font-weight:600;color:var(--orz-white);
-}
-.squad-row-val .cur{font-size:.72rem;color:var(--orz-gold);margin-right:.08rem}
-.squad-row-val .per{font-size:.68rem;color:var(--orz-white-60);font-weight:400;margin-left:.1rem}
-.squad-feats{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem .75rem;margin-bottom:1.75rem;flex:1;
-}
-.squad-feat{display:flex;align-items:flex-start;gap:.5rem;font-size:.85rem;color:var(--orz-white-60)}
-.squad-feat::before{
-  content:'─';color:var(--orz-gold);flex-shrink:0;
-  font-family:var(--font-mono);line-height:1.5;
-}
-.squad-cta{
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  width:100%;padding:.75rem;border-radius:4px;
-  font-family:var(--font-body);font-size:.82rem;font-weight:600;
-  letter-spacing:.06em;text-transform:uppercase;
-  border:1px solid rgba(245,158,11,.45);color:var(--orz-gold);
-  background:rgba(245,158,11,.07);transition:all .25s;
-}
-.squad-cta:hover{
-  background:rgba(245,158,11,.16);border-color:var(--orz-gold);
-  box-shadow:0 0 20px rgba(245,158,11,.2);
-}
-
-/* Card content */
-.precio-type{
-  font-family:var(--font-mono);font-size:.7rem;font-weight:600;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--orz-blue-glow);
-  margin-bottom:.85rem;margin-top:.5rem;
-}
-.precio-name{
-  font-family:var(--font-display);font-size:1.3rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.03em;color:var(--orz-white);margin-bottom:1.5rem;
-}
-.precio-amounts{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem}
-.precio-row{
-  display:flex;justify-content:space-between;align-items:baseline;
-  padding:.6rem .75rem;background:rgba(255,255,255,.03);
-  border:1px solid rgba(37,99,235,.08);border-radius:4px;
-}
-.precio-row-lbl{font-size:.82rem;color:var(--orz-white-60)}
-.precio-row-val{font-family:var(--font-mono);font-size:1rem;font-weight:600;color:var(--orz-white)}
-.precio-row-val .cur{font-size:.75rem;color:var(--orz-blue-glow);margin-right:.1rem}
-.precio-row-val .per{font-size:.72rem;color:var(--orz-white-60);font-weight:400;margin-left:.15rem}
-.precio-features{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem;flex:1}
-.precio-feat{display:flex;align-items:flex-start;gap:.6rem;font-size:.85rem;color:var(--orz-white-60)}
-.precio-feat::before{
-  content:'─';color:var(--orz-blue-mid);flex-shrink:0;
-  font-family:var(--font-mono);line-height:1.5;
-}
-.precio-cta{
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  width:100%;padding:.75rem;border-radius:4px;margin-top:auto;
-  font-family:var(--font-body);font-size:.82rem;font-weight:600;
-  letter-spacing:.06em;text-transform:uppercase;
-  border:1px solid rgba(37,99,235,.4);color:var(--orz-blue-light);
-  background:transparent;transition:all .25s;
-}
-.precio-cta:hover{background:rgba(37,99,235,.12);border-color:var(--orz-blue-mid)}
-.precio-cta.featured-cta{
-  background:var(--orz-gradient-blue);color:#fff;border:none;
-  box-shadow:0 0 20px rgba(37,99,235,.4);
-}
-.precio-cta.featured-cta:hover{box-shadow:0 0 38px rgba(37,99,235,.7);transform:translateY(-1px)}
-
-/* Bitácora */
-.bitacora-section{margin-top:2rem;position:relative;z-index:1}
-.bitacora-card{
-  background:linear-gradient(135deg,rgba(15,22,40,.8) 0%,rgba(10,15,30,.9) 100%);
-  border:1px solid rgba(245,158,11,.2);border-radius:8px;
-  padding:2rem 2.5rem;display:flex;align-items:center;
-  gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden;
-  transition:border-color .3s,box-shadow .3s;
-}
-.bitacora-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(245,158,11,.6),transparent);
-}
-.bitacora-card:hover{
-  border-color:rgba(245,158,11,.4);box-shadow:0 8px 32px rgba(245,158,11,.08);
-}
-.bitacora-label{
-  display:inline-flex;align-items:center;gap:.4rem;
-  background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);
-  color:var(--orz-gold);font-size:.68rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:.25rem .75rem;border-radius:2px;margin-bottom:.5rem;
-}
-.bitacora-name{
-  font-family:var(--font-display);font-size:1.4rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.04em;color:var(--orz-white);
-}
-.bitacora-desc{font-size:.88rem;color:var(--orz-white-60);margin-top:.35rem;line-height:1.6}
-.bitacora-price-wrap{flex-shrink:0;text-align:center}
-.bitacora-price{
-  font-family:var(--font-display);font-size:3rem;font-weight:700;
-  color:var(--orz-white);line-height:1;
-}
-.bitacora-price .cur{font-size:1.5rem;color:var(--orz-gold);vertical-align:super}
-.bitacora-period{font-size:.8rem;color:var(--orz-white-60);margin-top:.25rem}
-.bitacora-cta{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35);
-  color:var(--orz-gold);font-size:.82rem;font-weight:600;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:.65rem 1.4rem;border-radius:4px;transition:all .25s;flex-shrink:0;
-}
-.bitacora-cta:hover{background:rgba(245,158,11,.22);box-shadow:0 0 20px rgba(245,158,11,.2)}
-.bitacora-cta svg{width:16px;height:16px}
-
-/* ─── TESTIMONIOS ────────────────────────────────────────────────── */
-#casos{background:#000000}
-
-
-/* ─── CTA FINAL ──────────────────────────────────────────────────── */
-#cta-final{
-  position:relative;overflow:hidden;
-}
-#cta-final::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-#cta-final::after{
-  content:'';position:absolute;
-  width:800px;height:800px;
-  background:radial-gradient(circle,rgba(37,99,235,.14) 0%,transparent 65%);
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  pointer-events:none;z-index:0;animation:glow-pulse 5s ease-in-out infinite;
-}
-.cta-final-inner{
-  max-width:860px;margin:0 auto;padding:6rem 6%;
-  text-align:center;position:relative;z-index:1;
-}
-.cta-final-badge{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);
-  color:var(--orz-gold);font-size:.7rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  padding:.3rem 1rem;border-radius:2px;margin-bottom:2rem;
-}
-.cta-final-badge-dot{
-  width:5px;height:5px;border-radius:50%;background:var(--orz-gold);
-  animation:glow-pulse 1.5s ease-in-out infinite;
-}
-.cta-final-h{
-  font-family:var(--font-display);
-  font-size:clamp(2.2rem,5vw,4rem);
-  font-weight:700;text-transform:uppercase;letter-spacing:.03em;
-  color:var(--orz-white);line-height:1.05;margin-bottom:1.5rem;
-}
-.cta-final-h .hl{
-  background:linear-gradient(135deg,#fff 0%,var(--orz-blue-neon) 50%,var(--orz-blue-glow) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.cta-final-sub{
-  font-size:1.05rem;color:var(--orz-white-60);line-height:1.8;
-  max-width:560px;margin:0 auto 2.5rem;
-}
-.cta-final-sub strong{color:var(--orz-white-90)}
-.cta-final-btn{
-  display:inline-flex;align-items:center;gap:.75rem;
-  background:var(--orz-gradient-blue);color:#fff;border:none;border-radius:4px;
-  font-family:var(--font-body);font-weight:700;font-size:1rem;
-  letter-spacing:.07em;text-transform:uppercase;
-  padding:1.1rem 2.75rem;position:relative;overflow:hidden;transition:all .3s;
-  box-shadow:0 0 30px rgba(37,99,235,.5);
-}
-.cta-final-btn::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);
-  pointer-events:none;
-}
-.cta-final-btn:hover{box-shadow:0 0 55px rgba(37,99,235,.8);transform:translateY(-3px)}
-.cta-final-btn svg{width:20px;height:20px;flex-shrink:0;position:relative;z-index:1}
-.cta-final-btn span{position:relative;z-index:1}
-.cta-spots{
-  margin-top:1.75rem;font-size:.82rem;color:var(--orz-white-60);
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-}
-.cta-spots-dot{
-  width:7px;height:7px;border-radius:50%;background:var(--orz-green);
-  animation:glow-pulse 1.5s ease-in-out infinite;flex-shrink:0;
-}
-
-/* ─── FOOTER ─────────────────────────────────────────────────────── */
-footer{
-  background:#050810;border-top:1px solid rgba(37,99,235,.12);padding:3rem 6%;
-}
-.footer-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;
-}
-.footer-left{}
-.footer-logo{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
-.footer-logo img{height:26px;width:auto;opacity:.65}
-.footer-logo-txt{
-  font-family:var(--font-display);font-size:.95rem;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--orz-white-60);
-}
-.footer-tagline{font-size:.8rem;color:var(--orz-white-30);line-height:1.5}
-.footer-center{display:flex;flex-direction:column;align-items:center;gap:.85rem;text-align:center}
-.footer-socials{display:flex;align-items:center;gap:.85rem}
-.footer-social{
-  width:36px;height:36px;border-radius:6px;
-  border:1px solid rgba(37,99,235,.2);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--orz-white-60);transition:all .2s;
-}
-.footer-social:hover{
-  border-color:var(--orz-blue-mid);color:var(--orz-blue-glow);
-  background:rgba(37,99,235,.1);transform:translateY(-2px);
-}
-.footer-social svg{width:16px;height:16px}
-.footer-copy{font-size:.75rem;color:var(--orz-white-30);white-space:nowrap}
-.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;text-align:right}
-.footer-city{font-size:.8rem;color:var(--orz-white-60)}
-.footer-disclaimer{font-size:.72rem;color:rgba(255,255,255,.2);line-height:1.5;max-width:280px}
 
 /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
-@media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:3rem;text-align:center}
-  .hero-sub{margin-left:auto;margin-right:auto}
-  .hero-ctas{justify-content:center}
-  .hero-stats{justify-content:center}
-  .hero-image-col{order:-1}
-  .hero-image-frame{width:340px;height:420px}
-  .hero-image-glow{width:340px;height:340px}
-  .ecosystem-block,.ecosystem-block--reversed{grid-template-columns:1fr;gap:2.5rem;padding:2rem;margin-bottom:1.5rem}
-  .ecosystem-block--reversed .ecosystem-block__content{order:2}
-  .ecosystem-block--reversed .ecosystem-block__mockup{order:1}
-  .ecosystem-block__mockup{aspect-ratio:3/2}
-  .mockup-peek{width:30%}
-  .block-title{font-size:2rem}
-  .precios-grid{grid-template-columns:1fr}
-  .historia-grid{grid-template-columns:1fr}
-  .problema-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr;text-align:center}
-  .footer-left{display:flex;flex-direction:column;align-items:center}
-  .footer-right{align-items:center;text-align:center}
-  .footer-disclaimer{max-width:420px}
-  .nav-links{display:none}
-  .hamburger{display:flex}
-  .nav-links.open{
-    display:flex;flex-direction:column;gap:1.2rem;
-    position:absolute;top:64px;left:0;width:100%;
-    background:rgba(5,8,16,.97);backdrop-filter:blur(20px);
-    padding:1.5rem 6%;border-bottom:1px solid rgba(37,99,235,.15);
-    z-index:999;
-  }
+@media (max-width:1100px){
+  .callouts .co.hide-md{display:none}
 }
-@media(max-width:768px){
-  .squad-amounts{grid-template-columns:1fr}
-  .squad-feats{grid-template-columns:1fr}
-  .cta-final-btn{padding:.95rem 2rem;font-size:.9rem}
+@media (max-width:960px){
+  .nav-links{position:fixed;top:76px;left:0;right:0;flex-direction:column;gap:0;background:rgba(5,8,16,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:8px var(--gutter) 24px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .3s var(--ease-out)}
+  .nav-links.open{opacity:1;transform:none;pointer-events:auto}
+  .nav-links a{padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .nav-links a::after{display:none}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .hero{padding-top:120px}
+  .hero-top{margin-bottom:32px}
+  .hero-side{flex-direction:column;align-items:flex-start;gap:24px}
+  .hero h1{font-size:clamp(44px,13vw,72px)}
+  br.mb{display:inline}
+  .strip{flex-direction:column;height:auto}
+  .unit{flex:none;height:220px}
+  .unit.cap{height:150px}
+  .sec-head{grid-template-columns:1fr;gap:24px}
+  .sec-head .lead{justify-self:start}
+  .acad-grid{grid-template-columns:1fr}
+  .acad-photos{height:auto;grid-template-columns:1fr 1fr}
+  .acad-photos .photo{aspect-ratio:3/4}
+  .callouts{display:none}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .feat,.feat:not(:nth-child(3n+1)){padding:28px 20px 28px 0;border-left:0}
+  .feat:nth-child(2n){padding-left:20px;border-left:1px solid var(--line)}
+  .cap-grid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .closing h2{font-size:clamp(40px,12vw,72px)}
+  .about .photo{aspect-ratio:4/3;max-height:460px}
+  .foot{grid-template-columns:1fr 1fr}
 }
-@media(max-width:640px){
-  .hero-image-frame{width:100%;height:300px}
-  .hero-image-glow{display:none}
-  .hero-stats{gap:1.5rem;flex-wrap:wrap}
-  .hero-title{font-size:2.4rem}
-  .ecosystem-block,.ecosystem-block--reversed{padding:1.5rem}
-  .mockup-peek{width:30%}
-  .bitacora-card{flex-direction:column;text-align:center}
-  .bitacora-price-wrap{width:100%}
-  .section-inner,.section-inner-sm{padding:4rem 5%}
-  .nav-actions .btn-nav-outline{display:none}
-  .nav-actions .btn-nav-solid{display:none}
-  .cta-final-inner{padding:4rem 5%}
-  .footer-inner{gap:1.25rem}
-}
-
-/* ─── FASE 2: placeholder testimonios + CTA inline + sticky móvil ── */
-.cta-inline-precios{padding:3rem 0 1rem;position:relative;z-index:1}
-.cta-inline-content{
-  max-width:42rem;margin:0 auto;text-align:center;padding:2.5rem 2rem;
-  background:linear-gradient(135deg,rgba(37,99,235,.06),transparent);
-  border:1px solid rgba(37,99,235,.2);border-radius:8px;
-  position:relative;overflow:hidden;
-}
-.cta-inline-content::before{
-  content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
-  width:300px;height:200px;
-  background:radial-gradient(ellipse,rgba(37,99,235,.15),transparent 70%);
-  pointer-events:none;
-}
-.cta-inline-lead{
-  font-size:1.125rem;color:rgba(255,255,255,.75);margin:0 0 1.5rem;
-  position:relative;z-index:1;
-}
-.cta-inline-btn{
-  display:inline-flex;align-items:center;gap:.625rem;padding:1rem 2rem;
-  background:var(--orz-blue-mid);color:#fff;border-radius:8px;
-  font-family:var(--font-body);font-size:.9375rem;font-weight:600;
-  letter-spacing:.05em;text-transform:uppercase;text-decoration:none;
-  transition:all .3s cubic-bezier(.16,1,.3,1);
-  box-shadow:0 8px 24px rgba(37,99,235,.3);position:relative;z-index:1;
-}
-.cta-inline-btn:hover{
-  transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,.45);
-}
-.cta-inline-icon{display:inline-flex;align-items:center}
-.cta-inline-microcopy{
-  margin:1rem 0 0;font-size:.8125rem;color:rgba(255,255,255,.45);
-  letter-spacing:.3px;position:relative;z-index:1;
-}
-@media (max-width:640px){
-  .cta-inline-content{padding:2rem 1.25rem}
-  .cta-inline-lead{font-size:1rem}
-  .cta-inline-btn{padding:.875rem 1.5rem;font-size:.875rem}
-}
-.sticky-cta-mobile{
-  display:none;position:fixed;bottom:0;left:0;right:0;
-  padding:.75rem 1rem calc(.75rem + env(safe-area-inset-bottom));
-  background:rgba(3,7,17,.92);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border-top:1px solid rgba(37,99,235,.25);z-index:100;
-  opacity:0;transform:translateY(100%);
-  transition:opacity .3s ease,transform .3s ease;pointer-events:none;
-}
-.sticky-cta-mobile.visible{opacity:1;transform:translateY(0);pointer-events:auto}
-.sticky-cta-btn{
-  display:flex;align-items:center;justify-content:center;gap:.5rem;
-  width:100%;padding:.875rem 1rem;background:var(--orz-blue-mid);color:#fff;
-  border-radius:8px;font-family:var(--font-body);font-size:.875rem;
-  font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-  text-decoration:none;box-shadow:0 4px 16px rgba(37,99,235,.4);
-}
-@media (max-width:900px){
-  .sticky-cta-mobile{display:block}
-  body{padding-bottom:5rem}
-}
-
-/* ─── CASOS REALES ───────────────────────────────────────────────── */
-.caso-card{
-  position:relative;display:block;aspect-ratio:9/16;border-radius:8px;
-  overflow:hidden;background:#05080f;border:1px solid rgba(37,99,235,.15);
-  transition:all .4s cubic-bezier(.16,1,.3,1);text-decoration:none;cursor:pointer;
-}
-.caso-card:hover{
-  transform:translateY(-6px);border-color:rgba(37,99,235,.4);
-  box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 30px rgba(37,99,235,.15);
-}
-.caso-card img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .6s cubic-bezier(.16,1,.3,1);
-}
-.caso-card:hover img{transform:scale(1.03)}
-.caso-card__overlay{
-  position:absolute;bottom:0;left:0;right:0;padding:2rem 1rem 1rem;
-  background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.7) 60%,transparent 100%);
-  color:#fff;z-index:2;
-}
-.caso-card__handle{
-  display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .625rem;
-  background:rgba(37,99,235,.9);color:#fff;border-radius:4px;
-  font-size:.75rem;font-weight:500;letter-spacing:.3px;margin-bottom:.5rem;
-}
-.caso-card__handle svg{flex-shrink:0}
-.caso-card__meta{display:flex;flex-direction:column;gap:.125rem}
-.caso-card__name{color:#fff;font-size:.9375rem;font-weight:500}
-.caso-card__detail{color:rgba(255,255,255,.65);font-size:.75rem;letter-spacing:.3px}
-.casos-verify{
-  text-align:center;margin-top:3rem;padding-top:2.5rem;
-  border-top:.5px solid rgba(255,255,255,.08);
-}
-.casos-verify__btn{
-  display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 1.75rem;
-  background:transparent;border:1px solid rgba(37,99,235,.4);
-  color:var(--orz-blue-light);border-radius:6px;
-  font-family:var(--font-body);font-size:.875rem;font-weight:600;
-  letter-spacing:.05em;text-transform:uppercase;text-decoration:none;
-  transition:all .3s cubic-bezier(.16,1,.3,1);
-}
-.casos-verify__btn:hover{
-  background:rgba(37,99,235,.1);border-color:var(--orz-blue-light);
-  transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.25);
-}
-.casos-verify__note{
-  margin:1rem 0 0;color:rgba(255,255,255,.4);font-size:.8125rem;line-height:1.5;
-}
-@media (max-width:900px){
-  .caso-card__overlay{padding:1.5rem .75rem .75rem}
-  .caso-card__name{font-size:.8125rem}
-  .caso-card__detail{font-size:.6875rem}
-  .caso-card__handle{font-size:.6875rem;padding:.2rem .5rem}
-}
-
-/* ─── LOGROS 6 CARDS (3 col) + FAQ ───────────────────────────────── */
-.logros-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}
-@media (max-width:1024px){
-  .logros-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:640px){
-  .logros-grid{grid-template-columns:1fr}
-}
-.faq-orz{position:relative}
-.faq-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem;
-  margin:3rem auto 0;max-width:1100px;
-}
-.faq-column{display:flex;flex-direction:column;gap:.875rem}
-.faq-item{
-  background:linear-gradient(135deg,rgba(37,99,235,.03),transparent);
-  border:1px solid rgba(255,255,255,.06);border-radius:8px;
-  overflow:hidden;transition:all .3s cubic-bezier(.16,1,.3,1);
-}
-.faq-item:hover{
-  border-color:rgba(37,99,235,.25);
-  background:linear-gradient(135deg,rgba(37,99,235,.05),transparent);
-}
-.faq-item[open]{
-  border-color:rgba(37,99,235,.35);
-  background:linear-gradient(135deg,rgba(37,99,235,.06),transparent);
-}
-.faq-question{
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  padding:1.125rem 1.25rem;cursor:pointer;color:#fff;
-  font-family:var(--font-body);font-size:.9375rem;font-weight:500;
-  line-height:1.4;list-style:none;transition:color .2s ease;
-}
-.faq-question::-webkit-details-marker{display:none}
-.faq-question:hover{color:var(--orz-blue-light)}
-.faq-icon{
-  flex-shrink:0;width:24px;height:24px;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(37,99,235,.4);border-radius:50%;
-  color:var(--orz-blue-light);font-size:16px;font-weight:300;line-height:1;
-  transition:all .3s cubic-bezier(.16,1,.3,1);
-}
-.faq-item[open] .faq-icon{
-  transform:rotate(45deg);background:var(--orz-blue-light);
-  color:#fff;border-color:var(--orz-blue-light);
-}
-.faq-answer{
-  padding:0 1.25rem 1.25rem;color:rgba(255,255,255,.65);
-  font-size:.875rem;line-height:1.65;
-}
-.faq-answer p{margin:0}
-@media (max-width:900px){
-  .faq-grid{grid-template-columns:1fr;gap:.75rem;margin-top:2rem}
-  .faq-column{gap:.75rem}
-  .faq-question{padding:1rem;font-size:.875rem}
-  .faq-answer{padding:0 1rem 1rem;font-size:.8125rem}
-}
-
-/* ─── CASOS MARQUEE ──────────────────────────────────────────────── */
-.casos-marquee-wrapper{
-  margin:3.5rem 0 3rem;position:relative;overflow:hidden;
-  mask-image:linear-gradient(90deg,transparent 0%,black 6%,black 94%,transparent 100%);
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 6%,black 94%,transparent 100%);
-}
-.casos-marquee{overflow:hidden;width:100%}
-.casos-track{
-  display:flex;width:max-content;
-  animation:casos-scroll 48s linear infinite;
-  will-change:transform;
-}
-.casos-marquee:hover .casos-track{animation-play-state:paused}
-.casos-track .caso-card{
-  flex:0 0 calc((100vw - 4rem - 4.5rem)/4);
-  max-width:320px;min-width:240px;aspect-ratio:9/16;
-  margin-right:1.5rem;
-}
-@keyframes casos-scroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
-@media (max-width:1024px){
-  .casos-track .caso-card{flex:0 0 calc((100vw - 4rem - 1.5rem)/2);max-width:300px}
-  .casos-track{animation-duration:60s}
-}
-@media (max-width:640px){
-  .casos-track .caso-card{flex:0 0 calc(100vw - 6rem);max-width:260px}
-  .casos-track{animation-duration:72s}
-  .casos-track .caso-card{margin-right:1rem}
-  .casos-marquee-wrapper{
-    mask-image:linear-gradient(90deg,transparent 0%,black 4%,black 96%,transparent 100%);
-    -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 4%,black 96%,transparent 100%);
-  }
-}
-@media (prefers-reduced-motion:reduce){
-  .casos-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%}
-  .casos-marquee-wrapper{mask-image:none;-webkit-mask-image:none}
-}
-
-/* ─── AURORA (negro puro + respiraciones azules) ─────────────────── */
-.aurora-bg{
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.04'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 85% 55% at 12% 0%, rgba(37,99,235,.65) 0%, rgba(37,99,235,.15) 35%, transparent 60%),
-    radial-gradient(ellipse 65% 45% at 100% 45%, rgba(59,130,246,.55) 0%, rgba(59,130,246,.1) 40%, transparent 65%),
-    radial-gradient(circle at 45% 105%, rgba(30,64,175,.4) 0%, transparent 45%),
-    #000000;
-  position:relative;
-}
-
-/* ─── COMUNIDAD: collage Historia + sección + texturas ───────────── */
-/* Item 2 — Collage en Historia */
-.historia-collage{
-  display:grid;grid-template-columns:1.1fr 1fr;gap:1rem;margin-top:3.5rem;
-}
-.historia-collage figure{margin:0;overflow:hidden;border-radius:8px;
-  border:1px solid rgba(37,99,235,.18);position:relative;background:#05080f}
-.historia-collage img{width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .6s cubic-bezier(.16,1,.3,1)}
-.historia-collage figure:hover img{transform:scale(1.04)}
-.hcol-main{aspect-ratio:4/5}
-.hcol-side{display:grid;grid-template-rows:1fr 1fr;gap:1rem}
-.hcol-tile{}
-@media(max-width:768px){
-  .historia-collage{grid-template-columns:1fr;gap:.75rem}
-  .hcol-main{aspect-ratio:16/11}
-  .hcol-tile{aspect-ratio:16/10}
-}
-
-/* Item 3 — Textura foto 02 en Ecosistema */
-.ecosistema-orz::before{
-  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:url('assets/comunidad/comunidad-02-sesion-privada-mentoria.jpg') center 30%/cover no-repeat;
-  opacity:.05;mix-blend-mode:luminosity;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 30%,#000 70%,transparent 100%);
-  mask-image:linear-gradient(180deg,transparent 0%,#000 30%,#000 70%,transparent 100%);
-}
-
-/* Item 4 — Sección Comunidad ORZ (bento 4 slots) */
-.comunidad-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  grid-template-rows:repeat(2,200px);gap:1rem;margin-top:3.5rem;
-}
-.com-slot{
-  position:relative;overflow:hidden;border-radius:8px;
-  border:1px solid rgba(37,99,235,.18);background:#05080f;
-  transition:border-color .3s,transform .3s,box-shadow .3s;
-}
-.com-slot img{width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .6s cubic-bezier(.16,1,.3,1)}
-.com-slot:hover{border-color:rgba(37,99,235,.45);transform:translateY(-3px);
-  box-shadow:0 16px 40px rgba(0,0,0,.4),0 0 24px rgba(37,99,235,.12)}
-.com-slot:hover img{transform:scale(1.04)}
-.com-slot--hero{grid-column:1 / 3;grid-row:1 / 3}
-.com-slot--med{grid-column:3 / 5;grid-row:1 / 2}
-.com-slot--video{grid-row:2 / 3;
-  background:radial-gradient(circle at 50% 40%,rgba(37,99,235,.14),transparent 70%),#05080f;
-  display:flex;align-items:center;justify-content:center}
-.com-video-play{
-  width:56px;height:56px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.4);
-  color:var(--orz-blue-light);transition:all .3s cubic-bezier(.16,1,.3,1)}
-.com-slot--video:hover .com-video-play{
-  background:var(--orz-blue-mid);color:#fff;transform:scale(1.08);
-  box-shadow:0 0 24px rgba(37,99,235,.5)}
-.com-slot__overlay{
-  position:absolute;left:0;right:0;bottom:0;z-index:2;
-  padding:1.5rem 1.1rem .9rem;
-  background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 100%);
-  display:flex;flex-direction:column;gap:.15rem}
-.com-slot--video .com-slot__overlay{background:none;padding-bottom:1.1rem}
-.com-tag{
-  font-family:var(--font-body);font-size:.68rem;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--orz-blue-glow)}
-.com-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;
-  letter-spacing:.02em;color:#fff;text-transform:uppercase}
-.com-slot--video .com-title{color:var(--orz-white-60)}
-@media(max-width:900px){
-  .comunidad-grid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:auto;gap:1rem}
-  .com-slot--hero,.com-slot--med,.com-slot--video{grid-column:auto;grid-row:auto}
-  .com-slot--hero{aspect-ratio:16/10}
-  .com-slot--med{aspect-ratio:16/9}
-  .com-slot--video{aspect-ratio:16/9}
-}
-
-/* Item 5 — Textura foto 06 + overlay azul en CTA Final */
-.cta-final-texture{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.cta-final-texture::before{
-  content:'';position:absolute;inset:0;
-  background:url('assets/comunidad/comunidad-06-slide-responsabilidad.jpg') center/cover no-repeat;
-  opacity:.14;
-  -webkit-mask-image:radial-gradient(ellipse 80% 90% at 50% 45%,#000 0%,transparent 75%);
-  mask-image:radial-gradient(ellipse 80% 90% at 50% 45%,#000 0%,transparent 75%);
-}
-.cta-final-texture::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(37,99,235,.18) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.7) 100%);
+@media (max-width:560px){
+  .feat-grid{grid-template-columns:1fr}
+  .feat:nth-child(2n){padding-left:0;border-left:0}
+  .acad-photos{grid-template-columns:1fr}
+  .acad-photos .photo:last-child{display:none}
+  .foot{grid-template-columns:1fr}
+  .scroll-cue span:last-child{display:none}
 }
 </style>
 </head>
 <body>
+<div class="bg-layer" aria-hidden="true"></div>
 
-<!-- ═══ NAVBAR ════════════════════════════════════════════════════ -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <img src="assets/images/logo-orz.jpg" alt="ORZ Academy">
-    <span class="nav-logo-text">ORZ <span>Academy</span></span>
-  </a>
-  <button class="hamburger" id="hamburger" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links" id="nav-links">
-    <a href="#historia">Historia</a>
-    <a href="#plataformas">Plataformas</a>
-    <a href="#precios">Mentorías</a>
-    <a href="#casos">Casos</a>
-    <a href="#comunidad">Comunidad</a>
-    <a href="#faq">FAQ</a>
-    <a href="#footer">Contacto</a>
+<!-- ═══ NAV ═══════════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" aria-label="ORZ Group, inicio"><b>ORZ</b><span>GROUP</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+      <a href="#academy">Academy</a>
+      <a href="#edge">Edge</a>
+      <a href="#capital">Capital</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+    <a href="https://wa.me/573042679499?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ORZ%20Group" target="_blank" rel="noopener" class="btn btn-ghost">Contacto</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><i></i><i></i><i></i></button>
   </div>
-  <div class="nav-actions">
-    <div class="acceso-wrapper">
-      <button class="btn-nav-outline">Acceso Alumnos ▾</button>
-      <div class="acceso-dropdown">
-        <div class="dropdown-label">Selecciona tu plataforma</div>
-        <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener">
-          <div class="acc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-              <path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/>
-            </svg>
-          </div>
-          <div class="acc-info">
-            <div class="acc-name">ORZ University</div>
-            <div class="acc-sub">Plataforma educativa</div>
-          </div>
-        </a>
-        <a href="https://manage.orzacademy.com" target="_blank" rel="noopener">
-          <div class="acc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>
-            </svg>
-          </div>
-          <div class="acc-info">
-            <div class="acc-name">ORZ Edge</div>
-            <div class="acc-sub">Copiloto de trading profesional</div>
-          </div>
-        </a>
-        <a href="https://app.orzacademy.com" target="_blank" rel="noopener">
-          <div class="acc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-            </svg>
-          </div>
-          <div class="acc-info">
-            <div class="acc-name">Centro Operaciones</div>
-            <div class="acc-sub">Panel de control central</div>
-          </div>
-        </a>
-      </div>
-    </div>
-    <a href="https://wa.me/573042679499" target="_blank" rel="noopener" class="btn-nav-solid">Agenda Mentoría</a>
-  </div>
-</nav>
+</header>
 
-<!-- ═══ TICKER ════════════════════════════════════════════════════ -->
-<div class="ticker-bar">
-  <div class="ticker-track">
-    <span class="ticker-item"><span class="t-sym">NAS100</span><span class="t-up">▲ +1.24%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">XAU/USD</span><span class="t-up">▲ +0.87%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">EUR/USD</span><span class="t-down">▼ -0.32%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">BTC/USD</span><span class="t-up">▲ +2.18%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">DXY</span><span class="t-down">▼ -0.41%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">SP500</span><span class="t-up">▲ +0.65%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">GBP/USD</span><span class="t-down">▼ -0.18%</span></span>
-    <span class="ticker-sep">·</span>
-    <!-- duplicado para loop continuo -->
-    <span class="ticker-item"><span class="t-sym">NAS100</span><span class="t-up">▲ +1.24%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">XAU/USD</span><span class="t-up">▲ +0.87%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">EUR/USD</span><span class="t-down">▼ -0.32%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">BTC/USD</span><span class="t-up">▲ +2.18%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">DXY</span><span class="t-down">▼ -0.41%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">SP500</span><span class="t-up">▲ +0.65%</span></span>
-    <span class="ticker-sep">·</span>
-    <span class="ticker-item"><span class="t-sym">GBP/USD</span><span class="t-down">▼ -0.18%</span></span>
-    <span class="ticker-sep">·</span>
-  </div>
-</div>
+<main id="top">
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
-<section id="hero" class="orz-glow-bg orz-grid-bg aurora-bg">
-  <div class="hero-body">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-kicker reveal d1">
-          <span class="hero-kicker-dot"></span>
-          Mentoría de Trading · Medellín, Colombia
-        </div>
-        <h1 class="hero-title reveal d2">
-          Opera con<br>
-          <span class="hl">ventaja real.</span>
-          Gana con<br>disciplina.
-        </h1>
-        <p class="hero-sub reveal d3">
-          No señales. No cursos genéricos.<br>
-          <strong>Mentoría personalizada en grupos de máximo 4 personas</strong>, donde construyes tu propia ventaja estadística con acompañamiento directo en NAS100 y XAU/USD.
-        </p>
-        <div class="hero-ctas reveal d4">
-          <a href="https://wa.me/573042679499" target="_blank" rel="noopener" class="orz-btn-primary">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>Agenda tu Mentoría</span>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-main">
+        <div class="eyebrow rv">ORZ Group · Medellín, Colombia</div>
+        <h1 class="h-display rv d1" style="margin-top:24px">Construimos<br class="mb"> lo que<span class="l2 grad">impulsa<br class="mb"> al trader.</span></h1>
+      </div>
+      <div class="hero-side">
+        <p class="rv d2">Educación, tecnología y capital para traders, bajo un mismo estándar profesional.</p>
+        <div class="btns rv d3">
+          <a href="#academy" class="btn btn-primary">Conocer el grupo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
           </a>
-          <a href="#precios" class="orz-btn-secondary">Ver planes ↓</a>
-        </div>
-        <div class="hero-stats reveal d5">
-          <div class="hero-stat">
-            <div class="hero-stat-val"><span class="counter" data-target="4">0</span><span class="unit">+ años</span></div>
-            <div class="hero-stat-lbl">operando mercados reales</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-val"><span class="counter" data-target="11">0</span><span class="unit"> traders</span></div>
-            <div class="hero-stat-lbl">en formación activa</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-val">máx <span class="counter" data-target="4">0</span></div>
-            <div class="hero-stat-lbl">personas por grupo</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-image-col reveal-r d3">
-        <div class="hero-image-glow"></div>
-        <div class="hero-image-frame">
-          <div class="hero-corner tl"></div>
-          <div class="hero-corner tr"></div>
-          <div class="hero-corner bl"></div>
-          <div class="hero-corner br"></div>
-          <img src="assets/images/thomas-profile.png" alt="ORZ — Trader Profesional" loading="eager">
-          <div class="hero-img-badge">
-            <div class="hero-img-badge-name">ORZ</div>
-            <div class="hero-img-badge-role">Head Trader · ORZ Academy</div>
-          </div>
         </div>
       </div>
     </div>
+
+    <div class="strip rv d3" role="list">
+      <a href="#academy" class="unit edu" role="listitem" aria-label="ORZ Academy: educación">
+        <div class="unit-media"><img src="assets/group/academy-levelup.webp" alt="Thomas Orozco en el escenario del evento ORZ Level Up" width="1320" height="1316"></div>
+        <div class="unit-in">
+          <div class="unit-tag"><em>01</em><span>Educación</span></div>
+          <div>
+            <div class="unit-name"><small>ORZ</small>Academy</div>
+            <p class="unit-desc">Formación y mentoría en trading, con método.</p>
+          </div>
+        </div>
+        <span class="unit-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+      <a href="#edge" class="unit tec" role="listitem" aria-label="ORZ Edge: tecnología">
+        <div class="unit-media"><img src="assets/group/edge-panel.webp" alt="Panel de métricas y calendario de ORZ Edge" width="1393" height="615"></div>
+        <div class="unit-in">
+          <div class="unit-tag"><em>02</em><span>Tecnología</span></div>
+          <div>
+            <div class="unit-name"><small>ORZ</small>Edge</div>
+            <p class="unit-desc">Tu operativa, medida con tus propios datos.</p>
+          </div>
+        </div>
+        <span class="unit-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+      <a href="#capital" class="unit cap" role="listitem" aria-label="ORZ Capital: capital">
+        <div class="cap-lines" aria-hidden="true"></div>
+        <div class="unit-in">
+          <div class="unit-tag"><em>03</em><span>Capital</span></div>
+          <div>
+            <div class="unit-name"><small>ORZ</small>Capital</div>
+            <p class="unit-desc">En preparación.</p>
+          </div>
+        </div>
+        <span class="unit-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+      </a>
+    </div>
+
+    <div class="scroll-cue rv d4"><span>Tres unidades · Un estándar</span><span>Desliza para explorar</span></div>
   </div>
 </section>
-<div class="sep-line"></div>
 
-<!-- ═══ EL PROBLEMA REAL ══════════════════════════════════════════ -->
-<section id="problema">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:#f87171"><span class="orz-badge-dot" style="background:#ef4444"></span>El problema</div>
-    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Por qué la mayoría<br>de traders fracasa</h2>
-    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">No es falta de inteligencia. Es el modelo de educación que está roto.</p>
+<div class="divider"></div>
 
-    <div class="problema-grid">
-      <div class="problema-card io-reveal dl-1">
-        <div class="card-icon red">💸</div>
-        <div class="card-title">Cursos Masivos Genéricos</div>
-        <p class="card-desc">Miles de alumnos, cero personalización. Te enseñan lo mismo a todos, independientemente de tu capital, tu psicología o tu estilo de vida.</p>
+<!-- ═══ ACADEMY ═══════════════════════════════════════════════════ -->
+<section class="block" id="academy">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow rv">01 · Educación</div>
+        <h2 class="h-section rv d1">ORZ Academy</h2>
       </div>
-      <div class="problema-card io-reveal dl-2">
-        <div class="card-icon red">🎰</div>
-        <div class="card-title">Promesas Irreales</div>
-        <p class="card-desc">"Gana $1,000 al día desde casa." Estas promesas atraen a traders sin experiencia y los dejan sin capital y sin confianza en semanas.</p>
+      <p class="lead rv d2">Formación en trading de principio a fin: un programa estructurado por fases, mentoría directa y una comunidad que opera bajo el mismo estándar.</p>
+    </div>
+
+    <div class="acad-grid">
+      <div class="acad-photos rv">
+        <figure class="photo"><img src="assets/group/academy-event.webp" alt="Evento presencial ORZ Level Up con alumnos en el público" loading="lazy" width="1200" height="1169"><figcaption>Eventos presenciales</figcaption></figure>
+        <figure class="photo"><img src="assets/group/academy-mentoria.webp" alt="Sesión privada de mentoría frente a un gráfico de mercado" loading="lazy" width="1000" height="1500"><figcaption>Mentoría privada</figcaption></figure>
       </div>
-      <div class="problema-card io-reveal dl-3">
-        <div class="card-icon red">📋</div>
-        <div class="card-title">Estrategias Copiadas</div>
-        <p class="card-desc">Te dan una estrategia que funcionó para otro trader, en otro mercado, con otro capital. Sin contexto, sin adaptación, sin resultados reales.</p>
+      <div class="pillars rv d1">
+        <div class="pillar">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></div>
+          <div><h3>Programa por fases</h3><p>Cuatro fases, de los fundamentos a la ejecución, en una plataforma propia.</p></div>
+        </div>
+        <div class="pillar">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><h3>Mentoría directa</h3><p>Acompañamiento en grupos de máximo cuatro personas, en NAS100 y XAU/USD.</p></div>
+        </div>
+        <div class="pillar">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div><h3>Comunidad</h3><p>Eventos presenciales y una red de traders que comparten el mismo método.</p></div>
+        </div>
       </div>
-      <div class="problema-card io-reveal dl-4">
-        <div class="card-icon red">🔇</div>
-        <div class="card-title">Cero Personalización</div>
-        <p class="card-desc">Una vez que pagaste, quedas solo. Sin seguimiento, sin corrección de errores en tiempo real, sin acceso al mentor que te vendió el curso.</p>
+    </div>
+
+    <div class="sec-cta rv">
+      <a href="https://university.orzacademy.com/landing" class="btn btn-primary" target="_blank" rel="noopener">Conocer ORZ Academy
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ EDGE ══════════════════════════════════════════════════════ -->
+<section class="block" id="edge">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow rv">02 · Tecnología</div>
+        <h2 class="h-section rv d1">ORZ Edge</h2>
+      </div>
+      <p class="lead rv d2">El centro de alto rendimiento del trader. Registra cada operación, define tus estrategias y encuentra, con tus propios datos, dónde está tu ventaja.</p>
+    </div>
+
+    <div class="edge-stage rv">
+      <div class="screen">
+        <div class="screen-bar"><i></i><i></i><i></i><span>ORZ EDGE · DASHBOARD</span></div>
+        <img src="assets/group/edge-full.webp" alt="Dashboard de ORZ Edge con métricas de rendimiento y calendario de trading" loading="lazy" width="1393" height="745">
+      </div>
+      <div class="callouts" aria-hidden="true">
+        <div class="co left" style="left:-2%;top:26%"><span class="dot"></span><span class="ln" style="width:56px"></span><span class="lbl"><b>Métricas con rigor</b><span>Cada dato, con su muestra</span></span></div>
+        <div class="co" style="right:-2%;top:56%;flex-direction:row-reverse"><span class="dot"></span><span class="ln" style="width:56px;background:linear-gradient(270deg,var(--blue-glow),rgba(96,165,250,.15))"></span><span class="lbl"><b>Disciplina</b><span>Plan frente a ejecución</span></span></div>
+        <div class="co left hide-md" style="left:-2%;top:70%"><span class="dot"></span><span class="ln" style="width:56px"></span><span class="lbl"><b>Calendario</b><span>Tu rendimiento día a día</span></span></div>
+      </div>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat rv"><span class="k">01</span><h3>Journal</h3><p>Registra o importa tus operaciones y revísalas por día, semana y mes.</p></div>
+      <div class="feat rv d1"><span class="k">02</span><h3>Estrategias propias</h3><p>Define tus estrategias y mide el rendimiento de cada una por separado.</p></div>
+      <div class="feat rv d2"><span class="k">03</span><h3>Edge Finder</h3><p>Cruza tus resultados por hora, día y contexto para ver dónde ganas y dónde pierdes.</p></div>
+      <div class="feat rv"><span class="k">04</span><h3>Métricas verificables</h3><p>Expectancy, profit factor, drawdown y win rate, siempre con el tamaño de la muestra.</p></div>
+      <div class="feat rv d1"><span class="k">05</span><h3>Capital y reglas</h3><p>Seguimiento del capital de tu cuenta y de los límites de las prop firms.</p></div>
+      <div class="feat rv d2"><span class="k">06</span><h3>Mentora con IA</h3><p>Pregunta sobre tu operativa y recibe respuestas basadas en tus propios datos.</p></div>
+    </div>
+
+    <div class="sec-cta rv">
+      <a href="https://manage.orzacademy.com" class="btn btn-primary" target="_blank" rel="noopener">Conocer ORZ Edge
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CAPITAL ═══════════════════════════════════════════════════ -->
+<section class="block cap-sec" id="capital">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow rv">03 · Capital</div>
+        <h2 class="h-section rv d1">ORZ Capital</h2>
+      </div>
+      <p class="lead rv d2">La unidad de capital del grupo. Dos líneas de negocio independientes, cada una con sus propias reglas.</p>
+    </div>
+
+    <div class="cap-grid">
+      <article class="cap-card rv">
+        <span class="n">LÍNEA 01</span>
+        <h3>Gestión de capital</h3>
+        <p>Para clientes interesados en servicios de gestión de capital.</p>
+        <span class="status">En preparación</span>
+      </article>
+      <article class="cap-card rv d1">
+        <span class="n">LÍNEA 02</span>
+        <h3>Acceso a capital</h3>
+        <p>Para traders que demuestren las capacidades requeridas.</p>
+        <span class="status">En preparación</span>
+      </article>
+    </div>
+    <p class="cap-note rv">Las condiciones de cada línea se publicarán cuando estén disponibles.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ NOSOTROS ══════════════════════════════════════════════════ -->
+<section class="block" id="nosotros">
+  <div class="wrap about">
+    <figure class="photo rv"><img src="assets/group/academy-escenario.webp" alt="Thomas Orozco, fundador de ORZ Group" loading="lazy" width="1100" height="1104"></figure>
+    <div>
+      <div class="eyebrow rv">Nosotros</div>
+      <h2 class="h-section rv d1">Nacido en<br><span class="dim">el mercado.</span></h2>
+      <p class="lead rv d2">ORZ Group nace en Medellín, fundado por Thomas Orozco, trader de NAS100 y XAU/USD.</p>
+      <p class="lead rv d3">Cada unidad responde a una necesidad real del trader: aprender con método, medir su operativa con datos y avanzar con reglas claras.</p>
+      <div class="sign rv d4">
+        <div><b>Thomas Orozco</b><span>Fundador</span></div>
+        <div><b>Medellín</b><span>Colombia</span></div>
       </div>
     </div>
   </div>
 </section>
-<div class="sep-line"></div>
 
-<!-- ═══ MI HISTORIA ═══════════════════════════════════════════════ -->
-<section id="historia" class="aurora-bg">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Quién es ORZ</div>
-    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Una historia construida<br>desde el error real</h2>
-
-    <div class="historia-grid">
-      <div class="io-reveal dl-2">
-        <p class="historia-p">Desde los 5 años de edad practiqué fútbol de alto rendimiento. Esa disciplina formó mi carácter: entender que los resultados no llegan sin estructura, sin repetición y sin tolerancia al fracaso.</p>
-        <p class="historia-p">Cuando descubrí el trading, estudié durante un año antes de operar. Aun así, quemé cuentas, pagué cursos vacíos y perdí dinero de mi familia. No por falta de inteligencia — por falta de un mentor real que me dijera qué errores estaba cometiendo.</p>
-        <div class="historia-highlight">"Pagué cursos de miles de dólares que me enseñaron todo menos a operar con consistencia."</div>
-      </div>
-      <div class="io-reveal dl-3">
-        <p class="historia-p">Me dieron la oportunidad de administrar una suma importante de capital externo. La perdí en menos de 6 meses. No por falta de estrategia — por problemas emocionales que todavía no había resuelto. Esa fue la lección más cara y más valiosa de mi vida.</p>
-        <p class="historia-p">Después de eso, sinteticé mi propia metodología. Hoy llevo más de 2 años con rentabilidad consistente operando NAS100 y XAU/USD. Lo que enseño en ORZ Academy no es teoría — es el camino exacto que recorrí, depurado de todo lo que no funciona.</p>
-      </div>
-    </div>
-
-    <div class="historia-collage io-reveal dl-3">
-      <figure class="hcol-main">
-        <img src="assets/comunidad/comunidad-05-retrato-editorial.jpg" alt="Comunidad de alumnos ORZ reunidos" loading="lazy">
-      </figure>
-      <div class="hcol-side">
-        <figure class="hcol-tile">
-          <img src="assets/comunidad/comunidad-01-orz-levelup-tarima.jpg" alt="ORZ en tarima durante el evento Level Up" loading="lazy">
-        </figure>
-        <figure class="hcol-tile">
-          <img src="assets/comunidad/comunidad-06-slide-responsabilidad.jpg" alt="Evento ORZ Level Up con audiencia" loading="lazy">
-        </figure>
-      </div>
+<!-- ═══ CIERRE ════════════════════════════════════════════════════ -->
+<section class="closing">
+  <div class="wrap">
+    <div class="eyebrow rv">ORZ Group</div>
+    <h2 class="h-display rv d1">Construimos<br class="mb"> lo que<br><span class="grad">impulsa<br class="mb"> al trader.</span></h2>
+    <p class="rv d2">Elige por dónde empezar.</p>
+    <div class="btns rv d3">
+      <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="btn btn-primary">ORZ Academy
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://manage.orzacademy.com" target="_blank" rel="noopener" class="btn btn-ghost">ORZ Edge
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
-<div class="sep-line"></div>
 
-<!-- ═══ LO QUE CONSTRUYES ══════════════════════════════════════════ -->
-<section id="logros">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal" style="background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25);color:#34d399"><span class="orz-badge-dot" style="background:#10b981"></span>Lo que construyes</div>
-    <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.5rem">Lo que construyes<br>en ORZ Academy</h2>
-    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem">Seis pilares que se integran en un sistema completo. No promesas — construcción real y medible.</p>
+</main>
 
-    <div class="logros-grid">
-      <div class="logro-card io-reveal dl-1">
-        <div class="card-icon green">🔍</div>
-        <div class="card-title">Lectura institucional del mercado</div>
-        <p class="card-desc">Aprenderás a leer el mercado como lo hacen los grandes: contexto macro, órdenes institucionales, y los movimientos que la mayoría de traders retail nunca ve. Sin indicadores rezagados. Sin adivinar.</p>
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="brand" aria-label="ORZ Group"><b>ORZ</b><span>GROUP</span></a>
+        <p class="tag">Educación, tecnología y capital para traders.</p>
       </div>
-      <div class="logro-card io-reveal dl-2">
-        <div class="card-icon green">📈</div>
-        <div class="card-title">Metodología ORZ validada en NAS100 y XAU/USD</div>
-        <p class="card-desc">5+ modelos de entrada con reglas escritas y backtesting real. Cada setup con criterios objetivos, invalidación clara y gestión de riesgo predefinida. No interpretación — ejecución.</p>
-      </div>
-      <div class="logro-card io-reveal dl-3">
-        <div class="card-icon green">🎯</div>
-        <div class="card-title">Tu propia ventaja estadística</div>
-        <p class="card-desc">No copias mi trading plan — construyes el tuyo. Adaptado a tu capital, tu horario, tu perfil psicológico y tu tolerancia al drawdown. Sales con un edge que solo tú puedes ejecutar.</p>
-      </div>
-      <div class="logro-card io-reveal dl-1">
-        <div class="card-icon green">🧠</div>
-        <div class="card-title">Psicotrading y gestión emocional</div>
-        <p class="card-desc">El 90% de los traders pierden por psicología, no por estrategia. Aprenderás a identificar tilt, revenge trading, sobreoperación y ansiedad pre-entrada. Reglas de bloqueo automáticas, no fuerza de voluntad.</p>
-      </div>
-      <div class="logro-card io-reveal dl-2">
-        <div class="card-icon green">🏗️</div>
-        <div class="card-title">Infraestructura profesional completa</div>
-        <p class="card-desc">Bitácora ORZ Edge con IA, plataforma University con material estructurado, gestión de riesgo profesional. Operas con las mismas herramientas que un trader institucional.</p>
-      </div>
-      <div class="logro-card io-reveal dl-3">
-        <div class="card-icon green">👥</div>
-        <div class="card-title">Comunidad activa de traders ORZ</div>
-        <p class="card-desc">Networking real con alumnos que ya operan con edge validado. Análisis compartidos, operativa en vivo, competencia sana. Dejas de operar solo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="sep-line"></div>
-
-<!-- ═══ ECOSISTEMA ORZ ═════════════════════════════════════════════ -->
-<section id="plataformas" class="ecosistema-orz aurora-bg">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Ecosistema ORZ</div>
-    <h2 class="orz-h2 io-reveal dl-2">Dos plataformas.<br>Un sistema completo.</h2>
-    <p class="orz-lead io-reveal dl-3" style="margin-top:.75rem;margin-bottom:4rem">Herramientas propias construidas por un trader activo, para traders serios que operan con estructura.</p>
-
-    <!-- BLOQUE 1: ORZ EDGE -->
-    <article class="ecosystem-block io-reveal dl-2">
-      <div class="ecosystem-block__mockup">
-        <img src="assets/platforms/edge-dashboard.png"
-             alt="ORZ Edge Dashboard con métricas de trading"
-             class="mockup-main" loading="lazy" />
-        <img src="assets/platforms/edge-calendar.png"
-             alt="Journal profesional con historial de trades"
-             class="mockup-peek mockup-peek--top-right" loading="lazy" />
-        <img src="assets/platforms/edge-insights.png"
-             alt="Insights AI de ORZ Edge"
-             class="mockup-peek mockup-peek--bottom-left" loading="lazy" />
-      </div>
-      <div class="ecosystem-block__content">
-        <div class="block-eyebrow">Tu copiloto de trading</div>
-        <h3 class="block-title">ORZ Edge</h3>
-        <p class="block-description">Registra cada operación. Descubre tu ventaja estadística real con métricas profesionales. Recibe análisis con IA que te dice qué operar mañana y qué evitar.</p>
-        <ul class="block-features">
-          <li>Journal profesional con calendario visual de trades</li>
-          <li>Insights AI accionables por sesión, setup y estado emocional</li>
-          <li>Lab de estrategias con analytics por trigger (T1/T2/T3)</li>
-          <li>Métricas institucionales: WR, PF, ORZ Score, drawdown, adherencia</li>
+      <div>
+        <h4>Unidades</h4>
+        <ul>
+          <li><a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener">ORZ Academy</a></li>
+          <li><a href="https://manage.orzacademy.com" target="_blank" rel="noopener">ORZ Edge</a></li>
+          <li><a href="#capital">ORZ Capital</a></li>
         </ul>
-        <a href="https://manage.orzacademy.com" class="block-cta" target="_blank" rel="noopener">
-          Conocer ORZ Edge
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
       </div>
-    </article>
-
-    <!-- BLOQUE 2: ORZ UNIVERSITY (invertido) -->
-    <article class="ecosystem-block ecosystem-block--reversed io-reveal dl-2">
-      <div class="ecosystem-block__content">
-        <div class="block-eyebrow">Formación estructurada</div>
-        <h3 class="block-title">ORZ University</h3>
-        <p class="block-description">La plataforma educativa oficial de ORZ Academy. Todo el material de tu mentoría, tu biblioteca digital, tus notas y tu progreso — organizados en un solo lugar.</p>
-        <ul class="block-features">
-          <li>Material de tu formación organizado por fases progresivas</li>
-          <li>Biblioteca digital con libros y recursos del programa</li>
-          <li>Espacio privado y seguro para tus notas de estudio</li>
-          <li>Seguimiento visual de tu progreso en tiempo real</li>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/573042679499" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/orz.academy/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
-        <a href="https://university.orzacademy.com/landing" class="block-cta" target="_blank" rel="noopener">
-          Conocer University
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
       </div>
-      <div class="ecosystem-block__mockup">
-        <img src="assets/platforms/university-home.png"
-             alt="ORZ University Home con Gestión de Riesgo"
-             class="mockup-main" loading="lazy" />
-        <img src="assets/platforms/university-library.png"
-             alt="Biblioteca ORZ con libros curados"
-             class="mockup-peek mockup-peek--top-left" loading="lazy" />
-        <img src="assets/platforms/university-notes.png"
-             alt="Sistema de notas por video"
-             class="mockup-peek mockup-peek--bottom-right" loading="lazy" />
-      </div>
-    </article>
-  </div>
-</section>
-<div class="sep-line"></div>
-
-<!-- ═══ PRECIOS ════════════════════════════════════════════════════ -->
-<section id="precios">
-  <div class="section-inner">
-    <div class="precios-intro">
-      <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Mentorías ORZ Academy</div>
-      <h2 class="orz-h2 io-reveal dl-2" style="margin-top:.25rem">Elige tu plan de formación</h2>
-      <p class="orz-lead io-reveal dl-3" style="margin:1rem auto 0;text-align:center;max-width:580px">Todos los planes incluyen acompañamiento directo, estrategia personalizada y acceso al ecosistema ORZ.</p>
-    </div>
-
-    <!-- Filtro interactivo -->
-    <div class="precios-tabs">
-      <button class="precio-tab active" data-level="all">Todos los planes</button>
-      <button class="precio-tab" data-level="base">Nuevo en Trading</button>
-      <button class="precio-tab" data-level="pro">Con Experiencia</button>
-    </div>
-
-    <div class="precios-grid">
-
-      <!-- Virtual BASE -->
-      <div class="precio-card io-reveal dl-1" data-level="base">
-        <div class="precio-type">Virtual · 3 meses</div>
-        <div class="precio-name">Virtual BASE</div>
-        <div class="precio-amounts">
-          <div class="precio-row">
-            <span class="precio-row-lbl">Inversión</span>
-            <span class="precio-row-val"><span class="cur">$</span>550<span class="per">USD</span></span>
-          </div>
-        </div>
-        <div class="precio-features">
-          <div class="precio-feat">2 clases en vivo por semana</div>
-          <div class="precio-feat">1 estrategia validada (EMA 20 y 200)</div>
-          <div class="precio-feat">Psicotrading básico</div>
-          <div class="precio-feat">Comunidad privada de traders</div>
-          <div class="precio-feat">Análisis semanal de mercado</div>
-          <div class="precio-feat">Acceso a plataformas ORZ</div>
-        </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20BASE" target="_blank" rel="noopener" class="precio-cta">Agenda tu primera conversación</a>
-      </div>
-
-      <!-- Virtual PRO -->
-      <div class="precio-card featured io-reveal dl-2" data-level="pro">
-        <div class="precio-featured-badge">★ Más completo</div>
-        <div class="precio-type">Virtual · 6 meses</div>
-        <div class="precio-name">Virtual PRO</div>
-        <div class="precio-amounts">
-          <div class="precio-row">
-            <span class="precio-row-lbl">Inversión</span>
-            <span class="precio-row-val"><span class="cur">$</span>1,000<span class="per">USD</span></span>
-          </div>
-        </div>
-        <div class="precio-features">
-          <div class="precio-feat">2 clases en vivo por semana</div>
-          <div class="precio-feat">5 estrategias validadas</div>
-          <div class="precio-feat">Acceso total a indicadores ORZ</div>
-          <div class="precio-feat">Bollinger + Fibonacci institucional</div>
-          <div class="precio-feat">7 modelos de entrada + 2 institucionales</div>
-          <div class="precio-feat">Contexto institucional completo</div>
-          <div class="precio-feat">Psicotrading avanzado</div>
-          <div class="precio-feat">Bitácora digital profesional</div>
-          <div class="precio-feat">Trading plan personalizado</div>
-          <div class="precio-feat">Acceso a capital privado (evaluación)</div>
-        </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Virtual%20PRO" target="_blank" rel="noopener" class="precio-cta featured-cta">Agenda tu primera conversación</a>
-      </div>
-
-      <!-- Presencial BASE -->
-      <div class="precio-card io-reveal dl-3" data-level="base">
-        <div class="precio-type">Presencial · Medellín · 3 meses</div>
-        <div class="precio-name">Presencial BASE</div>
-        <div class="precio-amounts">
-          <div class="precio-row">
-            <span class="precio-row-lbl">Inversión</span>
-            <span class="precio-row-val"><span class="cur">$</span>800<span class="per">USD</span></span>
-          </div>
-        </div>
-        <div class="precio-features">
-          <div class="precio-feat">Todo lo de Virtual BASE</div>
-          <div class="precio-feat">Clases presenciales en Medellín</div>
-          <div class="precio-feat">Sesiones prácticas extendidas</div>
-          <div class="precio-feat">Networking con traders locales</div>
-          <div class="precio-feat">Análisis en vivo del mercado</div>
-        </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20BASE" target="_blank" rel="noopener" class="precio-cta">Agenda tu primera conversación</a>
-      </div>
-
-      <!-- Presencial PRO -->
-      <div class="precio-card io-reveal dl-4" data-level="pro">
-        <div class="precio-type">Presencial · Medellín · 6 meses</div>
-        <div class="precio-name">Presencial PRO</div>
-        <div class="precio-amounts">
-          <div class="precio-row">
-            <span class="precio-row-lbl">Inversión</span>
-            <span class="precio-row-val"><span class="cur">$</span>1,250<span class="per">USD</span></span>
-          </div>
-        </div>
-        <div class="precio-features">
-          <div class="precio-feat">Todo lo de Virtual PRO</div>
-          <div class="precio-feat">Sesiones presenciales intensivas</div>
-          <div class="precio-feat">Operativa en vivo junto a ORZ</div>
-          <div class="precio-feat">Bitácora física personalizada</div>
-          <div class="precio-feat">Eventos y actividades premium</div>
-        </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20Presencial%20PRO" target="_blank" rel="noopener" class="precio-cta">Agenda tu primera conversación</a>
-      </div>
-
-      <!-- ORZ Squad — full width, gold -->
-      <div class="precio-card squad full-width io-reveal dl-2" data-level="pro">
-        <div class="squad-badge">★ Grupo Élite · Máx. 4 personas</div>
-        <div class="squad-type">Presencial · Medellín · 5 meses</div>
-        <div class="squad-name">ORZ Squad</div>
-        <div class="squad-amounts">
-          <div class="squad-row">
-            <span class="squad-row-lbl">Duo Squad</span>
-            <span class="squad-row-val"><span class="cur">$</span>1,300<span class="per">/ 5 meses</span></span>
-          </div>
-          <div class="squad-row">
-            <span class="squad-row-lbl">Trio Squad</span>
-            <span class="squad-row-val"><span class="cur">$</span>2,400<span class="per">/ 5 meses</span></span>
-          </div>
-          <div class="squad-row">
-            <span class="squad-row-lbl">Squad Completo (4)</span>
-            <span class="squad-row-val"><span class="cur">$</span>3,000<span class="per">/ 5 meses</span></span>
-          </div>
-        </div>
-        <div class="squad-feats">
-          <div class="squad-feat">2 a 4 clases presenciales por semana</div>
-          <div class="squad-feat">Portafolio completo de estrategias</div>
-          <div class="squad-feat">Prácticas en vivo del mercado</div>
-          <div class="squad-feat">Bitácora física personalizada</div>
-          <div class="squad-feat">Reuniones de trading semanales</div>
-          <div class="squad-feat">Comunidad activa de traders ORZ</div>
-        </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20ORZ%20Squad" target="_blank" rel="noopener" class="squad-cta">Agenda tu primera conversación</a>
-      </div>
-
-    </div>
-
-    <!-- CTA inline: puente entre planes y bitácora -->
-    <div class="cta-inline-precios io-reveal">
-      <div class="cta-inline-content">
-        <p class="cta-inline-lead">¿Tienes dudas sobre cuál plan es el correcto para ti?</p>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ,%20quiero%20agendar%20una%20primera%20conversaci%C3%B3n%20para%20definir%20qu%C3%A9%20plan%20es%20mejor%20para%20m%C3%AD"
-           class="cta-inline-btn"
-           target="_blank"
-           rel="noopener">
-          <span class="cta-inline-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.16c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.24.85.87-3.16-.2-.32c-.85-1.35-1.3-2.91-1.3-4.5 0-4.68 3.81-8.48 8.48-8.48s8.48 3.81 8.48 8.48c0 4.67-3.8 8.5-8.44 8.5z"/></svg>
-          </span>
-          Agenda tu primera conversación
-        </a>
-        <p class="cta-inline-microcopy">20 min · Sin costo · Directo con ORZ</p>
+      <div>
+        <h4>Aviso de riesgo</h4>
+        <p class="risk">Operar en los mercados financieros implica un riesgo significativo de pérdida. Los resultados pasados no garantizan resultados futuros. Nada de lo publicado en este sitio constituye asesoría financiera.</p>
       </div>
     </div>
-
-    <!-- Bitácora -->
-    <div class="bitacora-section">
-      <div class="bitacora-card io-reveal">
-        <div style="flex:1">
-          <div class="bitacora-label">★ Herramienta Premium</div>
-          <div class="bitacora-name">Bitácora del Trader Profesional</div>
-          <p class="bitacora-desc">Registro profesional de operaciones. Análisis de rendimiento, patrones, gestión de riesgo — todo en un solo lugar. Disponible para alumnos y traders independientes.</p>
-        </div>
-        <div class="bitacora-price-wrap">
-          <div class="bitacora-price"><span class="cur">$</span>25</div>
-          <div class="bitacora-period">USD / mes</div>
-        </div>
-        <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20la%20Bitácora" target="_blank" rel="noopener" class="bitacora-cta">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Conocer la Bitácora
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="sep-line"></div>
-
-<!-- ═══ CASOS REALES ═══════════════════════════════════════════════ -->
-<section class="casos-reales" id="casos">
-  <div class="section-inner" style="padding-bottom:0">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Casos reales</div>
-    <h2 class="orz-h2 io-reveal dl-1">Traders reales.<br>Resultados verificables.</h2>
-    <p class="orz-lead io-reveal dl-2" style="margin-top:.75rem">Cada trade. Cada @. Cada operación — verificable en Instagram.</p>
-  </div>
-
-  <!-- Marquee edge-to-edge (fuera del section-inner) -->
-  <div class="casos-marquee-wrapper io-reveal dl-3">
-    <div class="casos-marquee" role="region" aria-label="Casos reales de alumnos ORZ">
-      <div class="casos-track">
-      <a href="https://instagram.com/tperez_8" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @tperez_8 en Instagram">
-        <img src="assets/casos/caso-01-tperez-nas100.png" alt="Trade #5 NAS100 de @tperez_8" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @tperez_8
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Thomas Perez</span>
-            <span class="caso-card__detail">Trade #5 · NAS100</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/07_jjrm" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @07_jjrm en Instagram">
-        <img src="assets/casos/caso-02-jjrm-xau-1.png" alt="Trade XAU/USD de @07_jjrm" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @07_jjrm
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Juan José Rendón</span>
-            <span class="caso-card__detail">1 trade · XAU/USD</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/gl_sebas16" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @gl_sebas16 en Instagram">
-        <img src="assets/casos/caso-03-sebas-xau.png" alt="Trade #22 XAU/USD de @gl_sebas16" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @gl_sebas16
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Sebastián López</span>
-            <span class="caso-card__detail">Trade #22 · XAU/USD</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/888_santiago_riaza" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @888_santiago_riaza en Instagram">
-        <img src="assets/casos/caso-04-riaza-nas100.png" alt="Trade #14 NAS100 de @888_santiago_riaza" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @888_santiago_riaza
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Santiago Riaza</span>
-            <span class="caso-card__detail">Trade #14 · NAS100</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/07_jjrm" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @07_jjrm en Instagram">
-        <img src="assets/casos/caso-05-jjrm-xau-2.png" alt="Trade #10 XAU/USD de @07_jjrm" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @07_jjrm
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Juan José Rendón</span>
-            <span class="caso-card__detail">Trade #10 · XAU/USD</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/gl_sebas16" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @gl_sebas16 en Instagram">
-        <img src="assets/casos/caso-06-sebas-nas100.png" alt="Trade #25 de @gl_sebas16" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @gl_sebas16
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Sebastián López</span>
-            <span class="caso-card__detail">Trade #25 · Consistencia</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/orzacademy_" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @orzacademy_ en Instagram">
-        <img src="assets/casos/caso-07-jacobo-tp50.png" alt="TP 2:3 +$50 de alumno Jacobo" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @orzacademy_
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Jacobo</span>
-            <span class="caso-card__detail">TP 2:3 · XAU + NAS + BTC</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/gl_sebas16" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @gl_sebas16 en Instagram">
-        <img src="assets/casos/caso-08-sebas-tomas-oro.png" alt="Inicio de semana de Sebas y Tomas en oro" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @gl_sebas16
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Sebas y Tomas</span>
-            <span class="caso-card__detail">Trades en oro · TP total</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/orzacademy_" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @orzacademy_ en Instagram">
-        <img src="assets/casos/caso-09-mateo-4cuentas.png" alt="Trade Mateo alumno en 4 cuentas" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @orzacademy_
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Mateo</span>
-            <span class="caso-card__detail">4 cuentas de fondeo</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/angeloandresr" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @angeloandresr en Instagram">
-        <img src="assets/casos/caso-10-angelo-xauusd.png" alt="Trade XAUUSD +$20.76 de @angeloandresr con estrategia ORZ" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @angeloandresr
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Angelo Andrés</span>
-            <span class="caso-card__detail">+$20.76 · XAU/USD</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/orzacademy_" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @orzacademy_ en Instagram">
-        <img src="assets/casos/caso-11-jc30-xauusd.png" alt="Trade XAUUSD de jc30 con estrategia ORZ" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @orzacademy_
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">jc30</span>
-            <span class="caso-card__detail">XAU/USD · Sin fallas</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/orzacademy_" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @orzacademy_ en Instagram">
-        <img src="assets/casos/caso-12-pablo-nicolas.png" alt="Agradecimientos de alumnos por clases ORZ" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @orzacademy_
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Pablo y Nicolas</span>
-            <span class="caso-card__detail">Comunidad activa</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/mateo__0904" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @mateo__0904 en Instagram">
-        <img src="assets/casos/caso-13-mateo0904-nasdaq.png" alt="Trade NASDAQ Tradovate +$1,002.50 de @mateo__0904" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @mateo__0904
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Mateo</span>
-            <span class="caso-card__detail">+$1,002 · NASDAQ Futures</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/mateo__0904" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @mateo__0904 en Instagram">
-        <img src="assets/casos/caso-14-mateo0904-xauusd.png" alt="Trade XAUUSD +$12 de @mateo__0904 apegado al plan" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @mateo__0904
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Mateo</span>
-            <span class="caso-card__detail">Apegado al plan · XAU/USD</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/_juandajimenezz" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @_juandajimenezz en Instagram">
-        <img src="assets/casos/caso-15-juanda-xauusd.png" alt="Trade XAUUSD +$125 de @_juandajimenezz" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @_juandajimenezz
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Juanda Jiménez</span>
-            <span class="caso-card__detail">+$125 · XAU/USD</span>
-          </div>
-        </div>
-      </a>
-      <a href="https://instagram.com/orzacademy_" target="_blank" rel="noopener" class="caso-card" aria-label="Ver @orzacademy_ en Instagram">
-        <img src="assets/casos/caso-16-juanjimenes-xauusd.png" alt="Trade XAUUSD de Juan Jimenes con disciplina ORZ" loading="lazy" />
-        <div class="caso-card__overlay">
-          <div class="caso-card__handle">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @orzacademy_
-          </div>
-          <div class="caso-card__meta">
-            <span class="caso-card__name">Juan Jiménes</span>
-            <span class="caso-card__detail">Excelencia y disciplina</span>
-          </div>
-        </div>
-      </a>
-      </div>
-      <!-- Set 2 clonado por JS para loop infinito -->
-    </div>
-  </div>
-
-  <div class="section-inner" style="padding-top:0">
-    <div class="casos-verify io-reveal dl-4">
-      <a href="https://instagram.com/orzacademy_"
-         target="_blank"
-         rel="noopener"
-         class="casos-verify__btn">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        Verifica todos los casos en @orzacademy_
-      </a>
-      <p class="casos-verify__note">Cada @ mostrado arriba es un perfil público real. Puedes contactarlos directamente.</p>
-    </div>
-  </div>
-</section>
-<div class="sep-line"></div>
-
-<!-- ═══ COMUNIDAD ORZ ══════════════════════════════════════════════ -->
-<section class="comunidad-orz" id="comunidad">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Comunidad ORZ</div>
-    <h2 class="orz-h2 io-reveal dl-1">Dejas de operar solo.</h2>
-    <p class="orz-lead io-reveal dl-2" style="margin-top:.75rem">Eventos presenciales, sesiones privadas y una comunidad de traders que se exige de verdad. Esto es lo que se vive adentro.</p>
-
-    <div class="comunidad-grid io-reveal dl-3">
-      <div class="com-slot com-slot--hero">
-        <img src="assets/comunidad/comunidad-04-presentacion-publico.jpg" alt="ORZ presentando en evento presencial ante la comunidad" loading="lazy">
-        <div class="com-slot__overlay">
-          <span class="com-tag">Evento presencial</span>
-          <span class="com-title">ORZ Level Up</span>
-        </div>
-      </div>
-      <div class="com-slot com-slot--med">
-        <img src="assets/comunidad/comunidad-03-grupo-alumnos.jpg" alt="Alumnos ORZ en formación grupal en vivo" loading="lazy">
-        <div class="com-slot__overlay">
-          <span class="com-tag">Formación en vivo</span>
-          <span class="com-title">Sesiones grupales</span>
-        </div>
-      </div>
-      <div class="com-slot com-slot--video" role="img" aria-label="Video próximamente: recap del evento">
-        <div class="com-video-play" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="com-slot__overlay">
-          <span class="com-tag">Próximamente</span>
-          <span class="com-title">Recap del evento</span>
-        </div>
-      </div>
-      <div class="com-slot com-slot--video" role="img" aria-label="Video próximamente: sesión en vivo">
-        <div class="com-video-play" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="com-slot__overlay">
-          <span class="com-tag">Próximamente</span>
-          <span class="com-title">Sesión en vivo</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="sep-line"></div>
-
-<!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
-<section class="faq-orz" id="faq">
-  <div class="section-inner">
-    <div class="orz-badge io-reveal"><span class="orz-badge-dot"></span>Preguntas frecuentes</div>
-    <h2 class="orz-h2 io-reveal dl-1">Todo lo que necesitas saber<br>antes de dar el paso.</h2>
-    <p class="orz-lead io-reveal dl-2" style="margin-top:.75rem">Respuestas directas — sin humo comercial ni promesas vacías.</p>
-
-    <div class="faq-grid io-reveal dl-3">
-      <div class="faq-column">
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿En cuánto tiempo veré resultados reales?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>No hay un plazo garantizado — quien te lo prometa te está mintiendo. Lo que sí puedo decirte con datos: alumnos disciplinados que siguen la metodología suelen ver consistencia entre los 3-6 meses. La velocidad depende de tu adherencia al plan, no de tu talento.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿Sirve si trabajo tiempo completo?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>Sí. La metodología ORZ está diseñada para operar sesiones específicas de alta liquidez (Nueva York principalmente), lo que se acopla a horarios laborales. Muchos alumnos activos operan antes o después de su trabajo con disciplina.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿Necesito capital para arrancar?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>No para aprender. Puedes formarte y validar el edge en cuenta demo o en cuentas de fondeo (evaluación con capital de firma). Recomendamos empezar sin capital propio hasta demostrar rentabilidad consistente en papel.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿Qué diferencia a ORZ Academy de otros cursos?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>Tres cosas medibles. Primero: grupos de máximo 4 personas por mentoría, no miles de alumnos. Segundo: metodología propia con backtesting real en NAS100 y XAU/USD, no material reciclado. Tercero: plataforma técnica propia (ORZ Edge + University) que ningún curso genérico ofrece.</p>
-          </div>
-        </details>
-      </div>
-      <div class="faq-column">
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿Qué activos y horarios opera la metodología?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>Enfoque en NAS100 y XAU/USD, sesión de Nueva York (13:30-20:00 UTC) donde vive la liquidez institucional. Timeframes M15 y H1 para operativa intradía. Se puede adaptar a otros índices y sesiones una vez dominada la base.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿Qué pasa si no tengo experiencia previa?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>Es preferible en muchos casos. Sin vicios de otros cursos, la curva de aprendizaje es más limpia. Los planes Virtual BASE y Presencial BASE están diseñados específicamente para arranques desde cero con estructura progresiva.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿Cómo es el acompañamiento después de la mentoría?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>Durante el plan contratado tienes acceso directo por WhatsApp, sesiones grupales, análisis de tus trades reales y correcciones en vivo. Al terminar, mantienes acceso a la comunidad ORZ y a las plataformas por el tiempo del plan. Si necesitas continuidad, hay planes de extensión.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>¿Puedo hablar con ORZ directamente antes de decidir?</span>
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <p>Sí. Todos los alumnos empiezan con una primera conversación directa por WhatsApp. Sin script, sin presión — es donde defines qué plan se ajusta a tu situación real. <a href="https://wa.me/573042679499?text=Hola%20ORZ,%20quiero%20agendar%20una%20primera%20conversaci%C3%B3n" target="_blank" rel="noopener" style="color:var(--orz-blue-light);text-decoration:underline">Agenda aquí</a>.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="sep-line"></div>
-
-<!-- ═══ CTA FINAL ══════════════════════════════════════════════════ -->
-<section id="cta-final" class="aurora-bg">
-  <div class="cta-final-texture" aria-hidden="true"></div>
-  <div class="cta-final-inner">
-    <div class="cta-final-badge io-reveal">
-      <span class="cta-final-badge-dot"></span>
-      Cupos limitados · Grupos de máximo 4 personas
-    </div>
-    <h2 class="cta-final-h io-reveal dl-2">
-      ¿Listo para operar<br>con <span class="hl">ventaja real</span>?
-    </h2>
-    <p class="cta-final-sub io-reveal dl-3">
-      Cada grupo tiene <strong>máximo 4 personas</strong>. El proceso comienza con una conversación directa para entender tu situación y definir el plan que mejor se adapta a ti.
-    </p>
-    <a href="https://wa.me/573042679499?text=Hola%20ORZ%2C%20quiero%20información%20sobre%20la%20mentoría" target="_blank" rel="noopener" class="cta-final-btn io-reveal dl-4">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span>Agenda tu primera conversación</span>
-    </a>
-    <div class="cta-spots io-reveal dl-4">
-      <span class="cta-spots-dot"></span>
-      Disponible ahora · Respuesta en menos de 24 horas
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
-<footer id="footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <div class="footer-logo">
-        <img src="assets/images/logo-orz.jpg" alt="ORZ Academy">
-        <span class="footer-logo-txt">ORZ Academy</span>
-      </div>
-      <div class="footer-tagline">Mentoría de Trading · NAS100 & XAU/USD<br>Medellín, Colombia</div>
-    </div>
-
-    <div class="footer-center">
-      <div class="footer-socials">
-        <!-- Instagram @orz.trader -->
-        <a href="https://www.instagram.com/orz.trader/" target="_blank" rel="noopener" class="footer-social" title="@orz.trader">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-        </a>
-        <!-- Instagram @orz.academy -->
-        <a href="https://www.instagram.com/orz.academy/" target="_blank" rel="noopener" class="footer-social" title="@orz.academy">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M22 4s-2.8 2.1-5 2.3A4.5 4.5 0 004 9c0 .5.1 1 .2 1.5C3 10.4 1.6 9.6.7 8.5A9 9 0 006 19.5a9 9 0 009-9v-1a6.3 6.3 0 004-4.5z"/>
-          </svg>
-        </a>
-        <!-- WhatsApp -->
-        <a href="https://wa.me/573042679499" target="_blank" rel="noopener" class="footer-social" title="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-        </a>
-      </div>
-      <div class="footer-copy">© 2026 ORZ Academy · Todos los derechos reservados</div>
-    </div>
-
-    <div class="footer-right">
-      <div class="footer-city">@orz.trader · @orz.academy</div>
-      <div class="footer-disclaimer">Trading implica riesgos significativos. Los resultados pasados no garantizan resultados futuros. Opera con capital que puedas permitirte perder.</div>
+    <div class="foot-bottom">
+      <span>© 2026 ORZ Group</span>
+      <span>Medellín, Colombia</span>
     </div>
   </div>
 </footer>
 
 <script>
-/* ── Hamburger ───────────────────────────────────────────────────── */
-const hamburger = document.getElementById('hamburger');
-const navLinks  = document.getElementById('nav-links');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
+(function(){
+  var nav=document.getElementById('nav'),burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>24)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');burger.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
   });
-});
-
-/* ── Navbar scroll ───────────────────────────────────────────────── */
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, {passive:true});
-
-/* ── IntersectionObserver — scroll reveal ───────────────────────── */
-const ioOptions = {threshold:0.12, rootMargin:'0px 0px -40px 0px'};
-const observer  = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('io-visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, ioOptions);
-document.querySelectorAll('.io-reveal').forEach(el => observer.observe(el));
-
-/* ── Filter tabs — mentorías ─────────────────────────────────────── */
-const tabs  = document.querySelectorAll('.precio-tab');
-const cards = document.querySelectorAll('.precio-card[data-level]');
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const level = tab.dataset.level;
-    cards.forEach(card => {
-      const show = level === 'all' || card.dataset.level === level;
-      card.style.display = show ? '' : 'none';
-    });
-  });
-});
-
-/* ── Counter animation ───────────────────────────────────────────── */
-function animateCounter(el, target, duration) {
-  const start = performance.now();
-  const update = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const ease     = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(ease * target);
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = target;
-  };
-  requestAnimationFrame(update);
-}
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseInt(el.dataset.target, 10);
-      animateCounter(el, target, 1400);
-      counterObs.unobserve(el);
-    }
-  });
-}, {threshold:0.5});
-document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
-</script>
-
-<!-- ═══ STICKY CTA MÓVIL ═══════════════════════════════════════════ -->
-<div class="sticky-cta-mobile" id="stickyCta" aria-hidden="true">
-  <a href="https://wa.me/573042679499?text=Hola%20ORZ,%20quiero%20agendar%20una%20primera%20conversaci%C3%B3n"
-     class="sticky-cta-btn"
-     target="_blank"
-     rel="noopener">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.16c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.24.85.87-3.16-.2-.32c-.85-1.35-1.3-2.91-1.3-4.5 0-4.68 3.81-8.48 8.48-8.48s8.48 3.81 8.48 8.48c0 4.67-3.8 8.5-8.44 8.5z"/></svg>
-    <span>Agenda tu primera conversación</span>
-  </a>
-</div>
-<script>
-  (function() {
-    const sticky = document.getElementById('stickyCta');
-    if (!sticky) return;
-    const threshold = 400;
-    function toggleSticky() {
-      if (window.scrollY > threshold) {
-        sticky.classList.add('visible');
-        sticky.setAttribute('aria-hidden', 'false');
-      } else {
-        sticky.classList.remove('visible');
-        sticky.setAttribute('aria-hidden', 'true');
-      }
-    }
-    window.addEventListener('scroll', toggleSticky, { passive: true });
-    toggleSticky();
-  })();
-</script>
-<script>
-  (function() {
-    const track = document.querySelector('.casos-track');
-    if (!track) return;
-    const items = Array.from(track.children);
-    items.forEach(item => {
-      const clone = item.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      clone.setAttribute('tabindex', '-1');
-      track.appendChild(clone);
-    });
-  })();
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    links.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');
+  })});
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
 </script>
 </body>
 </html>
