@@ -59,7 +59,8 @@ img,video,canvas{display:block;max-width:100%}
 /* Nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;height:68px;display:flex;align-items:center;background:linear-gradient(180deg,rgba(5,7,13,.85),rgba(5,7,13,0));}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.06em}
+.brand{display:flex;align-items:center}
+.brand img{height:38px;width:auto}
 .brand i{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--acc-2);position:relative;box-shadow:0 0 18px -2px var(--acc-glow)}
 .brand i::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--acc-2)}
 .brand span{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.32em;color:var(--t3)}
@@ -233,7 +234,7 @@ img,video,canvas{display:block;max-width:100%}
 
 <header class="nav">
   <div class="wrap">
-    <a href="#s1" class="brand" aria-label="ORZ Group"><i></i>ORZ <span>GROUP</span></a>
+    <a href="#s1" class="brand" aria-label="ORZ Group, inicio"><img src="assets/group/logo-orz-group.svg" alt="ORZ Group" width="165" height="38"></a>
     <nav class="nav-l" aria-label="Principal">
       <a href="#s2" data-s="s2">Edge</a>
       <a href="#s3" data-s="s3">Unidades</a>
