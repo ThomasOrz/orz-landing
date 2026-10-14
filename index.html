@@ -29,6 +29,7 @@ html{-webkit-font-smoothing:antialiased;background:var(--bg)}
 body{font-family:var(--sans);color:var(--t1);background:var(--bg);overflow-x:hidden;line-height:1.55}
 a{color:inherit;text-decoration:none}
 img,video,canvas{display:block;max-width:100%}
+img{height:auto}
 :focus-visible{outline:2px solid var(--acc-2);outline-offset:3px;border-radius:4px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut);width:100%}
 
@@ -206,6 +207,18 @@ img,video,canvas{display:block;max-width:100%}
 /* Marca de prototipo */
 .proto{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:70;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ffcf7a;background:rgba(40,28,6,.85);border:1px solid rgba(224,166,69,.4);padding:6px 12px;border-radius:999px}
 
+/* Transición de scroll hero → Edge (zoom a través del sistema) */
+@media (min-width:961px) and (hover:hover) and (prefers-reduced-motion:no-preference){
+  .tz{position:relative;height:200vh}
+  .tz-anchor{position:absolute;left:0;width:1px;height:100vh;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
+  #a1{top:0} #a2{top:100vh}
+  .tz-stage{position:sticky;top:0;height:100vh;overflow:hidden}
+  .tz-stage>.scene{position:absolute;inset:0;scroll-snap-align:none}
+  .tz-stage>#s2{opacity:0;pointer-events:none}
+  .tz-stage>#s2{padding:84px 0 40px}
+  .tz-stage #s2 .stage3d{max-width:min(860px,calc((100vh - 340px)*1.8));margin-top:26px}
+  .tz-stage .orbit-box,.tz-stage .hero .copy,.tz-stage #s2 .wrap{will-change:transform,opacity,filter}
+}
 @media (prefers-reduced-motion:reduce){
   .grain{animation:none}
   .in,.tilt,.card,.portrait img{transition:none}
@@ -257,6 +270,7 @@ img,video,canvas{display:block;max-width:100%}
 
 <main>
 <!-- ═══ 1 · HERO: el ecosistema ═══════════════════════════════════ -->
+<div class="tz" id="tz"><div class="tz-anchor" id="a1"></div><div class="tz-anchor" id="a2"></div><div class="tz-stage">
 <section class="scene hero" id="s1" data-name="Ecosistema">
   <div class="wrap">
     <div class="copy">
@@ -290,6 +304,7 @@ img,video,canvas{display:block;max-width:100%}
     </div>
   </div>
 </section>
+</div></div>
 
 <!-- ═══ 3 · CARRUSEL de unidades ══════════════════════════════════ -->
 <section class="scene units" id="s3" data-name="Unidades">
@@ -411,21 +426,48 @@ function fit(cv){var r=cv.getBoundingClientRect();cv.width=Math.max(1,r.width*DP
 
 /* ── Escenas: activación, indicador, contador ───────────────── */
 var scenes=[].slice.call(document.querySelectorAll('.scene'));
+var TZ=document.getElementById('tz'), tzMQ=matchMedia('(min-width:961px) and (hover:hover) and (prefers-reduced-motion:no-preference)');
+function tzOn(){return tzMQ.matches}
+function go(el){if(tzOn()&&(el.id==='s1'||el.id==='s2'))el=document.getElementById(el.id==='s1'?'a1':'a2');el.scrollIntoView({behavior:RM?'auto':'smooth'})}
+document.querySelectorAll('a[href^="#s"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.getElementById(a.getAttribute('href').slice(1));if(t){e.preventDefault();go(t)}})});
+function setCurrent(i){[].forEach.call(pager.children,function(b,k){b.classList.toggle('on',k===i)});
+  counter.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(scenes.length).padStart(2,'0');
+  navLinks.forEach(function(a){a.classList.toggle('on',a.dataset.s===scenes[i].id)})}
 var pager=document.getElementById('pager'), counter=document.getElementById('counter');
-scenes.forEach(function(s,i){var b=document.createElement('button');b.title=s.dataset.name;b.onclick=function(){s.scrollIntoView({behavior:RM?'auto':'smooth'})};pager.appendChild(b)});
 var navLinks=[].slice.call(document.querySelectorAll('.nav-l a'));
+scenes.forEach(function(s,i){var b=document.createElement('button');b.title=s.dataset.name;b.onclick=function(){go(s)};pager.appendChild(b)});
+
 var active={};
 var io=new IntersectionObserver(function(es){es.forEach(function(e){
   var s=e.target, on=e.isIntersecting;
-  if(on){s.classList.add('active');var i=scenes.indexOf(s);
-    [].forEach.call(pager.children,function(b,k){b.classList.toggle('on',k===i)});
-    counter.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(scenes.length).padStart(2,'0');
-    navLinks.forEach(function(a){a.classList.toggle('on',a.dataset.s===s.id)});
-  }
+  if(tzOn()&&(s.id==='s1'||s.id==='s2'))return;
+  if(on){s.classList.add('active');setCurrent(scenes.indexOf(s))}
   active[s.id]=on;
   s.querySelectorAll('video').forEach(function(v){ if(on){var p=v.play();if(p&&p.catch)p.catch(function(){})} else v.pause() });
 })},{threshold:.5});
 scenes.forEach(function(s){io.observe(s)});
+/* Transición hero → Edge ligada al scroll */
+var S1=document.getElementById('s1'),S2=document.getElementById('s2'),OB=document.querySelector('.orbit-box'),HC=document.querySelector('.hero .copy'),W2=S2.querySelector('.wrap'),tzIn=false;
+function sm(a,b,v){v=Math.min(1,Math.max(0,(v-a)/(b-a)));return v*v*(3-2*v)}
+function tzUpdate(){
+  if(!tzOn()){if(tzIn){[OB,HC,W2,S2].forEach(function(e){e.style.cssText=''});tzIn=false}return}
+  tzIn=true;
+  var r=TZ.getBoundingClientRect(),vh=innerHeight,p=Math.min(1,Math.max(0,-r.top/vh));
+  var e1=sm(0,.85,p), out=sm(.25,.8,p), q=sm(.35,1,p);
+  var ox=GEO?GEO.cx:innerWidth*.67, oy=GEO?GEO.cy:vh*.5;
+  OB.style.transformOrigin=ox+'px '+oy+'px';
+  OB.style.transform='scale('+(1+e1*2.6)+')';OB.style.filter=e1>.01?'blur('+(e1*14).toFixed(1)+'px)':'none';OB.style.opacity=(1-out).toFixed(3);
+  HC.style.transform='translateY('+(-sm(0,.6,p)*70)+'px)';HC.style.opacity=(1-sm(0,.45,p)).toFixed(3);
+  S2.style.opacity=sm(.3,.75,p).toFixed(3);S2.style.pointerEvents=p>.6?'auto':'none';
+  W2.style.transform='scale('+(1.45-.45*q).toFixed(4)+')';W2.style.filter=q<.99?'blur('+((1-q)*12).toFixed(1)+'px)':'none';
+  var on1=p<.6,on2=p>.4;active.s1=on1;active.s2=on2;
+  S1.classList.toggle('active',p<.5||S1.classList.contains('active')&&p<.9);
+  if(p>.55)S2.classList.add('active');
+  if(r.top<=0&&r.bottom>=vh*.5)setCurrent(p<.5?0:1);
+}
+S1.classList.add('active');active.s1=true;
+addEventListener('scroll',tzUpdate,{passive:true});addEventListener('resize',tzUpdate);tzUpdate();
+if(tzMQ.addEventListener)tzMQ.addEventListener('change',function(){location.reload()});
 
 /* ── Estrellas de fondo ─────────────────────────────────────── */
 var st=document.getElementById('stars'), S, stars=[];
@@ -501,7 +543,7 @@ function jag(x0,y0,x1,y1,d){var pts=[[x0,y0],[x1,y1]];for(var it=0;it<5;it++){va
 function spawnBolt(a,b,col,life){BOLTS.push({pts:jag(a.x,a.y,b.x,b.y,Math.hypot(b.x-a.x,b.y-a.y)*.28),col:col,t0:performance.now(),life:life||420})}
 ob.addEventListener('mousemove',function(e){var r=ob.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
 ob.addEventListener('mouseleave',function(){mouse.x=-1;hover=null;tip.classList.remove('show')});
-ob.addEventListener('click',function(){if(hover)document.getElementById(hover.u.id).scrollIntoView({behavior:RM?'auto':'smooth'})});
+ob.addEventListener('click',function(){if(hover)go(document.getElementById(hover.u.id))});
 var lastHover=null;
 function drawLogo(x,cx,cy,size,t){
   if(!LOGO)return;
