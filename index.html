@@ -207,6 +207,30 @@ img{height:auto}
 /* Marca de prototipo */
 .proto{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:70;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ffcf7a;background:rgba(40,28,6,.85);border:1px solid rgba(224,166,69,.4);padding:6px 12px;border-radius:999px}
 
+
+/* 2 · ACADEMY */
+.acad{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(40px,5vw,96px);align-items:center;max-width:none;padding:0 6vw 0 9.4vw}
+.acad .h2{margin:16px 0 18px;font-size:clamp(34px,3.3vw,60px)}
+.acad .body{max-width:46ch}
+.ruta{list-style:none;margin:28px 0 32px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2)}
+.ruta li{padding:14px 14px 0 0;position:relative}
+.ruta li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--acc-2);box-shadow:0 0 10px var(--acc-glow)}
+.ruta em{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--acc-2);margin-bottom:4px}
+.ruta b{display:block;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase}
+.ruta span{display:block;font-size:14px;color:var(--t3);line-height:1.3;margin-top:2px}
+.acad .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.acad-media{position:relative;height:min(64vh,600px)}
+.acad-media figure{position:absolute;margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line2);background:#070a14;box-shadow:0 40px 100px -40px rgba(0,102,255,.45)}
+.acad-media video,.acad-media img{width:100%;height:100%;object-fit:cover}
+.acad-media figcaption{position:absolute;left:12px;bottom:10px;background:rgba(5,7,13,.72);backdrop-filter:blur(6px);padding:5px 9px;border-radius:5px;color:var(--t2)}
+.am-main figcaption{left:auto;right:12px;bottom:auto;top:10px}
+.am-main{left:6%;right:0;top:8%;height:66%;transform:perspective(1600px) rotateY(-7deg);transform-origin:right center}
+.am-photo{right:-2%;top:-4%;width:28%;height:30%;z-index:2}
+.am-pip{left:0;bottom:0;width:44%;height:36%;z-index:3;border-color:rgba(77,148,255,.45)}
+.am-chips{position:absolute;right:0;bottom:6%;display:flex;flex-direction:column;gap:8px;align-items:flex-end;z-index:2}
+.am-chips span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);border:1px solid var(--line2);background:rgba(8,11,20,.8);padding:7px 11px;border-radius:999px}
+.am-chips span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--acc-2);margin-right:8px;box-shadow:0 0 8px var(--acc-glow)}
+@media (max-width:960px){.acad{grid-template-columns:1fr;padding:0 var(--gut)}.ruta{grid-template-columns:1fr 1fr;row-gap:16px}.acad-media{height:420px}}
 /* Transición de scroll hero → Edge (zoom a través del sistema) */
 @media (min-width:961px) and (hover:hover) and (prefers-reduced-motion:no-preference){
   .tz{position:relative;height:250vh}
@@ -215,8 +239,7 @@ img{height:auto}
   .tz-stage{position:sticky;top:0;height:100vh;overflow:hidden}
   .tz-stage>.scene{position:absolute;inset:0;scroll-snap-align:none}
   .tz-stage>#s2{opacity:0;pointer-events:none}
-  .tz-stage>#s2{padding:84px 0 40px}
-  .tz-stage #s2 .stage3d{max-width:min(860px,calc((100vh - 340px)*1.8));margin-top:26px}
+  .tz-stage>#s2{padding:80px 0 40px}
   #s3 .stage3d{max-width:min(860px,calc((100vh - 300px)*1.8))}
   .tz-stage .orbit-box,.tz-stage .hero .copy,.tz-stage #s2 .wrap{will-change:transform,opacity,filter}
 }
@@ -288,17 +311,28 @@ img{height:auto}
 </section>
 
 <!-- ═══ 2 · ACADEMY ════════════════════════════════════════════ -->
-<section class="scene academy edge" id="s2" data-name="ORZ Academy">
-  <div class="wrap">
-    <div class="label acc in">01 · Educación</div>
-    <h2 class="h2 in i1">ORZ Academy. <span class="dim">Formación con método.</span></h2>
-    <div class="stage3d in i2">
-      <div class="tilt">
-        <div class="screen"><video src="assets/group/v/publico.mp4" poster="assets/group/v/publico.jpg" muted loop playsinline preload="metadata" style="width:100%;border-radius:9px;aspect-ratio:16/9;object-fit:cover"></video></div>
+<section class="scene academy" id="s2" data-name="ORZ Academy">
+  <div class="wrap acad">
+    <div class="acad-copy">
+      <div class="label acc in">01 · ORZ Academy · Educación</div>
+      <h2 class="h2 in i1">Del primer concepto<br><span class="dim">a tu propia ventaja.</span></h2>
+      <p class="body in i2">Una sola metodología de trading, enseñada en cuatro fases dentro de una plataforma propia. Para quien empieza desde cero y para quien ya opera.</p>
+      <ol class="ruta in i3">
+        <li><em>01</em><b>Foundation</b><span>Cómo funciona el mercado</span></li>
+        <li><em>02</em><b>Method</b><span>La metodología ORZ completa</span></li>
+        <li><em>03</em><b>Execution</b><span>El método en mercado real</span></li>
+        <li><em>04</em><b>Edge</b><span>Tu ventaja, medida en números</span></li>
+      </ol>
+      <div class="ctas in i4">
+        <a href="https://university.orzacademy.com/landing#planes" target="_blank" rel="noopener" class="btn btn-p">Conocer los planes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="btn btn-g">Ver la plataforma</a>
       </div>
-      <div class="co r" style="right:calc(100% - 4%);top:24%"><span class="d"></span><span class="l"></span><span class="t"><b>Programa por fases</b><span>De los fundamentos a la ejecución</span></span></div>
-      <div class="co r" style="right:calc(100% - 4%);top:64%"><span class="d"></span><span class="l"></span><span class="t"><b>Mentoría directa</b><span>Grupos de máximo cuatro personas</span></span></div>
-      <div class="co" style="left:calc(100% - 3%);top:46%"><span class="d"></span><span class="l"></span><span class="t"><b>Comunidad y eventos</b><span>Encuentros presenciales en Medellín</span></span></div>
+    </div>
+    <div class="acad-media in i2">
+      <figure class="am-main"><video src="assets/group/v/publico.mp4" poster="assets/group/v/publico.jpg" muted loop playsinline preload="metadata"></video><figcaption class="label">Eventos presenciales · Medellín</figcaption></figure>
+      <figure class="am-photo"><img src="assets/group/academy-mentoria-crop.webp" alt="Sesión de mentoría frente al gráfico" loading="lazy"><figcaption class="label">Mentoría</figcaption></figure>
+      <figure class="am-pip"><video src="assets/group/v/entrevista.mp4" poster="assets/group/v/entrevista.jpg" muted loop playsinline preload="metadata"></video><figcaption class="label">Thomas Orozco · Fundador</figcaption></figure>
+      <div class="am-chips"><span>The Floor · contenido que se renueva</span><span>Comunidad privada</span></div>
     </div>
   </div>
 </section>
