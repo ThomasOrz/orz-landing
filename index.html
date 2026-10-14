@@ -212,25 +212,23 @@ img{height:auto}
 .acad{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(40px,5vw,96px);align-items:center;max-width:none;padding:0 6vw 0 9.4vw}
 .acad .h2{margin:16px 0 18px;font-size:clamp(34px,3.3vw,60px)}
 .acad .body{max-width:46ch}
-.ruta{list-style:none;margin:28px 0 32px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2)}
-.ruta li{padding:14px 14px 0 0;position:relative}
-.ruta li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--acc-2);box-shadow:0 0 10px var(--acc-glow)}
-.ruta em{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--acc-2);margin-bottom:4px}
-.ruta b{display:block;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase}
-.ruta span{display:block;font-size:14px;color:var(--t3);line-height:1.3;margin-top:2px}
+.svc{margin:26px 0 30px;display:grid;gap:0;border-top:1px solid var(--line2)}
+.svc>div{display:grid;grid-template-columns:34px 130px 1fr;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.svc em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--acc-2)}
+.svc b{font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase}
+.svc span{font-size:15.5px;color:var(--t2);line-height:1.4}
 .acad .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .acad-media{position:relative;height:min(64vh,600px)}
 .acad-media figure{position:absolute;margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--line2);background:#070a14;box-shadow:0 40px 100px -40px rgba(0,102,255,.45)}
 .acad-media video,.acad-media img{width:100%;height:100%;object-fit:cover}
 .acad-media figcaption{position:absolute;left:12px;bottom:10px;background:rgba(5,7,13,.72);backdrop-filter:blur(6px);padding:5px 9px;border-radius:5px;color:var(--t2)}
 .am-main figcaption{left:auto;right:12px;bottom:auto;top:10px}
-.am-main{left:6%;right:0;top:8%;height:66%;transform:perspective(1600px) rotateY(-7deg);transform-origin:right center}
-.am-photo{right:-2%;top:-4%;width:28%;height:30%;z-index:2}
-.am-pip{left:0;bottom:0;width:44%;height:36%;z-index:3;border-color:rgba(77,148,255,.45)}
-.am-chips{position:absolute;right:0;bottom:6%;display:flex;flex-direction:column;gap:8px;align-items:flex-end;z-index:2}
-.am-chips span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);border:1px solid var(--line2);background:rgba(8,11,20,.8);padding:7px 11px;border-radius:999px}
-.am-chips span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--acc-2);margin-right:8px;box-shadow:0 0 8px var(--acc-glow)}
-@media (max-width:960px){.acad{grid-template-columns:1fr;padding:0 var(--gut)}.ruta{grid-template-columns:1fr 1fr;row-gap:16px}.acad-media{height:420px}}
+.am-main{left:6%;right:25%;top:8%;height:58%;transform:perspective(1600px) rotateY(-6deg);transform-origin:right center}
+.am-gym{right:0;top:0;width:22%;height:64%;z-index:2}
+.am-pip{left:0;bottom:0;width:40%;height:33%;z-index:3;border-color:rgba(77,148,255,.45)}
+.am-group{left:43%;bottom:3%;width:25%;height:27%;z-index:2}
+.am-ment{right:0;bottom:3%;width:28%;height:29%;z-index:2}
+@media (max-width:960px){.acad{grid-template-columns:1fr;padding:0 var(--gut)}.svc>div{grid-template-columns:30px 1fr}.svc span{grid-column:2}.acad-media{height:440px}}
 /* Transición de scroll hero → Edge (zoom a través del sistema) */
 @media (min-width:961px) and (hover:hover) and (prefers-reduced-motion:no-preference){
   .tz{position:relative;height:250vh}
@@ -316,23 +314,23 @@ img{height:auto}
     <div class="acad-copy">
       <div class="label acc in">01 · ORZ Academy · Educación</div>
       <h2 class="h2 in i1">Del primer concepto<br><span class="dim">a tu propia ventaja.</span></h2>
-      <p class="body in i2">Una sola metodología de trading, enseñada en cuatro fases dentro de una plataforma propia. Para quien empieza desde cero y para quien ya opera.</p>
-      <ol class="ruta in i3">
-        <li><em>01</em><b>Foundation</b><span>Cómo funciona el mercado</span></li>
-        <li><em>02</em><b>Method</b><span>La metodología ORZ completa</span></li>
-        <li><em>03</em><b>Execution</b><span>El método en mercado real</span></li>
-        <li><em>04</em><b>Edge</b><span>Tu ventaja, medida en números</span></li>
-      </ol>
+      <p class="body in i2">La formación de trading del grupo: una metodología enseñada en orden, acompañamiento directo y una comunidad que recorre la misma ruta.</p>
+      <div class="svc in i3">
+        <div><em>01</em><b>Plataforma</b><span>Cuatro fases, de los fundamentos a la ejecución, con contenido vivo y asistentes de IA.</span></div>
+        <div><em>02</em><b>Mentoría</b><span>Acompañamiento directo con Thomas y sesiones privadas de seguimiento.</span></div>
+        <div><em>03</em><b>Comunidad</b><span>Una comunidad privada y eventos presenciales para no estudiar solo.</span></div>
+      </div>
       <div class="ctas in i4">
         <a href="https://university.orzacademy.com/landing#planes" target="_blank" rel="noopener" class="btn btn-p">Conocer los planes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="btn btn-g">Ver la plataforma</a>
       </div>
     </div>
     <div class="acad-media in i2">
-      <figure class="am-main"><video src="assets/group/v/publico.mp4" poster="assets/group/v/publico.jpg" muted loop playsinline preload="metadata"></video><figcaption class="label">Eventos presenciales · Medellín</figcaption></figure>
-      <figure class="am-photo"><img src="assets/group/academy-mentoria-crop.webp" alt="Sesión de mentoría frente al gráfico" loading="lazy"><figcaption class="label">Mentoría</figcaption></figure>
+      <figure class="am-main"><video src="assets/group/v/academy-reel.mp4" poster="assets/group/v/academy-reel.jpg" muted loop playsinline preload="metadata"></video><figcaption class="label">Eventos · Medellín</figcaption></figure>
+      <figure class="am-gym"><video src="assets/group/v/gym.mp4" poster="assets/group/v/gym.jpg" muted loop playsinline preload="metadata"></video><figcaption class="label">Sesiones en vivo</figcaption></figure>
       <figure class="am-pip"><video src="assets/group/v/entrevista.mp4" poster="assets/group/v/entrevista.jpg" muted loop playsinline preload="metadata"></video><figcaption class="label">Thomas Orozco · Fundador</figcaption></figure>
-      <div class="am-chips"><span>The Floor · contenido que se renueva</span><span>Comunidad privada</span></div>
+      <figure class="am-group"><img src="assets/group/comunidad-gym.webp" alt="Comunidad ORZ reunida en un evento" loading="lazy"><figcaption class="label">Comunidad</figcaption></figure>
+      <figure class="am-ment"><img src="assets/group/academy-mentoria-crop.webp" alt="Sesión de mentoría frente al gráfico" loading="lazy"><figcaption class="label">Mentoría</figcaption></figure>
     </div>
   </div>
 </section>
