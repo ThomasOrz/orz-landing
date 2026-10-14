@@ -466,12 +466,12 @@ function label(x,cx,cy,txt,sub,col,size,hl,dim){
 }
 
 var UNITS=[
- {id:'s3',name:'Academy',sub:'Educación',col:C.acc,p:[-.86,-.22],r:.19,info:'Formación por fases, mentoría directa y comunidad.',
-  sats:[['Programa',-1.32,-.78],['Mentoría',-.42,-.86],['Comunidad',-1.5,.12],['Eventos',-.98,.5]]},
- {id:'s2',name:'Edge',sub:'Tecnología',col:C.acc2,p:[.86,-.16],r:.19,info:'Journal, estrategias propias y métricas con tus datos.',
-  sats:[['Journal',.36,-.84],['Estrategias',.94,-.94],['Edge Finder',1.46,-.6],['Métricas',1.58,.08],['Mentora IA',1.28,.56],['Capital y reglas',.62,.5]]},
- {id:'s6',name:'Capital',sub:'En preparación',col:C.gold,p:[.02,.84],r:.16,info:'Gestión de capital y acceso a capital. En preparación.',
-  sats:[['Gestión',-.5,1.0],['Acceso',.56,1.04]]}
+ {id:'s3',name:'Academy',sub:'Educación',col:C.acc,p:[-0.69,-0.18],r:.19,info:'Formación por fases, mentoría directa y comunidad.',
+  sats:[['Programa',-1.06,-0.62],['Mentoría',-0.34,-0.69],['Comunidad',-1.20,0.10],['Eventos',-0.78,0.40]]},
+ {id:'s2',name:'Edge',sub:'Tecnología',col:C.acc2,p:[0.69,-0.13],r:.19,info:'Journal, estrategias propias y métricas con tus datos.',
+  sats:[['Journal',0.29,-0.67],['Estrategias',0.75,-0.75],['Edge Finder',1.17,-0.48],['Métricas',1.26,0.06],['Mentora IA',1.02,0.45],['Capital y reglas',0.50,0.40]]},
+ {id:'s6',name:'Capital',sub:'En preparación',col:C.gold,p:[0.02,0.67],r:.16,info:'Gestión de capital y acceso a capital. En preparación.',
+  sats:[['Gestión',-0.40,0.80],['Acceso',0.45,0.83]]}
 ];
 var SPK=[], BOLTS=[], nextBolt=1, LOGO=null, LOGO_D=null;
 (function(){var im=new Image();im.onload=function(){var c=document.createElement('canvas');c.width=im.naturalWidth*3||600;c.height=im.naturalHeight*3||380;var g=c.getContext('2d');g.drawImage(im,0,0,c.width,c.height);LOGO=c;
@@ -481,7 +481,7 @@ var GEO=null;
 function initOrbit(){O=fit(ob);SPK=[];
   var W=O.w,H=O.h,mob=W<960,S,cx,cy;
   if(mob){S=Math.min(W/3.4,H*.16);cx=W/2;cy=Math.min(H*.25,S*1.6+70)}
-  else{var cr=heroCopy?heroCopy.getBoundingClientRect().right-ob.getBoundingClientRect().left:W*.45;var left=cr+20;S=Math.min((W-left-70)/3.25,H*.33);cx=left+S*1.6;cy=H*.53}
+  else{var cr=heroCopy?heroCopy.getBoundingClientRect().right-ob.getBoundingClientRect().left:W*.45;var left=cr+Math.max(90,W*.07),avail=W-left-Math.max(70,W*.05);S=Math.min(avail/2.9,H*.36,330);cx=left+avail/2;cy=H*.52}
   GEO={S:S,cx:cx,cy:cy,mob:mob};
   for(var q=0;q<160;q++){SPK.push({x:Math.random()*W,y:Math.random()*H,p:Math.random()*7,s:Math.random()*1.1+.2})}
 }
@@ -550,7 +550,7 @@ function drawOrbit(t){
     else if(!g.mob||on)label(x,n.x,n.y+n.r+15,n.name,null,n.col,11,on,!on);
   });
   // núcleo: logo girando
-  x.strokeStyle='rgba(77,148,255,.35)';x.lineWidth=1;x.beginPath();x.arc(cx,cy,S*.3,0,7);x.stroke();
+  x.strokeStyle='rgba(77,148,255,.35)';x.lineWidth=1;x.beginPath();x.arc(cx,cy,S*.28,0,7);x.stroke();
   x.strokeStyle='rgba(77,148,255,.9)';x.lineWidth=2.4;x.beginPath();x.arc(cx,cy,S*.3+5,t*.4,t*.4+.8);x.stroke();
   drawLogo(x,cx,cy,S*.5,t);
   // tooltip de unidad
