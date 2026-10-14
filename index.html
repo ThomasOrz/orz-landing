@@ -209,14 +209,15 @@ img{height:auto}
 
 /* Transición de scroll hero → Edge (zoom a través del sistema) */
 @media (min-width:961px) and (hover:hover) and (prefers-reduced-motion:no-preference){
-  .tz{position:relative;height:320vh}
+  .tz{position:relative;height:250vh}
   .tz-anchor{position:absolute;left:0;width:1px;height:100vh;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
-  #a1{top:0} #a2{top:220vh}
+  #a1{top:0} #a2{top:150vh}
   .tz-stage{position:sticky;top:0;height:100vh;overflow:hidden}
   .tz-stage>.scene{position:absolute;inset:0;scroll-snap-align:none}
   .tz-stage>#s2{opacity:0;pointer-events:none}
   .tz-stage>#s2{padding:84px 0 40px}
   .tz-stage #s2 .stage3d{max-width:min(860px,calc((100vh - 340px)*1.8));margin-top:26px}
+  #s3 .stage3d{max-width:min(860px,calc((100vh - 300px)*1.8))}
   .tz-stage .orbit-box,.tz-stage .hero .copy,.tz-stage #s2 .wrap{will-change:transform,opacity,filter}
 }
 @media (prefers-reduced-motion:reduce){
@@ -256,9 +257,9 @@ img{height:auto}
   <div class="wrap">
     <a href="#s1" class="brand" aria-label="ORZ Group, inicio"><img src="assets/group/logo-orz-group.svg" alt="ORZ Group" width="165" height="38"></a>
     <nav class="nav-l" aria-label="Principal">
-      <a href="#s2" data-s="s2">Edge</a>
-      <a href="#s3" data-s="s3">Unidades</a>
-      <a href="#s6" data-s="s6">Capital</a>
+      <a href="#s2" data-s="s2">Academy</a>
+      <a href="#s3" data-s="s3">Edge</a>
+      <a href="#s4" data-s="s4">Capital</a>
       <a href="#s7" data-s="s7">Fundador</a>
     </nav>
     <a href="#s8" class="btn btn-g" style="height:38px;padding:0 16px">Contacto</a>
@@ -278,7 +279,7 @@ img{height:auto}
       <h1 class="h1 in i1" style="margin-top:20px"><span>Construimos lo que</span><span class="dim">impulsa al trader.</span></h1>
       <p class="body in i2">Educación, tecnología y capital. Tres unidades que trabajan como un solo sistema.</p>
       <div class="ctas in i3">
-        <a href="#s3" class="btn btn-p">Explorar el ecosistema <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#s2" class="btn btn-p">Explorar el ecosistema <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="#s7" class="btn btn-g">Quién está detrás</a>
       </div>
     </div>
@@ -286,8 +287,26 @@ img{height:auto}
   <div class="orbit-box"><canvas id="orbit" aria-label="Ecosistema ORZ: Academy, Edge y Capital"></canvas><div class="tip" id="tip"></div></div>
 </section>
 
-<!-- ═══ 2 · EDGE en una sola pantalla ═════════════════════════════ -->
-<section class="scene edge" id="s2" data-name="ORZ Edge">
+<!-- ═══ 2 · ACADEMY ════════════════════════════════════════════ -->
+<section class="scene academy edge" id="s2" data-name="ORZ Academy">
+  <div class="wrap">
+    <div class="label acc in">01 · Educación</div>
+    <h2 class="h2 in i1">ORZ Academy. <span class="dim">Formación con método.</span></h2>
+    <div class="stage3d in i2">
+      <div class="tilt">
+        <div class="screen"><video src="assets/group/v/publico.mp4" poster="assets/group/v/publico.jpg" muted loop playsinline preload="metadata" style="width:100%;border-radius:9px;aspect-ratio:16/9;object-fit:cover"></video></div>
+      </div>
+      <div class="co r" style="right:calc(100% - 4%);top:24%"><span class="d"></span><span class="l"></span><span class="t"><b>Programa por fases</b><span>De los fundamentos a la ejecución</span></span></div>
+      <div class="co r" style="right:calc(100% - 4%);top:64%"><span class="d"></span><span class="l"></span><span class="t"><b>Mentoría directa</b><span>Grupos de máximo cuatro personas</span></span></div>
+      <div class="co" style="left:calc(100% - 3%);top:46%"><span class="d"></span><span class="l"></span><span class="t"><b>Comunidad y eventos</b><span>Encuentros presenciales en Medellín</span></span></div>
+    </div>
+  </div>
+</section>
+
+</div></div>
+
+<!-- ═══ 3 · EDGE ══════════════════════════════════════════════ -->
+<section class="scene edge" id="s3" data-name="ORZ Edge">
   <div class="wrap">
     <div class="label acc in">02 · Tecnología</div>
     <h2 class="h2 in i1">ORZ Edge. <span class="dim">Tu operativa en una pantalla.</span></h2>
@@ -304,39 +323,21 @@ img{height:auto}
     </div>
   </div>
 </section>
-</div></div>
 
-<!-- ═══ 3 · CARRUSEL de unidades ══════════════════════════════════ -->
-<section class="scene units" id="s3" data-name="Unidades">
+<!-- ═══ 4 · CAPITAL ═══════════════════════════════════════════════ -->
+<section class="scene capital" id="s4" data-name="ORZ Capital">
   <div class="wrap">
-    <div class="label acc in">Las unidades</div>
-    <h2 class="h2 in i1" style="margin-top:14px">Un grupo. <span class="dim">Tres frentes.</span></h2>
-    <div class="car in i2" id="car">
-      <article class="card" data-i="0">
-        <video src="assets/group/v/publico.mp4" poster="assets/group/v/publico.jpg" muted loop playsinline preload="metadata"></video>
-        <div class="ov"></div>
-        <div class="meta"><span class="label acc">01 · Educación</span><h3>ORZ Academy</h3><p>Programa por fases, mentoría directa y eventos presenciales.</p></div>
-      </article>
-      <article class="card" data-i="1">
-        <img src="assets/group/edge-panel.webp" alt="" loading="lazy">
-        <div class="ov"></div>
-        <div class="meta"><span class="label acc">02 · Tecnología</span><h3>ORZ Edge</h3><p>Journal, estrategias y métricas con tus propios datos.</p></div>
-      </article>
-      <article class="card cap" data-i="2">
-        <div class="cap-art"></div>
-        <div class="meta"><span class="label gold">03 · Capital</span><h3>ORZ Capital</h3><p>Gestión de capital y acceso a capital. En preparación.</p></div>
-      </article>
-    </div>
-    <div class="car-ui in i3">
-      <button class="arrow" id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <div class="dots" id="dots"><i></i><i></i><i></i></div>
-      <button class="arrow" id="next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    <div class="label gold in">03 · Capital</div>
+    <h2 class="h2 in i1" style="margin-top:14px">ORZ Capital. <span class="dim">Dos líneas, reglas propias.</span></h2>
+    <div class="cgrid">
+      <article class="ccard in i2"><span class="label">Línea 01</span><h3>Gestión de capital</h3><p>Para clientes interesados en servicios de gestión de capital.</p><span class="status">En preparación</span></article>
+      <article class="ccard in i3"><span class="label">Línea 02</span><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
     </div>
   </div>
 </section>
 
 <!-- ═══ 4 · POSTURA ════════════════════════════════════════════════ -->
-<section class="scene" id="s4" data-name="Postura">
+<section class="scene" id="s5" data-name="Postura">
   <div class="wrap split">
     <div>
       <div class="label acc in">Nuestra postura</div>
@@ -355,7 +356,7 @@ img{height:auto}
 </section>
 
 <!-- ═══ 5 · PRINCIPIOS ═════════════════════════════════════════════ -->
-<section class="scene" id="s5" data-name="Principios">
+<section class="scene" id="s6" data-name="Principios">
   <div class="wrap split">
     <div class="funnel-box in i1"><canvas id="funnel"></canvas></div>
     <div>
@@ -371,17 +372,6 @@ img{height:auto}
   </div>
 </section>
 
-<!-- ═══ 6 · CAPITAL ═══════════════════════════════════════════════ -->
-<section class="scene capital" id="s6" data-name="ORZ Capital">
-  <div class="wrap">
-    <div class="label gold in">03 · Capital</div>
-    <h2 class="h2 in i1" style="margin-top:14px">ORZ Capital. <span class="dim">Dos líneas, reglas propias.</span></h2>
-    <div class="cgrid">
-      <article class="ccard in i2"><span class="label">Línea 01</span><h3>Gestión de capital</h3><p>Para clientes interesados en servicios de gestión de capital.</p><span class="status">En preparación</span></article>
-      <article class="ccard in i3"><span class="label">Línea 02</span><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ 7 · FUNDADOR ══════════════════════════════════════════════ -->
 <section class="scene founder" id="s7" data-name="Fundador">
@@ -463,13 +453,14 @@ function tzUpdate(){
   var on1=p<.6,on2=p>.4;active.s1=on1;active.s2=on2;
   S1.classList.toggle('active',p<.5||S1.classList.contains('active')&&p<.9);
   if(p>.55)S2.classList.add('active');
+  S2.querySelectorAll('video').forEach(function(v){if(p>.35&&v.paused){var pr=v.play();pr&&pr.catch&&pr.catch(function(){})}else if(p<.2&&!v.paused)v.pause()});
   if(r.top<=0&&r.bottom>=vh*.5)setCurrent(p<.5?0:1);
 }
 S1.classList.add('active');active.s1=true;
 var tzP=0,tzT=0;
-function tzTarget(){var r=TZ.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(innerHeight*2.2)))}
+function tzTarget(){var r=TZ.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(innerHeight*1.5)))}
 tzP=tzT=tzTarget();
-(function tzLoop(){tzT=tzTarget();var d=tzT-tzP;if(Math.abs(d)>.0005){tzP+=d*.075;tzUpdate()}else if(tzP!==tzT){tzP=tzT;tzUpdate()}requestAnimationFrame(tzLoop)})();
+(function tzLoop(){tzT=tzTarget();var d=tzT-tzP;if(Math.abs(d)>.0005){tzP+=d*.11;tzUpdate()}else if(tzP!==tzT){tzP=tzT;tzUpdate()}requestAnimationFrame(tzLoop)})();
 addEventListener('resize',tzUpdate);tzUpdate();
 if(tzMQ.addEventListener)tzMQ.addEventListener('change',function(){location.reload()});
 
@@ -514,11 +505,11 @@ function label(x,cx,cy,txt,sub,col,size,hl,dim){
 }
 
 var UNITS=[
- {id:'s3',name:'Academy',sub:'Educación',col:C.acc,p:[-0.69,-0.18],r:.19,info:'Formación por fases, mentoría directa y comunidad.',
+ {id:'s2',name:'Academy',sub:'Educación',col:C.acc,p:[-0.69,-0.18],r:.19,info:'Formación por fases, mentoría directa y comunidad.',
   sats:[['Programa',-1.06,-0.62],['Mentoría',-0.34,-0.69],['Comunidad',-1.20,0.10],['Eventos',-0.78,0.40]]},
- {id:'s2',name:'Edge',sub:'Tecnología',col:C.acc2,p:[0.69,-0.13],r:.19,info:'Journal, estrategias propias y métricas con tus datos.',
+ {id:'s3',name:'Edge',sub:'Tecnología',col:C.acc2,p:[0.69,-0.13],r:.19,info:'Journal, estrategias propias y métricas con tus datos.',
   sats:[['Journal',0.29,-0.67],['Estrategias',0.75,-0.75],['Edge Finder',1.17,-0.48],['Métricas',1.26,0.06],['Mentora IA',1.02,0.45],['Capital y reglas',0.50,0.40]]},
- {id:'s6',name:'Capital',sub:'En preparación',col:C.gold,p:[0.02,0.67],r:.16,info:'Gestión de capital y acceso a capital. En preparación.',
+ {id:'s4',name:'Capital',sub:'En preparación',col:C.gold,p:[0.02,0.67],r:.16,info:'Gestión de capital y acceso a capital. En preparación.',
   sats:[['Gestión',-0.40,0.80],['Acceso',0.45,0.83]]}
 ];
 var SPK=[], BOLTS=[], nextBolt=1, LOGO=null, LOGO_D=null;
@@ -669,14 +660,14 @@ function loop(now){
   var dt=Math.min(.05,(now-last)/1000);last=now;T+=RM?0:dt;
   S.x.clearRect(0,0,S.w,S.h);stars.forEach(function(s){S.x.fillStyle='rgba(200,215,255,'+(s.a*(.6+.4*Math.sin(T*.8+s.p)))+')';S.x.beginPath();S.x.arc(s.x,s.y,s.r,0,7);S.x.fill()});
   if(active.s1)drawOrbit(T);
-  if(active.s4)drawChart(T);
-  if(active.s5)drawFunnel(T,RM?0:dt);
+  if(active.s5)drawChart(T);
+  if(active.s6)drawFunnel(T,RM?0:dt);
   if(active.s8)drawRing(T);
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
-document.getElementById('s4').addEventListener('transitionstart',function(){},{once:true});
-new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)chT0=T})},{threshold:.5}).observe(document.getElementById('s4'));
+
+new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)chT0=T})},{threshold:.5}).observe(document.getElementById('s5'));
 if(RM){drawOrbit(0);}
 
 /* Edge: inclinación con el ratón + zonas que laten */
@@ -685,8 +676,9 @@ stage.addEventListener('mousemove',function(e){if(RM)return;var r=stage.getBound
   tilt.style.transition='transform .3s ease-out';tilt.style.transform='rotateX('+(8-dy*8)+'deg) rotateY('+(-4+dx*10)+'deg)'});
 stage.addEventListener('mouseleave',function(){tilt.style.transition='';tilt.style.transform=''});
 var zones=[].slice.call(document.querySelectorAll('.zone')), zi=0;
-setInterval(function(){if(!active.s2||stage.matches(':hover'))return;zones.forEach(function(z){z.classList.remove('pulse')});zones[zi%zones.length].classList.add('pulse');zi++},1800);
+setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEach(function(z){z.classList.remove('pulse')});zones[zi%zones.length].classList.add('pulse');zi++},1800);
 
+if(document.getElementById('car')){
 /* Carrusel */
 var cards=[].slice.call(document.querySelectorAll('.card')), dots=[].slice.call(document.querySelectorAll('#dots i')), cur=0, timer=null;
 function setCar(i){cur=(i+cards.length)%cards.length;
@@ -702,6 +694,7 @@ setInterval(function(){if(active.s3&&!car.matches(':hover')&&!RM)setCar(cur+1)},
 var sx=null;car.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
 car.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)setCar(cur+(d<0?1:-1));sx=null});
 
+}
 /* Redimensionar */
 var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){initStars();initOrbit();initRing();initChart();initFunnel()},150)});
 document.fonts&&document.fonts.ready.then(function(){initOrbit();initRing()});
