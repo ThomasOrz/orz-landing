@@ -207,56 +207,16 @@ img{height:auto}
 /* Marca de prototipo */
 .proto{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:70;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ffcf7a;background:rgba(40,28,6,.85);border:1px solid rgba(224,166,69,.4);padding:6px 12px;border-radius:999px}
 
-
-
-/* Carrusel horizontal 3D (Academy / Edge) */
-.hz{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:none;padding:0 var(--gut)}
-.hz-head .h2{margin-top:12px;font-size:clamp(30px,2.8vw,52px)}
-.hz-stage{position:relative;width:100%;height:min(46vh,470px);margin-top:clamp(18px,3vh,34px);perspective:1800px;touch-action:pan-y}
-.hz-card{position:absolute;left:50%;top:0;width:min(46vw,calc(46vh*1.6),760px);transform-style:preserve-3d;transition:transform .9s var(--ease),opacity .9s var(--ease),filter .9s var(--ease);cursor:pointer}
-.hz-vis{position:relative;aspect-ratio:16/9;max-height:min(46vh,470px);border-radius:14px;overflow:hidden;border:1px solid var(--line2);background:#070a14;transition:border-color .4s,box-shadow .4s}
-.hz-card.c0 .hz-vis{border-color:rgba(77,148,255,.55);box-shadow:0 0 0 1px rgba(77,148,255,.25),0 40px 110px -40px var(--acc-glow)}
-.hz-card.c0:hover .hz-vis{border-color:#4d94ff;box-shadow:0 0 0 1px rgba(77,148,255,.5),0 40px 120px -30px var(--acc-glow)}
-.hz-vis>video,.hz-vis>img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.hz-cap{position:absolute;left:0;right:0;top:calc(100% + 18px);opacity:0;transition:opacity .5s var(--ease)}
-.hz-card.c0 .hz-cap{opacity:1;transition-delay:.25s}
-.hz-cap h3{font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(22px,1.8vw,30px);margin:6px 0 4px;line-height:1}
-.hz-cap p{color:var(--t2);font-size:clamp(15px,1vw,17px);max-width:58ch;margin:0 auto;line-height:1.45}
-.hz-ui{display:flex;align-items:center;gap:14px;margin-top:clamp(84px,11vh,110px)}
-.hz-dots{display:flex;gap:7px}
-.hz-dots i{width:18px;height:2px;background:var(--t4);transition:all .3s;cursor:pointer}
-.hz-dots i.on{background:var(--acc-2);width:34px;box-shadow:0 0 8px var(--acc-glow)}
-.hz-cta{margin-left:18px}
-.hz-floor{background:radial-gradient(70% 90% at 80% 0%,rgba(0,102,255,.18),transparent 60%),linear-gradient(180deg,#0b1222,#060912);padding:6% 6%;display:flex;flex-direction:column;text-align:left}
-.fl-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line2);padding-bottom:3%}
-.fl-head b{font-size:clamp(20px,2vw,34px);letter-spacing:.04em;text-transform:uppercase}
-.fl-head span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-2)}
-.fl-grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:4%;margin-top:5%}
-.fl-grid>div{border:1px solid var(--line2);border-radius:10px;padding:6% 7%;background:rgba(8,12,24,.6)}
-.fl-grid em{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--acc-2);letter-spacing:.14em}
-.fl-grid b{display:block;font-size:clamp(14px,1.2vw,19px);text-transform:uppercase;letter-spacing:.05em;margin:4px 0 2px}
-.fl-grid span{font-size:clamp(12px,.9vw,14px);color:var(--t3)}
-.hz-duo{display:grid;grid-template-columns:1.6fr 1fr;gap:2px;background:#000}
-.hz-duo-r{grid-template-columns:1.5fr .7fr}
-.hz-duo video,.hz-duo img{width:100%;height:100%;object-fit:cover}
-.hz-plans{display:grid;grid-template-columns:1fr 1fr;gap:4%;padding:6%;text-align:left;background:linear-gradient(180deg,#0b1222,#060912)}
-.pl{border:1px solid var(--line2);border-radius:12px;padding:8% 9%;background:rgba(8,12,24,.7)}
-.pl-hi{border-color:rgba(77,148,255,.55);box-shadow:0 0 40px -12px var(--acc-glow)}
-.pl b{display:block;font-size:clamp(20px,2vw,32px);text-transform:uppercase;letter-spacing:.04em;margin:4px 0 10px}
-.pl ul{list-style:none;display:grid;gap:7px}
-.pl li{font-size:clamp(12px,.95vw,15px);color:var(--t2);display:flex;gap:8px;align-items:baseline}
-.pl li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc-2);flex:none;transform:translateY(-2px)}
-@media (max-width:960px){.hz-card{width:82vw}.hz-stage{height:56vw}.hz-ui{margin-top:140px;flex-wrap:wrap;justify-content:center}.hz-cta{margin:8px 0 0}}
 /* Transición de scroll hero → Edge (zoom a través del sistema) */
 @media (min-width:961px) and (hover:hover) and (prefers-reduced-motion:no-preference){
-  .tz{position:relative;height:250vh}
+  .tz{position:relative;height:320vh}
   .tz-anchor{position:absolute;left:0;width:1px;height:100vh;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
-  #a1{top:0} #a2{top:150vh}
+  #a1{top:0} #a2{top:220vh}
   .tz-stage{position:sticky;top:0;height:100vh;overflow:hidden}
   .tz-stage>.scene{position:absolute;inset:0;scroll-snap-align:none}
   .tz-stage>#s2{opacity:0;pointer-events:none}
-  .tz-stage>#s2{padding:80px 0 40px}
-  #s3 .stage3d{max-width:min(860px,calc((100vh - 300px)*1.8))}
+  .tz-stage>#s2{padding:84px 0 40px}
+  .tz-stage #s2 .stage3d{max-width:min(860px,calc((100vh - 340px)*1.8));margin-top:26px}
   .tz-stage .orbit-box,.tz-stage .hero .copy,.tz-stage #s2 .wrap{will-change:transform,opacity,filter}
 }
 @media (prefers-reduced-motion:reduce){
@@ -296,9 +256,9 @@ img{height:auto}
   <div class="wrap">
     <a href="#s1" class="brand" aria-label="ORZ Group, inicio"><img src="assets/group/logo-orz-group.svg" alt="ORZ Group" width="165" height="38"></a>
     <nav class="nav-l" aria-label="Principal">
-      <a href="#s2" data-s="s2">Academy</a>
-      <a href="#s3" data-s="s3">Edge</a>
-      <a href="#s4" data-s="s4">Capital</a>
+      <a href="#s2" data-s="s2">Edge</a>
+      <a href="#s3" data-s="s3">Unidades</a>
+      <a href="#s6" data-s="s6">Capital</a>
       <a href="#s7" data-s="s7">Fundador</a>
     </nav>
     <a href="#s8" class="btn btn-g" style="height:38px;padding:0 16px">Contacto</a>
@@ -318,7 +278,7 @@ img{height:auto}
       <h1 class="h1 in i1" style="margin-top:20px"><span>Construimos lo que</span><span class="dim">impulsa al trader.</span></h1>
       <p class="body in i2">Educación, tecnología y capital. Tres unidades que trabajan como un solo sistema.</p>
       <div class="ctas in i3">
-        <a href="#s2" class="btn btn-p">Explorar el ecosistema <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#s3" class="btn btn-p">Explorar el ecosistema <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="#s7" class="btn btn-g">Quién está detrás</a>
       </div>
     </div>
@@ -326,36 +286,8 @@ img{height:auto}
   <div class="orbit-box"><canvas id="orbit" aria-label="Ecosistema ORZ: Academy, Edge y Capital"></canvas><div class="tip" id="tip"></div></div>
 </section>
 
-<!-- ═══ 2 · ACADEMY ════════════════════════════════════════════ -->
-<section class="scene academy" id="s2" data-name="ORZ Academy">
-  <div class="wrap hz">
-    <div class="hz-head">
-      <div class="label acc in">01 · ORZ Academy · Educación</div>
-      <h2 class="h2 in i1">Del primer concepto <span class="dim">a tu propia ventaja.</span></h2>
-    </div>
-    <div class="hz-stage in i2" id="hzA" data-hz>
-      <article class="hz-card"><div class="hz-vis"><video src="assets/group/v/academy-reel.mp4" poster="assets/group/v/academy-reel.jpg" muted loop playsinline preload="metadata"></video></div>
-        <div class="hz-cap"><span class="label acc">01 · Educación</span><h3>ORZ Academy</h3><p>Formación en trading con metodología propia.</p></div></article>
-      <article class="hz-card"><div class="hz-vis"><img src="assets/group/ac-ruta.webp" alt="Inicio de la plataforma de ORZ Academy" loading="lazy"></div>
-        <div class="hz-cap"><span class="label acc">02 · Plataforma</span><h3>La ruta</h3><p>Cuatro fases, de los fundamentos a la ejecución.</p></div></article>
-      <article class="hz-card"><div class="hz-vis hz-duo"><video src="assets/group/v/entrevista.mp4" poster="assets/group/v/entrevista.jpg" muted loop playsinline preload="metadata"></video><img src="assets/group/academy-mentoria-crop.webp" alt="Sesión de mentoría frente al gráfico" loading="lazy"></div>
-        <div class="hz-cap"><span class="label acc">03 · Acompañamiento</span><h3>Mentoría</h3><p>Acompañamiento directo con Thomas.</p></div></article>
-      <article class="hz-card"><div class="hz-vis hz-duo hz-duo-r"><img src="assets/group/comunidad-gym.webp" alt="Comunidad ORZ reunida en un evento" loading="lazy"><video src="assets/group/v/gym.mp4" poster="assets/group/v/gym.jpg" muted loop playsinline preload="metadata"></video></div>
-        <div class="hz-cap"><span class="label acc">04 · Comunidad</span><h3>Comunidad y eventos</h3><p>Una comunidad privada y encuentros presenciales.</p></div></article>
-    </div>
-    <div class="hz-ui in i3">
-      <button class="arrow" data-prev aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <div class="hz-dots" data-dots></div>
-      <button class="arrow" data-next aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
-      <a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="btn btn-p hz-cta">Visitar ORZ Academy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a href="https://university.orzacademy.com/landing#planes" target="_blank" rel="noopener" class="btn btn-g">Ver planes</a>
-    </div>
-  </div>
-</section>
-
-</div></div>
-
-<!-- ═══ 3 · EDGE ══════════════════════════════════════════════ -->
-<section class="scene edge" id="s3" data-name="ORZ Edge">
+<!-- ═══ 2 · EDGE en una sola pantalla ═════════════════════════════ -->
+<section class="scene edge" id="s2" data-name="ORZ Edge">
   <div class="wrap">
     <div class="label acc in">02 · Tecnología</div>
     <h2 class="h2 in i1">ORZ Edge. <span class="dim">Tu operativa en una pantalla.</span></h2>
@@ -372,21 +304,39 @@ img{height:auto}
     </div>
   </div>
 </section>
+</div></div>
 
-<!-- ═══ 4 · CAPITAL ═══════════════════════════════════════════════ -->
-<section class="scene capital" id="s4" data-name="ORZ Capital">
+<!-- ═══ 3 · CARRUSEL de unidades ══════════════════════════════════ -->
+<section class="scene units" id="s3" data-name="Unidades">
   <div class="wrap">
-    <div class="label gold in">03 · Capital</div>
-    <h2 class="h2 in i1" style="margin-top:14px">ORZ Capital. <span class="dim">Dos líneas, reglas propias.</span></h2>
-    <div class="cgrid">
-      <article class="ccard in i2"><span class="label">Línea 01</span><h3>Gestión de capital</h3><p>Para clientes interesados en servicios de gestión de capital.</p><span class="status">En preparación</span></article>
-      <article class="ccard in i3"><span class="label">Línea 02</span><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
+    <div class="label acc in">Las unidades</div>
+    <h2 class="h2 in i1" style="margin-top:14px">Un grupo. <span class="dim">Tres frentes.</span></h2>
+    <div class="car in i2" id="car">
+      <article class="card" data-i="0">
+        <video src="assets/group/v/publico.mp4" poster="assets/group/v/publico.jpg" muted loop playsinline preload="metadata"></video>
+        <div class="ov"></div>
+        <div class="meta"><span class="label acc">01 · Educación</span><h3>ORZ Academy</h3><p>Programa por fases, mentoría directa y eventos presenciales.</p></div>
+      </article>
+      <article class="card" data-i="1">
+        <img src="assets/group/edge-panel.webp" alt="" loading="lazy">
+        <div class="ov"></div>
+        <div class="meta"><span class="label acc">02 · Tecnología</span><h3>ORZ Edge</h3><p>Journal, estrategias y métricas con tus propios datos.</p></div>
+      </article>
+      <article class="card cap" data-i="2">
+        <div class="cap-art"></div>
+        <div class="meta"><span class="label gold">03 · Capital</span><h3>ORZ Capital</h3><p>Gestión de capital y acceso a capital. En preparación.</p></div>
+      </article>
+    </div>
+    <div class="car-ui in i3">
+      <button class="arrow" id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="dots" id="dots"><i></i><i></i><i></i></div>
+      <button class="arrow" id="next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
   </div>
 </section>
 
 <!-- ═══ 4 · POSTURA ════════════════════════════════════════════════ -->
-<section class="scene" id="s5" data-name="Postura">
+<section class="scene" id="s4" data-name="Postura">
   <div class="wrap split">
     <div>
       <div class="label acc in">Nuestra postura</div>
@@ -405,7 +355,7 @@ img{height:auto}
 </section>
 
 <!-- ═══ 5 · PRINCIPIOS ═════════════════════════════════════════════ -->
-<section class="scene" id="s6" data-name="Principios">
+<section class="scene" id="s5" data-name="Principios">
   <div class="wrap split">
     <div class="funnel-box in i1"><canvas id="funnel"></canvas></div>
     <div>
@@ -421,6 +371,17 @@ img{height:auto}
   </div>
 </section>
 
+<!-- ═══ 6 · CAPITAL ═══════════════════════════════════════════════ -->
+<section class="scene capital" id="s6" data-name="ORZ Capital">
+  <div class="wrap">
+    <div class="label gold in">03 · Capital</div>
+    <h2 class="h2 in i1" style="margin-top:14px">ORZ Capital. <span class="dim">Dos líneas, reglas propias.</span></h2>
+    <div class="cgrid">
+      <article class="ccard in i2"><span class="label">Línea 01</span><h3>Gestión de capital</h3><p>Para clientes interesados en servicios de gestión de capital.</p><span class="status">En preparación</span></article>
+      <article class="ccard in i3"><span class="label">Línea 02</span><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ 7 · FUNDADOR ══════════════════════════════════════════════ -->
 <section class="scene founder" id="s7" data-name="Fundador">
@@ -506,9 +467,9 @@ function tzUpdate(){
 }
 S1.classList.add('active');active.s1=true;
 var tzP=0,tzT=0;
-function tzTarget(){var r=TZ.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(innerHeight*1.5)))}
+function tzTarget(){var r=TZ.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(innerHeight*2.2)))}
 tzP=tzT=tzTarget();
-(function tzLoop(){tzT=tzTarget();var d=tzT-tzP;if(Math.abs(d)>.0005){tzP+=d*.11;tzUpdate()}else if(tzP!==tzT){tzP=tzT;tzUpdate()}requestAnimationFrame(tzLoop)})();
+(function tzLoop(){tzT=tzTarget();var d=tzT-tzP;if(Math.abs(d)>.0005){tzP+=d*.075;tzUpdate()}else if(tzP!==tzT){tzP=tzT;tzUpdate()}requestAnimationFrame(tzLoop)})();
 addEventListener('resize',tzUpdate);tzUpdate();
 if(tzMQ.addEventListener)tzMQ.addEventListener('change',function(){location.reload()});
 
@@ -553,11 +514,11 @@ function label(x,cx,cy,txt,sub,col,size,hl,dim){
 }
 
 var UNITS=[
- {id:'s2',name:'Academy',sub:'Educación',col:C.acc,p:[-0.69,-0.18],r:.19,info:'Formación por fases, mentoría directa y comunidad.',
+ {id:'s3',name:'Academy',sub:'Educación',col:C.acc,p:[-0.69,-0.18],r:.19,info:'Formación por fases, mentoría directa y comunidad.',
   sats:[['Programa',-1.06,-0.62],['Mentoría',-0.34,-0.69],['Comunidad',-1.20,0.10],['Eventos',-0.78,0.40]]},
- {id:'s3',name:'Edge',sub:'Tecnología',col:C.acc2,p:[0.69,-0.13],r:.19,info:'Journal, estrategias propias y métricas con tus datos.',
+ {id:'s2',name:'Edge',sub:'Tecnología',col:C.acc2,p:[0.69,-0.13],r:.19,info:'Journal, estrategias propias y métricas con tus datos.',
   sats:[['Journal',0.29,-0.67],['Estrategias',0.75,-0.75],['Edge Finder',1.17,-0.48],['Métricas',1.26,0.06],['Mentora IA',1.02,0.45],['Capital y reglas',0.50,0.40]]},
- {id:'s4',name:'Capital',sub:'En preparación',col:C.gold,p:[0.02,0.67],r:.16,info:'Gestión de capital y acceso a capital. En preparación.',
+ {id:'s6',name:'Capital',sub:'En preparación',col:C.gold,p:[0.02,0.67],r:.16,info:'Gestión de capital y acceso a capital. En preparación.',
   sats:[['Gestión',-0.40,0.80],['Acceso',0.45,0.83]]}
 ];
 var SPK=[], BOLTS=[], nextBolt=1, LOGO=null, LOGO_D=null;
@@ -708,14 +669,14 @@ function loop(now){
   var dt=Math.min(.05,(now-last)/1000);last=now;T+=RM?0:dt;
   S.x.clearRect(0,0,S.w,S.h);stars.forEach(function(s){S.x.fillStyle='rgba(200,215,255,'+(s.a*(.6+.4*Math.sin(T*.8+s.p)))+')';S.x.beginPath();S.x.arc(s.x,s.y,s.r,0,7);S.x.fill()});
   if(active.s1)drawOrbit(T);
-  if(active.s5)drawChart(T);
-  if(active.s6)drawFunnel(T,RM?0:dt);
+  if(active.s4)drawChart(T);
+  if(active.s5)drawFunnel(T,RM?0:dt);
   if(active.s8)drawRing(T);
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
-
-new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)chT0=T})},{threshold:.5}).observe(document.getElementById('s5'));
+document.getElementById('s4').addEventListener('transitionstart',function(){},{once:true});
+new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)chT0=T})},{threshold:.5}).observe(document.getElementById('s4'));
 if(RM){drawOrbit(0);}
 
 /* Edge: inclinación con el ratón + zonas que laten */
@@ -724,9 +685,8 @@ stage.addEventListener('mousemove',function(e){if(RM)return;var r=stage.getBound
   tilt.style.transition='transform .3s ease-out';tilt.style.transform='rotateX('+(8-dy*8)+'deg) rotateY('+(-4+dx*10)+'deg)'});
 stage.addEventListener('mouseleave',function(){tilt.style.transition='';tilt.style.transform=''});
 var zones=[].slice.call(document.querySelectorAll('.zone')), zi=0;
-setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEach(function(z){z.classList.remove('pulse')});zones[zi%zones.length].classList.add('pulse');zi++},1800);
+setInterval(function(){if(!active.s2||stage.matches(':hover'))return;zones.forEach(function(z){z.classList.remove('pulse')});zones[zi%zones.length].classList.add('pulse');zi++},1800);
 
-if(document.getElementById('car')){
 /* Carrusel */
 var cards=[].slice.call(document.querySelectorAll('.card')), dots=[].slice.call(document.querySelectorAll('#dots i')), cur=0, timer=null;
 function setCar(i){cur=(i+cards.length)%cards.length;
@@ -742,28 +702,6 @@ setInterval(function(){if(active.s3&&!car.matches(':hover')&&!RM)setCar(cur+1)},
 var sx=null;car.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
 car.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)setCar(cur+(d<0?1:-1));sx=null});
 
-}
-
-/* Carruseles horizontales 3D */
-document.querySelectorAll('[data-hz]').forEach(function(st){
-  var cards=[].slice.call(st.querySelectorAll('.hz-card')),ui=st.parentElement.querySelector('.hz-ui'),dots=ui.querySelector('[data-dots]'),cur=0,n=cards.length;
-  cards.forEach(function(c,k){var d=document.createElement('i');d.onclick=function(){set(k)};dots.appendChild(d);c.addEventListener('click',function(){if(k!==cur)set(k)})});
-  function set(i){cur=(i+n)%n;
-    cards.forEach(function(c,k){var d=k-cur;if(d>n/2)d-=n;if(d<-n/2)d+=n;var a=Math.abs(d);
-      c.classList.toggle('c0',d===0);
-      var tx=d*58, ry=-d*34, sc=d===0?1:(a===1?.78:.62), op=a===0?1:(a===1?.5:(a===2?.18:0));
-      c.style.transform='translateX(calc(-50% + '+tx+'%)) rotateY('+ry+'deg) scale('+sc+')';
-      c.style.opacity=op;c.style.zIndex=10-a;c.style.filter=a?'brightness(.55)':'none';c.style.pointerEvents=a>2?'none':'auto';
-      var v=c.querySelectorAll('video');v.forEach(function(x){if(d===0||a===1){var p=x.play();p&&p.catch&&p.catch(function(){})}else x.pause()})});
-    [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===cur)})}
-  ui.querySelector('[data-prev]').onclick=function(){set(cur-1)};
-  ui.querySelector('[data-next]').onclick=function(){set(cur+1)};
-  var sx=null;st.addEventListener('pointerdown',function(e){sx=e.clientX});
-  st.addEventListener('pointerup',function(e){if(sx===null)return;var d=e.clientX-sx;if(Math.abs(d)>50)set(cur+(d<0?1:-1));sx=null});
-  st.addEventListener('wheel',function(e){if(Math.abs(e.deltaX)>Math.abs(e.deltaY)&&Math.abs(e.deltaX)>25){e.preventDefault();if(!st._lock){st._lock=1;set(cur+(e.deltaX>0?1:-1));setTimeout(function(){st._lock=0},650)}}},{passive:false});
-  st.tabIndex=0;st.addEventListener('keydown',function(e){if(e.key==='ArrowRight')set(cur+1);if(e.key==='ArrowLeft')set(cur-1)});
-  set(0);
-});
 /* Redimensionar */
 var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){initStars();initOrbit();initRing();initChart();initFunnel()},150)});
 document.fonts&&document.fonts.ready.then(function(){initOrbit();initRing()});
