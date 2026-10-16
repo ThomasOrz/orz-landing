@@ -121,36 +121,50 @@ img{height:auto}
 .co.r .l{background:linear-gradient(270deg,rgba(110,162,255,.9),rgba(110,162,255,.1))}
 
 
-/* 2 · ACADEMY: sala de fondo (sutil) + texto y servicios centrados */
+/* 2 · ACADEMY: video del evento de fondo + texto a la izquierda + vitrina dinámica a la derecha */
 .academy{padding:96px 0 56px}
 .ac-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:#05070d}
-.ac-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:saturate(.6) contrast(.95) brightness(.5);transform-origin:55% 45%;animation:acDrift 22s ease-in-out infinite alternate}
-.ac-bg::before{content:"";position:absolute;inset:0;background:rgba(0,40,120,.16);mix-blend-mode:color}
-.ac-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,rgba(5,7,13,.30) 0%,rgba(5,7,13,.55) 60%,rgba(5,7,13,.85) 100%),linear-gradient(180deg,rgba(5,7,13,.70) 0%,rgba(5,7,13,.10) 18%,rgba(5,7,13,.10) 78%,#05070d 100%)}
-@keyframes acDrift{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.09) translate(-1.6%,-1%)}}
-.academy .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) clamp(400px,32vw,540px);gap:clamp(40px,5vw,96px);align-items:center}
-.academy .h2{font-size:clamp(36px,3.5vw,66px);margin:18px 0 20px}
+.ac-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.55) contrast(.95) brightness(.42);transform:scale(1.04)}
+.ac-bg::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(0,40,120,.18);mix-blend-mode:color}
+.ac-bg::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,7,13,.86) 0%,rgba(5,7,13,.55) 45%,rgba(5,7,13,.70) 100%),linear-gradient(180deg,rgba(5,7,13,.75) 0%,rgba(5,7,13,.05) 20%,rgba(5,7,13,.05) 78%,#05070d 100%)}
+.academy .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(40px,5vw,88px);align-items:center}
+.academy .h2{font-size:clamp(38px,3.7vw,70px);margin:18px 0 20px}
+.academy .h2 .ln{white-space:nowrap}
 .academy .h2 .ln,.founder .h2 .ln{display:block}
 .founder .h2{font-size:clamp(32px,3.2vw,58px)}
-.academy .body{max-width:44ch}
+.academy .body{max-width:40ch}
 .academy .ctas{margin-top:clamp(26px,2.4vw,40px)}
-.ac-head{margin-bottom:14px}
-.ac-head .label{color:#c6d2ea}
-.ac-card{position:relative;display:grid;grid-template-columns:clamp(120px,9.5vw,160px) 1fr;gap:18px;align-items:center;padding:12px 48px 12px 12px;border-radius:8px;background:linear-gradient(180deg,rgba(14,20,38,.84),rgba(8,12,24,.90));border:1px solid rgba(140,170,230,.20);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .3s var(--ease),transform .4s var(--ease),box-shadow .3s var(--ease)}
-.ac-card+.ac-card{margin-top:12px}
-.ac-card:hover,.ac-card.on{border-color:rgba(77,148,255,.55);box-shadow:0 0 0 1px rgba(77,148,255,.25),0 24px 60px -24px rgba(0,102,255,.55)}
-.ac-card:hover{transform:translateY(-2px)}
-.ac-card .th{position:relative;display:block;aspect-ratio:17/12;border-radius:4px;overflow:hidden;background:#0a0f1c}
-.ac-card .th img{width:100%;height:100%;object-fit:cover}
-.ac-card .th::after{content:"";position:absolute;inset:0;box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;border-radius:4px}
-.ac-card .tx{display:block}
-.ac-card .k{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-2)}
-.ac-card b{display:block;font-size:clamp(21px,1.6vw,28px);font-weight:700;text-transform:uppercase;line-height:1;margin:7px 0 6px;letter-spacing:.01em}
-.ac-card .p{display:block;font-size:clamp(15.5px,1.1vw,18px);font-weight:500;color:var(--t2);line-height:1.35}
-.ac-card .go{position:absolute;right:14px;top:12px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(77,148,255,.45);display:grid;place-items:center;color:var(--acc-2)}
-.ac-card .go svg{width:14px;height:14px}
-.ac-cap{position:absolute;z-index:2;right:var(--gut);bottom:22px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,212,236,.55)}
-.ac-cap i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ff4d4d;margin-right:10px;vertical-align:1px;box-shadow:0 0 8px rgba(255,77,77,.6)}
+.ac-show{border-radius:10px;border:1px solid rgba(140,170,230,.22);background:linear-gradient(180deg,rgba(12,18,34,.88),rgba(7,10,20,.92));box-shadow:0 50px 120px -50px rgba(0,102,255,.55),0 0 0 1px rgba(255,255,255,.03) inset;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden}
+.ac-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.ac-tabs button{position:relative;display:flex;align-items:center;gap:10px;padding:16px 20px;background:none;border:0;color:var(--t3);font-family:var(--sans);font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:color .3s}
+.ac-tabs button+button{border-left:1px solid var(--line)}
+.ac-tabs button em{font-style:normal;font-family:var(--mono);font-weight:500;font-size:11px;color:var(--t4);letter-spacing:.1em}
+.ac-tabs button.on{color:var(--t1)}
+.ac-tabs button.on em{color:var(--acc-2)}
+.ac-tabs button i{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--acc-2);box-shadow:0 0 12px var(--acc-glow)}
+.ac-tabs button.on i{animation:acProg var(--ac-t,7s) linear forwards}
+.ac-show.paused .ac-tabs button.on i{animation-play-state:paused}
+@keyframes acProg{to{width:100%}}
+.ac-panes{position:relative;display:grid}
+.ac-pane{grid-area:1/1;opacity:0;visibility:hidden;transform:translateX(18px);transition:opacity .6s var(--ease),transform .8s var(--ease),visibility 0s .6s}
+.ac-pane.on{opacity:1;visibility:visible;transform:none;transition:opacity .6s var(--ease),transform .8s var(--ease)}
+.ac-media{position:relative;aspect-ratio:16/8.6;overflow:hidden;background:#070a14;border-bottom:1px solid var(--line)}
+.ac-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
+.ac-media.plat img{opacity:0;transform:scale(1.04);transition:opacity .9s var(--ease),transform 3.2s var(--ease)}
+.ac-media.plat img.on{opacity:1;transform:scale(1)}
+.ac-media.mentor img{object-position:50% 45%;filter:saturate(.9)}
+.ac-pane.on .ac-media.mentor img{animation:acKen 9s ease-out forwards}
+@keyframes acKen{from{transform:scale(1.12) translate(2%,1%)}to{transform:scale(1)}}
+.ac-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,0) 60%,rgba(5,7,13,.55))}
+.ac-info{padding:20px 22px 22px}
+.ac-info h3{font-size:clamp(22px,1.8vw,30px);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em}
+.ac-info p{margin-top:8px;color:var(--t2);font-weight:500;font-size:clamp(15.5px,1.1vw,18px);line-height:1.4}
+.ac-steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.ac-steps.three{grid-template-columns:repeat(3,1fr)}
+.ac-steps li{position:relative;padding:10px 12px;border:1px solid var(--line2);border-radius:6px;font-size:15px;font-weight:600;color:var(--t2);text-transform:uppercase;letter-spacing:.06em;line-height:1.15;transition:all .4s var(--ease)}
+.ac-steps li em{display:block;font-style:normal;font-family:var(--mono);font-weight:500;font-size:10.5px;color:var(--t4);letter-spacing:.12em;margin-bottom:4px}
+.ac-steps li.hl{border-color:rgba(77,148,255,.6);color:var(--t1);background:rgba(0,102,255,.12);box-shadow:0 0 22px -6px var(--acc-glow)}
+.ac-steps li.hl em{color:var(--acc-2)}
 .edge .edge-body{margin:4px auto 0;text-align:center;max-width:58ch}
 .edge .edge-cta{display:flex;justify-content:center;margin-top:30px}
 .capital .cap-body{margin:18px auto 0;max-width:56ch}
@@ -256,7 +270,7 @@ img{height:auto}
 @media (prefers-reduced-motion:reduce){
   .grain{animation:none}
   .in,.tilt,.card,.portrait img{transition:none}
-  .ac-bg img{animation:none}
+  .ac-pane,.ac-media img{transition:none!important;animation:none!important}
 }
 @media (max-width:960px){
   .nav-l,.pager{display:none}
@@ -276,7 +290,7 @@ img{height:auto}
   .chart-box,.funnel-box{height:320px}
   .cgrid,.pgrid{grid-template-columns:1fr}
   .academy .wrap{grid-template-columns:1fr;gap:32px}
-  .ac-cap{display:none}
+  .ac-steps{grid-template-columns:1fr 1fr}.ac-steps.three{grid-template-columns:1fr}
   .closing .ctas .btn{flex:1 1 auto;justify-content:center}
   .founder .wrap{min-height:auto}
   .founder .copy{padding-bottom:0}
@@ -326,29 +340,48 @@ img{height:auto}
 
 <!-- ═══ 2 · ORZ ACADEMY ═══════════════════════════════════════════ -->
 <section class="scene academy" id="s2" data-name="ORZ Academy">
-  <div class="ac-bg" aria-hidden="true"><img src="assets/group/academy-sala.webp" alt="" width="1920" height="1333"></div>
+  <div class="ac-bg" aria-hidden="true">
+    <video id="acv" muted loop playsinline autoplay preload="auto" poster="assets/group/v/academy-bg.jpg">
+      <source src="assets/group/v/academy-bg.webm" type="video/webm">
+      <source src="assets/group/v/academy-bg.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap">
     <div class="ac-copy">
       <div class="label acc in">02 · ORZ Academy · Educación</div>
-      <h2 class="h2 in i1"><span class="ln">El trading como profesión.</span> <span class="dim ln">No como hobby.</span></h2>
-      <p class="body in i2">Aquí el trading se convierte en carrera. Metodología propia, diseñada para quien quiere operar como profesional, y mentoría directa: tres años y más de 50 traders formados.</p>
+      <h2 class="h2 in i1"><span class="ln">El trading</span> <span class="ln">como profesión.</span> <span class="dim ln">No como hobby.</span></h2>
+      <p class="body in i2">Aquí el trading se convierte en una carrera. Tres años llevando a más de 50 traders a encontrar en esta profesión un propósito.</p>
       <div class="ctas in i3"><a href="https://university.orzacademy.com/landing" target="_blank" rel="noopener" class="btn btn-p">Conocer ORZ Academy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
     </div>
-    <div class="ac-offer in i2">
-      <div class="ac-head"><span class="label">Dos formas de formarte</span></div>
-      <a class="ac-card on" href="https://university.orzacademy.com/landing" target="_blank" rel="noopener">
-        <span class="th"><img src="assets/group/ac-plataforma-th.webp" alt="Plataforma de ORZ Academy" width="640" height="367" loading="lazy"></span>
-        <span class="tx"><span class="k">Plataforma</span><b>La ruta completa</b><span class="p">Cuatro fases, de los fundamentos a tu ventaja medida.</span></span>
-        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>
-      <a class="ac-card" href="https://university.orzacademy.com/landing" target="_blank" rel="noopener">
-        <span class="th"><img src="assets/group/ac-mentoria-th.webp" alt="Sesión de mentoría frente a un gráfico" width="640" height="448" loading="lazy"></span>
-        <span class="tx"><span class="k">Mentorías</span><b>Un mentor en tu proceso</b><span class="p">Grupales o 1 a 1, con seguimiento privado.</span></span>
-        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>
+    <div class="ac-show in i2" id="acShow">
+      <div class="ac-tabs" role="tablist">
+        <button class="on" role="tab" data-i="0"><em>01</em>Plataforma<i></i></button>
+        <button role="tab" data-i="1"><em>02</em>Mentorías<i></i></button>
+      </div>
+      <div class="ac-panes">
+        <article class="ac-pane on" data-i="0">
+          <div class="ac-media plat">
+            <img src="assets/group/ac-plat-home.webp" alt="Inicio de la plataforma de ORZ Academy" class="on" width="1200" height="646">
+            <img src="assets/group/ac-plat-library.webp" alt="Biblioteca de la plataforma" width="1200" height="646" loading="lazy">
+            <img src="assets/group/ac-plat-notes.webp" alt="Clase con notas en la plataforma" width="1200" height="646" loading="lazy">
+          </div>
+          <div class="ac-info">
+            <h3>La ruta completa</h3>
+            <p>Cuatro fases, de los fundamentos a tu ventaja medida. Clases en video, biblioteca, asistentes de IA y tu progreso en un solo lugar.</p>
+            <ol class="ac-steps"><li><em>01</em>Fundamentos</li><li><em>02</em>Método</li><li><em>03</em>Ejecución</li><li><em>04</em>Ventaja</li></ol>
+          </div>
+        </article>
+        <article class="ac-pane" data-i="1">
+          <div class="ac-media mentor"><img src="assets/group/ac-mentoria.webp" alt="Sesión de mentoría frente a un gráfico" width="1200" height="792" loading="lazy"></div>
+          <div class="ac-info">
+            <h3>Un mentor en tu proceso</h3>
+            <p>Un mentor que conoce tus problemas y sabe cómo atacarlos.</p>
+            <ol class="ac-steps three"><li><em>01</em>Grupal o 1 a 1</li><li><em>02</em>Seguimiento privado</li><li><em>03</em>Acceso directo al mentor</li></ol>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
-  <div class="ac-cap" aria-hidden="true"><i></i>Evento de trading</div>
 </section>
 </div></div>
 
@@ -645,6 +678,29 @@ stage.addEventListener('mousemove',function(e){if(RM)return;var r=stage.getBound
 stage.addEventListener('mouseleave',function(){tilt.style.transition='';tilt.style.transform=''});
 var zones=[].slice.call(document.querySelectorAll('.zone')), zi=0;
 setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEach(function(z){z.classList.remove('pulse')});zones[zi%zones.length].classList.add('pulse');zi++},1800);
+
+/* Academy: vitrina con dos servicios que rotan solos */
+(function(){
+  var box=document.getElementById('acShow'); if(!box)return;
+  var tabs=[].slice.call(box.querySelectorAll('.ac-tabs button')), panes=[].slice.call(box.querySelectorAll('.ac-pane'));
+  var DUR=7000, cur=0, t0=performance.now(), paused=false, pausedAt=0;
+  box.style.setProperty('--ac-t',DUR+'ms');
+  function show(i){cur=i;tabs.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===i)b.classList.add('on')});
+    panes.forEach(function(p,k){p.classList.toggle('on',k===i)});t0=performance.now()}
+  tabs.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
+  box.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();box.classList.add('paused')});
+  box.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;box.classList.remove('paused')});
+  var imgs=[].slice.call(box.querySelectorAll('.ac-media.plat img')), steps=[].slice.call(box.querySelectorAll('.ac-pane'));
+  (function tick(now){
+    if(!paused&&!RM){var e=now-t0;
+      if(e>DUR)show((cur+1)%panes.length);
+      var p=panes[cur], li=[].slice.call(p.querySelectorAll('.ac-steps li')), k=Math.min(li.length-1,Math.floor((now-t0)/(DUR/li.length)));
+      li.forEach(function(x,j){x.classList.toggle('hl',j===k)});
+      if(cur===0&&imgs.length){var m=Math.min(imgs.length-1,Math.floor((now-t0)/(DUR/imgs.length)));imgs.forEach(function(x,j){x.classList.toggle('on',j===m)})}
+    }
+    requestAnimationFrame(tick)})(performance.now());
+  var v=document.getElementById('acv'); if(v&&RM){v.removeAttribute('autoplay');v.pause()}
+})();
 
 /* Redimensionar */
 var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){initStars();initOrbit();initRing()},150)});
