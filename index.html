@@ -148,18 +148,19 @@ img{height:auto}
 .ac-panes{position:relative;display:grid}
 .ac-pane{grid-area:1/1;opacity:0;visibility:hidden;transform:translateX(18px);transition:opacity .6s var(--ease),transform .8s var(--ease),visibility 0s .6s}
 .ac-pane.on{opacity:1;visibility:visible;transform:none;transition:opacity .6s var(--ease),transform .8s var(--ease)}
-.ac-media{position:relative;aspect-ratio:16/8.6;overflow:hidden;background:#070a14;border-bottom:1px solid var(--line)}
-.ac-media img,.ac-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
-.ac-media.mentor img,.ac-media.mentor video{opacity:0;transition:opacity .9s var(--ease)}
-.ac-media.mentor .on{opacity:1}
-.ac-media.mentor video{object-position:50% 40%;filter:saturate(.9) brightness(1.05)}
-.ac-media.plat img{opacity:0;transform:scale(1.04);transition:opacity .9s var(--ease),transform 3.2s var(--ease)}
-.ac-media.plat img.on{opacity:1;transform:scale(1);animation:acPan 5s ease-in-out forwards}
-@keyframes acPan{from{object-position:0 0}to{object-position:0 35%}}
-.ac-media.mentor img{object-position:50% 45%;filter:saturate(.9)}
-.ac-media.mentor img.on{animation:acKen 6s ease-out forwards}
-@keyframes acKen{from{transform:scale(1.12) translate(2%,1%)}to{transform:scale(1)}}
-.ac-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,0) 60%,rgba(5,7,13,.55))}
+.ac-media{position:relative;aspect-ratio:16/9.2;overflow:hidden;background:#070a14;border-bottom:1px solid var(--line)}
+.ac-media.plat{background:radial-gradient(80% 90% at 50% 100%,rgba(0,102,255,.28),transparent 70%),linear-gradient(180deg,#0b1224,#070a14)}
+.ac-win{position:absolute;left:7%;right:7%;top:9%;bottom:-6%;border-radius:10px 10px 0 0;overflow:hidden;background:#f6f8fc;box-shadow:0 30px 70px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.12);transform:perspective(1400px) rotateX(4deg);transform-origin:50% 100%}
+.ac-bar{height:26px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#e9edf5;border-bottom:1px solid #dbe1ec}
+.ac-bar i{width:8px;height:8px;border-radius:50%;background:#c3cbd9}
+.ac-bar span{margin-left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:#6b7790}
+.ac-scr{position:absolute;left:0;right:0;top:26px;bottom:0}
+.ac-scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;opacity:0;transform:scale(1.02);transition:opacity .9s var(--ease),transform 3s var(--ease)}
+.ac-scr img.on{opacity:1;transform:scale(1)}
+.ac-float{position:absolute;right:4%;bottom:7%;width:31%;height:auto;border-radius:10px;box-shadow:0 24px 50px -12px rgba(0,0,0,.65),0 0 0 1px rgba(0,102,255,.35),0 0 30px -6px var(--acc-glow);opacity:0;transform:translateY(16px) scale(.96);transition:opacity .7s var(--ease) .5s,transform .9s var(--ease) .5s;pointer-events:none}
+.ac-media.plat[data-m="0"] .ac-float{opacity:1;transform:none}
+.ac-media.mentor video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:saturate(.95)}
+.ac-media.mentor::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,0) 55%,rgba(5,7,13,.55))}
 .ac-info{padding:20px 22px 22px}
 .ac-info h3{font-size:clamp(22px,1.8vw,30px);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em}
 .ac-info p{margin-top:8px;color:var(--t2);font-weight:500;font-size:clamp(15.5px,1.1vw,18px);line-height:1.4}
@@ -364,10 +365,15 @@ img{height:auto}
       </div>
       <div class="ac-panes">
         <article class="ac-pane on" role="tabpanel" id="acp0" aria-labelledby="act0" data-i="0">
-          <div class="ac-media plat">
-            <img src="assets/group/ac-plat-home.webp" alt="Inicio de la plataforma de ORZ Academy" class="on" width="1200" height="646">
-            <img src="assets/group/ac-plat-library.webp" alt="The Floor: análisis semanales y trade reviews" width="1200" height="646" loading="lazy">
-            <img src="assets/group/ac-plat-notes.webp" alt="Clase con notas del alumno" width="1200" height="646" loading="lazy">
+          <div class="ac-media plat" data-m="0">
+            <div class="ac-win">
+              <div class="ac-bar"><i></i><i></i><i></i><span>Plataforma ORZ Academy</span></div>
+              <div class="ac-scr">
+                <img src="assets/group/ac-plat-clase.webp" alt="Clase de la plataforma con notas del alumno" class="on" style="object-position:0 0" width="1400" height="695">
+                <img src="assets/group/ac-plat-floor.webp" alt="The Floor: análisis semanales y trade reviews" width="1400" height="821" loading="lazy">
+              </div>
+            </div>
+            <img class="ac-float" src="assets/group/ac-plat-notas.webp" alt="" width="410" height="460" loading="lazy">
           </div>
           <div class="ac-info">
             <h3>La ruta completa</h3>
@@ -376,7 +382,7 @@ img{height:auto}
           </div>
         </article>
         <article class="ac-pane" role="tabpanel" id="acp1" aria-labelledby="act1" data-i="1">
-          <div class="ac-media mentor"><video class="on" muted loop playsinline preload="metadata" poster="assets/group/v/mentoria-grupal.jpg" aria-label="Mentoría grupal"><source src="assets/group/v/mentoria-grupal.webm" type="video/webm"><source src="assets/group/v/mentoria-grupal.mp4" type="video/mp4"></video><img src="assets/group/ac-mentoria.webp" alt="Sesión de mentoría 1 a 1 frente a un gráfico" width="1200" height="792" loading="lazy"></div>
+          <div class="ac-media mentor"><video class="on" muted loop playsinline preload="metadata" poster="assets/group/v/mentor-escenario.jpg" aria-label="Thomas Orozco enseñando en un evento de trading"><source src="assets/group/v/mentor-escenario.webm" type="video/webm"><source src="assets/group/v/mentor-escenario.mp4" type="video/mp4"></video></div>
           <div class="ac-info">
             <h3>Un mentor en tu proceso</h3>
             <p>Un mentor que conoce tus problemas y sabe cómo atacarlos.</p>
@@ -690,7 +696,7 @@ setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEa
   var DUR=7000, cur=0, t0=performance.now(), paused=false, pausedAt=0, vis=null;
   box.style.setProperty('--ac-t',DUR+'ms');
   function show(i){cur=i;tabs.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===i)b.classList.add('on');b.setAttribute('aria-selected',k===i?'true':'false')});
-    panes.forEach(function(p,k){p.classList.toggle('on',k===i);p.querySelectorAll('.ac-media > img, .ac-media > video').forEach(function(x){x.classList.remove('on');if(x.tagName==='VIDEO')x.pause()})});t0=performance.now()}
+    panes.forEach(function(p,k){p.classList.toggle('on',k===i);p.querySelectorAll('.ac-scr > img, .ac-media > video').forEach(function(x,j){var on=k===i&&j===0;x.classList.toggle('on',on);if(x.tagName==='VIDEO'){if(on){x.currentTime=0;var q=x.play();q&&q.catch&&q.catch(function(){})}else x.pause()}});var mb=p.querySelector('.ac-media');if(mb)mb.dataset.m=0;p.querySelectorAll('.ac-steps li').forEach(function(x,j){x.classList.toggle('hl',k===i&&j===0)})});t0=performance.now()}
   tabs.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
   box.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();box.classList.add('paused')});
   box.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;box.classList.remove('paused')});
@@ -704,7 +710,7 @@ setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEa
       if(e>DUR)show((cur+1)%panes.length);
       var p=panes[cur], li=[].slice.call(p.querySelectorAll('.ac-steps li')), k=Math.min(li.length-1,Math.floor((now-t0)/(DUR/li.length)));
       li.forEach(function(x,j){x.classList.toggle('hl',j===k)});
-      var md=[].slice.call(p.querySelectorAll('.ac-media > img, .ac-media > video'));if(md.length>1){var m=Math.min(md.length-1,Math.floor((now-t0)/(DUR/md.length)));md.forEach(function(x,j){var on=j===m;if(on!==x.classList.contains('on')){x.classList.toggle('on',on);if(x.tagName==='VIDEO'){if(on){x.currentTime=0;var q=x.play();q&&q.catch&&q.catch(function(){})}else x.pause()}}})}
+      var md=[].slice.call(p.querySelectorAll('.ac-scr > img, .ac-media > video')),box2=p.querySelector('.ac-media');var m=Math.min(md.length-1,Math.floor((now-t0)/(DUR/Math.max(1,md.length))));if(box2)box2.dataset.m=m;md.forEach(function(x,j){var on=j===m;if(on!==x.classList.contains('on')){x.classList.toggle('on',on);if(x.tagName==='VIDEO'){if(on){x.currentTime=0;var q=x.play();q&&q.catch&&q.catch(function(){})}else x.pause()}}})
     }
     requestAnimationFrame(tick)})(performance.now());
   var v=document.getElementById('acv'); if(v&&RM){v.removeAttribute('autoplay');v.pause()}
