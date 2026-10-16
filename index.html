@@ -70,6 +70,20 @@ img{height:auto}
 .nav-l a:hover,.nav-l a.on{color:var(--t1)}
 .nav-l a.on{text-shadow:0 0 12px var(--acc-glow)}
 
+/* Menú móvil */
+.nav-r{display:flex;align-items:center;gap:10px}
+.mbtn{display:none;position:relative;width:40px;height:40px;border-radius:50%;border:1px solid rgba(77,148,255,.55);background:rgba(0,102,255,.10);cursor:pointer}
+.mbtn i{position:absolute;left:12px;right:12px;height:1.5px;background:#eaf1ff;transition:transform .35s var(--ease),top .35s var(--ease)}
+.mbtn i:first-child{top:16px}.mbtn i:last-child{top:22px}
+.menu-open .mbtn i:first-child{top:19px;transform:rotate(45deg)}.menu-open .mbtn i:last-child{top:19px;transform:rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:45;display:flex;flex-direction:column;justify-content:center;padding:80px var(--gut) 40px;background:rgba(5,7,13,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s .4s}
+.menu-open .mnav{opacity:1;visibility:visible;transition:opacity .4s var(--ease)}
+.mnav a{display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-weight:700;font-size:34px;line-height:1;text-transform:uppercase;letter-spacing:.01em;color:var(--t1);opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.mnav a em{font-style:normal;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--acc-2)}
+.menu-open .mnav a{opacity:1;transform:none}
+.menu-open .mnav a:nth-child(2){transition-delay:.05s}.menu-open .mnav a:nth-child(3){transition-delay:.1s}.menu-open .mnav a:nth-child(4){transition-delay:.15s}.menu-open .mnav a:nth-child(5){transition-delay:.2s}
+body.menu-open{overflow:hidden}
+
 /* Indicador de escenas */
 .pager{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:10px}
 .pager button{width:8px;height:8px;border-radius:50%;border:1px solid var(--t4);background:transparent;cursor:pointer;transition:all .3s var(--ease)}
@@ -278,30 +292,68 @@ img{height:auto}
   .ac-pane,.ac-media img{transition:none!important;animation:none!important}
 }
 @media (max-width:960px){
-  .nav-l,.pager{display:none}
-  .scene{min-height:auto;padding:110px 0 80px}
-  .hero .wrap,.split,.founder .wrap{grid-template-columns:1fr}
-  .hero .wrap{min-height:auto;padding-top:52vh;padding-bottom:70px}
-  .hero .h1{font-size:clamp(34px,10vw,56px)}
+  .nav-l,.pager,.counter{display:none}
+  .mbtn{display:block}
+  .nav{height:62px}
+  .brand img{height:32px}
+  .scene{min-height:auto;padding:84px 0 56px}
+  .split,.founder .wrap{grid-template-columns:1fr}
+  .ctas .btn{width:100%;justify-content:center;height:50px}
+  /* 1 · Hero */
+  .hero{padding:0}
+  .hero .wrap{min-height:auto;padding:clamp(350px,46vh,440px) var(--gut) 56px}
+  .hero .h1{font-size:clamp(30px,8.6vw,46px)}
   .hero .h1 span{white-space:normal}
   .hero .copy{max-width:none}
-  .hero .wrap{padding-top:46vh}
-  .stage3d{margin-top:28px}
+  .hero .ctas{flex-direction:column;gap:10px}
+  .hero .btn{font-size:14px}
+  /* 2 · Academy */
+  .academy{padding:84px 0 56px}
+  .academy .wrap{grid-template-columns:1fr;gap:28px}
+  .academy .h2{font-size:clamp(32px,9vw,48px)}
+  .ac-tabs button{padding:14px 16px;font-size:14px;gap:8px}
+  .ac-info{padding:16px 16px 18px}
+  .ac-steps,.ac-steps.three{grid-template-columns:1fr 1fr;gap:6px;margin-top:14px}
+  .ac-steps.three li:last-child{grid-column:1/-1}
+  .ac-steps li{font-size:13.5px;padding:8px 10px}
+  .ac-win{left:5%;right:5%;top:8%}
+  .ac-bar{height:20px;padding:0 9px;gap:4px}.ac-bar i{width:6px;height:6px}.ac-bar span{font-size:8.5px;margin-left:6px}
+  .ac-scr{top:20px}
+  .ac-float{width:36%;right:3%}
+  /* 3 · Edge */
+  .edge .wrap,.capital .wrap{text-align:left}
+  .edge .h2,.edge .edge-body,.capital .cap-body{margin-left:0;margin-right:0;text-align:left}
+  .stage3d{margin:28px calc(-.5*var(--gut)) 0;perspective:none}
+  .tilt,.scene.active .tilt{transform:none;opacity:1}
+  .screen{padding:5px;border-radius:10px}.screen img{border-radius:6px}
   .co{display:none}
+  .edge .edge-cta{margin-top:26px}
+  /* 4 · Capital */
+  .capital .h2 .ln{display:block}
+  .cgrid,.pgrid{grid-template-columns:1fr}
+  .cgrid{gap:12px;margin-top:28px}
+  .ccard{min-height:0;padding:22px 22px 20px;border-radius:12px}
+  .ccard h3{margin:12px 0 6px;font-size:26px}
+  .status{padding-top:18px}
+  /* 5 · Fundador */
+  .founder{padding:0 0 56px}
+  .founder .wrap{min-height:auto;padding-top:0;gap:0}
+  .founder .h2{font-size:clamp(30px,8.6vw,46px)}
+  .portrait{order:-1;height:min(66vh,560px);margin:0 calc(-1*var(--gut))}
+  .portrait img{-webkit-mask-image:linear-gradient(180deg,#000 58%,transparent 98%);mask-image:linear-gradient(180deg,#000 58%,transparent 98%);object-position:50% 12%}
+  .portrait::after{display:none}
+  .founder .copy{position:relative;z-index:2;margin-top:-56px;padding-bottom:0}
+  .pip{display:none}
+  /* 6 · Cierre */
+  .closing{padding:84px 0 0}
+  .closing .copy{padding:0 0 150px}
+  .closing .ctas{flex-direction:column;gap:10px}
+  .ring{opacity:.28;inset:0 -30vw}
+  .foot .wrap{flex-direction:column;gap:6px}
+  /* restos del diseño anterior */
   .car{height:420px}
   .card{width:84vw;margin-left:-42vw}
-  .card.cL{transform:translateX(-70%) rotateY(30deg) scale(.7)}
-  .card.cR{transform:translateX(70%) rotateY(-30deg) scale(.7)}
   .chart-box,.funnel-box{height:320px}
-  .cgrid,.pgrid{grid-template-columns:1fr}
-  .academy .wrap{grid-template-columns:1fr;gap:32px}
-  .ac-steps{grid-template-columns:1fr 1fr}.ac-steps.three{grid-template-columns:1fr}
-  .closing .ctas .btn{flex:1 1 auto;justify-content:center}
-  .founder .wrap{min-height:auto}
-  .founder .copy{padding-bottom:0}
-  .portrait{height:62vh}
-  .closing .copy{padding:8vh 0 14vh}
-  .ring{opacity:.4;inset:0 -30vw}
 }
 </style>
 </head>
@@ -318,9 +370,19 @@ img{height:auto}
       <a href="#s4" data-s="s4">Capital</a>
       <a href="#s5" data-s="s5">Fundador</a>
     </nav>
-    <a href="#s6" class="btn btn-g" style="height:38px;padding:0 16px">Contacto</a>
+    <div class="nav-r">
+      <a href="#s6" class="btn btn-g" style="height:38px;padding:0 16px">Contacto</a>
+      <button class="mbtn" id="mbtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav"><i></i><i></i></button>
+    </div>
   </div>
 </header>
+<nav class="mnav" id="mnav" aria-label="Menú" aria-hidden="true">
+  <a href="#s2"><em>02</em>Academy</a>
+  <a href="#s3"><em>03</em>Edge</a>
+  <a href="#s4"><em>04</em>Capital</a>
+  <a href="#s5"><em>05</em>Fundador</a>
+  <a href="#s6"><em>06</em>Contacto</a>
+</nav>
 
 <div class="pager" id="pager" aria-hidden="true"></div>
 <div class="counter" id="counter"><b>01</b> / 06</div>
@@ -420,7 +482,7 @@ img{height:auto}
 <section class="scene capital" id="s4" data-name="ORZ Capital">
   <div class="wrap">
     <div class="label gold in">04 · ORZ Capital</div>
-    <h2 class="h2 in i1" style="margin-top:14px">El siguiente paso: <span class="dim">el capital.</span></h2>
+    <h2 class="h2 in i1" style="margin-top:14px"><span class="ln">El siguiente paso:</span> <span class="dim ln">el capital.</span></h2>
     <p class="body in i2 cap-body">Gestión de capital para clientes y acceso a capital para traders que demuestren sus capacidades. Dos líneas independientes, en preparación.</p>
     <div class="cgrid">
       <article class="ccard in i2"><span class="label">Línea 01</span><h3>Gestión de capital</h3><p>Para clientes que buscan gestión profesional de su capital.</p><span class="status">En preparación</span></article>
@@ -435,7 +497,7 @@ img{height:auto}
   <div class="wrap">
     <div class="copy">
       <div class="label acc in">05 · Fundador</div>
-      <h2 class="h2 in i1" style="margin-top:14px"><span class="ln">Thomas Orozco.</span> <span class="dim ln">La mente detrás de ORZ Group.</span></h2>
+      <h2 class="h2 in i1" style="margin-top:14px"><span class="ln">Thomas Orozco.</span> <span class="dim ln">La mente detrás de ORZ&nbsp;Group.</span></h2>
       <p class="body in i2">Trader, mentor y empresario. Lleva la disciplina, el orden y la excelencia a quienes quieren hacer del trading su carrera y su futuro. Reunió educación, tecnología y capital en un solo grupo para construir lo que impulsa al trader.</p>
       <div class="pip in i3"><video src="assets/group/v/entrevista.mp4" poster="assets/group/v/entrevista.jpg" muted loop playsinline preload="metadata"></video><span class="label">En el escenario</span></div>
     </div>
@@ -491,7 +553,7 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){
   if(on){s.classList.add('active');setCurrent(scenes.indexOf(s))}
   active[s.id]=on;
   s.querySelectorAll('video').forEach(function(v){ if(on){var p=v.play();if(p&&p.catch)p.catch(function(){})} else v.pause() });
-})},{threshold:.5});
+})},{threshold:matchMedia('(max-width:960px)').matches?.2:.5});
 scenes.forEach(function(s){io.observe(s)});
 /* Transición hero → Academy ligada al scroll */
 var S1=document.getElementById('s1'),S2=document.getElementById('s2'),OB=document.querySelector('.orbit-box'),HC=document.querySelector('.hero .copy'),W2=S2.querySelector('.wrap'),tzIn=false;
@@ -568,6 +630,7 @@ var UNITS=[
  {id:'s4',name:'Capital',sub:'En preparación',col:C.gold,p:[0.02,0.67],r:.16,info:'Gestión de capital y acceso a capital. En preparación.',
   sats:[['Gestión',-0.40,0.80],['Acceso',0.45,0.83]]}
 ];
+var MOBP=[[-0.98,-0.18],[0.98,-0.18],[0,0.78]];
 var SPK=[], BOLTS=[], nextBolt=1, LOGO=null, LOGO_D=null;
 (function(){var im=new Image();im.onload=function(){var c=document.createElement('canvas');c.width=im.naturalWidth*3||600;c.height=im.naturalHeight*3||380;var g=c.getContext('2d');g.drawImage(im,0,0,c.width,c.height);LOGO=c;
   var d=document.createElement('canvas');d.width=c.width;d.height=c.height;var h=d.getContext('2d');h.drawImage(c,0,0);h.globalCompositeOperation='source-atop';h.fillStyle='#1a2b55';h.fillRect(0,0,d.width,d.height);LOGO_D=d};im.src='assets/group/isotipo-orz.svg'})();
@@ -575,7 +638,7 @@ var ob=document.getElementById('orbit'), O=null, hover=null, mouse={x:-1,y:-1}, 
 var GEO=null;
 function initOrbit(){O=fit(ob);SPK=[];
   var W=O.w,H=O.h,mob=W<960,S,cx,cy;
-  if(mob){S=Math.min(W/3.4,H*.16);cx=W/2;cy=Math.min(H*.25,S*1.6+70)}
+  if(mob){S=Math.min(W/3.5,120);cx=W/2;cy=68+S*.62+34}
   else{var cr=heroCopy?heroCopy.getBoundingClientRect().right-ob.getBoundingClientRect().left:W*.45;S=Math.min(W*.38/2.75,H*.5/1.95);cx=W*.67;cy=H*.53-S*.17;if(cx-1.4*S<cr+W*.08){cx=cr+W*.08+1.4*S}}
   GEO={S:S,cx:cx,cy:cy,mob:mob};
   for(var q=0;q<160;q++){SPK.push({x:Math.random()*W,y:Math.random()*H,p:Math.random()*7,s:Math.random()*1.1+.2})}
@@ -584,9 +647,9 @@ initOrbit();
 function nodes(t){
   var g=GEO,S=g.S,list=[];
   UNITS.forEach(function(u,i){
-    var ux=g.cx+u.p[0]*S, uy=g.cy+u.p[1]*S+Math.sin(t*.7+i*2)*S*.025;
-    var U={kind:'u',i:i,u:u,x:ux,y:uy,r:u.r*S,col:u.col};list.push(U);
-    u.sats.forEach(function(st,j){list.push({kind:'s',i:i,j:j,u:u,name:st[0],x:g.cx+st[1]*S+Math.cos(t*.5+j*1.7+i)*S*.02,y:g.cy+st[2]*S+Math.sin(t*.6+j*2.1+i)*S*.025,r:S*.085,col:u.col,parent:U})});
+    var pp=g.mob?MOBP[i]:u.p, ux=g.cx+pp[0]*S, uy=g.cy+pp[1]*S+Math.sin(t*.7+i*2)*S*.025;
+    var U={kind:'u',i:i,u:u,x:ux,y:uy,r:(g.mob?.25:u.r)*S,col:u.col};list.push(U);
+    if(!g.mob)u.sats.forEach(function(st,j){list.push({kind:'s',i:i,j:j,u:u,name:st[0],x:g.cx+st[1]*S+Math.cos(t*.5+j*1.7+i)*S*.02,y:g.cy+st[2]*S+Math.sin(t*.6+j*2.1+i)*S*.025,r:S*.085,col:u.col,parent:U})});
   });
   return list;
 }
@@ -666,7 +729,7 @@ function drawRing(t){
   var items=RING.map(function(it,i){var a=t*.05+i*(Math.PI*2/n);return {it:it,x:cx+Math.cos(a)*A,y:cy+Math.sin(a)*B,z:Math.sin(a)}}).sort(function(a,b){return a.z-b.z});
   items.forEach(function(o){var s=.65+.35*(o.z+1)/2;x.globalAlpha=.35+.65*(o.z+1)/2;
     drawPlanet(x,o.x,o.y,o.it.r*s,o.it.c,t+o.x*.01,0,o.it.r>20,o.it.k);
-    label(x,o.x,o.y+o.it.r*s+16,o.it.n,null,o.it.c,10);x.globalAlpha=1});
+    if(W>=700)label(x,o.x,o.y+o.it.r*s+16,o.it.n,null,o.it.c,10);x.globalAlpha=1});
 }
 
 /* Bucle principal (solo dibuja lo visible) */
@@ -698,8 +761,8 @@ setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEa
   function show(i){cur=i;tabs.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===i)b.classList.add('on');b.setAttribute('aria-selected',k===i?'true':'false')});
     panes.forEach(function(p,k){p.classList.toggle('on',k===i);p.querySelectorAll('.ac-scr > img, .ac-media > video').forEach(function(x,j){var on=k===i&&j===0;x.classList.toggle('on',on);if(x.tagName==='VIDEO'){if(on){x.currentTime=0;var q=x.play();q&&q.catch&&q.catch(function(){})}else x.pause()}});var mb=p.querySelector('.ac-media');if(mb)mb.dataset.m=0;p.querySelectorAll('.ac-steps li').forEach(function(x,j){x.classList.toggle('hl',k===i&&j===0)})});t0=performance.now()}
   tabs.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
-  box.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();box.classList.add('paused')});
-  box.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;box.classList.remove('paused')});
+  if(matchMedia('(hover:hover)').matches)box.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();box.classList.add('paused')});
+  if(matchMedia('(hover:hover)').matches)box.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;box.classList.remove('paused')});
   var imgs=[].slice.call(box.querySelectorAll('.ac-media.plat img')), steps=[].slice.call(box.querySelectorAll('.ac-pane'));
   (function tick(now){
     var r=box.getBoundingClientRect(), s2=document.getElementById('s2');
@@ -715,6 +778,16 @@ setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEa
     requestAnimationFrame(tick)})(performance.now());
   var v=document.getElementById('acv'); if(v&&RM){v.removeAttribute('autoplay');v.pause()}
 
+})();
+
+/* Menú móvil */
+(function(){
+  var b=document.getElementById('mbtn'),m=document.getElementById('mnav');if(!b||!m)return;
+  function set(o){document.body.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');m.setAttribute('aria-hidden',o?'false':'true')}
+  b.addEventListener('click',function(){set(!document.body.classList.contains('menu-open'))});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  matchMedia('(max-width:960px)').addEventListener('change',function(e){if(!e.matches)set(false)});
 })();
 
 /* Redimensionar */
