@@ -149,12 +149,15 @@ img{height:auto}
 .ac-pane{grid-area:1/1;opacity:0;visibility:hidden;transform:translateX(18px);transition:opacity .6s var(--ease),transform .8s var(--ease),visibility 0s .6s}
 .ac-pane.on{opacity:1;visibility:visible;transform:none;transition:opacity .6s var(--ease),transform .8s var(--ease)}
 .ac-media{position:relative;aspect-ratio:16/8.6;overflow:hidden;background:#070a14;border-bottom:1px solid var(--line)}
-.ac-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
+.ac-media img,.ac-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
+.ac-media.mentor img,.ac-media.mentor video{opacity:0;transition:opacity .9s var(--ease)}
+.ac-media.mentor .on{opacity:1}
+.ac-media.mentor video{object-position:50% 40%;filter:saturate(.9) brightness(1.05)}
 .ac-media.plat img{opacity:0;transform:scale(1.04);transition:opacity .9s var(--ease),transform 3.2s var(--ease)}
 .ac-media.plat img.on{opacity:1;transform:scale(1);animation:acPan 5s ease-in-out forwards}
 @keyframes acPan{from{object-position:0 0}to{object-position:0 35%}}
 .ac-media.mentor img{object-position:50% 45%;filter:saturate(.9)}
-.ac-pane.on .ac-media.mentor img{animation:acKen 9s ease-out forwards}
+.ac-media.mentor img.on{animation:acKen 6s ease-out forwards}
 @keyframes acKen{from{transform:scale(1.12) translate(2%,1%)}to{transform:scale(1)}}
 .ac-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,0) 60%,rgba(5,7,13,.55))}
 .ac-info{padding:20px 22px 22px}
@@ -363,8 +366,8 @@ img{height:auto}
         <article class="ac-pane on" role="tabpanel" id="acp0" aria-labelledby="act0" data-i="0">
           <div class="ac-media plat">
             <img src="assets/group/ac-plat-home.webp" alt="Inicio de la plataforma de ORZ Academy" class="on" width="1200" height="646">
-            <img src="assets/group/ac-plat-library.webp" alt="Biblioteca de la plataforma" width="1200" height="646" loading="lazy">
-            <img src="assets/group/ac-plat-notes.webp" alt="Clase con notas en la plataforma" width="1200" height="646" loading="lazy">
+            <img src="assets/group/ac-plat-library.webp" alt="The Floor: análisis semanales y trade reviews" width="1200" height="646" loading="lazy">
+            <img src="assets/group/ac-plat-notes.webp" alt="Clase con notas del alumno" width="1200" height="646" loading="lazy">
           </div>
           <div class="ac-info">
             <h3>La ruta completa</h3>
@@ -373,7 +376,7 @@ img{height:auto}
           </div>
         </article>
         <article class="ac-pane" role="tabpanel" id="acp1" aria-labelledby="act1" data-i="1">
-          <div class="ac-media mentor"><img src="assets/group/ac-mentoria.webp" alt="Sesión de mentoría frente a un gráfico" width="1200" height="792" loading="lazy"></div>
+          <div class="ac-media mentor"><video class="on" muted loop playsinline preload="metadata" poster="assets/group/v/mentoria-grupal.jpg" aria-label="Mentoría grupal"><source src="assets/group/v/mentoria-grupal.webm" type="video/webm"><source src="assets/group/v/mentoria-grupal.mp4" type="video/mp4"></video><img src="assets/group/ac-mentoria.webp" alt="Sesión de mentoría 1 a 1 frente a un gráfico" width="1200" height="792" loading="lazy"></div>
           <div class="ac-info">
             <h3>Un mentor en tu proceso</h3>
             <p>Un mentor que conoce tus problemas y sabe cómo atacarlos.</p>
@@ -687,7 +690,7 @@ setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEa
   var DUR=7000, cur=0, t0=performance.now(), paused=false, pausedAt=0, vis=null;
   box.style.setProperty('--ac-t',DUR+'ms');
   function show(i){cur=i;tabs.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===i)b.classList.add('on');b.setAttribute('aria-selected',k===i?'true':'false')});
-    panes.forEach(function(p,k){p.classList.toggle('on',k===i)});t0=performance.now()}
+    panes.forEach(function(p,k){p.classList.toggle('on',k===i);p.querySelectorAll('.ac-media > img, .ac-media > video').forEach(function(x){x.classList.remove('on');if(x.tagName==='VIDEO')x.pause()})});t0=performance.now()}
   tabs.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
   box.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();box.classList.add('paused')});
   box.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;box.classList.remove('paused')});
@@ -701,7 +704,7 @@ setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEa
       if(e>DUR)show((cur+1)%panes.length);
       var p=panes[cur], li=[].slice.call(p.querySelectorAll('.ac-steps li')), k=Math.min(li.length-1,Math.floor((now-t0)/(DUR/li.length)));
       li.forEach(function(x,j){x.classList.toggle('hl',j===k)});
-      if(cur===0&&imgs.length){var m=Math.min(imgs.length-1,Math.floor((now-t0)/(DUR/imgs.length)));imgs.forEach(function(x,j){x.classList.toggle('on',j===m)})}
+      var md=[].slice.call(p.querySelectorAll('.ac-media > img, .ac-media > video'));if(md.length>1){var m=Math.min(md.length-1,Math.floor((now-t0)/(DUR/md.length)));md.forEach(function(x,j){var on=j===m;if(on!==x.classList.contains('on')){x.classList.toggle('on',on);if(x.tagName==='VIDEO'){if(on){x.currentTime=0;var q=x.play();q&&q.catch&&q.catch(function(){})}else x.pause()}}})}
     }
     requestAnimationFrame(tick)})(performance.now());
   var v=document.getElementById('acv'); if(v&&RM){v.removeAttribute('autoplay');v.pause()}
