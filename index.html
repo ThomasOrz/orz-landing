@@ -114,26 +114,42 @@ body.menu-open{overflow:hidden}
 .tip b{display:block;color:var(--t1);font-weight:600;margin-bottom:2px}
 .tip.show{opacity:1;transform:none}
 
-/* 2 · EDGE en una pantalla */
-.edge .wrap{text-align:center}
-.edge .h2{margin:14px auto 10px}
-.stage3d{perspective:1800px;margin:34px auto 0;max-width:min(860px,98vh);position:relative}
-.tilt{position:relative;transform-style:preserve-3d;transform:rotateX(22deg) rotateY(-12deg) scale(.86) translateY(30px);opacity:.2;transition:transform 1.6s var(--ease),opacity 1.2s var(--ease)}
-.scene.active .tilt{transform:rotateX(10deg) rotateY(-5deg) scale(1);opacity:1}
-.screen{border-radius:14px;border:1px solid var(--line2);background:#070a14;padding:8px;box-shadow:0 60px 140px -40px rgba(79,140,255,.45),0 0 0 1px rgba(0,0,0,.6)}
-.screen img{border-radius:9px;width:100%}
-.zone{position:absolute;border-radius:10px;border:1px solid transparent;transition:all .3s var(--ease);cursor:default}
-.zone:hover,.zone.pulse{border-color:var(--acc-2);background:rgba(79,140,255,.07);box-shadow:0 0 0 1px rgba(110,162,255,.3),0 0 40px -6px var(--acc-glow)}
-.co{position:absolute;display:flex;align-items:center;gap:10px;text-align:left;opacity:0;transition:opacity .8s var(--ease) 1s}
-.scene.active .co{opacity:1}
-.co .d{width:9px;height:9px;border-radius:50%;background:var(--acc-2);box-shadow:0 0 0 4px rgba(110,162,255,.18),0 0 16px var(--acc-glow);flex:none}
-.co .l{height:1px;width:64px;background:linear-gradient(90deg,rgba(110,162,255,.9),rgba(110,162,255,.1));flex:none}
-.co .t{min-width:190px}
-.co .t b{display:block;font-size:14px;font-weight:600;color:var(--t1);white-space:nowrap}
-.co .t span{font-size:12px;color:var(--t3);white-space:nowrap}
-.co.r{flex-direction:row-reverse;text-align:right}
-.co.r .l{background:linear-gradient(270deg,rgba(110,162,255,.9),rgba(110,162,255,.1))}
-
+ /* 3 · EDGE: carrusel de pantallas */
+.edge{padding:96px 0 48px}
+.edge .wrap{max-width:1440px}
+.eg-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:clamp(32px,4vw,80px);align-items:end}
+.edge .h2{margin-top:16px;font-size:clamp(36px,3.2vw,54px)}
+.edge .h2 .ln{display:block;white-space:nowrap}
+@media (max-width:1200px){.edge .h2 .ln{white-space:normal}}
+.eg-side .body{max-width:44ch}
+.eg-side .ctas{margin-top:22px}
+.eg-car{--sw:min(54vw,calc((100svh - 430px) * 1.78),1040px);margin-top:clamp(26px,3.4vh,44px);position:relative}
+.eg-stage{position:relative;height:calc(var(--sw) / 1.78);perspective:2000px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.eg-stage::after{content:"";position:absolute;left:50%;bottom:-14%;width:calc(var(--sw) * 1.05);height:40%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(0,102,255,.32),transparent);filter:blur(20px);z-index:0;pointer-events:none}
+.eg-slide{position:absolute;left:50%;top:0;width:var(--sw);margin:0 0 0 calc(var(--sw) / -2);z-index:1;transition:transform 1.1s var(--ease),opacity 1.1s var(--ease),filter 1.1s var(--ease);cursor:pointer}
+.eg-slide[data-p="0"]{z-index:3;cursor:default;transform:none;opacity:1}
+.eg-slide[data-p="-1"]{transform:translateX(-66%) scale(.74) rotateY(26deg);opacity:.5;filter:brightness(.55) saturate(.8)}
+.eg-slide[data-p="1"]{transform:translateX(66%) scale(.74) rotateY(-26deg);opacity:.5;filter:brightness(.55) saturate(.8)}
+.eg-slide[data-p="-1"]:hover,.eg-slide[data-p="1"]:hover{opacity:.75;filter:brightness(.75)}
+.eg-scr{border-radius:14px;border:1px solid rgba(140,170,230,.22);background:#070a14;padding:7px;box-shadow:0 50px 120px -40px rgba(0,102,255,.5),0 0 0 1px rgba(0,0,0,.6)}
+.eg-slide[data-p="0"] .eg-scr{border-color:rgba(110,162,255,.45)}
+.eg-scr img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:0 0;border-radius:9px;pointer-events:none}
+.eg-bar{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:24px;width:var(--sw);margin:clamp(18px,2.6vh,30px) auto 0}
+.eg-caps{position:relative;display:grid;flex:1;min-width:0}
+.eg-txt{grid-area:1/1;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .7s var(--ease)}
+.eg-txt.on{opacity:1;transform:none;transition-delay:.15s}
+.eg-txt h3{font-size:clamp(22px,1.8vw,30px);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em}
+.eg-txt p{margin-top:6px;color:var(--t2);font-weight:500;font-size:clamp(15.5px,1.1vw,18px)}
+.eg-ctrl{display:flex;align-items:center;gap:14px;flex:none}
+.eg-arr{width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--t1);display:grid;place-items:center;cursor:pointer;transition:all .3s var(--ease)}
+.eg-arr:hover{border-color:var(--acc-2);background:var(--acc-soft)}
+.eg-arr svg{width:18px;height:18px}
+.eg-dots{display:flex;gap:8px}
+.eg-dots button{position:relative;width:34px;height:20px;background:none;border:0;cursor:pointer}
+.eg-dots button::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--t4)}
+.eg-dots button i{position:absolute;left:0;top:9px;height:2px;width:0;background:var(--acc-2);box-shadow:0 0 10px var(--acc-glow)}
+.eg-dots button.on i{animation:acProg var(--eg-t,6s) linear forwards}
+.eg-car.paused .eg-dots button.on i{animation-play-state:paused}
 
 /* 2 · ACADEMY: video del evento de fondo + texto a la izquierda + vitrina dinámica a la derecha */
 .academy{padding:96px 0 56px}
@@ -184,8 +200,6 @@ body.menu-open{overflow:hidden}
 .ac-steps li em{display:block;font-style:normal;font-family:var(--mono);font-weight:500;font-size:10.5px;color:var(--t4);letter-spacing:.12em;margin-bottom:4px}
 .ac-steps li.hl{border-color:rgba(77,148,255,.6);color:var(--t1);background:rgba(0,102,255,.12);box-shadow:0 0 22px -6px var(--acc-glow)}
 .ac-steps li.hl em{color:var(--acc-2)}
-.edge .edge-body{margin:4px auto 0;text-align:center;max-width:58ch}
-.edge .edge-cta{display:flex;justify-content:center;margin-top:30px}
 .capital .cap-body{margin:18px auto 0;max-width:56ch}
 
 /* 3 · CARRUSEL unidades (retirado) */
@@ -288,7 +302,7 @@ body.menu-open{overflow:hidden}
 }
 @media (prefers-reduced-motion:reduce){
   .grain{animation:none}
-  .in,.tilt,.card,.portrait img{transition:none}
+  .in,.card,.portrait img,.eg-slide,.eg-txt{transition:none}
   .ac-pane,.ac-media img{transition:none!important;animation:none!important}
 }
 @media (max-width:960px){
@@ -321,13 +335,17 @@ body.menu-open{overflow:hidden}
   .ac-scr{top:20px}
   .ac-float{width:36%;right:3%}
   /* 3 · Edge */
-  .edge .wrap,.capital .wrap{text-align:left}
-  .edge .h2,.edge .edge-body,.capital .cap-body{margin-left:0;margin-right:0;text-align:left}
-  .stage3d{margin:28px calc(-.5*var(--gut)) 0;perspective:none}
-  .tilt,.scene.active .tilt{transform:none;opacity:1}
-  .screen{padding:5px;border-radius:10px}.screen img{border-radius:6px}
-  .co{display:none}
-  .edge .edge-cta{margin-top:26px}
+  .capital .wrap{text-align:left}
+  .capital .cap-body{margin-left:0;margin-right:0;text-align:left}
+  .edge{padding:84px 0 56px}
+  .eg-head{grid-template-columns:1fr;gap:16px}
+  .edge .h2{font-size:clamp(30px,8.6vw,46px)}
+  .eg-car{--sw:84vw;margin-top:30px}
+  .eg-slide[data-p="-1"]{transform:translateX(-88%) scale(.8) rotateY(22deg)}
+  .eg-slide[data-p="1"]{transform:translateX(88%) scale(.8) rotateY(-22deg)}
+  .eg-scr{padding:4px;border-radius:9px}.eg-scr img{border-radius:6px}
+  .eg-bar{flex-direction:column;align-items:flex-start;gap:16px}
+  .eg-ctrl{width:100%;justify-content:space-between}
   /* 4 · Capital */
   .capital .h2 .ln{display:block}
   .cgrid,.pgrid{grid-template-columns:1fr}
@@ -460,21 +478,35 @@ body.menu-open{overflow:hidden}
 <!-- ═══ 3 · ORZ EDGE ══════════════════════════════════════════════ -->
 <section class="scene edge" id="s3" data-name="ORZ Edge">
   <div class="wrap">
-    <div class="label acc in">03 · ORZ Edge · Tecnología</div>
-    <h2 class="h2 in i1">El centro de alto rendimiento <span class="dim">del trader.</span></h2>
-    <p class="body in i1 edge-body">La unidad tecnológica del grupo. Analiza tus estadísticas, construye tus estrategias y gestiona tus cuentas en un solo lugar.</p>
-    <div class="stage3d in i2" id="stage3d">
-      <div class="tilt" id="tilt">
-        <div class="screen"><img src="assets/group/edge-full.webp" alt="Dashboard de ORZ Edge" width="1393" height="745"></div>
-        <div class="zone" style="left:1%;top:18%;width:79%;height:23%" data-z="0"></div>
-        <div class="zone" style="left:1%;top:42%;width:74%;height:57%" data-z="1"></div>
-        <div class="zone" style="left:75.8%;top:42%;width:23.4%;height:50%" data-z="2"></div>
+    <div class="eg-head">
+      <div>
+        <div class="label acc in">03 · ORZ Edge · Tecnología</div>
+        <h2 class="h2 in i1"><span class="ln">El centro de alto rendimiento</span> <span class="dim ln">del trader.</span></h2>
       </div>
-      <div class="co r" style="right:calc(100% - 4%);top:22%"><span class="d"></span><span class="l"></span><span class="t"><b>Estadísticas</b><span>Lo que dicen tus números</span></span></div>
-      <div class="co r" style="right:calc(100% - 4%);top:62%"><span class="d"></span><span class="l"></span><span class="t"><b>Estrategias</b><span>Las tuyas, documentadas</span></span></div>
-      <div class="co" style="left:calc(100% - 3%);top:52%"><span class="d"></span><span class="l"></span><span class="t"><b>Cuentas</b><span>Todas en un panel</span></span></div>
+      <div class="eg-side in i2">
+        <p class="body">La unidad tecnológica del grupo. Analiza tus estadísticas, construye tus estrategias y gestiona tus cuentas en un solo lugar.</p>
+        <div class="ctas"><a href="https://manage.orzacademy.com" target="_blank" rel="noopener" class="btn btn-p">Conocer ORZ Edge <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      </div>
     </div>
-    <div class="ctas in i3 edge-cta"><a href="https://manage.orzacademy.com" target="_blank" rel="noopener" class="btn btn-p">Conocer ORZ Edge <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="eg-car in i2" id="egCar" role="region" aria-roledescription="carrusel" aria-label="Pantallas de ORZ Edge">
+      <div class="eg-stage">
+        <figure class="eg-slide" data-i="0"><div class="eg-scr"><img src="assets/group/eg-1.webp" alt="Panel de estadísticas de ORZ Edge" width="1600" height="900"></div></figure>
+        <figure class="eg-slide" data-i="1"><div class="eg-scr"><img src="assets/group/eg-2.webp" alt="Análisis de estrategias en ORZ Edge" width="1600" height="900" loading="lazy"></div></figure>
+        <figure class="eg-slide" data-i="2"><div class="eg-scr"><img src="assets/group/eg-3.webp" alt="Panel de cuentas de ORZ Edge" width="1600" height="900" loading="lazy"></div></figure>
+      </div>
+      <div class="eg-bar">
+        <div class="eg-caps" aria-live="polite">
+          <div class="eg-txt on" data-i="0"><h3>Estadísticas</h3><p>Lo que dicen tus números.</p></div>
+          <div class="eg-txt" data-i="1"><h3>Estrategias</h3><p>Las tuyas, documentadas.</p></div>
+          <div class="eg-txt" data-i="2"><h3>Cuentas</h3><p>Todas en un panel.</p></div>
+        </div>
+        <div class="eg-ctrl">
+          <button class="eg-arr" data-d="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <div class="eg-dots"><button class="on" data-i="0" aria-label="Estadísticas"><i></i></button><button class="" data-i="1" aria-label="Estrategias"><i></i></button><button class="" data-i="2" aria-label="Cuentas"><i></i></button></div>
+          <button class="eg-arr" data-d="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -744,13 +776,37 @@ function loop(now){
 requestAnimationFrame(loop);
 if(RM){drawOrbit(0);}
 
-/* Edge: inclinación con el ratón + zonas que laten */
-var stage=document.getElementById('stage3d'), tilt=document.getElementById('tilt');
-stage.addEventListener('mousemove',function(e){if(RM)return;var r=stage.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;
-  tilt.style.transition='transform .3s ease-out';tilt.style.transform='rotateX('+(8-dy*8)+'deg) rotateY('+(-4+dx*10)+'deg)'});
-stage.addEventListener('mouseleave',function(){tilt.style.transition='';tilt.style.transform=''});
-var zones=[].slice.call(document.querySelectorAll('.zone')), zi=0;
-setInterval(function(){if(!active.s3||stage.matches(':hover'))return;zones.forEach(function(z){z.classList.remove('pulse')});zones[zi%zones.length].classList.add('pulse');zi++},1800);
+/* Edge: carrusel de pantallas */
+(function(){
+  var car=document.getElementById('egCar'); if(!car)return;
+  var sl=[].slice.call(car.querySelectorAll('.eg-slide')), tx=[].slice.call(car.querySelectorAll('.eg-txt')), dt=[].slice.call(car.querySelectorAll('.eg-dots button'));
+  var n=sl.length, cur=0, DUR=6000, t0=performance.now(), paused=false, pausedAt=0, vis=false;
+  car.style.setProperty('--eg-t',DUR+'ms');
+  function go(i){cur=(i+n)%n;
+    sl.forEach(function(s,k){var p=k-cur;if(p>n/2)p-=n;if(p<-n/2)p+=n;s.dataset.p=p;s.setAttribute('aria-hidden',p===0?'false':'true')});
+    tx.forEach(function(x,k){x.classList.toggle('on',k===cur)});
+    dt.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===cur)b.classList.add('on');b.setAttribute('aria-current',k===cur?'true':'false')});
+    t0=performance.now()}
+  go(0);
+  sl.forEach(function(s,k){s.addEventListener('click',function(){if(s.dataset.p!=='0')go(k)})});
+  dt.forEach(function(b,k){b.addEventListener('click',function(){go(k)})});
+  car.querySelectorAll('.eg-arr').forEach(function(b){b.addEventListener('click',function(){go(cur+ +b.dataset.d)})});
+  car.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(cur-1);if(e.key==='ArrowRight')go(cur+1)});
+  if(matchMedia('(hover:hover)').matches){
+    car.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();car.classList.add('paused')});
+    car.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;car.classList.remove('paused')});
+  }
+  // deslizar con el dedo
+  var st=car.querySelector('.eg-stage'), x0=null, y0=0;
+  st.addEventListener('pointerdown',function(e){x0=e.clientX;y0=e.clientY});
+  st.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0,dy=e.clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))go(cur+(dx<0?1:-1))});
+  st.addEventListener('pointercancel',function(){x0=null});
+  (function tick(now){
+    var r=car.getBoundingClientRect(), nv=r.bottom>innerHeight*.15&&r.top<innerHeight*.85;
+    if(nv!==vis){vis=nv;if(vis)go(cur)}
+    if(vis&&!paused&&!RM&&now-t0>DUR)go(cur+1);
+    requestAnimationFrame(tick)})(performance.now());
+})();
 
 /* Academy: vitrina con dos servicios que rotan solos */
 (function(){
