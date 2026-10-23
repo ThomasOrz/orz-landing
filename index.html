@@ -133,7 +133,10 @@ body.menu-open{overflow:hidden}
 .eg-slide[data-p="-1"]:hover,.eg-slide[data-p="1"]:hover{opacity:.75;filter:brightness(.75)}
 .eg-scr{border-radius:14px;border:1px solid rgba(140,170,230,.22);background:#070a14;padding:7px;box-shadow:0 50px 120px -40px rgba(0,102,255,.5),0 0 0 1px rgba(0,0,0,.6)}
 .eg-slide[data-p="0"] .eg-scr{border-color:rgba(110,162,255,.45)}
-.eg-scr img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:0 0;border-radius:9px;pointer-events:none}
+.eg-view{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:9px;background:#05070d;isolation:isolate}
+.eg-cam{position:absolute;inset:0;transform-origin:0 0;transition:transform 1.5s cubic-bezier(.65,0,.35,1);will-change:transform}
+.eg-cam img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.eg-view::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),inset 0 0 60px rgba(0,0,0,.35);pointer-events:none;transition:opacity 1.5s}
 .eg-bar{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:24px;width:var(--sw);margin:clamp(18px,2.6vh,30px) auto 0}
 .eg-caps{position:relative;display:grid;flex:1;min-width:0}
 .eg-txt{grid-area:1/1;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .7s var(--ease)}
@@ -302,7 +305,7 @@ body.menu-open{overflow:hidden}
 }
 @media (prefers-reduced-motion:reduce){
   .grain{animation:none}
-  .in,.card,.portrait img,.eg-slide,.eg-txt{transition:none}
+  .in,.card,.portrait img,.eg-slide,.eg-txt,.eg-cam{transition:none}
   .ac-pane,.ac-media img{transition:none!important;animation:none!important}
 }
 @media (max-width:960px){
@@ -343,7 +346,7 @@ body.menu-open{overflow:hidden}
   .eg-car{--sw:84vw;margin-top:30px}
   .eg-slide[data-p="-1"]{transform:translateX(-88%) scale(.8) rotateY(22deg)}
   .eg-slide[data-p="1"]{transform:translateX(88%) scale(.8) rotateY(-22deg)}
-  .eg-scr{padding:4px;border-radius:9px}.eg-scr img{border-radius:6px}
+  .eg-scr{padding:4px;border-radius:9px}.eg-view{border-radius:6px}
   .eg-bar{flex-direction:column;align-items:flex-start;gap:16px}
   .eg-ctrl{width:100%;justify-content:space-between}
   /* 4 · Capital */
@@ -490,9 +493,9 @@ body.menu-open{overflow:hidden}
     </div>
     <div class="eg-car in i2" id="egCar" role="region" aria-roledescription="carrusel" aria-label="Pantallas de ORZ Edge">
       <div class="eg-stage">
-        <figure class="eg-slide" data-i="0"><div class="eg-scr"><img src="assets/group/eg-1.webp" alt="Panel de estadísticas de ORZ Edge" width="1600" height="900"></div></figure>
-        <figure class="eg-slide" data-i="1"><div class="eg-scr"><img src="assets/group/eg-2.webp" alt="Análisis de estrategias en ORZ Edge" width="1600" height="900" loading="lazy"></div></figure>
-        <figure class="eg-slide" data-i="2"><div class="eg-scr"><img src="assets/group/eg-3.webp" alt="Panel de cuentas de ORZ Edge" width="1600" height="900" loading="lazy"></div></figure>
+        <figure class="eg-slide" data-i="0" data-shots='[[710,286,1.7],[525,600,2.2]]'><div class="eg-scr"><div class="eg-view"><div class="eg-cam"><img src="assets/group/edge-estadisticas.webp" alt="Dashboard de ORZ Edge con expectancy, P&L neto, win rate, profit factor, drawdown y calendario de trading" width="2160" height="1215"></div></div></div></figure>
+        <figure class="eg-slide" data-i="1" data-shots='[[576,150,2.2],[646,359,2]]'><div class="eg-scr"><div class="eg-view"><div class="eg-cam"><img src="assets/group/edge-estrategias.webp" alt="Estrategias en ORZ Edge con su rendimiento, win rate y profit factor" width="2160" height="1215" loading="lazy"></div></div></div></figure>
+        <figure class="eg-slide" data-i="2" data-shots='[[576,220,2.2],[663,437,1.9]]'><div class="eg-scr"><div class="eg-view"><div class="eg-cam"><img src="assets/group/edge-cuentas.webp" alt="Cuentas de fondeo en ORZ Edge con línea de quiebre, límite diario y meta" width="2160" height="1215" loading="lazy"></div></div></div></figure>
       </div>
       <div class="eg-bar">
         <div class="eg-caps" aria-live="polite">
@@ -780,9 +783,14 @@ if(RM){drawOrbit(0);}
 (function(){
   var car=document.getElementById('egCar'); if(!car)return;
   var sl=[].slice.call(car.querySelectorAll('.eg-slide')), tx=[].slice.call(car.querySelectorAll('.eg-txt')), dt=[].slice.call(car.querySelectorAll('.eg-dots button'));
-  var n=sl.length, cur=0, DUR=6000, t0=performance.now(), paused=false, pausedAt=0, vis=false;
+  var n=sl.length, cur=0, DUR=10000, IN=1600, HOLD=3300, MOB=matchMedia('(max-width:960px)'), t0=performance.now(), paused=false, pausedAt=0, vis=false;
   car.style.setProperty('--eg-t',DUR+'ms');
-  function go(i){cur=(i+n)%n;
+  var cams=sl.map(function(s){return s.querySelector('.eg-cam')}), shots=sl.map(function(s){try{return JSON.parse(s.dataset.shots||'[]')}catch(e){return []}}), camAt=sl.map(function(){return -1});
+  function cam(k,j){if(camAt[k]===j)return;camAt[k]=j;var c=cams[k];if(!c)return;
+    if(j<0){c.style.transform='';return}
+    var s=shots[k][j],z=Math.min(3,s[2]*(MOB.matches?1.25:1)),cx=Math.min(1-.5/z,Math.max(.5/z,s[0]/1440)),cy=Math.min(1-.5/z,Math.max(.5/z,s[1]/810));
+    c.style.transform='translate('+((.5-cx*z)*100).toFixed(3)+'%,'+((.5-cy*z)*100).toFixed(3)+'%) scale('+z+')'}
+  function go(i){cur=(i+n)%n;sl.forEach(function(s,k){cam(k,-1)});
     sl.forEach(function(s,k){var p=k-cur;if(p>n/2)p-=n;if(p<-n/2)p+=n;s.dataset.p=p;s.setAttribute('aria-hidden',p===0?'false':'true')});
     tx.forEach(function(x,k){x.classList.toggle('on',k===cur)});
     dt.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===cur)b.classList.add('on');b.setAttribute('aria-current',k===cur?'true':'false')});
@@ -804,7 +812,7 @@ if(RM){drawOrbit(0);}
   (function tick(now){
     var r=car.getBoundingClientRect(), nv=r.bottom>innerHeight*.15&&r.top<innerHeight*.85;
     if(nv!==vis){vis=nv;if(vis)go(cur)}
-    if(vis&&!paused&&!RM&&now-t0>DUR)go(cur+1);
+    if(vis&&!paused&&!RM){var e=now-t0;if(e>DUR)go(cur+1);else{var j=e<IN?-1:Math.floor((e-IN)/HOLD);cam(cur,j<shots[cur].length?j:-1)}}
     requestAnimationFrame(tick)})(performance.now());
 })();
 
