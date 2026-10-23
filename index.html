@@ -284,17 +284,29 @@ body.menu-open{overflow:hidden}
 .funnel-box{position:relative;height:min(60vh,520px)}
 .funnel-box canvas{width:100%;height:100%}
 
-/* 6 · CAPITAL */
-.capital .wrap{text-align:center}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px;text-align:left}
-.ccard{position:relative;border:1px solid rgba(224,166,69,.22);border-radius:16px;padding:clamp(28px,3vw,44px);min-height:300px;display:flex;flex-direction:column;overflow:hidden;
-  background:radial-gradient(70% 90% at 100% 0%,rgba(224,166,69,.09),transparent 60%),linear-gradient(180deg,#0b0e18,#07090f);transition:border-color .4s,transform .6s var(--ease)}
-.ccard:hover{border-color:rgba(224,166,69,.5);transform:translateY(-4px)}
-.ccard h3{font-size:clamp(26px,2.6vw,36px);font-weight:600;letter-spacing:-.03em;margin:26px 0 10px}
-.ccard p{color:var(--t2);max-width:36ch}
-.status{margin-top:auto;padding-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+/* 4 · CAPITAL: texto + dos líneas a la izquierda, planeta dorado con sus dos satélites a la derecha */
+.capital{padding:96px 0 56px}
+.capital::before{content:"";position:absolute;right:-10%;top:50%;width:70vw;height:70vw;transform:translateY(-50%);background:radial-gradient(closest-side,rgba(224,166,69,.10),transparent 70%);pointer-events:none}
+.capital .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,4vw,80px);align-items:center;max-width:1440px}
+.capital .h2{margin-top:16px;font-size:clamp(36px,3.4vw,60px)}
+.capital .h2 .ln{display:block}
+.capital .cap-body{margin:20px 0 0;max-width:46ch}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(26px,3.2vh,40px);text-align:left}
+.ccard{position:relative;border:1px solid rgba(224,166,69,.2);border-radius:14px;padding:22px 22px 20px;display:flex;flex-direction:column;overflow:hidden;
+  background:radial-gradient(90% 80% at 100% 0%,rgba(224,166,69,.10),transparent 60%),linear-gradient(180deg,rgba(14,16,24,.92),rgba(8,9,14,.92));transition:border-color .4s,transform .6s var(--ease),box-shadow .6s}
+.ccard::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(240,190,100,.9),transparent);transform:translateX(-100%);animation:ccSweep 5.5s ease-in-out infinite}
+.ccard+.ccard::before{animation-delay:2.75s}
+@keyframes ccSweep{0%{transform:translateX(-100%)}45%,100%{transform:translateX(100%)}}
+.ccard:hover{border-color:rgba(224,166,69,.5);transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(224,166,69,.35)}
+.cc-top{display:flex;align-items:center;gap:12px}
+.cc-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--gold);background:rgba(224,166,69,.08);border:1px solid rgba(224,166,69,.25)}
+.cc-ic svg{width:20px;height:20px}
+.ccard h3{font-size:clamp(22px,1.8vw,28px);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;margin:18px 0 8px}
+.ccard p{color:var(--t2);font-size:15.5px;line-height:1.45}
+.status{margin-top:auto;padding-top:20px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.3}}
+.cap-vis{position:relative;aspect-ratio:1/1;max-height:calc(100svh - 170px);width:100%;justify-self:center}
+.cap-vis canvas{position:absolute;left:-25%;top:-25%;width:150%;height:150%;max-width:none;pointer-events:none}
 
 /* 7 · FUNDADOR */
 .founder{padding:0}
@@ -344,6 +356,7 @@ body.menu-open{overflow:hidden}
   .grain{animation:none}
   .orz-logo *{animation:none!important}.orz-logo .lg-glow,.orz-logo .lg-shine{display:none}
   .in,.card,.portrait img,.eg-slide,.eg-txt,.eg-cam,.eg-l{transition:none}
+  .ccard::before{animation:none;opacity:0}
   .eg-spin{animation:none}
   .ac-pane,.ac-media img{transition:none!important;animation:none!important}
 }
@@ -377,8 +390,8 @@ body.menu-open{overflow:hidden}
   .ac-scr{top:20px}
   .ac-float{width:36%;right:3%}
   /* 3 · Edge */
-  .capital .wrap{text-align:left}
-  .capital .cap-body{margin-left:0;margin-right:0;text-align:left}
+  .capital .wrap{grid-template-columns:1fr;gap:8px}
+  .cap-vis{order:-1;max-height:none;width:min(100%,380px);margin:-20px auto -10px}
   .edge{padding:84px 0 56px}
   .eg-head{grid-template-columns:1fr;gap:16px}
   .edge .h2{font-size:clamp(30px,8.6vw,46px)}
@@ -392,9 +405,9 @@ body.menu-open{overflow:hidden}
   .capital .h2 .ln{display:block}
   .cgrid,.pgrid{grid-template-columns:1fr}
   .cgrid{gap:12px;margin-top:28px}
-  .ccard{min-height:0;padding:22px 22px 20px;border-radius:12px}
-  .ccard h3{margin:12px 0 6px;font-size:26px}
-  .status{padding-top:18px}
+  .ccard{padding:20px 20px 18px;border-radius:12px}
+  .ccard h3{margin:14px 0 6px;font-size:24px}
+  .status{padding-top:16px}
   /* 5 · Fundador */
   .founder{padding:0 0 56px}
   .founder .wrap{min-height:auto;padding-top:0;gap:0}
@@ -559,13 +572,16 @@ body.menu-open{overflow:hidden}
 <!-- ═══ 4 · ORZ CAPITAL ═══════════════════════════════════════════ -->
 <section class="scene capital" id="s4" data-name="ORZ Capital">
   <div class="wrap">
-    <div class="label gold in">04 · ORZ Capital</div>
-    <h2 class="h2 in i1" style="margin-top:14px"><span class="ln">El siguiente paso:</span> <span class="dim ln">el capital.</span></h2>
-    <p class="body in i2 cap-body">Gestión de capital para clientes y acceso a capital para traders que demuestren sus capacidades. Dos líneas independientes, en preparación.</p>
-    <div class="cgrid">
-      <article class="ccard in i2"><span class="label">Línea 01</span><h3>Gestión de capital</h3><p>Para clientes que buscan gestión profesional de su capital.</p><span class="status">En preparación</span></article>
-      <article class="ccard in i3"><span class="label">Línea 02</span><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
+    <div class="cap-copy">
+      <div class="label gold in">04 · ORZ Capital</div>
+      <h2 class="h2 in i1"><span class="ln">El siguiente paso:</span> <span class="dim ln">el capital.</span></h2>
+      <p class="body in i2 cap-body">Gestión de capital para clientes y acceso a capital para traders que demuestren sus capacidades. Dos líneas independientes, en preparación.</p>
+      <div class="cgrid">
+        <article class="ccard in i2"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg></span><span class="label">Línea 01</span></div><h3>Gestión de capital</h3><p>Para clientes que buscan gestión profesional de su capital.</p><span class="status">En preparación</span></article>
+        <article class="ccard in i3"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><span class="label">Línea 02</span></div><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
+      </div>
     </div>
+    <div class="cap-vis in i1" aria-hidden="true"><canvas id="capCv"></canvas></div>
   </div>
 </section>
 
@@ -810,6 +826,28 @@ function drawRing(t){
     if(W>=700)label(x,o.x,o.y+o.it.r*s+16,o.it.n,null,o.it.c,10);x.globalAlpha=1});
 }
 
+/* Capital: planeta dorado con sus dos líneas (Gestión, Acceso) en órbita */
+var cc=document.getElementById('capCv'), CC=null, CSPK=[], CB=[], cNext=2;
+function initCap(){if(!cc)return;CC=fit(cc);CSPK=[];for(var q=0;q<90;q++)CSPK.push({a:Math.random()*7,r:.25+Math.random()*.75,p:Math.random()*7,s:Math.random()*1.1+.3})}
+initCap();
+function drawCap(t){if(!CC)return;var x=CC.x,W=CC.w,H=CC.h,cx=W/2,cy=H/2,R=Math.min(W,H)*.15,G=C.gold;x.clearRect(0,0,W,H);
+  x.save();x.globalCompositeOperation='lighter';var fg=x.createRadialGradient(cx,cy,R*.5,cx,cy,Math.min(W,H)*.42);fg.addColorStop(0,'rgba(232,172,72,.14)');fg.addColorStop(1,'rgba(232,172,72,0)');x.fillStyle=fg;x.fillRect(0,0,W,H);x.restore();
+  CSPK.forEach(function(k){var a=k.a+t*.03,rr=k.r*Math.min(W,H)*.34,al=.08+.35*Math.max(0,Math.sin(t*1.2+k.p));x.fillStyle='rgba(255,215,150,'+al+')';x.beginPath();x.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.62,k.s,0,7);x.fill()});
+  var orb=[{A:R*2.15,B:R*.78,tilt:-.32,sp:.32,ph:0,name:'Gestión'},{A:R*2.15,B:R*.78,tilt:.32,sp:.32,ph:Math.PI,name:'Acceso'}];
+  orb.forEach(function(o){x.save();x.translate(cx,cy);x.rotate(o.tilt);x.strokeStyle='rgba(232,172,72,.22)';x.setLineDash([2,6]);x.lineWidth=1;x.beginPath();x.ellipse(0,0,o.A,o.B,0,0,7);x.stroke();x.restore()});
+  var sats=orb.map(function(o){var a=t*o.sp+o.ph,lx=Math.cos(a)*o.A,ly=Math.sin(a)*o.B,c=Math.cos(o.tilt),s=Math.sin(o.tilt);return {x:cx+lx*c-ly*s,y:cy+lx*s+ly*c,z:Math.sin(a),o:o}});
+  function sat(sv){var r=R*.34*(.85+.15*(sv.z+1)/2);x.save();x.globalAlpha=.55+.45*(sv.z+1)/2;x.strokeStyle=rgba(G,.35);x.lineWidth=1;x.beginPath();x.moveTo(cx,cy);x.lineTo(sv.x,sv.y);x.stroke();
+    drawPlanet(x,sv.x,sv.y,r,G,t*1.3+sv.o.ph,-.2,false);if(sv.z>-.15){x.globalAlpha=Math.min(1,(sv.z+.15)*2.2);label(x,sv.x,sv.y+r+18,sv.o.name,null,G,11,false,false)}x.restore()}
+  sats.filter(function(s){return s.z<0}).forEach(sat);
+  drawPlanet(x,cx,cy,R,G,t,.6,true);
+  x.save();x.strokeStyle='rgba(240,190,100,.85)';x.lineWidth=2;x.beginPath();x.arc(cx,cy,R+12,t*.5,t*.5+1.1);x.stroke();x.strokeStyle='rgba(240,190,100,.25)';x.lineWidth=1;x.beginPath();x.arc(cx,cy,R+12,0,7);x.stroke();x.restore();
+  label(x,cx,cy+R+34,'ORZ Capital','En preparación',G,14,true);
+  sats.filter(function(s){return s.z>=0}).forEach(sat);
+  if(!RM&&t>cNext){var s=sats[Math.random()<.5?0:1];CB.push({pts:jag(cx,cy,s.x,s.y,Math.hypot(s.x-cx,s.y-cy)*.25),t0:performance.now(),life:480});cNext=t+2+Math.random()*2.5}
+  var now=performance.now();CB=CB.filter(function(b){return now-b.t0<b.life});x.save();x.globalCompositeOperation='lighter';x.lineJoin='round';
+  CB.forEach(function(b){var f=1-(now-b.t0)/b.life;[[5,.16],[2,.5],[1,1]].forEach(function(L){x.strokeStyle=L[1]===1?'rgba(255,245,225,'+f+')':rgba(G,L[1]*f);x.lineWidth=L[0];x.beginPath();b.pts.forEach(function(p,i){i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1])});x.stroke()})});x.restore();
+}
+
 /* Bucle principal (solo dibuja lo visible) */
 var last=performance.now(), T=0;
 function loop(now){
@@ -817,10 +855,11 @@ function loop(now){
   S.x.clearRect(0,0,S.w,S.h);stars.forEach(function(s){S.x.fillStyle='rgba(200,215,255,'+(s.a*(.6+.4*Math.sin(T*.8+s.p)))+')';S.x.beginPath();S.x.arc(s.x,s.y,s.r,0,7);S.x.fill()});
   if(active.s1)drawOrbit(T);
   if(active.s6)drawRing(T);
+  if(active.s4)drawCap(T);
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
-if(RM){drawOrbit(0);}
+if(RM){drawOrbit(0);drawCap(0);}
 
 /* Edge: carrusel de pantallas animadas (cada pantalla sigue una línea de tiempo) */
 (function(){
@@ -915,8 +954,8 @@ if(RM){drawOrbit(0);}
 })();
 
 /* Redimensionar */
-var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){initStars();initOrbit();initRing()},150)});
-document.fonts&&document.fonts.ready.then(function(){initOrbit();initRing()});
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){initStars();initOrbit();initRing();initCap()},150)});
+document.fonts&&document.fonts.ready.then(function(){initOrbit();initRing();initCap()});
 })();
 </script>
 </body>
