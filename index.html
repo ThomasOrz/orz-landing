@@ -297,7 +297,35 @@ body.menu-open{overflow:hidden}
 .ccard::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(240,190,100,.9),transparent);transform:translateX(-100%);animation:ccSweep 5.5s ease-in-out infinite}
 .ccard+.ccard::before{animation-delay:2.75s}
 @keyframes ccSweep{0%{transform:translateX(-100%)}45%,100%{transform:translateX(100%)}}
-.ccard:hover{border-color:rgba(224,166,69,.5);transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(224,166,69,.35)}
+.ccard.on{border-color:rgba(232,172,72,.6);transform:translateY(-4px);box-shadow:0 0 0 1px rgba(232,172,72,.18),0 30px 70px -28px rgba(224,166,69,.45)}
+.ccard{cursor:default}.ccard .cc-ic{transition:all .5s var(--ease)}
+.ccard.on .cc-ic{background:rgba(232,172,72,.18);border-color:rgba(232,172,72,.6);box-shadow:0 0 22px -4px rgba(232,172,72,.7)}
+.cc-vis{margin-top:auto;padding-top:18px;height:96px;display:flex;align-items:center;gap:16px;opacity:.55;transition:opacity .6s var(--ease)}
+.ccard.on .cc-vis{opacity:1}
+.cc-v1 svg{width:78px;height:78px;flex:none}
+.cv-trk{fill:none;stroke:rgba(232,172,72,.12);stroke-width:9}
+.cv-a{fill:none;stroke-width:9;stroke-linecap:butt;transform-origin:60px 60px}
+.cv-a.a1{stroke:#e8ac48;stroke-dasharray:96 180;transform:rotate(-90deg)}
+.cv-a.a2{stroke:#c98d2e;stroke-dasharray:66 210;transform:rotate(36deg)}
+.cv-a.a3{stroke:#f3cd86;stroke-dasharray:52 224;transform:rotate(126deg)}
+.cv-a.a4{stroke:#8a6224;stroke-dasharray:44 232;transform:rotate(200deg)}
+.cv-spin{transform-origin:60px 60px;animation:cvSpin 14s linear infinite}
+.ccard.on .cv-spin{animation-duration:6s}
+.cv-in{fill:rgba(232,172,72,.06);stroke:rgba(232,172,72,.25);stroke-width:1}
+.cv-core{fill:#e8ac48;animation:pulse 2.4s ease-in-out infinite}
+@keyframes cvSpin{to{transform:rotate(360deg)}}
+.cv-rows{flex:1;display:grid;gap:9px}
+.cv-rows i{display:block;height:6px;border-radius:3px;background:rgba(232,172,72,.12);position:relative;overflow:hidden}
+.cv-rows i::after{content:"";position:absolute;inset:0;width:var(--w);border-radius:3px;background:linear-gradient(90deg,#8a6224,#e8ac48);transform-origin:left;animation:cvRow 4.5s var(--ease) infinite}
+.cv-rows i:nth-child(2)::after{animation-delay:.3s}.cv-rows i:nth-child(3)::after{animation-delay:.6s}
+@keyframes cvRow{0%{transform:scaleX(.15)}40%,80%{transform:scaleX(1)}100%{transform:scaleX(.15)}}
+.cc-v2 svg{width:100%;height:84px}
+.cv-bars rect{fill:rgba(232,172,72,.14);animation:cvBar 3.6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes cvBar{0%,10%{fill:rgba(232,172,72,.14)}30%,70%{fill:#d9a043}100%{fill:rgba(232,172,72,.14)}}
+.cv-arrow{fill:none;stroke:#f3cd86;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:240;stroke-dashoffset:240;animation:cvLine 3.6s ease-in-out infinite;filter:drop-shadow(0 0 4px rgba(232,172,72,.8))}
+@keyframes cvLine{0%{stroke-dashoffset:240}55%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:-240}}
+.cv-dot{fill:#fff3d6;opacity:0;animation:cvDot 3.6s ease-in-out infinite;filter:drop-shadow(0 0 6px #e8ac48)}
+@keyframes cvDot{0%,50%{opacity:0}58%,85%{opacity:1}100%{opacity:0}}
 .cc-top{display:flex;align-items:center;gap:12px}
 .cc-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--gold);background:rgba(224,166,69,.08);border:1px solid rgba(224,166,69,.25)}
 .cc-ic svg{width:20px;height:20px}
@@ -357,6 +385,7 @@ body.menu-open{overflow:hidden}
   .orz-logo *{animation:none!important}.orz-logo .lg-glow,.orz-logo .lg-shine{display:none}
   .in,.card,.portrait img,.eg-slide,.eg-txt,.eg-cam,.eg-l{transition:none}
   .ccard::before{animation:none;opacity:0}
+  .cv-spin,.cv-rows i::after,.cv-bars rect,.cv-arrow,.cv-dot,.cv-core{animation:none}.cv-arrow{stroke-dashoffset:0}.cv-dot{opacity:1}
   .eg-spin{animation:none}
   .ac-pane,.ac-media img{transition:none!important;animation:none!important}
 }
@@ -407,7 +436,7 @@ body.menu-open{overflow:hidden}
   .cgrid{gap:12px;margin-top:28px}
   .ccard{padding:20px 20px 18px;border-radius:12px}
   .ccard h3{margin:14px 0 6px;font-size:24px}
-  .status{padding-top:16px}
+  .cc-vis{height:84px;padding-top:14px}
   /* 5 · Fundador */
   .founder{padding:0 0 56px}
   .founder .wrap{min-height:auto;padding-top:0;gap:0}
@@ -577,8 +606,8 @@ body.menu-open{overflow:hidden}
       <h2 class="h2 in i1"><span class="ln">El siguiente paso:</span> <span class="dim ln">el capital.</span></h2>
       <p class="body in i2 cap-body">Gestión de capital para clientes y acceso a capital para traders que demuestren sus capacidades. Dos líneas independientes, en preparación.</p>
       <div class="cgrid">
-        <article class="ccard in i2"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg></span><span class="label">Línea 01</span></div><h3>Gestión de capital</h3><p>Para clientes que buscan gestión profesional de su capital.</p><span class="status">En preparación</span></article>
-        <article class="ccard in i3"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><span class="label">Línea 02</span></div><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><span class="status">En preparación</span></article>
+        <article class="ccard in i2" data-c="0"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg></span><span class="label">Línea 01</span></div><h3>Gestión de capital</h3><p>Para clientes que buscan gestión profesional de su capital.</p><div class="cc-vis cc-v1" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="44" class="cv-trk"/><g class="cv-spin"><circle cx="60" cy="60" r="44" class="cv-a a1"/><circle cx="60" cy="60" r="44" class="cv-a a2"/><circle cx="60" cy="60" r="44" class="cv-a a3"/><circle cx="60" cy="60" r="44" class="cv-a a4"/></g><circle cx="60" cy="60" r="30" class="cv-in"/><circle cx="60" cy="60" r="5" class="cv-core"/></svg><div class="cv-rows"><i style="--w:78%"></i><i style="--w:56%"></i><i style="--w:34%"></i></div></div></article>
+        <article class="ccard in i3" data-c="1"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><span class="label">Línea 02</span></div><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><div class="cc-vis cc-v2" aria-hidden="true"><svg viewBox="0 0 220 90"><g class="cv-bars"><rect x="10" y="64" width="22" height="14" rx="3" style="--d:0.00s"/><rect x="46" y="51" width="22" height="27" rx="3" style="--d:0.32s"/><rect x="82" y="38" width="22" height="40" rx="3" style="--d:0.64s"/><rect x="118" y="25" width="22" height="53" rx="3" style="--d:0.96s"/><rect x="154" y="12" width="22" height="66" rx="3" style="--d:1.28s"/><rect x="190" y="-1" width="22" height="79" rx="3" style="--d:1.60s"/></g><path class="cv-arrow" d="M14 70 L58 56 L94 44 L130 30 L166 18 L204 6"/><circle class="cv-dot" r="4" cx="204" cy="6"/></svg></div></article>
       </div>
     </div>
     <div class="cap-vis in i1" aria-hidden="true"><canvas id="capCv"></canvas></div>
@@ -827,26 +856,35 @@ function drawRing(t){
 }
 
 /* Capital: planeta dorado con sus dos líneas (Gestión, Acceso) en órbita */
-var cc=document.getElementById('capCv'), CC=null, CSPK=[], CB=[], cNext=2;
+var CAP_ACT=0, cc=document.getElementById('capCv'), CC=null, CSPK=[], CB=[], cNext=2;
 function initCap(){if(!cc)return;CC=fit(cc);CSPK=[];for(var q=0;q<90;q++)CSPK.push({a:Math.random()*7,r:.25+Math.random()*.75,p:Math.random()*7,s:Math.random()*1.1+.3})}
 initCap();
 function drawCap(t){if(!CC)return;var x=CC.x,W=CC.w,H=CC.h,cx=W/2,cy=H/2,R=Math.min(W,H)*.15,G=C.gold;x.clearRect(0,0,W,H);
   x.save();x.globalCompositeOperation='lighter';var fg=x.createRadialGradient(cx,cy,R*.5,cx,cy,Math.min(W,H)*.42);fg.addColorStop(0,'rgba(232,172,72,.14)');fg.addColorStop(1,'rgba(232,172,72,0)');x.fillStyle=fg;x.fillRect(0,0,W,H);x.restore();
   CSPK.forEach(function(k){var a=k.a+t*.03,rr=k.r*Math.min(W,H)*.34,al=.08+.35*Math.max(0,Math.sin(t*1.2+k.p));x.fillStyle='rgba(255,215,150,'+al+')';x.beginPath();x.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.62,k.s,0,7);x.fill()});
-  var orb=[{A:R*2.15,B:R*.78,tilt:-.32,sp:.32,ph:0,name:'Gestión'},{A:R*2.15,B:R*.78,tilt:.32,sp:.32,ph:Math.PI,name:'Acceso'}];
+  var orb=[{A:R*2.15,B:R*.78,tilt:-.32,sp:.32,ph:0,name:'Gestión',i:0},{A:R*2.15,B:R*.78,tilt:.32,sp:.32,ph:Math.PI,name:'Acceso',i:1}];
   orb.forEach(function(o){x.save();x.translate(cx,cy);x.rotate(o.tilt);x.strokeStyle='rgba(232,172,72,.22)';x.setLineDash([2,6]);x.lineWidth=1;x.beginPath();x.ellipse(0,0,o.A,o.B,0,0,7);x.stroke();x.restore()});
   var sats=orb.map(function(o){var a=t*o.sp+o.ph,lx=Math.cos(a)*o.A,ly=Math.sin(a)*o.B,c=Math.cos(o.tilt),s=Math.sin(o.tilt);return {x:cx+lx*c-ly*s,y:cy+lx*s+ly*c,z:Math.sin(a),o:o}});
-  function sat(sv){var r=R*.34*(.85+.15*(sv.z+1)/2);x.save();x.globalAlpha=.55+.45*(sv.z+1)/2;x.strokeStyle=rgba(G,.35);x.lineWidth=1;x.beginPath();x.moveTo(cx,cy);x.lineTo(sv.x,sv.y);x.stroke();
-    drawPlanet(x,sv.x,sv.y,r,G,t*1.3+sv.o.ph,-.2,false);if(sv.z>-.15){x.globalAlpha=Math.min(1,(sv.z+.15)*2.2);label(x,sv.x,sv.y+r+18,sv.o.name,null,G,11,false,false)}x.restore()}
+  function sat(sv){var on=CAP_ACT===sv.o.i,r=R*.34*(.85+.15*(sv.z+1)/2)*(on?1.12:1);x.save();x.globalAlpha=(on?.75:.5)+(on?.25:.4)*(sv.z+1)/2;
+    if(on){x.save();x.globalCompositeOperation='lighter';var lg=x.createLinearGradient(cx,cy,sv.x,sv.y);lg.addColorStop(0,'rgba(232,172,72,.05)');lg.addColorStop(1,'rgba(255,215,150,.9)');x.strokeStyle=lg;x.lineWidth=2.4;x.beginPath();x.moveTo(cx,cy);x.lineTo(sv.x,sv.y);x.stroke();
+      for(var q=0;q<3;q++){var k=(t*.6+q/3)%1;x.fillStyle='rgba(255,236,200,'+(1-k)+')';x.beginPath();x.arc(cx+(sv.x-cx)*k,cy+(sv.y-cy)*k,2.2,0,7);x.fill()}x.restore()}
+    else{x.strokeStyle=rgba(G,.3);x.lineWidth=1;x.beginPath();x.moveTo(cx,cy);x.lineTo(sv.x,sv.y);x.stroke()}
+    drawPlanet(x,sv.x,sv.y,r,G,t*1.3+sv.o.ph,on?.4:-.2,on);if(sv.z>-.15||on){x.globalAlpha=on?1:Math.min(1,(sv.z+.15)*2.2);label(x,sv.x,sv.y+r+18,sv.o.name,null,G,on?12:11,on,!on)}x.restore()}
   sats.filter(function(s){return s.z<0}).forEach(sat);
   drawPlanet(x,cx,cy,R,G,t,.6,true);
   x.save();x.strokeStyle='rgba(240,190,100,.85)';x.lineWidth=2;x.beginPath();x.arc(cx,cy,R+12,t*.5,t*.5+1.1);x.stroke();x.strokeStyle='rgba(240,190,100,.25)';x.lineWidth=1;x.beginPath();x.arc(cx,cy,R+12,0,7);x.stroke();x.restore();
-  label(x,cx,cy+R+34,'ORZ Capital','En preparación',G,14,true);
+  label(x,cx,cy+R+34,'ORZ Capital',null,G,14,true);
   sats.filter(function(s){return s.z>=0}).forEach(sat);
   if(!RM&&t>cNext){var s=sats[Math.random()<.5?0:1];CB.push({pts:jag(cx,cy,s.x,s.y,Math.hypot(s.x-cx,s.y-cy)*.25),t0:performance.now(),life:480});cNext=t+2+Math.random()*2.5}
   var now=performance.now();CB=CB.filter(function(b){return now-b.t0<b.life});x.save();x.globalCompositeOperation='lighter';x.lineJoin='round';
   CB.forEach(function(b){var f=1-(now-b.t0)/b.life;[[5,.16],[2,.5],[1,1]].forEach(function(L){x.strokeStyle=L[1]===1?'rgba(255,245,225,'+f+')':rgba(G,L[1]*f);x.lineWidth=L[0];x.beginPath();b.pts.forEach(function(p,i){i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1])});x.stroke()})});x.restore();
 }
+
+(function(){var cards=[].slice.call(document.querySelectorAll('#s4 .ccard'));if(!cards.length)return;var hov=false,last=performance.now();
+  function set(i){CAP_ACT=i;cards.forEach(function(c,k){c.classList.toggle('on',k===i)})}set(0);
+  cards.forEach(function(c,k){c.addEventListener('mouseenter',function(){hov=true;set(k)});c.addEventListener('mouseleave',function(){hov=false;last=performance.now()});c.addEventListener('click',function(){set(k);last=performance.now()})});
+  (function tk(now){if(active.s4&&!hov&&!RM&&now-last>4200){set((CAP_ACT+1)%cards.length);last=now}requestAnimationFrame(tk)})(performance.now());
+})();
 
 /* Bucle principal (solo dibuja lo visible) */
 var last=performance.now(), T=0;
