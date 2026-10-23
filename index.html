@@ -302,6 +302,12 @@ body.menu-open{overflow:hidden}
 .ccard.on .cc-ic{background:rgba(232,172,72,.18);border-color:rgba(232,172,72,.6);box-shadow:0 0 22px -4px rgba(232,172,72,.7)}
 .cc-vis{margin-top:auto;padding-top:18px;height:96px;display:flex;align-items:center;gap:16px;opacity:.55;transition:opacity .6s var(--ease)}
 .ccard.on .cc-vis{opacity:1}
+.btn-gold{position:relative;overflow:hidden;background:linear-gradient(180deg,#f2c46e,#d99a35);color:#1b1206;box-shadow:0 0 0 1px rgba(255,230,180,.35) inset,0 12px 30px -10px rgba(224,166,69,.7)}
+.btn-gold:hover{background:linear-gradient(180deg,#f7d084,#e4a841);box-shadow:0 0 0 1px rgba(255,236,200,.5) inset,0 14px 40px -8px rgba(232,172,72,.9)}
+.btn-gold::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:goldShine 4.2s ease-in-out infinite}
+.ccard+.ccard .btn-gold::after{animation-delay:2.1s}
+@keyframes goldShine{0%,60%{left:-60%}85%,100%{left:130%}}
+.cc-cta{align-self:flex-start;margin-top:14px;height:44px;padding:0 20px;font-size:13.5px}
 .cc-v1 svg{width:78px;height:78px;flex:none}
 .cv-trk{fill:none;stroke:rgba(232,172,72,.12);stroke-width:9}
 .cv-a{fill:none;stroke-width:9;stroke-linecap:butt;transform-origin:60px 60px}
@@ -385,6 +391,7 @@ body.menu-open{overflow:hidden}
   .orz-logo *{animation:none!important}.orz-logo .lg-glow,.orz-logo .lg-shine{display:none}
   .in,.card,.portrait img,.eg-slide,.eg-txt,.eg-cam,.eg-l{transition:none}
   .ccard::before{animation:none;opacity:0}
+  .btn-gold::after{animation:none;display:none}
   .cv-spin,.cv-rows i::after,.cv-bars rect,.cv-arrow,.cv-dot,.cv-core{animation:none}.cv-arrow{stroke-dashoffset:0}.cv-dot{opacity:1}
   .eg-spin{animation:none}
   .ac-pane,.ac-media img{transition:none!important;animation:none!important}
@@ -437,6 +444,7 @@ body.menu-open{overflow:hidden}
   .ccard{padding:20px 20px 18px;border-radius:12px}
   .ccard h3{margin:14px 0 6px;font-size:24px}
   .cc-vis{height:84px;padding-top:14px}
+  .cc-cta{align-self:stretch;justify-content:center;height:48px}
   /* 5 · Fundador */
   .founder{padding:0 0 56px}
   .founder .wrap{min-height:auto;padding-top:0;gap:0}
@@ -606,8 +614,8 @@ body.menu-open{overflow:hidden}
       <h2 class="h2 in i1"><span class="ln">El siguiente paso:</span> <span class="dim ln">el capital.</span></h2>
       <p class="body in i2 cap-body">Gestión de capital para clientes y acceso a capital para traders que demuestren sus capacidades. Dos líneas independientes, en preparación.</p>
       <div class="cgrid">
-        <article class="ccard in i2" data-c="0"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg></span><span class="label">Línea 01</span></div><h3>Gestión de capital</h3><p>Para clientes que buscan gestión profesional de su capital.</p><div class="cc-vis cc-v1" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="44" class="cv-trk"/><g class="cv-spin"><circle cx="60" cy="60" r="44" class="cv-a a1"/><circle cx="60" cy="60" r="44" class="cv-a a2"/><circle cx="60" cy="60" r="44" class="cv-a a3"/><circle cx="60" cy="60" r="44" class="cv-a a4"/></g><circle cx="60" cy="60" r="30" class="cv-in"/><circle cx="60" cy="60" r="5" class="cv-core"/></svg><div class="cv-rows"><i style="--w:78%"></i><i style="--w:56%"></i><i style="--w:34%"></i></div></div></article>
-        <article class="ccard in i3" data-c="1"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><span class="label">Línea 02</span></div><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><div class="cc-vis cc-v2" aria-hidden="true"><svg viewBox="0 0 220 90"><g class="cv-bars"><rect x="10" y="64" width="22" height="14" rx="3" style="--d:0.00s"/><rect x="46" y="51" width="22" height="27" rx="3" style="--d:0.32s"/><rect x="82" y="38" width="22" height="40" rx="3" style="--d:0.64s"/><rect x="118" y="25" width="22" height="53" rx="3" style="--d:0.96s"/><rect x="154" y="12" width="22" height="66" rx="3" style="--d:1.28s"/><rect x="190" y="-1" width="22" height="79" rx="3" style="--d:1.60s"/></g><path class="cv-arrow" d="M14 70 L58 56 L94 44 L130 30 L166 18 L204 6"/><circle class="cv-dot" r="4" cx="204" cy="6"/></svg></div></article>
+        <article class="ccard in i2" data-c="0"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg></span><span class="label">Línea 01</span></div><h3>Gestión de capital</h3><p>Para clientes que buscan gestión profesional de su capital.</p><div class="cc-vis cc-v1" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="44" class="cv-trk"/><g class="cv-spin"><circle cx="60" cy="60" r="44" class="cv-a a1"/><circle cx="60" cy="60" r="44" class="cv-a a2"/><circle cx="60" cy="60" r="44" class="cv-a a3"/><circle cx="60" cy="60" r="44" class="cv-a a4"/></g><circle cx="60" cy="60" r="30" class="cv-in"/><circle cx="60" cy="60" r="5" class="cv-core"/></svg><div class="cv-rows"><i style="--w:78%"></i><i style="--w:56%"></i><i style="--w:34%"></i></div></div><a class="btn btn-gold cc-cta" href="https://wa.me/573042679499?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20gesti%C3%B3n%20de%20capital%20de%20ORZ%20Capital." target="_blank" rel="noopener">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="ccard in i3" data-c="1"><div class="cc-top"><span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><span class="label">Línea 02</span></div><h3>Acceso a capital</h3><p>Para traders que demuestren las capacidades requeridas.</p><div class="cc-vis cc-v2" aria-hidden="true"><svg viewBox="0 0 220 90"><g class="cv-bars"><rect x="10" y="64" width="22" height="14" rx="3" style="--d:0.00s"/><rect x="46" y="51" width="22" height="27" rx="3" style="--d:0.32s"/><rect x="82" y="38" width="22" height="40" rx="3" style="--d:0.64s"/><rect x="118" y="25" width="22" height="53" rx="3" style="--d:0.96s"/><rect x="154" y="12" width="22" height="66" rx="3" style="--d:1.28s"/><rect x="190" y="-1" width="22" height="79" rx="3" style="--d:1.60s"/></g><path class="cv-arrow" d="M14 70 L58 56 L94 44 L130 30 L166 18 L204 6"/><circle class="cv-dot" r="4" cx="204" cy="6"/></svg></div><a class="btn btn-gold cc-cta" href="https://wa.me/573042679499?text=Hola%2C%20soy%20trader%20y%20quiero%20acceder%20a%20capital%20con%20ORZ%20Capital." target="_blank" rel="noopener">Quiero acceder a capital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
       </div>
     </div>
     <div class="cap-vis in i1" aria-hidden="true"><canvas id="capCv"></canvas></div>
