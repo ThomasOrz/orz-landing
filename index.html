@@ -235,18 +235,24 @@ body.menu-open{overflow:hidden}
 .ac-pane{grid-area:1/1;opacity:0;visibility:hidden;transform:translateX(18px);transition:opacity .6s var(--ease),transform .8s var(--ease),visibility 0s .6s}
 .ac-pane.on{opacity:1;visibility:visible;transform:none;transition:opacity .6s var(--ease),transform .8s var(--ease)}
 .ac-media{position:relative;aspect-ratio:16/9.2;overflow:hidden;background:#070a14;border-bottom:1px solid var(--line)}
-.ac-media.plat{background:radial-gradient(80% 90% at 50% 100%,rgba(0,102,255,.28),transparent 70%),linear-gradient(180deg,#0b1224,#070a14)}
-.ac-win{position:absolute;left:7%;right:7%;top:9%;bottom:-6%;border-radius:10px 10px 0 0;overflow:hidden;background:#f6f8fc;box-shadow:0 30px 70px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.12);transform:perspective(1400px) rotateX(4deg);transform-origin:50% 100%}
-.ac-bar{height:26px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#e9edf5;border-bottom:1px solid #dbe1ec}
-.ac-bar i{width:8px;height:8px;border-radius:50%;background:#c3cbd9}
-.ac-bar span{margin-left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:#6b7790}
-.ac-scr{position:absolute;left:0;right:0;top:26px;bottom:0}
-.ac-scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;opacity:0;transform:scale(1.02);transition:opacity .9s var(--ease),transform 3s var(--ease)}
-.ac-scr img.on{opacity:1;transform:scale(1)}
-.ac-float{position:absolute;right:4%;bottom:7%;width:31%;height:auto;border-radius:10px;box-shadow:0 24px 50px -12px rgba(0,0,0,.65),0 0 0 1px rgba(0,102,255,.35),0 0 30px -6px var(--acc-glow);opacity:0;transform:translateY(16px) scale(.96);transition:opacity .7s var(--ease) .5s,transform .9s var(--ease) .5s;pointer-events:none}
-.ac-media.plat[data-m="0"] .ac-float{opacity:1;transform:none}
-.ac-media.mentor video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:saturate(.95)}
-.ac-media.mentor::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,0) 55%,rgba(5,7,13,.55))}
+.ac-media.plat{background:radial-gradient(80% 90% at 50% 100%,rgba(0,102,255,.30),transparent 70%),linear-gradient(180deg,#0b1224,#070a14)}
+.ac-win{position:absolute;left:5.5%;right:5.5%;top:6.5%;border-radius:10px 10px 0 0;overflow:hidden;background:#0a0a0a;box-shadow:0 30px 70px -20px rgba(0,0,0,.85),0 0 0 1px rgba(140,170,230,.18),0 0 60px -20px rgba(0,102,255,.5);transform:perspective(1400px) rotateX(3deg);transform-origin:50% 100%}
+.ac-bar{height:24px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#12161f;border-bottom:1px solid #232a38}
+.ac-bar i{width:8px;height:8px;border-radius:50%;background:#333b4b}
+.ac-bar span{margin-left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:#7d8799}
+.ac-scr{position:relative;aspect-ratio:1460/812;overflow:hidden;background:#0a0a0a}
+.ac-cam{position:absolute;inset:0;transform-origin:0 0;transition:transform 1.1s cubic-bezier(.7,0,.2,1);will-change:transform;container-type:inline-size}
+.ac-cam.noanim,.ac-cam.noanim *{transition:none!important}
+.ac-l{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .7s var(--ease)}
+.ac-l.on{opacity:1}
+.ac-ring{position:absolute;z-index:4;border-radius:.7cqw;border:2px solid #4d94ff;box-shadow:0 0 0 .35cqw rgba(77,148,255,.18),0 0 2cqw rgba(77,148,255,.55);opacity:0;transform:scale(1.08);transition:opacity .35s ease,transform .5s cubic-bezier(.2,.9,.3,1.2);pointer-events:none}
+.ac-ring.on{opacity:1;transform:none}
+.ac-cur{position:absolute;z-index:6;left:30%;top:80%;width:calc(2.2cqw * var(--iz,1));min-width:12px;opacity:0;transform:translate(-12%,-6%);transition:left .75s cubic-bezier(.6,0,.2,1),top .75s cubic-bezier(.6,0,.2,1),opacity .3s;pointer-events:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.5))}
+.ac-cur.on{opacity:1}.ac-cur svg{display:block;width:100%;height:auto}
+.ac-cur::after{content:"";position:absolute;left:0;top:0;width:180%;height:180%;margin:-90% 0 0 -90%;border-radius:50%;border:2px solid #4d94ff;opacity:0;transform:scale(.3)}
+.ac-cur.clk::after{animation:egClk .55s ease-out}
+.ac-media.mentor video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.ac-media.mentor::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,0) 62%,rgba(5,7,13,.45))}
 .ac-info{padding:20px 22px 22px}
 .ac-info h3{font-size:clamp(22px,1.8vw,30px);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em}
 .ac-info p{margin-top:8px;color:var(--t2);font-weight:500;font-size:clamp(15.5px,1.1vw,18px);line-height:1.4}
@@ -417,7 +423,7 @@ body.menu-open{overflow:hidden}
   .btn-gold::after{animation:none;display:none}
   .cv-spin,.cv-rows i::after,.cv-bars rect,.cv-arrow,.cv-dot,.cv-core{animation:none}.cv-arrow{stroke-dashoffset:0}.cv-dot{opacity:1}
   .eg-spin{animation:none}
-  .ac-pane,.ac-media img{transition:none!important;animation:none!important}
+  .ac-pane,.ac-l,.ac-cam{transition:none!important;animation:none!important}
 }
 @media (max-width:960px){
   .nav-l,.pager,.counter{display:none}
@@ -444,10 +450,8 @@ body.menu-open{overflow:hidden}
   .ac-steps,.ac-steps.three{grid-template-columns:1fr 1fr;gap:6px;margin-top:14px}
   .ac-steps.three li:last-child{grid-column:1/-1}
   .ac-steps li{font-size:13.5px;padding:8px 10px}
-  .ac-win{left:5%;right:5%;top:8%}
-  .ac-bar{height:20px;padding:0 9px;gap:4px}.ac-bar i{width:6px;height:6px}.ac-bar span{font-size:8.5px;margin-left:6px}
-  .ac-scr{top:20px}
-  .ac-float{width:36%;right:3%}
+  .ac-win{left:4%;right:4%;top:7%}
+  .ac-bar{height:18px;padding:0 9px;gap:4px}.ac-bar i{width:6px;height:6px}.ac-bar span{font-size:8.5px;margin-left:6px}
   /* 3 · Edge */
   .capital .wrap{grid-template-columns:1fr;gap:8px}
   .cap-vis{order:-1;max-height:none;width:min(100%,380px);margin:-20px auto -10px}
@@ -562,15 +566,18 @@ body.menu-open{overflow:hidden}
       </div>
       <div class="ac-panes">
         <article class="ac-pane on" role="tabpanel" id="acp0" aria-labelledby="act0" data-i="0">
-          <div class="ac-media plat" data-m="0">
+          <div class="ac-media plat">
             <div class="ac-win">
               <div class="ac-bar"><i></i><i></i><i></i><span>Plataforma ORZ Academy</span></div>
-              <div class="ac-scr">
-                <img src="assets/group/ac-plat-clase.webp" alt="Clase de la plataforma con notas del alumno" class="on" style="object-position:0 0" width="1400" height="695">
-                <img src="assets/group/ac-plat-floor.webp" alt="The Floor: análisis semanales y trade reviews" width="1400" height="821" loading="lazy">
-              </div>
+              <div class="ac-scr"><div class="ac-cam">
+                <img class="ac-l on" src="assets/group/academy-inicio.webp" alt="Inicio de la plataforma ORZ Academy con la clase destacada y la ruta de módulos" width="1460" height="812">
+                <img class="ac-l" src="assets/group/academy-clase.webp" alt="Vista de clase: el video al centro y las notas con minuto a la derecha" width="1460" height="812" loading="lazy">
+                <img class="ac-l" src="assets/group/academy-notas.webp" alt="Cuaderno de notas de una clase" width="1460" height="812" loading="lazy">
+                <img class="ac-l" src="assets/group/academy-biblioteca.webp" alt="Biblioteca con libros para seguir leyendo" width="1460" height="812" loading="lazy">
+                <i class="ac-ring" style="left:76.575%;top:23.522%;width:22.466%;height:13.670%"></i><i class="ac-ring" style="left:76.575%;top:37.931%;width:22.466%;height:11.576%"></i><i class="ac-ring" style="left:76.575%;top:50.246%;width:22.466%;height:11.576%"></i><i class="ac-ring" style="left:17.945%;top:43.596%;width:42.877%;height:21.675%"></i><i class="ac-ring" style="left:3.219%;top:21.921%;width:46.096%;height:22.414%"></i>
+                <div class="ac-cur" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2.5l15.5 9.6-6.9 1.5 3.9 7.4-3 1.5-3.9-7.4L4.6 20z" fill="#fff" stroke="#05070d" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+              </div></div>
             </div>
-            <img class="ac-float" src="assets/group/ac-plat-notas.webp" alt="" width="410" height="460" loading="lazy">
           </div>
           <div class="ac-info">
             <h3>La ruta completa</h3>
@@ -579,7 +586,7 @@ body.menu-open{overflow:hidden}
           </div>
         </article>
         <article class="ac-pane" role="tabpanel" id="acp1" aria-labelledby="act1" data-i="1">
-          <div class="ac-media mentor"><video class="on" muted loop playsinline preload="metadata" poster="assets/group/v/mentor-escenario.jpg" aria-label="Thomas Orozco enseñando en un evento de trading"><source src="assets/group/v/mentor-escenario.webm" type="video/webm"><source src="assets/group/v/mentor-escenario.mp4" type="video/mp4"></video></div>
+          <div class="ac-media mentor"><video muted loop playsinline preload="none" poster="assets/group/v/mentoria-sesion.jpg" aria-label="Sesiones de mentoría en la oficina y Thomas Orozco en un evento de trading"><source src="assets/group/v/mentoria-sesion.webm" type="video/webm"><source src="assets/group/v/mentoria-sesion.mp4" type="video/mp4"></video></div>
           <div class="ac-info">
             <h3>Un mentor en tu proceso</h3>
             <p>Un mentor que conoce tus problemas y sabe cómo atacarlos.</p>
@@ -999,32 +1006,52 @@ if(RM){drawOrbit(0);drawCap(0);}
     requestAnimationFrame(tick)})(performance.now());
 })();
 
-/* Academy: vitrina con dos servicios que rotan solos */
+/* Academy: vitrina con recorrido animado de la plataforma y video de mentorías */
 (function(){
   var box=document.getElementById('acShow'); if(!box)return;
   var tabs=[].slice.call(box.querySelectorAll('.ac-tabs button')), panes=[].slice.call(box.querySelectorAll('.ac-pane'));
-  var DUR=7000, cur=0, t0=performance.now(), paused=false, pausedAt=0, vis=null;
-  box.style.setProperty('--ac-t',DUR+'ms');
-  function show(i){cur=i;tabs.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===i)b.classList.add('on');b.setAttribute('aria-selected',k===i?'true':'false')});
-    panes.forEach(function(p,k){p.classList.toggle('on',k===i);p.querySelectorAll('.ac-scr > img, .ac-media > video').forEach(function(x,j){var on=k===i&&j===0;x.classList.toggle('on',on);if(x.tagName==='VIDEO'){if(on){x.currentTime=0;var q=x.play();q&&q.catch&&q.catch(function(){})}else x.pause()}});var mb=p.querySelector('.ac-media');if(mb)mb.dataset.m=0;p.querySelectorAll('.ac-steps li').forEach(function(x,j){x.classList.toggle('hl',k===i&&j===0)})});t0=performance.now()}
+  var DUR=[17000,10000], cur=0, sp=0, t0=performance.now(), paused=false, pausedAt=0, vis=null, MOB=matchMedia('(max-width:960px)'), W=1460, H=812;
+  var cm=box.querySelector('.ac-cam'), L=[].slice.call(box.querySelectorAll('.ac-l')), R=[].slice.call(box.querySelectorAll('.ac-ring')), CU=box.querySelector('.ac-cur'), mv=panes[1].querySelector('video');
+  var TL=[[300,'cam',520,330,1.3],[1400,'cur',330,640],[2000,'cur',145,519],[2600,'click'],[2850,'cam',580,350,1.18],[2900,'layer',1],[2950,'curhide'],
+    [4500,'cam',760,360,1.12],[5300,'cam',1282,350,2],[5900,'ring',0,1],[6700,'ring',0,0],[6700,'ring',1,1],[7500,'ring',1,0],[7500,'ring',2,1],[8300,'ring',2,0],
+    [8400,'cam',580,345,1.42,1],[10200,'cam',575,440,1.55],[10200,'layer',2],[10900,'ring',3,1],[12100,'ring',3,0],
+    [12600,'cam',383,268,1.75],[12600,'layer',3],[13200,'ring',4,1],[14200,'ring',4,0],[14300,'cam',615,595,1.3],[15800,'cam',730,480,1.1]];
+  function cam(x,y,z,fx){if(!x){cm.style.transform='';cm.style.setProperty('--iz',1);return}
+    z=Math.min(3,z*(MOB.matches&&!fx?1.25:1));var cx=Math.min(1-.5/z,Math.max(.5/z,x/W)),cy=Math.min(1-.5/z,Math.max(.5/z,y/H));
+    cm.style.transform='translate('+((.5-cx*z)*100).toFixed(3)+'%,'+((.5-cy*z)*100).toFixed(3)+'%) scale('+z+')';cm.style.setProperty('--iz',(1/z).toFixed(3))}
+  function layer(i){var nx=L[i];nx.classList.add('on');setTimeout(function(){L.forEach(function(l){if(l!==nx)l.classList.remove('on')})},700)}
+  function reset(){cm.classList.add('noanim');cam(0);L.forEach(function(l,j){l.classList.toggle('on',j===0)});R.forEach(function(r){r.classList.remove('on')});
+    CU.classList.remove('on','clk');CU.style.left='';CU.style.top='';
+    if(RM){L.forEach(function(l,j){l.classList.toggle('on',j===1)});cam(580,350,1.18)}
+    void cm.offsetWidth;cm.classList.remove('noanim');sp=0}
+  function run(s){var a=s[1];
+    if(a==='cam')cam(s[2],s[3],s[4],s[5]);else if(a==='layer')layer(s[2]);
+    else if(a==='cur'){CU.style.left=(s[2]/W*100)+'%';CU.style.top=(s[3]/H*100)+'%';CU.classList.add('on')}
+    else if(a==='curhide')CU.classList.remove('on');
+    else if(a==='click'){CU.classList.remove('clk');void CU.offsetWidth;CU.classList.add('clk')}
+    else if(a==='ring')R[s[2]].classList.toggle('on',!!s[3])}
+  function vid(on){if(!mv)return;if(on&&!RM){var q=mv.play();q&&q.catch&&q.catch(function(){})}else mv.pause()}
+  function show(i){cur=i;box.style.setProperty('--ac-t',DUR[i]+'ms');
+    tabs.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===i)b.classList.add('on');b.setAttribute('aria-selected',k===i?'true':'false')});
+    panes.forEach(function(p,k){p.classList.toggle('on',k===i);p.querySelectorAll('.ac-steps li').forEach(function(x,j){x.classList.toggle('hl',k===i&&j===0)})});
+    if(i===0)reset();vid(i===1&&vis);t0=performance.now()}
   tabs.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
-  if(matchMedia('(hover:hover)').matches)box.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();box.classList.add('paused')});
-  if(matchMedia('(hover:hover)').matches)box.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;box.classList.remove('paused')});
-  var imgs=[].slice.call(box.querySelectorAll('.ac-media.plat img')), steps=[].slice.call(box.querySelectorAll('.ac-pane'));
+  if(matchMedia('(hover:hover)').matches){
+    box.addEventListener('mouseenter',function(){paused=true;pausedAt=performance.now();box.classList.add('paused')});
+    box.addEventListener('mouseleave',function(){paused=false;t0+=performance.now()-pausedAt;box.classList.remove('paused')});
+  }
+  show(0);
   (function tick(now){
     var r=box.getBoundingClientRect(), s2=document.getElementById('s2');
     var nv=r.bottom>0&&r.top<innerHeight&&parseFloat(getComputedStyle(s2).opacity||1)>.3;
-    if(nv!==vis){vis=nv;var v=document.getElementById('acv');if(v&&!RM){if(vis){var p=v.play();p&&p.catch&&p.catch(function(){})}else v.pause()}if(vis)t0=now}
-    if(!vis){requestAnimationFrame(tick);return}
-    if(!paused&&!RM){var e=now-t0;
-      if(e>DUR)show((cur+1)%panes.length);
-      var p=panes[cur], li=[].slice.call(p.querySelectorAll('.ac-steps li')), k=Math.min(li.length-1,Math.floor((now-t0)/(DUR/li.length)));
+    if(nv!==vis){vis=nv;var v=document.getElementById('acv');if(v&&!RM){if(vis){var p=v.play();p&&p.catch&&p.catch(function(){})}else v.pause()}if(vis)show(cur);else vid(false)}
+    if(vis&&!paused&&!RM){var e=now-t0;
+      if(cur===0)while(sp<TL.length&&TL[sp][0]<=e){run(TL[sp]);sp++}
+      var li=[].slice.call(panes[cur].querySelectorAll('.ac-steps li')),k=Math.min(li.length-1,Math.floor(e/(DUR[cur]/li.length)));
       li.forEach(function(x,j){x.classList.toggle('hl',j===k)});
-      var md=[].slice.call(p.querySelectorAll('.ac-scr > img, .ac-media > video')),box2=p.querySelector('.ac-media');var m=Math.min(md.length-1,Math.floor((now-t0)/(DUR/Math.max(1,md.length))));if(box2)box2.dataset.m=m;md.forEach(function(x,j){var on=j===m;if(on!==x.classList.contains('on')){x.classList.toggle('on',on);if(x.tagName==='VIDEO'){if(on){x.currentTime=0;var q=x.play();q&&q.catch&&q.catch(function(){})}else x.pause()}}})
-    }
+      if(e>DUR[cur])show((cur+1)%panes.length)}
     requestAnimationFrame(tick)})(performance.now());
   var v=document.getElementById('acv'); if(v&&RM){v.removeAttribute('autoplay');v.pause()}
-
 })();
 
 /* Menú móvil */
